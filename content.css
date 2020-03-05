@@ -1,0 +1,185 @@
+/* main-description */
+
+
+.content-grid .content-block:first-of-type {
+    min-height:calc(100vh - 11.5rem);
+}
+
+.content-grid .content-block:nth-child(n+3) {
+    min-height:100vh;
+}
+
+.content-block{
+    grid-column: content / span 3;
+    align-self:center;
+    display:flex;
+    flex-direction:row;
+    /* width:100%; */
+    min-height:0;
+}
+
+
+@media screen and (max-width: 1700px) {
+    .content-block{
+        grid-column: content / span 2;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .content-block{
+        grid-column: content / span 1;
+        flex-direction:column;
+        align-self:flex-start;
+    }
+}
+
+/* .content-block article:nth-child(2n+2)  {
+    margin: 23vh 0;
+} */
+
+.main-description {
+    grid-column: content / span 1;
+    grid-row: span 1;
+    align-self:center;
+    z-index:2;
+    margin-right:1.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .main-description {
+        margin-right:0;
+    }
+}
+
+.main-description > h1:first-of-type span {
+    /* font-size:6rem; */
+    font-size:3.6vw;
+    color:var(--emphasis-light-color);
+    background-color: #ffffff;
+    padding:1rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+
+
+.main-description h2, .main-description p {
+    color:var(--emphasis-dark-color);
+    
+}
+
+.main-description > h2 {
+    font-weight:500;
+    font-size:2vw;
+    padding:2rem 0;
+}
+
+.main-description h2 span {
+    display: table;
+}
+
+/* @media screen and (min-width: 2560px) {
+    .main-description > h1:first-of-type span {
+
+    } 
+    .main-description > h2 {
+
+    }
+
+    .main-description > p {
+        
+    }
+} */
+
+@media screen and (max-width: 1500px) {
+    .main-description > h1:first-of-type span {
+        font-size:4rem;
+    } 
+    .main-description > h2 {
+        font-size:1.5rem;
+        padding:2rem 0;
+    }
+
+    .main-description > p {
+        font-size:1.25rem;
+    }
+}
+
+
+.video-preview {
+    grid-column: overlap / span 2;
+    align-self:center;
+    z-index:1;
+}
+
+
+.video-preview:before {
+    border-radius: 50%;
+    /* = 15%, almost gives us viewport width unit (15vw) */
+    width: 100%;
+    padding-bottom: 100%;
+    /* this way we should have 1px gap between circles */
+    margin: 1rem 0;
+    background-color:var(--emphasis-lighter-color);
+    content: '';
+    display: inline-block;
+    /* circle to the middle, so that... [1] */
+    vertical-align: middle;
+
+    /* to use viewport based units we can safely override the old units in this way */
+    padding-bottom: 0vw;
+    width: 40vw;
+    height: 40vw;
+}
+
+
+
+@media screen and (max-width: 1700px) {
+    .video-preview {
+        grid-column: overlap / span 1;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .video-preview:before {
+        width: 50vw;
+        height: 50vw;
+        /* margin-bottom:5rem; */
+    }
+
+
+}
+
+.thumbnail-container {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    margin:2rem 0;
+}
+
+
+.thumbnail-1 {
+    width:6rem;
+    height:6rem;
+    border-radius:50%;
+    background-color:var(--emphasis-lighter-color);
+    margin: 1.5rem 2rem 1.5rem 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .video-preview:before {
+        width: 60vw;
+        height: 60vw;
+        /* margin-bottom:5rem; */
+    }
+    
+    .thumbnail-container {
+        justify-content:space-evenly;
+
+    }
+
+    .thumbnail-1 {
+        margin: 2.5rem .5rem;
+    }
+}
