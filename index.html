@@ -18,11 +18,11 @@
 <body>
     <div class="content-grid">
         <header class="header">
-            <div class="logo">
+            <div class="logo" class="">
                 jeff<span>musgrave</span>
             </div>
 
-            <nav class="nav-links">
+            <nav id="nav-links" class="on-load">
                 <ul>
                     <li><a href="#">video</a></li>
                     <li><a href="#">design</a></li>
@@ -31,7 +31,7 @@
                 </ul>
             </nav>
 
-            <i>icon</i>
+            <i class="menu-btn"></i>
             <div class="header-bg"></div>
         </header>
 
@@ -135,6 +135,32 @@
 
 
     </div>
+
+    <script>
+        let navLinks = document.getElementById('nav-links');
+        let navLinksCL = navLinks.classList;
+        document.querySelector('.menu-btn').addEventListener('click', () => {
+            if (navLinksCL.contains("on-load")) {
+                navLinksCL.remove("on-load");
+                navLinksCL.add("show")
+
+            } else if (navLinksCL.contains("hide")) {
+                navLinksCL.remove("hide");
+                navLinksCL.add("show")
+            } else {
+                navLinksCL.add("hide");
+                navLinksCL.remove("show");
+            }
+        });
+
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 1000) {
+                navLinks.className = " ";
+                navLinksCL.add("on-load");
+            }
+        });
+
+    </script>
 
 </body>
 

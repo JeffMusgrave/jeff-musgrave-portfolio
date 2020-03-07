@@ -1,3 +1,18 @@
+.header{
+    display:contents;
+}
+
+.header-bg {
+    grid-column:1 / -1;
+    grid-row:1 / 2;
+    height:3.4rem;
+    background-color:var(--background-color);
+    opacity:0.85;
+    z-index:3;
+    position:sticky;
+    top:0;
+}
+
 /* NAV */
 
 .logo {
@@ -10,17 +25,13 @@
     top:0;
     grid-column: 2 / span 1 ;
     grid-row:1 / 2;
-    /* background-color: var(--background-color);
-    padding:1rem;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone; */
 }
 
 .logo > span {
     color:var(--emphasis-light-color);
 }
 
-.nav-links  {
+#nav-links  {
     align-self: center;
     position:sticky;
     top:0;
@@ -30,37 +41,30 @@
     background-color:var(--background-color);
 }
 
-@media screen and (max-width: 1000px) {
-    .nav-links {
-        display:none;
-    }
-}
-
-
-.nav-links > ul {
+#nav-links > ul {
     list-style:none;
     display:flex;
     justify-content:flex-end;
 }
 
-.nav-links > ul > li:first-child  {
+#nav-links > ul > li:first-child  {
     margin-left: .5rem;
 }
 
-.nav-links > ul > li:last-child  {
+#nav-links > ul > li:last-child  {
     margin-right: .5rem;
 }
 
-.nav-links > ul > li:not(:first-child)  {
+#nav-links > ul > li:not(:first-child)  {
     margin-left: 4rem;
 }
 
-.nav-links > ul > li {
+#nav-links > ul > li {
     margin-top:0.75rem;
     margin-bottom:0.75rem;
 }
 
-.nav-links > ul > li > a {
+#nav-links > ul > li > a {
     font-weight:200;
     font-size: 1.5rem;
 }
@@ -69,11 +73,48 @@
     display:none;
 }
 
-
 @media screen and (max-width: 1000px) {
+    #nav-links {
+        display:flex;
+        height:100vh;
+        z-index:4;
+        background-color:white;
+        justify-content:center;
+        grid-column:start / -1;
+        grid-row:1/-1;        
+    }
+
+    .on-load {
+        transform: translateX(-100vw);  
+    }
+
+    .show {
+        transform: translateX(0vw);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .hide {
+        transform: translateX(-100vw);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    #nav-links > ul {
+        flex-direction:column;
+        justify-content:space-evenly;
+
+    }
+    #nav-links > ul li, #nav-links > ul > li:first-child, #nav-links > ul > li:not(:first-child)  {
+        display:flex;
+        margin:0rem;
+        align-self:center;        
+    } 
+    #nav-links > ul > li > a {
+        font-size:3rem;
+    }
+
     .header > i {
         display:flex;
-        justify-content:flex-end;
+        justify-self:flex-end;
         grid-column:nav / span 1;
         grid-row:1 / 2;
         z-index:5;
@@ -83,5 +124,10 @@
         color:var(--emphasis-dark-color);
         font-weight: 500;
         font-size:2.25rem;
+        cursor:pointer;
+        background: url(./img/icon-menu.svg);
+        width:25px;
+        height:25px;
     }
 }
+
