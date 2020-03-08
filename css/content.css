@@ -58,7 +58,6 @@
 
 .video-preview:before {
     border-radius: 50%;
-    padding-bottom: 100%;
     margin: 1rem 0;
     background-color:var(--emphasis-lighter-color);
     content: '';
@@ -137,8 +136,16 @@
         margin-right:0;
     }
     
+    .video-preview {
+        grid-column: start / -1;
+        align-self:center;
+        z-index:1;
+    }
+
     .video-preview:before {
-        width: 60vw;
+        border-radius: 1rem;
+        
+        width: 80vw;
         height: 60vw;
     }
     
@@ -148,6 +155,6 @@
     }
 
     .thumbnail-1 {
-        margin: 2.5rem .5rem;
+        margin: 1rem .5rem;
     }
 }

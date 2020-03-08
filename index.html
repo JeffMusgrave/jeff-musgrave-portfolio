@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css?family=Barlow:200,400,400i,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="containers.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="content.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/containers.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/content.css">
 
 
     <title>Jeff Musgrave - Portfolio</title>
 </head>
 
 <body>
-    <div class="content-grid">
+    <main class="content-grid">
         <header class="header">
             <div class="logo" class="">
                 jeff<span>musgrave</span>
@@ -134,33 +134,9 @@
 
 
 
-    </div>
+    </main>
 
-    <script>
-        let navLinks = document.getElementById('nav-links');
-        let navLinksCL = navLinks.classList;
-        document.querySelector('.menu-btn').addEventListener('click', () => {
-            if (navLinksCL.contains("on-load")) {
-                navLinksCL.remove("on-load");
-                navLinksCL.add("show")
-
-            } else if (navLinksCL.contains("hide")) {
-                navLinksCL.remove("hide");
-                navLinksCL.add("show")
-            } else {
-                navLinksCL.add("hide");
-                navLinksCL.remove("show");
-            }
-        });
-
-        window.addEventListener("resize", function () {
-            if (window.innerWidth > 1000) {
-                navLinks.className = " ";
-                navLinksCL.add("on-load");
-            }
-        });
-
-    </script>
+    <script src="./js/main.js"></script>
 
 </body>
 
