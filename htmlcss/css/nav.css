@@ -1,0 +1,35 @@
+@media screen and (max-width: 1154px) {
+  .nav-links {
+    display: none;
+  }
+}
+@media screen and (max-width: 740px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+.nav-links {
+  align-self: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  grid-column: nav/right-margin;
+  grid-row: 1/2;
+}
+.nav-links > ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 3rem;
+}
+
+.nav-links > ul > li {
+  align-self: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.nav-links > ul > li > a {
+  font-weight: 200;
+  font-size: 1.5rem;
+}

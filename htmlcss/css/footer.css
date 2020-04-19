@@ -1,0 +1,12 @@
+footer {
+  display: flex;
+  grid-column: content/right-margin;
+  grid-row: footer/span 1;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 5rem;
+  min-width: 100%;
+}
+.footer-items {
+  color: var(--emphasis-light-color);
+}

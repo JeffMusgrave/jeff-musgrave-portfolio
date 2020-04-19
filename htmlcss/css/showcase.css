@@ -1,0 +1,45 @@
+.preview-container {
+  grid-column: overlap/right-margin;
+  grid-row: row-content/footer;
+  align-self: center;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.video-preview {
+  background: var(--emphasis-dark-color) url(../img/noharm.png) no-repeat center
+    center;
+  background-size: cover;
+  margin: 5px;
+  flex: 1 0 auto;
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.7;
+}
+.video-preview:hover {
+  opacity: 1;
+}
+.video-preview::before {
+  content: "";
+  float: left;
+  padding-top: 100%;
+}
+
+@media screen and (max-width: 1154px) {
+  .preview-container {
+    grid-column: sub-start/sub-mid;
+    grid-row: title/sub-row-mid;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-self: flex-start;
+  }
+  .video-preview {
+    border-radius: 0;
+    z-index: 1;
+    height: 20rem;
+    min-width: 100%;
+    margin: 0;
+  }
+}
