@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Barlow:200,400,400i,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/contentgrid.css" />
+    <link rel="stylesheet" href="./css/contentblock.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/nav.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+
+    <title>Jeff Musgrave - Portfolio</title>
+  </head>
+
+  <body>
+    <div class="flex-container">
+      <div class="content-grid">
+        <header class="header">
+          <div class="logo">jeff<span>musgrave</span></div>
+
+          <nav class="nav-links">
+            <ul>
+              <li><a href="#">video</a></li>
+              <li><a href="#">design</a></li>
+              <li><a href="#">social</a></li>
+              <li><a href="#">contact</a></li>
+            </ul>
+          </nav>
+          <i class="menu-btn"></i>
+          <div class="header-bg"></div>
+        </header>
+
+        <!-- Hero -->
+        <div class="content-block">
+          <main>
+            <section>
+              <h1><span>Neural Style Transfer</span></h1>
+            </section>
+            <article>
+              <h2>
+                Music videos and Neural Networks.
+                <span>Machine Learning for the Arts.</span>
+              </h2>
+              <p>
+                <span>
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind texts.
+                  Separated they live in Bookmarksgrove
+                  <a href="#">right at the coast</a> of the Semantics, a large
+                  language ocean.
+                </span>
+              </p>
+            </article>
+            <nav class="thumbtab-container">
+              <div class="thumbtab-1"></div>
+              <div class="thumbtab-1"></div>
+              <div class="thumbtab-1"></div>
+              <div class="thumbtab-1"></div>
+            </nav>
+          </main>
+
+          <aside class="preview-container">
+            <div class="video-preview"></div>
+          </aside>
+        </div>
+
+        <footer>
+          <div class="footer-items">footer items</div>
+        </footer>
+
+        <div class="split-bg"></div>
+      </div>
+    </div>
+    <script>
+      const headerbar = document.querySelector(".header-bg");
+
+      const rem = parseInt(getComputedStyle(document.documentElement).fontSize);
+
+      scrollCheck = () => {
+        let y = window.scrollY;
+        console.log(y);
+        if (y > 5 * rem) {
+          console.log("yep");
+          headerbar.style.backgroundColor = "var(--background-color)";
+        } else {
+          headerbar.style.backgroundColor = "transparent";
+        }
+      };
+
+      window.addEventListener("scroll", scrollCheck);
+    </script>
+  </body>
+</html>
