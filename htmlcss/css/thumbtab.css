@@ -1,0 +1,46 @@
+.thumbtab-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+.thumbtab-1 {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background-color: var(--emphasis-light-color);
+  margin: 3rem 2rem 0 0;
+}
+
+@media screen and (max-width: 1154px) {
+  .thumbtab-container {
+    grid-column: sub-mid/sub-end;
+    grid-row: sub-row-start/sub-row-mid;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 0 0 2rem;
+    height: 100%;
+    z-index: 2;
+  }
+  .thumbtab-1 {
+    width: 5rem;
+    height: 5rem;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 740px) {
+  .thumbtab-container {
+    grid-column: sub-start/sub-end;
+    grid-row: sub-row-mid/sub-post-mid;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+  }
+  .thumbtab-1 {
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem 0 0.5rem 0;
+  }
+}
