@@ -10,3 +10,9 @@ footer {
 .footer-items {
   color: var(--emphasis-light-color);
 }
+
+@media screen and (max-width: 1154px) {
+  footer {
+    border-top: 5px solid var(--emphasis-lighter-color);
+  }
+}

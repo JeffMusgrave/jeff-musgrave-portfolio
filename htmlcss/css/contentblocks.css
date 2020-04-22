@@ -1,0 +1,39 @@
+.left-block {
+  display: contents;
+}
+
+.left-block main {
+  grid-column: content/nav;
+  grid-row: row-content/span 1;
+  align-self: center;
+  z-index: 2;
+}
+
+@media screen and (max-width: 1154px) {
+  .left-block {
+    grid-column: logo/right-margin;
+    grid-row: row-content/span 1;
+  }
+}
+
+.full-block {
+  grid-column: content/right-margin;
+  grid-row: row-content/span 1;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 2.5rem;
+  box-shadow: -10px 9px 5px -10px rgba(0, 0, 0, 0.1),
+    -10px 20px 20px -10px rgba(0, 0, 0, 0.05);
+}
+
+.full-block main {
+  align-self: center;
+  z-index: 2;
+}
+
+@media screen and (max-width: 1154px) {
+  .full-block {
+    grid-column: content/right-margin;
+    grid-row: row-content/span 1;
+    margin-bottom: 2.5rem;
+  }
+}
