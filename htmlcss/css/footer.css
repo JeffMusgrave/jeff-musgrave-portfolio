@@ -1,9 +1,9 @@
 footer {
   display: flex;
-  grid-column: content/right-margin;
+  grid-column: nav/right-margin;
   grid-row: footer/span 1;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   min-height: 5rem;
   min-width: 100%;
 }

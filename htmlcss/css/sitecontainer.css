@@ -5,24 +5,3 @@
   flex-direction: row;
   justify-content: center;
 }
-
-.split-bg {
-  grid-column: logo/nav;
-  grid-row: row-start/row-end;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 90%,
-    rgba(0, 0, 0, 0.06) 100%
-  );
-  box-shadow: inset -10px 0 5px -10px rgba(0, 0, 0, 0.1);
-  z-index: -5;
-  /* background-blend-mode: overlay; */
-}
-@media screen and (max-width: 1154px) {
-  .split-bg {
-    grid-column: none;
-    grid-row: none;
-    background-color: none;
-    z-index: -5;
-  }
-}

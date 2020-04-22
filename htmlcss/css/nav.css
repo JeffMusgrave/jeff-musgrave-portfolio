@@ -1,14 +1,3 @@
-@media screen and (max-width: 1154px) {
-  .nav-links {
-    display: none;
-  }
-}
-@media screen and (max-width: 740px) {
-  .nav-links {
-    display: none;
-  }
-}
-
 .nav-links {
   align-self: center;
   position: sticky;
@@ -21,7 +10,7 @@
   list-style: none;
   display: flex;
   justify-content: space-between;
-  margin-left: 3rem;
+  margin-left: 2.5rem;
 }
 
 .nav-links > ul > li {
@@ -31,5 +20,16 @@
 }
 .nav-links > ul > li > a {
   font-weight: 200;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 1154px) {
+  .nav-links {
+    display: none;
+  }
+}
+@media screen and (max-width: 740px) {
+  .nav-links {
+    display: none;
+  }
 }

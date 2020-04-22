@@ -49,6 +49,17 @@ h1.em-heading,
   .content-style-1 main section > h1:first-of-type span {
     font-size: 4rem;
   }
+
+  h1.em-heading,
+  .em-heading main section h1 {
+    background-color: #fff;
+    padding: 1rem;
+  }
+
+  .em-heading main section h1 span {
+    background-color: transparent;
+    padding: 0;
+  }
   .content-style-1 main article > h2 {
     font-size: 1.5rem;
     padding: 2rem 0;
