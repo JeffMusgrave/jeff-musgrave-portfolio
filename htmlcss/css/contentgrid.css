@@ -3,47 +3,42 @@
   display: grid;
   grid-template-columns:
     [logo] minmax(0, min-content)
-    [edge content] 2.5rem [logo-pad] 2.5rem [bg-pad] 3fr [overlap] 1fr
+    [edge content] 2.5rem [logo-pad] 2.5rem [bg-pad] 1.5fr [aside] 1fr[overlap] 0.5fr
     [nav] 3fr [right-margin];
-  grid-template-rows: [row-start] minmax(7rem, 10rem) [row-content] 1fr [footer] auto [row-end];
   width: 80vw;
   max-width: 1800px;
-  /* margin: 0 10rem; */
   grid-gap: 0;
   min-height: 100%;
 }
+
+.standard-grid-rows {
+  grid-template-rows: [row-start] minmax(7rem, 10rem) [row-content] 1fr [footer] auto [row-end];
+}
+
+.contact-grid-rows {
+  grid-template-rows: [row-start] minmax(7rem, 10rem) [row-content] 1fr [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
+}
+
 @media screen and (max-width: 1600px) {
   .content-grid {
     grid-template-columns:
       [logo content] minmax(0, min-content)
-      [edge] 2.5rem [logo-pad] 2.5rem [bg-pad] 3fr [overlap] minmax(
+      [edge] 2.5rem [logo-pad] 2.5rem [bg-pad] 1.5fr [aside] 0.5fr[overlap] minmax(
         min-content,
         1fr
       )
       [nav] 3fr [right-margin];
-    /* margin: 0 5rem; */
   }
 }
 @media screen and (max-width: 1154px) {
   .content-grid {
-    grid-template-columns: [logo edge content logo-pad bg-pad overlap nav] 90vw [right-margin];
+    grid-template-columns: [logo edge content logo-pad bg-pad aside overlap nav] 90vw [right-margin];
     width: auto;
   }
 }
 @media screen and (max-width: 740px) {
   .content-grid {
-    grid-template-columns: [logo edge content logo-pad bg-pad overlap nav] 90vw [right-margin];
-    /* margin: 0 2.5rem; */
+    grid-template-columns: [logo edge content logo-pad bg-pad aside overlap nav] 90vw [right-margin];
     grid-template-rows: [row-start] 7rem [row-content] 1fr [footer] auto [row-end];
   }
 }
-/* @media (min-width: 2561px) {
-  .content-grid {
-    grid-template-columns:
-      [logo] minmax(0, min-content) [content] 4fr [overlap] minmax(
-        min-content,
-        1fr
-      )
-      [nav] 3fr [right-margin];
-  }
-} */

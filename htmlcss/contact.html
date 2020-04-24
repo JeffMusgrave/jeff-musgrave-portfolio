@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/splitbg.css" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/nav.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
     <link rel="stylesheet" href="./css/contentblocks.css" />
     <link rel="stylesheet" href="./css/contentstyles.css" />
     <link rel="stylesheet" href="./css/showcasecontent.css" />
@@ -27,7 +28,7 @@
 
   <body>
     <div class="flex-container">
-      <div class="content-grid">
+      <div class="content-grid contact-grid-rows">
         <header class="header">
           <div class="logo">jeff<span>musgrave</span></div>
 
@@ -42,35 +43,53 @@
           <div class="header-bg"></div>
         </header>
 
-        <div class="full-block content-style-1 em-heading">
+        <div class="full-block content-style-1 em-heading contact-container">
           <main>
             <section>
               <h1><span>Contact</span></h1>
             </section>
             <article>
-              <h2>
-                Web Design
-              </h2>
+              <!-- <div class="contact-aside">
+                <aside>
+                  <h2>Some Reasons to Contact Me</h2>
+                  <p>
+                    Qui ullamco adipisicing aliqua officia veniam consequat.
+                    Esse aliqua excepteur aliqua reprehenderit irure officia ea
+                    qui. Nostrud sunt eiusmod cillum esse amet officia cillum
+                    sit.
+                  </p>
+                </aside>
+              </div> -->
 
-              <h2>
-                Print Design
-              </h2>
-
-              <form action="/my-handling-form-page" method="post">
-                <ul>
-                  <li>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="user_name" />
-                  </li>
-                  <li>
-                    <label for="mail">E-mail:</label>
-                    <input type="email" id="mail" name="user_email" />
-                  </li>
-                  <li>
-                    <label for="msg">Message:</label>
-                    <textarea id="msg" name="user_message"></textarea>
-                  </li>
-                </ul>
+              <form class="contact-form" action="/placeholder" method="post">
+                <div class="form-name">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="user_name"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div class="form-email">
+                  <label for="mail">E-mail</label>
+                  <input
+                    type="email"
+                    id="mail"
+                    name="user_email"
+                    placeholder="yourname@email.com"
+                  />
+                </div>
+                <div class="form-message">
+                  <label for="msg">Message</label>
+                  <textarea
+                    id="msg"
+                    name="user_message"
+                    rows="5"
+                    placeholder="Type your message here."
+                  ></textarea>
+                </div>
+                <div class="form-button"><button>submit</button></div>
               </form>
             </article>
           </main>
@@ -80,7 +99,7 @@
           <div class="footer-items">&copy; 2019 Jeff Musgrave</div>
         </footer>
 
-        <div class="split-bg bg-logo-overlap"></div>
+        <div class="split-bg bg-contact"></div>
       </div>
     </div>
     <script src="./js/main.js"></script>

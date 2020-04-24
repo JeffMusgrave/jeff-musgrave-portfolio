@@ -6,8 +6,8 @@
   grid-column: logo/logo-pad;
 }
 
-.bg-logo-overlap {
-  grid-column: logo/overlap;
+.bg-contact {
+  grid-column: logo/aside;
 }
 
 .split-bg {

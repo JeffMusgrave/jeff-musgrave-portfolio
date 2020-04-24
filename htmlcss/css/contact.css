@@ -1,0 +1,143 @@
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="text"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+}
+
+.contact-container,
+.contact-container main,
+.contact-container main article,
+.contact-form,
+.contact-form div {
+  display: contents;
+}
+
+.contact-container main section {
+  grid-column: content/nav;
+  grid-row: row-content/row-name;
+}
+
+.contact-aside {
+  grid-column: bg-pad/aside;
+  grid-row: row-name/row-submit;
+}
+
+.contact-aside aside {
+  padding: 2.5rem;
+  background-color: white;
+}
+
+.form-name label,
+.form-email label,
+.form-message label {
+  display: grid;
+  grid-column: edge/aside;
+  align-items: center;
+  justify-items: flex-end;
+  margin-right: 2.5rem;
+  font-size: 1.5rem;
+  color: var(--emphasis-light-color);
+}
+
+@media screen and (max-width: 1154px) {
+  .form-name label,
+  .form-email label,
+  .form-message label {
+    grid-column: edge/overlap;
+    align-items: flex-start;
+    justify-items: flex-start;
+    margin-right: 0;
+    font-size: 1.5rem;
+    color: var(--emphasis-light-color);
+  }
+}
+
+.form-name label {
+  grid-row: row-name/row-email;
+}
+
+.form-email label {
+  grid-row: row-email/row-message;
+}
+.form-message label {
+  grid-row: row-message/row-msg-end;
+}
+
+.form-name input,
+.form-email input,
+.form-message textarea,
+.form-button button {
+  grid-column: aside/right-margin;
+  border: 0;
+  align-self: center;
+  font-size: 1.25rem;
+  margin-left: 2.5rem;
+}
+
+.form-name input:focus,
+.form-email input:focus,
+.form-message textarea:focus,
+.form-button button:focus {
+  outline: 0.25rem solid var(--emphasis-light-color);
+}
+
+.form-name input::placeholder,
+.form-email input::placeholder,
+.form-message textarea::placeholder {
+  color: var(--emphasis-light-color);
+}
+
+/* INPUT */
+.form-name input,
+.form-email input {
+  padding: 1.25rem;
+  height: 3.75rem;
+  margin: 0.625 0 0.625rem 2.5rem;
+}
+
+/* TEXTAREA */
+.form-message textarea {
+  padding: 1.25rem;
+  height: 16.75rem;
+}
+
+/* BUTTON */
+.form-button button {
+  text-transform: uppercase;
+  background-color: var(--emphasis-dark-color);
+  color: var(--emphasis-lighter-color);
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  height: 5rem;
+  cursor: pointer;
+}
+
+.form-button button:hover {
+  background-color: var(--emphasis-light-color);
+}
+
+.form-name input {
+  grid-row: row-name/row-email;
+}
+.form-email input {
+  grid-row: row-email/row-message;
+}
+.form-message textarea {
+  grid-row: row-message/row-submit;
+}
+
+.form-button button {
+  grid-row: row-submit/post-form;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}

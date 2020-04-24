@@ -19,7 +19,7 @@
     grid-row: sub-post-mid/sub-row-end;
   }
   .showcase-content section:first-of-type {
-    margin: 0.6rem 0 0.6rem 0;
+    margin: 0;
   }
   .showcase-content main article h2 {
     padding: 0 0 2rem 0;
