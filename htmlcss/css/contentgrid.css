@@ -32,13 +32,20 @@
 }
 @media screen and (max-width: 1154px) {
   .content-grid {
-    grid-template-columns: [logo edge content logo-pad bg-pad aside overlap nav] 90vw [right-margin];
+    grid-template-columns: [logo edge content logo-pad bg-pad overlap nav] 30vw [aside] 60vw [right-margin];
     width: auto;
   }
 }
 @media screen and (max-width: 740px) {
   .content-grid {
-    grid-template-columns: [logo edge content logo-pad bg-pad aside overlap nav] 90vw [right-margin];
+    grid-template-columns: [logo edge content logo-pad bg-pad aside overlap nav] 45vw [aside] 45vw [right-margin];
+  }
+
+  .standard-grid-rows {
     grid-template-rows: [row-start] 7rem [row-content] 1fr [footer] auto [row-end];
+  }
+
+  .contact-grid-rows {
+    grid-template-rows: [row-start] minmax(7rem, 10rem) [row-content] 1fr [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
   }
 }

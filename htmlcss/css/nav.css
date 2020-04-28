@@ -23,6 +23,10 @@
   font-size: 1.25rem;
 }
 
+.nav-links > ul > li > a:focus {
+  outline: 0.25rem solid var(--emphasis-light-color);
+}
+
 @media screen and (max-width: 1154px) {
   .nav-links {
     display: none;
@@ -31,5 +35,26 @@
 @media screen and (max-width: 740px) {
   .nav-links {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1154px) {
+  .header > i {
+    display: flex;
+    justify-self: flex-end;
+    grid-column: nav/right-margin;
+    grid-row: 1/2;
+    z-index: 5;
+    position: sticky;
+    top: 0;
+    align-self: center;
+    color: var(--emphasis-dark-color);
+    font-weight: 500;
+    font-size: 2.25rem;
+    cursor: pointer;
+    background: url(../img/icon-menu.svg) no-repeat;
+    background-position: center;
+    width: 25px;
+    height: 3.4rem;
   }
 }

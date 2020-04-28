@@ -11,26 +11,6 @@
   position: sticky;
   top: 0;
 }
-@media screen and (max-width: 1154px) {
-  .header > i {
-    display: flex;
-    justify-self: flex-end;
-    grid-column: nav/span 1;
-    grid-row: 1/2;
-    z-index: 5;
-    position: sticky;
-    top: 0;
-    align-self: center;
-    color: var(--emphasis-dark-color);
-    font-weight: 500;
-    font-size: 2.25rem;
-    cursor: pointer;
-    background: url(../img/icon-menu.svg) no-repeat;
-    background-position: center;
-    width: 25px;
-    height: 3.4rem;
-  }
-}
 
 .logo {
   align-self: center;
