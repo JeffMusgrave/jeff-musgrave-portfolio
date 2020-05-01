@@ -2,9 +2,13 @@
   justify-self: center;
   display: grid;
   grid-template-columns:
-    [logo] minmax(0, min-content)
-    [edge content] 2.5rem [logo-pad] 2.5rem [bg-pad] 1.5fr [aside] 1fr[overlap] 0.5fr
-    [nav] 3fr [right-margin];
+    [logo] min-content
+    [edge] 2.5rem [logo-pad] 2.5rem [bg-pad content] 1fr [content-mid] minmax(
+      min-content,
+      1fr
+    )
+    [aside] 1fr[overlap] 0.5fr
+    [right-fold] 2fr [right-margin];
   width: 80vw;
   max-width: 1800px;
   grid-gap: 0;
@@ -22,23 +26,22 @@
 @media screen and (max-width: 1600px) {
   .content-grid {
     grid-template-columns:
-      [logo content] minmax(0, min-content)
-      [edge] 2.5rem [logo-pad] 2.5rem [bg-pad] 1.5fr [aside] 0.5fr[overlap] minmax(
-        min-content,
-        1fr
-      )
-      [nav] 3fr [right-margin];
+      [logo content] min-content
+      [edge] 2.5rem [logo-pad] 2.5rem [bg-pad] minmax(min-content, 1fr)
+      [content-mid] minmax(min-content, 1fr)
+      [aside] minmax(min-content, 0.5fr) [overlap] minmax(min-content, 1fr)
+      [right-fold] 4fr [right-margin];
   }
 }
 @media screen and (max-width: 1154px) {
   .content-grid {
-    grid-template-columns: [logo edge content logo-pad bg-pad overlap nav] 30vw [aside] 60vw [right-margin];
+    grid-template-columns: [logo edge content logo-pad bg-pad right-fold] 30vw [content-mid overlap aside] 60vw [right-margin];
     width: auto;
   }
 }
 @media screen and (max-width: 740px) {
   .content-grid {
-    grid-template-columns: [logo edge content logo-pad bg-pad aside overlap nav] 45vw [aside] 45vw [right-margin];
+    grid-template-columns: [logo edge content logo-pad bg-pad aside overlap right-fold] 45vw [content-mid aside] 45vw [right-margin];
   }
 
   .standard-grid-rows {

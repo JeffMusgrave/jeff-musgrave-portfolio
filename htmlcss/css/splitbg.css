@@ -1,5 +1,5 @@
 .bg-logo-nav {
-  grid-column: logo/nav;
+  grid-column: logo/right-fold;
 }
 
 .bg-logo-pad {
@@ -7,7 +7,7 @@
 }
 
 .bg-contact {
-  grid-column: logo/aside;
+  grid-column: logo/overlap;
 }
 
 .split-bg {
@@ -21,7 +21,7 @@
   z-index: -5;
   /* background-blend-mode: overlay; */
 }
-@media screen and (max-width: 1154px) {
+@media screen and (max-width: 1600px) {
   .split-bg {
     grid-column: none;
     grid-row: none;

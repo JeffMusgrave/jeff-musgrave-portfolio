@@ -15,7 +15,8 @@
 h1.em-heading,
 .em-heading main section h1 span {
   background-color: #fff;
-  padding: 1rem;
+  padding: 1rem 2.5rem;
+  /* margin-left: -2.5rem; */
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }

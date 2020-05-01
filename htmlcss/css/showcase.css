@@ -6,6 +6,12 @@
   margin: 0;
   display: flex;
 }
+
+@media screen and (max-width: 1600px) {
+  .preview-container {
+    grid-column: aside/right-margin;
+  }
+}
 .video-preview {
   background: var(--emphasis-dark-color) url(../img/noharm.png) no-repeat center
     center;

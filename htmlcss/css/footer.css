@@ -1,6 +1,6 @@
 footer {
   display: flex;
-  grid-column: nav/right-margin;
+  grid-column: right-fold/right-margin;
   grid-row: footer/span 1;
   align-items: center;
   justify-content: flex-end;

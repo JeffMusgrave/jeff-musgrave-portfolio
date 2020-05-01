@@ -3,20 +3,22 @@
   position: sticky;
   top: 0;
   z-index: 5;
-  grid-column: nav/right-margin;
+  grid-column: bg-pad/overlap;
   grid-row: 1/2;
+  width: 100%;
 }
 .nav-links > ul {
   list-style: none;
   display: flex;
-  justify-content: space-between;
-  margin-left: 2.5rem;
+  justify-content: flex-start;
+  /* margin-left: 2.5rem; */
 }
 
 .nav-links > ul > li {
   align-self: center;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  /* margin-top: 0.75rem;
+  margin-bottom: 0.75rem; */
+  margin: 0.75rem 2.5rem 0.75rem 0;
 }
 .nav-links > ul > li > a {
   font-weight: 200;
@@ -42,7 +44,7 @@
   .header > i {
     display: flex;
     justify-self: flex-end;
-    grid-column: nav/right-margin;
+    grid-column: right-fold/right-margin;
     grid-row: 1/2;
     z-index: 5;
     position: sticky;

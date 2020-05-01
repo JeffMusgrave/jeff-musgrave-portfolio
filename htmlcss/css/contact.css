@@ -16,20 +16,33 @@
 }
 
 .contact-container main section {
-  grid-column: edge/nav;
+  grid-column: content/aside;
   grid-row: row-content/row-name;
   display: grid;
   align-self: flex-end;
+
   margin-bottom: 2.5rem;
 }
 
 .contact-aside {
-  grid-column: bg-pad/aside;
+  grid-column: content/aside;
   grid-row: row-name/row-submit;
 }
 
+@media screen and (max-width: 1600px) {
+  .contact-aside {
+    grid-column: content/content-mid;
+    grid-row: row-name/row-submit;
+  }
+}
+@media screen and (max-width: 1154px) {
+  .contact-aside {
+    display: none;
+  }
+}
 .contact-aside aside {
   padding: 2.5rem;
+  margin-top: 0.625rem;
   background-color: white;
 }
 
@@ -37,7 +50,7 @@
 .form-email label,
 .form-message label {
   display: grid;
-  grid-column: edge/aside;
+  grid-column: aside/overlap;
   align-items: center;
   justify-items: flex-end;
   margin-right: 2.5rem;
@@ -84,12 +97,21 @@
 .form-email input,
 .form-message textarea,
 .form-button button {
-  grid-column: aside/right-margin;
+  grid-column: overlap/right-margin;
   border: 0;
   align-self: center;
   font-size: 1.25rem;
   margin: 0.625rem 0 0.625rem 2.5rem;
-  max-width: 50rem;
+  /* max-width: 50rem; */
+}
+
+@media screen and (max-width: 1154px) {
+  .form-name input,
+  .form-email input,
+  .form-message textarea,
+  .form-button button {
+    margin: 0.625rem 0 0.625rem 0rem;
+  }
 }
 
 .form-name input:focus,
@@ -112,7 +134,7 @@
   height: 3.75rem;
 }
 
-@media screen and (max-width: 1154px) {
+@media screen and (max-width: 1600px) {
   .form-name input,
   .form-email input,
   .form-message textarea,

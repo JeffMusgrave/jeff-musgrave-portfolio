@@ -3,7 +3,7 @@
 }
 
 .left-block main {
-  grid-column: content/nav;
+  grid-column: content/right-fold;
   grid-row: row-content/span 1;
   align-self: center;
   z-index: 2;
@@ -21,7 +21,7 @@
 }
 
 .bgpad-block main {
-  grid-column: bg-pad/right-margin;
+  grid-column: content/right-margin;
   grid-row: row-content/span 1;
   align-self: center;
   z-index: 2;

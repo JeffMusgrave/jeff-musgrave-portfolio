@@ -17,6 +17,13 @@
   margin: 0rem 2rem 0 0;
 }
 
+@media screen and (max-width: 1600px) {
+  .thumbtabs ul li {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
 @media screen and (max-width: 1154px) {
   .thumbtabs {
     grid-column: sub-mid/sub-end;

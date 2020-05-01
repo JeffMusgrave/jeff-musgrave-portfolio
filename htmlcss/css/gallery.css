@@ -17,6 +17,16 @@
   background-color: var(--emphasis-lighter-color);
 }
 
+@media screen and (max-width: 1600px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, 8rem);
+  }
+  .gallery figure {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
 @media screen and (max-width: 1154px) {
   .gallery {
     grid-template-columns: repeat(auto-fit, 7rem);
