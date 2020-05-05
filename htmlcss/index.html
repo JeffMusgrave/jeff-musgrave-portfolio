@@ -11,14 +11,12 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/sitecontainer.css" />
     <link rel="stylesheet" href="./css/contentgrid.css" />
+    <link rel="stylesheet" href="./css/bg.css" />
     <link rel="stylesheet" href="./css/splitbg.css" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/nav.css" />
     <link rel="stylesheet" href="./css/contentblocks.css" />
     <link rel="stylesheet" href="./css/contentstyles.css" />
-    <link rel="stylesheet" href="./css/showcasecontent.css" />
-    <link rel="stylesheet" href="./css/showcase.css" />
-    <link rel="stylesheet" href="./css/thumbtabs.css" />
     <link rel="stylesheet" href="./css/footer.css" />
 
     <title>Jeff Musgrave - Portfolio</title>
@@ -28,11 +26,13 @@
     <div class="flex-container">
       <div class="content-grid standard-grid-rows">
         <header class="header">
-          <div class="logo">jeff<span>musgrave</span></div>
+          <div class="logo">
+            <a href="./index.html">jeff<span>musgrave</span></a>
+          </div>
 
           <nav class="nav-links">
             <ul>
-              <li><a href="./index.html">video</a></li>
+              <li><a href="./video.html">video</a></li>
               <li><a href="./design.html">design</a></li>
               <li><a href="./contact.html">contact</a></li>
             </ul>
@@ -41,46 +41,47 @@
           <div class="header-bg"></div>
         </header>
 
-        <div class="showcase-content left-block content-style-1 em-heading">
+        <div class="frontpage content-style-2">
           <main>
             <section>
-              <h1><span>Neural Style Transfer</span></h1>
+              <h1><span>Technically</span> <span>Creative</span></h1>
             </section>
             <article>
               <h2>
-                Music videos and Neural Networks.
-                <span>Machine Learning for the Arts.</span>
+                Design, Audio, and Video.
+                <span>find your blah blah blah here.</span>
               </h2>
-              <p>
-                <span>
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                  Separated they live in Bookmarksgrove
-                  <a href="#">right at the coast</a> of the Semantics, a large
-                  language ocean.
-                </span>
-              </p>
             </article>
-            <nav class="thumbtabs">
-              <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-              </ul>
-            </nav>
+            <div class="home-chevron">
+              <svg
+                width="53"
+                height="52"
+                viewBox="0 0 53 52"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M20.2426 25.9828L0.443602 6.18383L6.10046 0.526973L31.5563 25.9828L6.10046 51.4387L0.443603 45.7818L20.2426 25.9828Z"
+                  fill="#969696"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M41.4975 25.9828L21.6985 6.18383L27.3553 0.526973L52.8112 25.9828L27.3553 51.4387L21.6985 45.7818L41.4975 25.9828Z"
+                  fill="#969696"
+                />
+              </svg>
+            </div>
           </main>
-
-          <aside class="preview-container">
-            <div class="video-preview"></div>
-          </aside>
         </div>
 
         <footer>
           <div class="footer-items">&copy; 2019 Jeff Musgrave</div>
         </footer>
 
-        <div class="split-bg bg-logo-nav"></div>
+        <div class="split-bg bg-home"></div>
       </div>
     </div>
     <script src="./js/main.js"></script>

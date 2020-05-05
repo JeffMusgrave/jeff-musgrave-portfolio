@@ -1,0 +1,28 @@
+.bg-cover-image {
+  background-image: url("../img/lifes.png");
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+
+/* .bg-cover-image::after {
+  content: "";
+  background-image: url("../img/lifes.png");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+} */

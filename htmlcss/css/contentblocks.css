@@ -1,3 +1,31 @@
+.frontpage {
+  display: contents;
+}
+.frontpage main {
+  grid-column: content/right-margin;
+  grid-row: row-content/span 1;
+  align-self: center;
+  z-index: 2;
+  min-width: 100%;
+
+  display: grid;
+  grid-template-columns: [h-col-1] 13rem [h-col-2] 13rem [h-col-3] 1fr [h-col-4] 1fr [h-col-5];
+  grid-template-rows: [h-row-1] 0.5fr [h-row-2] 0.5fr [h-row-3] 1fr [h-row-4];
+}
+
+@media screen and (max-width: 1154px) {
+  .frontpage {
+    grid-column: logo/right-margin;
+    grid-row: row-content/span 1;
+  }
+
+  .frontpage main {
+    grid-template-columns: [h-col-0]1fr [h-col-1 h-col-2 h-col-3 ] auto [h-col-4] 1fr [h-col-5];
+    grid-template-rows: [h-row-1] 0.5fr [h-row-2] 0.5fr [h-row-3] 1fr [h-row-4];
+    align-self: flex-start;
+  }
+}
+
 .left-block {
   display: contents;
 }

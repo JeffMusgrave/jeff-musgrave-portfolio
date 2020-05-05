@@ -10,6 +10,10 @@
   grid-column: logo/overlap;
 }
 
+.bg-home {
+  grid-column: logo/pre-right;
+}
+
 .split-bg {
   grid-row: row-start/row-end;
   background: linear-gradient(

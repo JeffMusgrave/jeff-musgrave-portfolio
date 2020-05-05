@@ -26,3 +26,18 @@
 .logo > span {
   color: var(--emphasis-light-color);
 }
+
+.logo a:link,
+.logo a:hover,
+.logo a:visited {
+  background-color: transparent;
+  color: var(--emphasis-dark-color);
+  font-weight: 500;
+  padding: 0;
+}
+
+.logo a:link > span,
+.logo a:hover > span,
+.logo a:visited > span {
+  color: var(--emphasis-light-color);
+}
