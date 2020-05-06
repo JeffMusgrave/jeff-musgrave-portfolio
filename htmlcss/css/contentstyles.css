@@ -73,10 +73,11 @@ h1.em-heading,
 /* 2 */
 
 .home-chevron {
-  grid-column: h-col-4/ h-col-5;
+  grid-column: chev / chev-end;
   grid-row: h-row-1/ h-row-4;
   align-self: center;
-  margin-left: 2.5rem;
+  justify-self: flex-end;
+  margin-left: 5rem;
 }
 
 .content-style-2 main section {
@@ -109,7 +110,7 @@ h1.em-heading,
 
 .content-style-2 main article {
   align-self: flex-start;
-  grid-column: h-col-3/h-col-4;
+  grid-column: h-text/h-col-4;
   grid-row: h-row-3/h-row-4;
 }
 .content-style-2 main article h2,
@@ -148,6 +149,10 @@ h1.em-heading,
   .content-style-2 main article > p {
     font-size: 1.25rem;
   }
+  .home-chevron {
+    margin: 0;
+    justify-self: flex-end;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -161,11 +166,17 @@ h1.em-heading,
   grid-row: row-img-start/row-img-end;
   background-color: var(--emphasis-lighter-color);
   min-width: 100%;
-  min-height: 100%;
+  margin-bottom: 2.5rem;
   z-index: -4;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 1154px) {
+  .home-bg-img {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 590px) {
   .content-style-2 main section h1 span {
     grid-column: h-col-1/h-col-4;
     grid-row: h-row-1/h-row-2;
@@ -193,6 +204,17 @@ h1.em-heading,
     grid-column: h-col-1/ h-col-4;
     grid-row: h-row-4/ h-row-5;
     justify-self: center;
-    margin: 2.5rem 0 0 0;
+    margin: 2.5rem 0 2.5rem 0;
   }
+}
+
+a:link .chevron,
+a:visited .chevron {
+  fill: var(--emphasis-light-color);
+}
+
+a:hover .chevron {
+  fill: var(--emphasis-dark-color);
+  padding: 0;
+  background-color: transparent;
 }
