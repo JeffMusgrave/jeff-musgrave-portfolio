@@ -1,0 +1,34 @@
+.testObj {
+  border-radius: 100px;
+  padding: 10px;
+
+  cursor: pointer;
+}
+
+.indexlevel {
+  z-index: 0;
+  position: absolute;
+  height: 50vh;
+  width: 50vw;
+  left: 20px;
+  background-color: red;
+  z-index: -1;
+}
+
+.grid {
+  display: grid;
+  height: 50vh;
+  width: 30vw;
+  grid-template-rows: [row1-start] 10vw [row1-end] 60vw [third-line] 30vw [last-line];
+  grid-template-columns: [first] 10vh [line2] 20vh [line3] 20vh [col4-start] 40vh [five] 10vh [end];
+}
+
+.off {
+  background-color: #22cc88;
+  grid-area: row1-start / first / third line / line3;
+}
+
+.on {
+  background-color: #343234;
+  grid-area: row1-start / first / last-line / end;
+}
