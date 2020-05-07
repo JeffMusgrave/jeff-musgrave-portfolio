@@ -31,16 +31,21 @@
 
 @media screen and (max-width: 1154px) {
   .nav-links {
-    display: none;
+    grid-column: overlap/right-margin;
+  }
+  .nav-links > ul {
+    justify-content: flex-end;
+  }
+
+  .nav-links > ul > li:last-child {
+    margin-right: 0;
   }
 }
+
 @media screen and (max-width: 740px) {
   .nav-links {
     display: none;
   }
-}
-
-@media screen and (max-width: 1154px) {
   .header > i {
     display: flex;
     justify-self: flex-end;

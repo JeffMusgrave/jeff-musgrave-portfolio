@@ -60,6 +60,13 @@
   }
 
   .standard-grid-rows {
-    grid-template-rows: [row-start] 7rem [row-content] 1fr [footer] auto [row-end];
+    grid-template-rows: [row-start] 5rem [row-content] 1fr [footer] auto [row-end];
+  }
+
+  .contact-grid-rows {
+    grid-template-rows: [row-start] 5rem [row-content] auto [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
+  }
+  .home-grid-rows {
+    grid-template-rows: [row-start] 5rem [row-img-start] 2.5rem [row-content] auto [row-con-end] 1fr [row-img-end] 2.5rem [footer] auto [row-end];
   }
 }

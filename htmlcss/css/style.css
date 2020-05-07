@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body,
 html {
   min-height: 100vh;
@@ -16,10 +17,12 @@ html {
   line-height: 1.5;
   font-family: Barlow, Arial, Helvetica, sans-serif;
 }
+
 body {
   background-color: var(--background-color);
   /* background-color: black; */
   color: var(--emphasis-dark-color);
+  overflow-y: scroll;
 }
 a:link,
 a:visited {
