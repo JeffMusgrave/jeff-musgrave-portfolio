@@ -15,18 +15,6 @@
   grid-gap: 0;
   min-height: 100%;
 }
-/* 
-.standard-grid-rows {
-  grid-template-rows: [row-start] minmax(7rem, 10rem) [row-content] 1fr [footer] auto [row-end];
-}
-
-.home-grid-rows {
-  grid-template-rows: [row-start] minmax(7rem, 10rem) [row-content row-img-start] 1fr [row-con-end row-img-end footer] auto [row-end];
-}
-
-.contact-grid-rows {
-  grid-template-rows: [row-start] minmax(7rem, 10rem) [row-content] 1fr [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
-} */
 
 @media screen and (max-width: 1600px) {
   .content-grid {
@@ -44,32 +32,10 @@
     width: auto;
     grid-template-rows: [row-start] 7rem [row-content] auto [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
   }
-  /* 
-  .standard-grid-rows {
-    grid-template-rows: [row-start] 7rem [row-content] 1fr [footer] auto [row-end];
-  }
-
-  .contact-grid-rows {
-    grid-template-rows: [row-start] 7rem [row-content] auto [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
-  }
-  .home-grid-rows {
-    grid-template-rows: [row-start] 7rem [row-img-start] 2.5rem [row-content] auto [row-con-end] 1fr [row-img-end] 2.5rem [footer] auto [row-end];
-  } */
 }
 @media screen and (max-width: 740px) {
   .content-grid {
     grid-template-columns: [logo edge content logo-pad bg-pad aside overlap right-fold] 45vw [content-mid aside] 45vw [pre-margin right-margin];
     grid-template-rows: [row-start] 5rem [row-content] auto [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
   }
-
-  /* .standard-grid-rows {
-    grid-template-rows: [row-start] 5rem [row-content] 1fr [footer] auto [row-end];
-  }
-
-  .contact-grid-rows {
-    grid-template-rows: [row-start] 5rem [row-content] auto [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
-  }
-  .home-grid-rows {
-    grid-template-rows: [row-start] 5rem [row-img-start] 2.5rem [row-content] auto [row-con-end] 1fr [row-img-end] 2.5rem [footer] auto [row-end];
-  } */
 }

@@ -1,0 +1,35 @@
+.bg-video {
+  grid-column: logo/right-fold;
+}
+
+.bg-design {
+  grid-column: logo/logo-pad;
+}
+
+.bg-contact {
+  grid-column: logo/overlap;
+}
+
+.bg-home {
+  grid-column: logo/pre-margin;
+}
+
+.split-bg {
+  grid-row: row-start/row-end;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 90%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  box-shadow: inset -10px 0 5px -10px rgba(0, 0, 0, 0.1);
+  z-index: -5;
+  /* background-blend-mode: overlay; */
+}
+@media screen and (max-width: 1600px) {
+  .split-bg {
+    grid-column: none;
+    grid-row: none;
+    background-color: none;
+    z-index: -5;
+  }
+}

@@ -1,0 +1,18 @@
+footer {
+  display: flex;
+  grid-column: logo/right-margin;
+  grid-row: footer/span 1;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 5rem;
+  min-width: 100%;
+}
+.footer-items {
+  color: var(--emphasis-light-color);
+}
+
+@media screen and (max-width: 1154px) {
+  footer {
+    border-top: 5px solid var(--emphasis-lighter-color);
+  }
+}
