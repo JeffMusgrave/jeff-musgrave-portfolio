@@ -2,12 +2,13 @@ import React from "react";
 import "./App.css";
 import "./appstyle/Grid.css";
 import "./appstyle/ContentBlocks.css";
+import "./appstyle/SRLmod.css"
 import Header from "./components/Header/Header";
 import Fold from "./components/Fold/Fold";
 import SwitchContainer from "./components/SwitchContainer";
 import Footer from "./components/Footer/Footer";
-// import PageContextProvider from "./contexts/PageContext";
 import { useLocation } from "react-router-dom";
+
 
 function App() {
   let location = useLocation();

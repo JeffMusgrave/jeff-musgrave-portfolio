@@ -10,20 +10,30 @@
   margin-bottom: 2.5rem;
   /* margin: 2.5rem 0 2.5rem 0; */
 }
+
+.gallery div {
+  display: contents;
+}
 .gallery figure {
   display: flex;
   justify-self: flex-start;
   width: 10rem;
   height: 10rem;
-  border-radius: 50%;
-  background-color: var(--emphasis-lighter-color);
+  /* clip-path: circle(40%); */
+  /* background-color: var(--emphasis-lighter-color); */
+}
+
+.gallery figure img {
+  height:100%;
+  width:auto;
+  cursor:pointer;
 }
 
 @media screen and (max-width: 1600px) {
   .gallery {
     grid-template-columns: repeat(auto-fit, 8rem);
   }
-  .gallery figure {
+  .gallery > figure {
     width: 8rem;
     height: 8rem;
   }

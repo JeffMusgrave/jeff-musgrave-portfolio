@@ -44,24 +44,46 @@
 
 @media screen and (max-width: 740px) {
   .nav-links {
-    display: none;
+    height:100vh;
+    width:100vw;
+    display:flex;
+    position:fixed;
+    left:0;
+    z-index:4;
+    background-color:white;
+    justify-content:center;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */ 
+
   }
-  .header > i {
-    display: flex;
-    justify-self: flex-end;
-    grid-column: right-fold/right-margin;
-    grid-row: 1/2;
-    z-index: 5;
-    position: sticky;
-    top: 0;
-    align-self: center;
-    color: var(--emphasis-dark-color);
-    font-weight: 500;
-    font-size: 2.25rem;
-    cursor: pointer;
-    /* background: url(../img/icon-menu.svg) no-repeat; */
-    background-position: center;
-    width: 25px;
-    height: 3.4rem;
+
+  .nav-hidden {
+    transform: translateX(-110vw);
+
   }
+
+  .nav-visible {
+    transform: translateX(0vw);
+  }
+
+  .nav-links > ul {
+      align-self:center;
+      height:80vh;
+      flex-direction:column;
+      justify-content:space-evenly;
+
+  }
+  .nav-links > ul li, #nav-links > ul > li:first-child, #nav-links > ul > li:not(:first-child)  {
+      display:flex;
+      margin:0rem;
+      align-self:center;        
+  } 
+  .nav-links > ul > li > a {
+      font-size:2rem;
+      
+  }
+
+
 }
