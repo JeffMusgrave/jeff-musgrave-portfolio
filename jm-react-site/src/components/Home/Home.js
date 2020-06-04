@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./Home.css";
 import "../../styles/HomeStyle.css";
 const Home = (props) => {
@@ -9,7 +10,11 @@ const Home = (props) => {
   return (
     <>
       <div className="frontpage content-style-2">
-        <main>
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
           <section>
             <h1>
               <span>Technically</span> <span>Creative</span>
@@ -45,7 +50,7 @@ const Home = (props) => {
               </Link>
             </svg>
           </div>
-        </main>
+        </motion.main>
       </div>
       <div className="home-bg-img"></div>
     </>

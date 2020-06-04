@@ -6,7 +6,6 @@ import "./Design.css";
 
 const Design = (props) => {
   const [image, setImage] = useState([]);
-  // const imageList = imgLoader();
 
   useLayoutEffect(() => {
     const getData = async () => {
@@ -16,12 +15,6 @@ const Design = (props) => {
     getData();
   }, []);
 
-  // const loadImages = () => {
-  //   setImage(imageList);
-  // };
-  // useEffect(() => {
-  //   loadImages();
-  // });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -58,7 +51,11 @@ const Design = (props) => {
   return (
     <>
       <div className="bgpad-block content-style-1 em-heading">
-        <main>
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
           <section>
             <h1>
               <span>Design</span>
@@ -96,7 +93,7 @@ const Design = (props) => {
               <figure></figure>
             </div>
           </article>
-        </main>
+        </motion.main>
       </div>
     </>
   );

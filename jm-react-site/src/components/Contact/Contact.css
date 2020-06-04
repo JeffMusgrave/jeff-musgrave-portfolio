@@ -7,6 +7,10 @@
   }
 }
 
+.gotcha {
+  display: none;
+}
+
 .contact-container,
 .contact-container main,
 .contact-container main article,

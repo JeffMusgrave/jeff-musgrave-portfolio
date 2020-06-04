@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/videoContent.js";
+import { motion } from "framer-motion";
 import "./Video.css";
 import "./ThumbTabs.css";
 import "./Showcase.css";
@@ -35,13 +36,23 @@ export default function Video() {
             .map((e, idx) =>
               e ? (
                 <React.Fragment key={`fragment_${idx}`}>
-                  <section key={`section_${idx}`}>
+                  <motion.section
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    key={`section_${idx}`}
+                  >
                     <h1 key={`section_h1_${idx}`}>
                       <span>{content[idx].title}</span>
                     </h1>
-                  </section>
+                  </motion.section>
 
-                  <article key={`article_${idx}`}>
+                  <motion.article
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    key={`article_${idx}`}
+                  >
                     <h2 key={`article_h2_${idx}`}>
                       {content[idx].subtitle}
                       <span>{content[idx].subtitle2}</span>
@@ -49,7 +60,7 @@ export default function Video() {
                     <p key={`paragraph_${idx}`}>
                       <span>{content[idx].description}</span>
                     </p>
-                  </article>
+                  </motion.article>
                 </React.Fragment>
               ) : null
             )
@@ -58,7 +69,10 @@ export default function Video() {
           <nav className="thumbtabs">
             <ul>
               {content.map((e, idx) => (
-                <li
+                <motion.li
+                  animate
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   type="button"
                   key={`thumbtab_${idx}`}
                   style={{ background: content[idx].buttonName }}
@@ -68,7 +82,7 @@ export default function Video() {
                     src={content[idx].thumbnail}
                     alt={content[idx].thumbnailAlt}
                   />
-                </li>
+                </motion.li>
               ))}
             </ul>
           </nav>
@@ -77,11 +91,15 @@ export default function Video() {
           .map((e, idx) =>
             e ? (
               <aside key={`aside_${idx}`} className="preview-container">
-                <div
-                  key={`videopreview_${idx}`}
+                <motion.div
                   className="video-preview"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  key={`videopreview_${idx}`}
                   style={{ backgroundImage: `url(${content[idx].image})` }}
-                ></div>
+                ></motion.div>
               </aside>
             ) : null
           )
