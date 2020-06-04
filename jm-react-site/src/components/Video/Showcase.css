@@ -8,7 +8,7 @@
 .video-preview {
   /* background: var(--emphasis-dark-color) url(../img/noharm.png) no-repeat center
     center; */
-  background: var(--emphasis-dark-color);
+
   background-size: cover;
   margin: 5px;
   flex: 1 0 auto;

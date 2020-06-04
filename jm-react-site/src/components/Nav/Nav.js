@@ -7,12 +7,10 @@ const Nav = (props) => {
   let viewport = props.viewWidth;
   let navSlider = {
     hidden: {
-      x: "-110vh",
-      opacity: 0
+      x: "-110vh"
     },
     visible: {
       x: "0vh",
-      opacity: 0.95
     }
   };
 

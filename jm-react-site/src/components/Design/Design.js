@@ -1,21 +1,59 @@
-import React, { useState, useEffect } from "react";
-import imgLoader from "../../data/designContent.js";
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import imageLoader from "../../data/designContent.js";
 import { SRLWrapper } from "simple-react-lightbox";
+import { motion } from "framer-motion";
 import "./Design.css";
 
 const Design = (props) => {
   const [image, setImage] = useState([]);
+  // const imageList = imgLoader();
 
-  const imageList = imgLoader();
+  useLayoutEffect(() => {
+    const getData = async () => {
+      const data = await imageLoader([]);
+      setImage(data);
+    };
+    getData();
+  }, []);
 
-  const loadImages = () => {
-    setImage(imageList);
-  };
-
+  // const loadImages = () => {
+  //   setImage(imageList);
+  // };
+  // useEffect(() => {
+  //   loadImages();
+  // });
   useEffect(() => {
-    loadImages();
-  });
+    window.scrollTo(0, 0);
+  }, []);
 
+  const style = {
+    hover: {
+      opacity: 1,
+      scale: 1.1,
+    },
+    tap: {
+      scale: 0.9,
+    },
+  };
+  const options = {
+    settings: {
+      lightboxTransitionTimingFunction: "easeInOut",
+      slideAnimationType: "slide",
+      lightboxTransitionSpeed: 0.4,
+    },
+    buttons: {
+      showAutoplayButton: false,
+      showDownloadButton: false,
+      showThumbnailsButton: false,
+    },
+    caption: {
+      captionFontFamily: "Barlow, sans-serif",
+    },
+    thumbnails: {
+      thumbnailsGap: ".5em",
+      thumbnailsSize: ["5em", "5em"],
+    },
+  };
 
   return (
     <>
@@ -29,13 +67,23 @@ const Design = (props) => {
           <article>
             <h2>Web Design</h2>
             <div className="gallery">
-              <SRLWrapper>
-                {image.map(({ fsImage, thumbnail, title, alt, id }) => (
-                  <figure key={`figure-${id}`}>
-                    <a href={fsImage} data-attribute="SRL" key={`anchor-${id}`}>
-                      <img src={thumbnail} title={title} alt={alt} key={`img-${id}`} />
+              <SRLWrapper options={options}>
+                {image.map(({ image, thumbnail, title, alt, id }) => (
+                  <motion.figure
+                    style={style.link}
+                    whileHover={style.hover}
+                    whileTap={style.tap}
+                    key={`figure-${id}`}
+                  >
+                    <a href={image} data-attribute="SRL" key={`anchor-${id}`}>
+                      <img
+                        src={thumbnail}
+                        title={title}
+                        alt={alt}
+                        key={`img-${id}`}
+                      />
                     </a>
-                  </figure>
+                  </motion.figure>
                 ))}
               </SRLWrapper>
             </div>

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Contact.css";
 
-
 const Contact = (props) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="content-style-1 em-heading contact-container">
@@ -11,7 +13,7 @@ const Contact = (props) => {
             <h1>
               <span>Contact</span>
             </h1>
-          </section >
+          </section>
           <article>
             <div className="contact-aside">
               <aside>
@@ -20,13 +22,13 @@ const Contact = (props) => {
                   Qui ullamco adipisicing aliqua officia veniam consequat. Esse
                   aliqua excepteur aliqua reprehenderit irure officia ea qui.
                   Nostrud sunt eiusmod cillum esse amet officia cillum sit.
-              </p>
+                </p>
               </aside>
             </div>
 
             <form className="contact-form" action="/placeholder" method="post">
               <div className="form-name">
-                <label for="name">Name</label>
+                <label htmlFor="name">Name</label>
                 <input
                   type="text"
                   id="name"
@@ -35,7 +37,7 @@ const Contact = (props) => {
                 />
               </div>
               <div className="form-email">
-                <label for="mail">E-mail</label>
+                <label htmlFor="mail">E-mail</label>
                 <input
                   type="email"
                   id="mail"
@@ -44,7 +46,7 @@ const Contact = (props) => {
                 />
               </div>
               <div className="form-message">
-                <label for="msg">Message</label>
+                <label htmlFor="msg">Message</label>
                 <textarea
                   id="msg"
                   name="user_message"

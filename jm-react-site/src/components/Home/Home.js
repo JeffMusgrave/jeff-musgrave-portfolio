@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import "../../styles/HomeStyle.css";
 const Home = (props) => {
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="frontpage content-style-2">
@@ -26,7 +29,7 @@ const Home = (props) => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <a href="./video.html">
+              <Link to="/video">
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
@@ -39,7 +42,7 @@ const Home = (props) => {
                   d="M41.4975 25.9828L21.6985 6.18383L27.3553 0.526973L52.8112 25.9828L27.3553 51.4387L21.6985 45.7818L41.4975 25.9828Z"
                   className="chevron"
                 />
-              </a>
+              </Link>
             </svg>
           </div>
         </main>

@@ -19,15 +19,41 @@
   justify-self: flex-start;
   width: 10rem;
   height: 10rem;
+
   /* clip-path: circle(40%); */
   /* background-color: var(--emphasis-lighter-color); */
 }
+
+/* .gallery figure:hover{
+  clip-path: circle(100%);
+} */
 
 .gallery figure img {
   height:100%;
   width:auto;
   cursor:pointer;
+  border-radius:50%;
+  
 }
+
+.gallery figure a, .gallery figure img, .gallery figure  {
+  padding:0;
+  background-color:transparent;
+  color: transparent;
+}
+
+.gallery a {
+  width:100%;
+  height:auto;
+}
+
+/* .gallery figure a:link, .gallery figure a:visited  {
+  opacity:0.95;
+}
+
+.gallery figure a:hover {
+  opacity:1;
+} */
 
 @media screen and (max-width: 1600px) {
   .gallery {

@@ -1,88 +1,94 @@
 import React from "react";
-import { useState } from "react";
-// import { motion } from "framer-motion";
-import data from "../../data/videoContent.json";
+import { useState, useEffect, useLayoutEffect } from "react";
+import contentLoader from "../../data/videoContent.js";
 import "./Video.css";
 import "./ThumbTabs.css";
 import "./Showcase.css";
 import "../../styles/ContentStyle.css";
 
-function Switch({ isOn, ...props }) {
-  // const className = `testObj ${isOn ? "on" : "off"}`;
+export default function Video() {
+  const [content, setContent] = useState([]);
   const [activeTab, setActiveTab] = useState(
-    data.map((e, idx) => (idx === 0 ? 1 : 0))
+    contentLoader().map((e, idx) => (idx === 0 ? 1 : 0))
   );
   const tabDisplay = (id) => {
     setActiveTab(activeTab.map((e, idx) => (idx === id ? 1 : 0)));
   };
-  // <motion.main
-  //   initial={props.fade.initial}
-  //   animate={props.fade.animate}
-  //   exit={props.fade.exit}
-  //   variants={props.fade}
-  // >
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
+  useLayoutEffect(() => {
+    const getData = async () => {
+      const data = await contentLoader([]);
+      setContent(data);
+    };
+    getData();
+  }, []);
 
-  return (
-    <>
+  if (content.length > 0) {
+    return (
       <div className="showcase-content left-block content-style-1 em-heading">
-
         <main>
           {activeTab
             .map((e, idx) =>
               e ? (
-                <>
-                  <section>
-                    <h1>
-                      <span>{data[idx].title}</span>
+                <React.Fragment key={`fragment_${idx}`}>
+                  <section key={`section_${idx}`}>
+                    <h1 key={`section_h1_${idx}`}>
+                      <span>{content[idx].title}</span>
                     </h1>
                   </section>
 
-                  <article>
-                    <h2>
-                      {data[idx].subtitle}
-                      <span>{data[idx].subtitle2}</span>
+                  <article key={`article_${idx}`}>
+                    <h2 key={`article_h2_${idx}`}>
+                      {content[idx].subtitle}
+                      <span>{content[idx].subtitle2}</span>
                     </h2>
-                    <p>
-                      <span>{data[idx].description}</span>
+                    <p key={`paragraph_${idx}`}>
+                      <span>{content[idx].description}</span>
                     </p>
                   </article>
-                </>
+                </React.Fragment>
               ) : null
             )
             .filter((x) => x)}
 
           <nav className="thumbtabs">
             <ul>
-              {data.map((e, idx) => (
+              {content.map((e, idx) => (
                 <li
                   type="button"
-                  key={idx}
-                  style={{ backgroundColor: data[idx].buttonName }}
+                  key={`thumbtab_${idx}`}
+                  style={{ background: content[idx].buttonName }}
                   onClick={() => tabDisplay(idx)}
-                ></li>
+                >
+                  <img
+                    src={content[idx].thumbnail}
+                    alt={content[idx].thumbnailAlt}
+                  />
+                </li>
               ))}
             </ul>
           </nav>
-
         </main>
         {activeTab
           .map((e, idx) =>
             e ? (
-              <aside className="preview-container">
-                <div className="video-preview">{data[idx].image}</div>
+              <aside key={`aside_${idx}`} className="preview-container">
+                <div
+                  key={`videopreview_${idx}`}
+                  className="video-preview"
+                  style={{ backgroundImage: `url(${content[idx].image})` }}
+                ></div>
               </aside>
             ) : null
           )
           .filter((x) => x)}
       </div>
-    </>
-  );
-}
-
-export default function Video() {
-  const [isOn, setIsOn] = useState(false);
-
-  return <Switch isOn={isOn} onClick={() => setIsOn(!isOn)} />;
+    );
+  } else {
+    return null;
+  }
 }
