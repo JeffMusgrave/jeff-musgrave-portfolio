@@ -54,7 +54,7 @@ const Contact = (props) => {
                   exit={{ opacity: 0 }}
                 />
               </div>
-              <input type="text" name="_gotcha" class="gotcha" />
+              <input type="text" name="_gotcha" className="gotcha" />
               <div className="form-email">
                 <label htmlFor="mail">E-mail</label>
                 <input

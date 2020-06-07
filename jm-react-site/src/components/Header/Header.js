@@ -1,41 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 import Nav from "../Nav/Nav";
 import "./Header.css";
+import MenuButton from "../MenuButton/MenuButton";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
+  const [viewWidth, setViewWidth] = useState(window.innerWidth <= 740);
+  const [scrollDown, setScrollDown] = useState(false);
+
   const menuVis = () => {
     setMenu(!menu);
   };
-  const [viewWidth, setViewWidth] = useState(window.innerWidth <= 740);
 
+  // View Width
   useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth > 740) {
-        setMenu(false);
-      }
-      setViewWidth(window.innerWidth <= 740);
-    }
+    const handleResize = () => {
+      let winWidth = window.innerWidth;
+      winWidth > 740 ? setViewWidth(false) : setViewWidth(true);
+    };
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   });
 
+  //Detect Scroll
   useEffect(() => {
-    const headerbar = document.querySelector(".header-bg");
-
-    const rem = parseInt(getComputedStyle(document.documentElement).fontSize);
-
-    const scrollCheck = () => {
+    const handleScroll = () => {
+      const rem = parseInt(getComputedStyle(document.documentElement).fontSize);
       let y = window.scrollY;
-      if (y > 5 * rem) {
-        headerbar.style.backgroundColor = "var(--background-color)";
-      } else {
-        headerbar.style.backgroundColor = "transparent";
-      }
+      return y > 2 * rem ? setScrollDown(true) : setScrollDown(false);
     };
-    window.addEventListener("scroll", scrollCheck);
-  });
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.addEventListener("scroll", handleScroll);
+  }, [scrollDown]);
 
   return (
     <header className="header">
@@ -47,8 +47,13 @@ const Header = () => {
 
       <Nav menu={menu} viewWidth={viewWidth} menuVis={menuVis} />
 
-      <i className="menu-btn" onClick={menuVis}></i>
-      <div className="header-bg"></div>
+      <div className="menu-btn" onClick={menuVis}>
+        <MenuButton menu={menu} />
+      </div>
+
+      <motion.div
+        className={"header-bg" + (scrollDown ? " header-vis" : " header-trans")}
+      ></motion.div>
     </header>
   );
 };

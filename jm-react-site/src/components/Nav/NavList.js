@@ -1,26 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function NavList(props) {
+export default function NavList({ menuVis }) {
   return (
     <ul>
       <li>
-        <NavLink to="/" onClick={props.props.menuVis}>
+        <NavLink to="/" onClick={menuVis}>
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="/video" onClick={props.props.menuVis}>
+        <NavLink to="/video" onClick={menuVis}>
           Video
         </NavLink>
       </li>
       <li>
-        <NavLink to="/design" onClick={props.props.menuVis}>
+        <NavLink to="/design" onClick={menuVis}>
           Design
         </NavLink>
       </li>
       <li>
-        <NavLink to="/contact" onClick={props.props.menuVis}>
+        <NavLink to="/contact" onClick={menuVis}>
           Contact
         </NavLink>
       </li>

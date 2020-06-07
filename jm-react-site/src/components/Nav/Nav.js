@@ -3,8 +3,7 @@ import NavList from "./NavList";
 import "./Nav.css";
 import { motion } from "framer-motion";
 
-const Nav = (props) => {
-  let viewport = props.viewWidth;
+const Nav = ({ menu, viewWidth, menuVis }) => {
   let navSlider = {
     hidden: {
       x: "-110vh",
@@ -14,22 +13,20 @@ const Nav = (props) => {
     },
   };
 
-  if (viewport) {
+  if (viewWidth) {
     return (
       <motion.nav
         initial={navSlider.hidden}
-        animate={
-          props.menu && props.viewWidth ? navSlider.visible : navSlider.hidden
-        }
+        animate={!menu && viewWidth ? { x: "-110vh" } : { x: "0vh" }}
         className="nav-links"
       >
-        <NavList props={props} />
+        <NavList menuVis={menuVis} />
       </motion.nav>
     );
   }
   return (
     <nav className="nav-links">
-      <NavList props={props} />
+      <NavList menuVis={menuVis} />
     </nav>
   );
 };

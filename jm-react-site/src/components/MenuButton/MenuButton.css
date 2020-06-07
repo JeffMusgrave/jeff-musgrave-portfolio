@@ -1,0 +1,27 @@
+@media screen and (max-width: 740px) {
+  .menu-btn {
+    display: flex;
+    justify-self: flex-end;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    grid-column: right-fold/right-margin;
+    grid-row: 1/2;
+    z-index: 5;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    height: 3.4rem;
+  }
+
+  .hamburger span {
+    z-index: 5;
+    background-color: var(--emphasis-dark-color);
+    border-radius: 3px;
+    content: "";
+    display: block;
+    height: 3px;
+    margin: 5px 0;
+    width: 1.75rem;
+  }
+}
