@@ -1,20 +1,24 @@
 import React from "react";
 import "./App.css";
-import "./appstyle/Grid.css";
-import "./appstyle/ContentBlocks.css";
-import "./appstyle/SRLmod.css"
+import "./styles/Grid.css";
+import "./styles/ContentBlocks.css";
+import "./styles/SRLmod.css";
 import Header from "./components/Header/Header";
 import Fold from "./components/Fold/Fold";
 import SwitchContainer from "./components/SwitchContainer";
 import Footer from "./components/Footer/Footer";
 import { useLocation } from "react-router-dom";
 
-
 function App() {
   let location = useLocation();
+  let gridClass;
+  location.pathname === "/contact"
+    ? (gridClass = "content-grid contact-rows")
+    : (gridClass = "content-grid standard-rows");
+
   return (
     <div className="flex-container">
-      <div className="content-grid">
+      <div className={gridClass}>
         <Header />
         <SwitchContainer />
         <Footer />

@@ -1,0 +1,62 @@
+.content-grid {
+  justify-self: center;
+  display: grid;
+  width: 80vw;
+  max-width: 1800px;
+  grid-gap: 0;
+  min-height: 100%;
+  grid-template-columns:
+    [logo] min-content
+    [edge] 2.5rem [logo-pad] 2.5rem [bg-pad content] 1fr [content-mid] minmax(
+      min-content,
+      1fr
+    )
+    [aside] 1fr[overlap] 0.5fr
+    [right-fold] 1fr [pre-margin] 1fr [right-margin];
+}
+
+.standard-rows {
+  grid-template-rows: [row-start] 5rem [row-content] 1fr [footer] auto [row-end];
+}
+
+.contact-rows {
+  grid-template-rows: [row-start] 5rem [row-content] 1fr [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
+}
+
+@media screen and (max-width: 1600px) {
+  .content-grid {
+    grid-template-columns:
+      [logo content] min-content
+      [edge] 2.5rem [logo-pad] 2.5rem [bg-pad] minmax(min-content, 1fr)
+      [content-mid] minmax(min-content, 1fr)
+      [aside] minmax(min-content, 0.5fr) [overlap] minmax(min-content, 1fr)
+      [right-fold] 4fr [pre-margin right-margin];
+  }
+}
+@media screen and (max-width: 1154px) {
+  .content-grid {
+    grid-template-columns: [logo edge content logo-pad bg-pad right-fold] 30vw [content-mid overlap aside] 60vw [pre-margin right-margin];
+    width: auto;
+    min-height: 100%;
+  }
+
+  .standard-rows {
+    grid-template-rows: [row-start] 5rem [row-content] 1fr [footer] auto [row-end];
+  }
+
+  .contact-rows {
+    grid-template-rows: [row-start] 5rem [row-content] auto [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
+  }
+}
+@media screen and (max-width: 740px) {
+  .content-grid {
+    grid-template-columns: [logo edge content logo-pad bg-pad aside overlap right-fold] 45vw [content-mid aside] 45vw [pre-margin right-margin];
+  }
+  .standard-rows {
+    grid-template-rows: [row-start] 5rem [row-content] 1fr [footer] auto [row-end];
+  }
+
+  .contact-rows {
+    grid-template-rows: [row-start] 5rem [row-content] auto [row-name] 5rem [row-email] 5rem [row-message] 5rem [row-msg-end] 13rem [row-submit] 6.25rem [post-form] 1fr [footer] auto [row-end];
+  }
+}

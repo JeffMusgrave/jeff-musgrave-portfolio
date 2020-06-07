@@ -10,14 +10,13 @@
   z-index: 3;
   position: sticky;
   top: 0;
-  background-color: var(--background-color);
 }
 
 .logo {
   align-self: center;
   color: var(--emphasis-dark-color);
   font-weight: 500;
-  font-size: 2.25rem;
+  font-size: var(--logo);
   z-index: 5;
   position: sticky;
   top: 0;

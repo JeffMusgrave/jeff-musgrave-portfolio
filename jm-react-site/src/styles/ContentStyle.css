@@ -7,7 +7,7 @@
 }
 
 .content-style-1 main section h1 {
-  font-size: 3.7vw;
+  font-size: var(--lg);
   width: 100%;
   color: var(--emphasis-light-color);
 }
@@ -40,17 +40,13 @@ h1.em-heading,
 }
 .content-style-1 main article > h2 {
   font-weight: 500;
-  font-size: 2vw;
+  font-size: var(--md);
   padding: 2rem 0;
 }
 .content-style-1 main article h2 span {
   display: table;
 }
 @media screen and (max-width: 1154px) {
-  .content-style-1 main section > h1:first-of-type span {
-    font-size: 4rem;
-  }
-
   h1.em-heading,
   .em-heading main section h1 {
     background-color: #fff;
@@ -62,10 +58,9 @@ h1.em-heading,
     padding: 0;
   }
   .content-style-1 main article > h2 {
-    font-size: 1.5rem;
     padding: 2rem 0;
   }
-  .content-style-1 main article > p {
+  /* .content-style-1 main article > p {
     font-size: 1.25rem;
-  }
+  } */
 }

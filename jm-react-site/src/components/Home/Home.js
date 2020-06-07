@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Home.css";
-import "../../styles/HomeStyle.css";
 const Home = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
