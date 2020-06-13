@@ -6,6 +6,19 @@
   align-self: center;
   justify-self: flex-end;
   margin-left: 5rem;
+  display: block;
+  cursor: pointer;
+}
+
+a:link .chevron,
+a:visited .chevron {
+  fill: var(--emphasis-light-color);
+}
+
+.home-chevron:hover > svg > .chevron {
+  fill: var(--emphasis-dark-color);
+  padding: 0;
+  background-color: transparent;
 }
 
 .content-style-2 main section {
@@ -134,15 +147,4 @@
     justify-self: center;
     margin: 2.5rem 0 2.5rem 0;
   }
-}
-
-a:link .chevron,
-a:visited .chevron {
-  fill: var(--emphasis-light-color);
-}
-
-a:hover .chevron {
-  fill: var(--emphasis-dark-color);
-  padding: 0;
-  background-color: transparent;
 }

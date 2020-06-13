@@ -29,22 +29,23 @@
 } */
 
 .gallery figure img {
-  height:100%;
-  width:auto;
-  cursor:pointer;
-  border-radius:50%;
-  
+  height: 100%;
+  width: auto;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
-.gallery figure a, .gallery figure img, .gallery figure  {
-  padding:0;
-  background-color:transparent;
+.gallery figure a,
+.gallery figure img,
+.gallery figure {
+  padding: 0;
+  background-color: transparent;
   color: transparent;
 }
 
 .gallery a {
-  width:100%;
-  height:auto;
+  width: 100%;
+  height: auto;
 }
 
 /* .gallery figure a:link, .gallery figure a:visited  {
@@ -59,7 +60,7 @@
   .gallery {
     grid-template-columns: repeat(auto-fit, 8rem);
   }
-  .gallery > figure {
+  .gallery figure {
     width: 8rem;
     height: 8rem;
   }

@@ -11,32 +11,46 @@
   --emphasis-light-color: #7b7b7b;
   --emphasis-lighter-color: #eaeaea;
   --background-color: #f6f6f6;
-  --xl: 3rem;
+  --xl: 3.5rem;
   --lg: 2rem;
-  --md: 1.5rem;
-  --sm: 1.25rem;
-  --xs: 0.75rem;
+  --ml: 1.5rem;
+  --md: 1.33rem;
+  --sm: 1.2rem;
+  --xs: 1rem;
   --logo: 1.5rem;
   --navtext: 1rem;
 }
 
+@media screen and (max-width: 1600px) {
+  :root {
+    --xl: 2.5rem;
+    --lg: 2rem;
+    --ml: 1.33rem;
+    --md: 1.25rem;
+    --sm: 1.125rem;
+    --xs: 1rem;
+  }
+}
+
 @media screen and (max-width: 1154px) {
   :root {
-    --xl: 2.75rem;
+    --xl: 2.125rem;
     --lg: 1.75rem;
-    --md: 1.25rem;
+    --ml: 1.33rem;
+    --md: 1.125rem;
     --sm: 1rem;
-    --xs: 0.5rem;
+    --xs: 0.9rem;
   }
 }
 
 @media screen and (max-width: 840px) {
   :root {
-    --xl: 2.125rem;
-    --lg: 1.125rem;
-    --md: 0.85rem;
-    --sm: 0.66rem;
-    --xs: 0.2rem;
+    --xl: 2rem;
+    --lg: 1.5rem;
+    --ml: 1.33rem;
+    --md: 1.25rem;
+    --sm: 1.125rem;
+    --xs: 0.85rem;
     --logo: 1.33rem;
     --navtext: 0.95rem;
   }
@@ -44,11 +58,25 @@
 
 @media screen and (max-width: 590px) {
   :root {
-    --xl: 2.25rem;
+    --xl: 2rem;
+    --lg: 1.33rem;
+    --ml: 1.25rem;
+    --md: 1.125rem;
+    --sm: 1rem;
+    --xs: 0.75rem;
+    --logo: 1.25rem;
+    --navtext: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  :root {
+    --xl: 1.33rem;
     --lg: 1.25rem;
-    --md: 1rem;
-    --sm: 0.75rem;
-    --xs: 0.25rem;
+    --ml: 1.125rem;
+    --md: 1.1rem;
+    --sm: 1rem;
+    --xs: 0.75rem;
     --logo: 1.25rem;
     --navtext: 0.85rem;
   }
@@ -86,6 +114,7 @@ a:hover {
 h1 {
   font-weight: 500;
   font-size: var(--xl);
+  color: var(--emphasis-light-color);
 }
 h2 {
   font-size: var(--lg);

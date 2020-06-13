@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 const Nav = ({ menu, viewWidth, menuVis }) => {
   let navSlider = {
     hidden: {
-      x: "-110vh",
+      x: "-110vw",
     },
     visible: {
-      x: "0vh",
+      x: "0vw",
     },
   };
 
@@ -17,7 +17,7 @@ const Nav = ({ menu, viewWidth, menuVis }) => {
     return (
       <motion.nav
         initial={navSlider.hidden}
-        animate={!menu && viewWidth ? { x: "-110vh" } : { x: "0vh" }}
+        animate={!menu && viewWidth ? { x: "-110vw" } : { x: "0vw" }}
         className="nav-links"
       >
         <NavList menuVis={menuVis} />

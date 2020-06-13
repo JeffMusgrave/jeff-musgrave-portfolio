@@ -14,10 +14,10 @@ export default function MenuButton({ menu }) {
       opacity: 0,
     },
     top: {
-      transform: "translateY(8px) rotate(135deg)",
+      transform: "translateY(7px) rotate(135deg)",
     },
     bottom: {
-      transform: "translateY(-8px) rotate(-135deg)",
+      transform: "translateY(-7px) rotate(-135deg)",
     },
   };
   return (

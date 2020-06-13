@@ -7,7 +7,7 @@ import MenuButton from "../MenuButton/MenuButton";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
-  const [viewWidth, setViewWidth] = useState(window.innerWidth <= 740);
+  const [viewWidth, setViewWidth] = useState(window.innerWidth <= 590);
   const [scrollDown, setScrollDown] = useState(false);
 
   const menuVis = () => {
@@ -18,7 +18,12 @@ const Header = () => {
   useEffect(() => {
     const handleResize = () => {
       let winWidth = window.innerWidth;
-      winWidth > 740 ? setViewWidth(false) : setViewWidth(true);
+      if (winWidth > 590) {
+        setViewWidth(false);
+        setMenu(false);
+      } else {
+        setViewWidth(true);
+      }
     };
 
     window.addEventListener("resize", handleResize);

@@ -54,7 +54,7 @@ export default function Video() {
                     key={`article_${idx}`}
                   >
                     <h2 key={`article_h2_${idx}`}>
-                      {content[idx].subtitle}
+                      <span>{content[idx].subtitle}</span>
                       <span>{content[idx].subtitle2}</span>
                     </h2>
                     <p key={`paragraph_${idx}`}>
@@ -93,8 +93,8 @@ export default function Video() {
               <aside key={`aside_${idx}`} className="preview-container">
                 <motion.div
                   className="video-preview"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ opacity: 0.9 }}
+                  whileTap={{ opacity: 1 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   key={`videopreview_${idx}`}

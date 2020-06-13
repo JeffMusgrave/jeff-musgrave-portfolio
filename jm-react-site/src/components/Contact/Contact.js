@@ -27,11 +27,10 @@ const Contact = (props) => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <h2>Some Reasons to Contact Me</h2>
+                <h2>Some Reason</h2>
                 <p>
                   Qui ullamco adipisicing aliqua officia veniam consequat. Esse
                   aliqua excepteur aliqua reprehenderit irure officia ea qui.
-                  Nostrud sunt eiusmod cillum esse amet officia cillum sit.
                 </p>
               </motion.aside>
             </div>

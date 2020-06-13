@@ -1,4 +1,4 @@
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 590px) {
   .menu-btn {
     display: flex;
     justify-self: flex-end;
@@ -21,7 +21,7 @@
     content: "";
     display: block;
     height: 3px;
-    margin: 5px 0;
-    width: 1.75rem;
+    margin: 4px 0;
+    width: 1.5rem;
   }
 }

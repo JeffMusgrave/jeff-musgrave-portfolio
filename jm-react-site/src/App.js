@@ -12,7 +12,7 @@ import { useLocation } from "react-router-dom";
 function App() {
   let location = useLocation();
   let gridClass;
-  location.pathname === "/contact"
+  location.pathname === "/contact" || "/design"
     ? (gridClass = "content-grid contact-rows")
     : (gridClass = "content-grid standard-rows");
 

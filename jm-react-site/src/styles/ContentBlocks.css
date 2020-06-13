@@ -1,5 +1,6 @@
 .frontpage {
   display: contents;
+  min-height: 100%;
 }
 
 .frontpage main {
@@ -8,7 +9,7 @@
   align-self: center;
   z-index: 2;
   min-width: 100%;
-
+  padding-bottom: 2.5rem;
   display: grid;
   grid-template-columns:
     [h-col-0 h-col-1] 13rem [h-col-2] 13rem [h-col-3 h-text] minmax(
@@ -20,12 +21,9 @@
 }
 
 @media screen and (max-width: 1600px) {
-  .frontpage {
+  .frontpage main {
     grid-column: logo/right-margin;
     grid-row: row-content/footer;
-  }
-
-  .frontpage main {
     grid-template-columns: [h-col-0].25fr[h-col-1] 13rem [h-col-2] 13rem [h-col-3 h-text] 1fr [h-col-4 chev] 0.25fr [chev-end h-col-5].25fr [h-col-6];
   }
 }
@@ -37,15 +35,13 @@
   }
 
   .frontpage main {
-    grid-row: row-content/row-message;
-    margin-top: 5rem;
     grid-template-columns: [h-col-0 h-col-pad-l] 0.25fr [h-col-1 h-col-2 h-col-3] 0.5fr [h-text] 0.5fr [chev] 0.25fr [chev-end h-col-4] 0.25fr [h-col-5 h-col-6];
   }
 }
 
 @media screen and (max-width: 800px) {
   .frontpage main {
-    margin-top: 2.5rem;
+    padding-bottom: 2.5rem;
     grid-template-columns: [h-col-0 h-col-pad-l] 0.25fr [h-col-1 h-col-2 h-col-3 h-text] 1fr [chev] 0.25fr [chev-end h-col-4] 0.25fr [h-col-5 h-col-6];
   }
 }
@@ -109,7 +105,7 @@
 @media screen and (max-width: 1154px) {
   .bgpad-block {
     display: block;
-    grid-column: content/right-margin;
+    grid-column: logo/right-margin;
     grid-row: row-content/footer;
     margin-bottom: 2.5rem;
     min-height: 100%;
