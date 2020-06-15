@@ -23,21 +23,18 @@
 .logo {
   display: flex;
   align-items: center;
-  color: var(--emphasis-dark-color);
   font-weight: 500;
   font-size: var(--logo);
-  z-index: 5;
+  z-index: 6;
   position: sticky;
   top: 0;
   grid-column: logo/span 1;
   grid-row: row-start/span 1;
   height: 100%;
+  white-space: nowrap;
 }
 
-.logo a {
-}
-
-.logo > span {
+.logo span {
   color: var(--emphasis-light-color);
 }
 

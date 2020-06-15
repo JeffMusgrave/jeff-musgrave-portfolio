@@ -46,7 +46,7 @@ const Header = () => {
     <header className="header">
       <div className="logo">
         <NavLink to="/">
-          jeff<span>musgrave</span>
+          jeff <span>musgrave</span>
         </NavLink>
       </div>
 
