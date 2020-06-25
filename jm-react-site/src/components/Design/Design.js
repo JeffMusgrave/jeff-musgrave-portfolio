@@ -6,7 +6,7 @@ import {
   fadeSettings as fade,
   lightboxOptions as options,
   hoverSettings as hover,
-} from "../../variables";
+} from "../../variables/variables";
 import "./Design.css";
 import "../../styles/ContentNav.css";
 

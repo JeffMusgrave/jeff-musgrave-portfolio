@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/videoContent.js";
 import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables";
+import { fadeSettings as fade } from "../../variables/variables";
 import "./Video.css";
 import "../../styles/Showcase.css";
 import "../../styles/ContentStyle.css";

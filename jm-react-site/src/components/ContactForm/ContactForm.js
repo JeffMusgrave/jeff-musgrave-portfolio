@@ -1,9 +1,15 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeSettings as fade } from "../../variables/variables";
 
 export default function ContactForm({ activeTab, info }) {
   if (info.length > 0) {
     return (
-      <form
+      <motion.form
+        variants={fade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
         id="contactform"
         className={`contact-form ${
           activeTab[info.indexOf("contact")] ? `` : `hidden`
@@ -13,7 +19,8 @@ export default function ContactForm({ activeTab, info }) {
       >
         <div className="form-name">
           <label htmlFor="name">Name</label>
-          <input
+          <motion.input
+            variants={fade}
             type="text"
             id="name"
             name="user_name"
@@ -23,7 +30,8 @@ export default function ContactForm({ activeTab, info }) {
         <input type="text" name="_gotcha" className="gotcha" />
         <div className="form-email">
           <label htmlFor="mail">E-mail</label>
-          <input
+          <motion.input
+            variants={fade}
             type="email"
             id="mail"
             name="user_email"
@@ -32,12 +40,13 @@ export default function ContactForm({ activeTab, info }) {
         </div>
         <div className="form-message">
           <label htmlFor="msg">Message</label>
-          <textarea
+          <motion.textarea
+            variants={fade}
             id="msg"
             name="user_message"
             rows="5"
             placeholder="Your Message"
-          ></textarea>
+          ></motion.textarea>
         </div>
         <input
           type="hidden"
@@ -45,9 +54,9 @@ export default function ContactForm({ activeTab, info }) {
           value="https://www.jeffmusgrave.com"
         />
         <div className="form-button">
-          <button>submit</button>
+          <motion.button variants={fade}>submit</motion.button>
         </div>
-      </form>
+      </motion.form>
     );
   } else {
     return null;

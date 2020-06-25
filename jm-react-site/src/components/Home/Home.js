@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables";
+import { fadeSettings as fade } from "../../variables/variables";
 import "./Home.css";
 const Home = (props) => {
   useEffect(() => {

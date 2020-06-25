@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
 import contentLoader from "../../data/aboutContent.js";
 import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables";
-import ContactForm from "./ContactForm";
+import { fadeSettings as fade } from "../../variables/variables";
+import ContactForm from "../ContactForm/ContactForm";
 import "./About.css";
 import "../../styles/Showcase.css";
 import "../../styles/ContentNav.css";
@@ -32,6 +32,10 @@ const Contact = (props) => {
   }, []);
 
   if (info.length > 0) {
+    const tabTest = activeTab
+      .map((e, idx) => (e ? info[idx] : ""))
+      .filter((x) => x)
+      .toString();
     return (
       <div className="content-style video-position contact-container">
         <motion.main
@@ -48,8 +52,11 @@ const Contact = (props) => {
           <article>
             <Showcase content={content} />
             <SubNav activeTab={activeTab} tabDisplay={tabDisplay} info={info} />
-            <Bio activeTab={activeTab} info={info} content={content} />
-            <ContactForm activeTab={activeTab} info={info} />
+            {tabTest === "about" ? (
+              <Bio activeTab={activeTab} info={info} content={content} />
+            ) : (
+              <ContactForm activeTab={activeTab} info={info} />
+            )}
           </article>
         </motion.main>
       </div>
