@@ -2,7 +2,13 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/designContent.js";
 import { SRLWrapper } from "simple-react-lightbox";
 import { motion } from "framer-motion";
+import {
+  fadeSettings as fade,
+  lightboxOptions as options,
+  hoverSettings as hover,
+} from "../../variables";
 import "./Design.css";
+import "../../styles/ContentNav.css";
 
 const Design = (props) => {
   const [content, setContent] = useState({});
@@ -26,47 +32,17 @@ const Design = (props) => {
     setActiveTab(activeTab.map((e, idx) => (idx === id ? 1 : 0)));
   };
 
-  const style = {
-    hover: {
-      opacity: 1,
-      scale: 1.1,
-    },
-    tap: {
-      scale: 0.9,
-    },
-  };
-
-  const options = {
-    settings: {
-      lightboxTransitionTimingFunction: "easeInOut",
-      slideAnimationType: "slide",
-      lightboxTransitionSpeed: 0.4,
-    },
-    buttons: {
-      showAutoplayButton: false,
-      showDownloadButton: false,
-      showThumbnailsButton: false,
-    },
-    caption: {
-      captionFontFamily: "Barlow, sans-serif",
-    },
-    thumbnails: {
-      thumbnailsGap: ".5em",
-      thumbnailsSize: ["5em", "5em"],
-    },
-  };
-
   const info = Object.keys(content);
 
   if (info.length > 0) {
-    console.log(content);
     return (
       <>
-        <div className="bgpad-block content-style-1 em-heading">
+        <div className="design-position content-style em-heading">
           <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            variants={fade}
+            initial="initial"
+            animate="animate"
+            exit="exit"
           >
             <section>
               <h1>
@@ -74,76 +50,17 @@ const Design = (props) => {
               </h1>
             </section>
             <article>
-              <nav className="gallery-nav">
-                {activeTab.map((e, idx) => (
-                  <button
-                    className={`gallery-nav-btn ${e ? `selected` : ``}`}
-                    onClick={() => tabDisplay(idx)}
-                  >
-                    {`${info[idx]}`}
-                  </button>
-                ))}
-              </nav>
-              <div className="gallery-blurb">
-                {activeTab.map((e, idx) =>
-                  e ? (
-                    <>
-                      <motion.h3
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                      >{`${content[info[idx]]["heading"]}`}</motion.h3>
-                      <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                      >
-                        {`${content[info[idx]]["description"]}`}
-                      </motion.p>
-                    </>
-                  ) : null
-                )}
-              </div>
-
-              {activeTab
-                .map((e, idx) =>
-                  e ? (
-                    <div className="gallery" key={`gallery_${idx}`}>
-                      <SRLWrapper
-                        options={options}
-                        key={`SRLWrapper_${idx}_${idx}`}
-                      >
-                        {content[info[idx]]["items"].map(
-                          ({ image, thumbnail, title, alt, id }) => (
-                            <motion.figure
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              exit={{ opacity: 0 }}
-                              style={style.link}
-                              whileHover={style.hover}
-                              whileTap={style.tap}
-                              key={`figure-${id}`}
-                            >
-                              <a
-                                href={image}
-                                data-attribute="SRL"
-                                key={`anchor-${id}`}
-                              >
-                                <img
-                                  src={thumbnail}
-                                  title={title}
-                                  alt={alt}
-                                  key={`img-${id}`}
-                                />
-                              </a>
-                            </motion.figure>
-                          )
-                        )}
-                      </SRLWrapper>
-                    </div>
-                  ) : null
-                )
-                .filter((x) => x)}
+              <SubNav
+                activeTab={activeTab}
+                tabDisplay={tabDisplay}
+                info={info}
+              />
+              <Description
+                activeTab={activeTab}
+                content={content}
+                info={info}
+              />
+              <Gallery activeTab={activeTab} content={content} info={info} />
             </article>
           </motion.main>
         </div>
@@ -153,4 +70,77 @@ const Design = (props) => {
     return null;
   }
 };
+
+const SubNav = ({ tabDisplay, activeTab, info }) => {
+  return (
+    <nav className="gallery-nav">
+      {activeTab.map((e, idx) => (
+        <button
+          className={`content-nav-btn ${e ? `selected` : ``}`}
+          onClick={() => tabDisplay(idx)}
+          key={`btn-${info[idx]}`}
+        >
+          {`${info[idx]}`}
+        </button>
+      ))}
+    </nav>
+  );
+};
+
+const Description = ({ activeTab, content, info }) => {
+  return (
+    <div className="gallery-blurb">
+      {activeTab.map((e, idx) =>
+        e ? (
+          <React.Fragment key={`fragment-${idx}`}>
+            <motion.h3 variants={fade} key={`h-${idx}`}>{`${
+              content[info[idx]]["heading"]
+            }`}</motion.h3>
+            <motion.p variants={fade} key={`p-${idx}`}>
+              {`${content[info[idx]]["description"]}`}
+            </motion.p>
+          </React.Fragment>
+        ) : null
+      )}
+    </div>
+  );
+};
+
+const Gallery = ({ activeTab, content, info }) => {
+  return (
+    <>
+      {activeTab
+        .map((e, idx) =>
+          e ? (
+            <div className="gallery" key={`gallery_${idx}`}>
+              <SRLWrapper options={options} key={`SRLWrapper_${idx}_${idx}`}>
+                {content[info[idx]]["items"].map(
+                  ({ image, thumbnail, title, alt, id }) => (
+                    <motion.figure
+                      variants={fade}
+                      style={hover.link}
+                      whileHover={hover.hover}
+                      whileTap={hover.tap}
+                      key={`figure-${id}`}
+                    >
+                      <a href={image} data-attribute="SRL" key={`anchor-${id}`}>
+                        <img
+                          src={thumbnail}
+                          title={title}
+                          alt={alt}
+                          key={`img-${id}`}
+                        />
+                      </a>
+                    </motion.figure>
+                  )
+                )}
+              </SRLWrapper>
+            </div>
+          ) : null
+        )
+        .filter((x) => x)}
+    </>
+  );
+};
+
 export default Design;

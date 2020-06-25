@@ -10,6 +10,13 @@
   cursor: pointer;
 }
 
+.home-chevron:link,
+.home-chevron:visited,
+.home-chevron:hover {
+  background-color: transparent;
+  padding: 2.5rem;
+}
+
 a:link .chevron,
 a:visited .chevron {
   fill: var(--emphasis-light-color);
@@ -21,16 +28,16 @@ a:visited .chevron {
   background-color: transparent;
 }
 
-.content-style-2 main section {
+.home-style main section {
   display: contents;
 }
 
-.content-style-2 main section h1 {
+.home-style main section h1 {
   display: contents;
   font-style: italic;
 }
 
-.content-style-2 main section h1 span:first-of-type {
+.home-style main h1 span:first-of-type {
   grid-column: h-col-1/h-col-4;
   grid-row: h-row-1/h-row-2;
   align-self: center;
@@ -39,7 +46,7 @@ a:visited .chevron {
   font-size: 6rem;
 }
 
-.content-style-2 main section h1 span:last-of-type {
+.home-style main h1 span:last-of-type {
   grid-column: h-col-2/h-col-4;
   grid-row: h-row-2/h-row-3;
   margin: -5.5rem 0 0 0rem;
@@ -49,45 +56,41 @@ a:visited .chevron {
   text-transform: lowercase;
 }
 
-.content-style-2 main article {
+.home-style main article {
   align-self: flex-start;
   grid-column: h-text/h-col-4;
   grid-row: h-row-3/h-row-4;
 }
-.content-style-2 main article h2,
-.content-style-2 main article p {
+.home-style main article h2,
+.home-style main article p {
   color: var(--emphasis-dark-color);
-  /* margin-left: 30rem; */
 }
 
-.content-style-2 main article h2 {
+.home-style main article h2 {
   font-weight: 500;
   font-size: 1.75rem;
 }
-/* .content-style-2 main article h2 span {
-  display: table;
-} */
+
 @media screen and (max-width: 1154px) {
-  .content-style-2 main section h1 span:first-of-type {
+  .home-style main section h1 span:first-of-type {
     font-size: 4rem;
-    /* place-self: center; */
   }
 
-  .content-style-2 main section h1 span:last-of-type {
+  .home-style main section h1 span:last-of-type {
     margin: -3rem 0 0 0rem;
     font-size: 5.5rem;
     text-transform: lowercase;
     place-self: center;
   }
 
-  .content-style-2 main article {
+  .home-style main article {
     justify-self: center;
   }
 
-  .content-style-2 main article > h2 {
+  .home-style main article > h2 {
     font-size: 1.5rem;
   }
-  .content-style-2 main article > p {
+  .home-style main article > p {
     font-size: 1.25rem;
   }
   .home-chevron {
@@ -97,7 +100,7 @@ a:visited .chevron {
 }
 
 @media screen and (max-width: 800px) {
-  .content-style-2 main section h1 span:last-of-type {
+  .home-style main section h1 span:last-of-type {
     justify-self: flex-start;
   }
 }
@@ -111,32 +114,26 @@ a:visited .chevron {
   z-index: -4;
 }
 
-@media screen and (max-width: 1154px) {
-  /* .home-bg-img {
-    margin-bottom: 0;
-  } */
-}
-
 @media screen and (max-width: 590px) {
-  .content-style-2 main section h1 span {
+  .home-style main section h1 span {
     grid-column: h-col-1/h-col-4;
     grid-row: h-row-1/h-row-2;
   }
-  .content-style-2 main section h1 span:first-of-type {
+  .home-style main section h1 span:first-of-type {
     font-size: 3rem;
     justify-self: center;
   }
 
-  .content-style-2 main section h1 span:last-of-type {
+  .home-style main section h1 span:last-of-type {
     font-size: 4rem;
     margin: -2.5rem 0 0 0rem;
     justify-self: center;
   }
 
-  .content-style-2 main article h2 {
+  .home-style main article h2 {
     font-size: 1.25rem;
   }
-  .content-style-2 main article {
+  .home-style main article {
     margin-top: 1rem;
     justify-self: center;
     text-align: center;

@@ -1,51 +1,50 @@
-.content-style-1 section h1 {
+.content-style section h1 {
   font-size: var(--xl);
   width: 100%;
   color: var(--emphasis-light-color);
 }
 
-.em-heading main section h1 span {
+.content-style h1 span {
   background-color: #fff;
   padding: 1rem 2.5rem;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   margin-left: -2.5rem;
 }
-.em-heading main section h1 {
+.content-style h1 {
   margin-bottom: 2.5rem;
 }
 
-/* .em-heading main section {
-  margin-top: 3.625rem;
-} */
+@media screen and (max-width: 1599px) {
+  .content-style h1 {
+    margin-bottom: 1.125rem;
+  }
+}
 
 @media screen and (max-width: 1154px) {
-  .em-heading main section h1 {
+  .content-style h1 {
     margin-bottom: 0;
   }
-  .em-heading main section h1 {
+  .content-style h1 {
     background-color: #fff;
-    padding: 1.5rem 2.5rem;
+    padding: 0.625rem 1.125rem;
   }
-  .em-heading main section h1 span {
+  .content-style h1 span {
     background-color: #fff;
     padding: 0;
     margin-left: 0;
   }
-  /* .content-style-1 main article > h2 {
-    padding: 2rem 0;
-  } */
 }
 
-.content-style-1 article {
+.content-style article {
   padding-bottom: 2.5rem;
 }
-.content-style-1 article h2,
-.content-style-1 article p {
+.content-style article h2,
+.content-style article p {
   color: var(--emphasis-dark-color);
 }
-.content-style-1 h2 span,
-.content-style-1 p span {
+.content-style h2 span,
+.content-style p span {
   background-color: var(--background-color);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
@@ -55,37 +54,29 @@
   padding: 5px;
   padding-left: 0;
 }
-.content-style-1 article h2 {
+.content-style article h2 {
   font-weight: 500;
   font-size: var(--lg);
   padding: 0 0 2rem 0;
 }
-.content-style-1 h2 span {
+.content-style h2 span {
   display: table;
-}
-@media screen and (max-width: 1154px) {
-  /* .content-style-1 article > h2 {
-    padding: 2rem 0;
-  } */
-  /* .content-style-1 main article > p {
-    font-size: 1.25rem;
-  } */
 }
 
 @media screen and (max-width: 590px) {
-  .em-heading main section h1 {
+  .content-style h1 {
     padding: 0.75rem 1.125rem;
   }
-  .content-style-1 h2 span,
-  .content-style-1 p span {
+  .content-style h2 span,
+  .content-style p span {
     line-height: 1.5rem;
     padding: 0;
     padding-left: 0;
   }
-  .content-style-1 h2 {
+  .content-style h2 {
     padding: 0 0 0.75rem 0;
   }
-  .content-style-1 h2 span {
+  .content-style h2 span {
     padding: 0 0 0.25rem 0;
   }
 }

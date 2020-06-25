@@ -2,12 +2,12 @@ import React from "react";
 import { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/videoContent.js";
 import { motion } from "framer-motion";
+import { fadeSettings as fade } from "../../variables";
 import "./Video.css";
-import "./ThumbTabs.css";
-import "./Showcase.css";
+import "../../styles/Showcase.css";
 import "../../styles/ContentStyle.css";
 
-export default function Video() {
+const Video = () => {
   const [content, setContent] = useState([]);
   const [activeTab, setActiveTab] = useState(
     contentLoader().map((e, idx) => (idx === 0 ? 1 : 0))
@@ -30,83 +30,102 @@ export default function Video() {
 
   if (content.length > 0) {
     return (
-      <div className="showcase-content left-block content-style-1 em-heading">
+      <motion.div
+        variants={fade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="showcase-content video-position content-style em-heading"
+      >
         <main>
-          {activeTab
-            .map((e, idx) =>
-              e ? (
-                <React.Fragment key={`fragment_${idx}`}>
-                  <motion.section
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    key={`section_${idx}`}
-                  >
-                    <h1 key={`section_h1_${idx}`}>
-                      <span>{content[idx].title}</span>
-                    </h1>
-                  </motion.section>
+          <Description activeTab={activeTab} content={content} />
 
-                  <motion.article
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    key={`article_${idx}`}
-                  >
-                    <h2 key={`article_h2_${idx}`}>
-                      <span>{content[idx].subtitle}</span>
-                      <span>{content[idx].subtitle2}</span>
-                    </h2>
-                    <p key={`paragraph_${idx}`}>
-                      <span>{content[idx].description}</span>
-                    </p>
-                  </motion.article>
-                </React.Fragment>
-              ) : null
-            )
-            .filter((x) => x)}
-
-          <nav className="thumbtabs">
-            <ul>
-              {content.map((e, idx) => (
-                <motion.li
-                  animate
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  type="button"
-                  key={`thumbtab_${idx}`}
-                  style={{ background: content[idx].buttonName }}
-                  onClick={() => tabDisplay(idx)}
-                >
-                  <img
-                    src={content[idx].thumbnail}
-                    alt={content[idx].thumbnailAlt}
-                  />
-                </motion.li>
-              ))}
-            </ul>
-          </nav>
+          <SubNav tabDisplay={tabDisplay} content={content} />
         </main>
-        {activeTab
-          .map((e, idx) =>
-            e ? (
-              <aside key={`aside_${idx}`} className="preview-container">
-                <motion.div
-                  className="video-preview"
-                  whileHover={{ opacity: 0.9 }}
-                  whileTap={{ opacity: 1 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  key={`videopreview_${idx}`}
-                  style={{ backgroundImage: `url(${content[idx].image})` }}
-                ></motion.div>
-              </aside>
-            ) : null
-          )
-          .filter((x) => x)}
-      </div>
+        <Showcase activeTab={activeTab} content={content} />
+      </motion.div>
     );
   } else {
     return null;
   }
-}
+};
+
+const Description = ({ activeTab, content }) => {
+  return (
+    <>
+      {activeTab
+        .map((e, idx) =>
+          e ? (
+            <React.Fragment key={`fragment_${idx}`}>
+              <motion.section variants={fade} key={`section_${idx}`}>
+                <h1 key={`section_h1_${idx}`}>
+                  <span>{content[idx].title}</span>
+                </h1>
+              </motion.section>
+
+              <motion.article variants={fade} key={`article_${idx}`}>
+                <h2 key={`article_h2_${idx}`}>
+                  <span>{content[idx].subtitle}</span>
+                  <span>{content[idx].subtitle2}</span>
+                </h2>
+                <p key={`paragraph_${idx}`}>
+                  <span>{content[idx].description}</span>
+                </p>
+              </motion.article>
+            </React.Fragment>
+          ) : null
+        )
+        .filter((x) => x)}
+    </>
+  );
+};
+
+const SubNav = ({ tabDisplay, content }) => {
+  return (
+    <nav className="thumbtabs">
+      <ul>
+        {content.map((e, idx) => (
+          <motion.li
+            variants={fade}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            type="button"
+            key={`thumbtab_${idx}`}
+            style={{ background: content[idx].buttonName }}
+            onClick={() => tabDisplay(idx)}
+          >
+            <img src={content[idx].thumbnail} alt={content[idx].thumbnailAlt} />
+          </motion.li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+const Showcase = ({ activeTab, content }) => {
+  return (
+    <>
+      {activeTab
+        .map((e, idx) =>
+          e ? (
+            <aside
+              key={`aside_${idx}`}
+              className="preview-container video-prev-pos"
+            >
+              <motion.div
+                variants={fade}
+                className="video-preview"
+                whileHover={{ opacity: 0.9 }}
+                whileTap={{ opacity: 1 }}
+                key={`videopreview_${idx}`}
+                style={{ backgroundImage: `url(${content[idx].image})` }}
+              ></motion.div>
+            </aside>
+          ) : null
+        )
+        .filter((x) => x)}
+    </>
+  );
+};
+
+export default Video;

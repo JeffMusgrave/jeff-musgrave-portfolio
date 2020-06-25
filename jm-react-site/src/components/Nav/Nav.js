@@ -1,7 +1,7 @@
 import React from "react";
-import NavList from "./NavList";
 import "./Nav.css";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 const Nav = ({ menu, viewWidth, menuVis }) => {
   let navSlider = {
@@ -28,6 +28,33 @@ const Nav = ({ menu, viewWidth, menuVis }) => {
     <nav className="nav-links">
       <NavList menuVis={menuVis} />
     </nav>
+  );
+};
+
+const NavList = ({ menuVis }) => {
+  return (
+    <ul>
+      <li>
+        <NavLink to="/" onClick={menuVis}>
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/video" onClick={menuVis}>
+          Video
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/design" onClick={menuVis}>
+          Design
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/about" onClick={menuVis}>
+          About
+        </NavLink>
+      </li>
+    </ul>
   );
 };
 

@@ -1,4 +1,4 @@
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 768px) {
   .menu-btn {
     display: flex;
     justify-self: flex-end;

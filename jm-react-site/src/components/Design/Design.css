@@ -3,34 +3,39 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0.625rem 0 2.5rem 0;
+  margin-left: -1.125rem;
 }
 
-.gallery-nav-btn {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: var(--md);
-  color: var(--emphasis-dark-color);
-  width: fit-content;
-  background-color: transparent;
-  border-bottom: 0.25rem solid transparent;
+@media screen and (max-width: 1599px) {
+  .gallery-nav {
+    padding: 0.625rem 0 1.125rem 0;
+  }
 }
 
-.gallery-nav-btn:hover {
-  background-color: var(--emphasis-lighter-color);
-  border-bottom: 0.25rem solid #ffffff;
-  outline: 0;
+@media screen and (max-width: 768px) {
+  .gallery-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0.625rem 0 0.625rem 0;
+    margin-left: 0rem;
+  }
 }
 
-.gallery-nav-btn:focus,
-.selected {
-  border-bottom: 0.25rem solid var(--emphasis-dark-color);
-  outline: 0;
+@media screen and (max-width: 1154px) {
+  .gallery-nav {
+    margin-left: 0rem;
+  }
 }
 
 .gallery-blurb {
   max-width: 60rem;
   margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-blurb {
+    margin-bottom: 1.75rem;
+  }
 }
 
 /* Gallery */
@@ -112,7 +117,7 @@
   }
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 768px) {
   .gallery {
     grid-template-columns: repeat(auto-fit, 6rem);
     grid-gap: 1rem;
@@ -120,6 +125,10 @@
   .gallery figure {
     width: 6rem;
     height: 6rem;
+  }
+  .design-position {
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }
 

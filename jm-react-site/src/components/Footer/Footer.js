@@ -1,10 +1,10 @@
 import React from "react";
 import "./Footer.css";
 
-export default function FOoter() {
+export default function Footer() {
   return (
     <footer>
-      <div className="footer-items">&copy; 2019 Jeff Musgrave</div>
+      <div className="footer-items">&copy; me forever</div>
     </footer>
   );
 }

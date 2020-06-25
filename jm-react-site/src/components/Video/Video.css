@@ -1,14 +1,115 @@
-.left-block section {
-  grid-column: sub-start/sub-mid;
-  grid-row: 1/2;
-  z-index: 2;
+.thumbtabs ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, 6rem);
+  grid-gap: 2.5rem;
+  margin: 0rem 0;
 }
 
-.preview-container {
+.thumbtabs ul {
+  list-style: none;
+}
+.thumbtabs ul li img {
+  width: 6rem;
+  border-radius: 50%;
+  background-color: var(--emphasis-light-color);
+  margin: 0rem 2rem 0 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1600px) {
+  .thumbtabs ul li img {
+    width: 6rem;
+  }
+  .thumbtabs ul {
+    grid-template-columns: repeat(auto-fit, 6rem);
+    grid-auto-flow: row;
+    margin-right: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 1344px) {
+  .thumbtabs ul li img {
+    width: 4.5rem;
+  }
+  .thumbtabs ul {
+    grid-template-columns: repeat(auto-fit, 4.5rem);
+  }
+}
+
+@media screen and (max-width: 1154px) {
+  .thumbtabs {
+    grid-column: sub-mid/sub-end;
+    grid-row: sub-row-start/sub-row-mid;
+  }
+  .thumbtabs ul li img {
+    width: 4rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .thumbtabs ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    height: 100%;
+    z-index: 2;
+    grid-template-columns: repeat(auto-fit, 4rem);
+  }
+
+  .thumbtabs ul li {
+    margin: 0;
+    padding: 0;
+    height: 4rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .thumbtabs {
+    grid-column: sub-start/sub-end;
+    grid-row: sub-row-mid/sub-post-mid;
+  }
+  .thumbtabs ul {
+    display: grid;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .thumbtabs ul li img {
+    width: 4rem;
+  }
+  .thumbtabs ul li {
+    height: 4rem;
+  }
+  .thumbtabs ul {
+    grid-template-columns: repeat(auto-fit, 4rem);
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .thumbtabs ul li img {
+    width: 4rem;
+  }
+  .thumbtabs ul {
+    grid-gap: 0.625rem;
+    grid-template-columns: repeat(auto-fit, 4rem);
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .thumbtabs ul li img {
+    width: 3.5rem;
+  }
+  .thumbtabs ul li {
+    height: 3.5rem;
+  }
+  .thumbtabs ul {
+    grid-template-columns: repeat(auto-fit, 3.5rem);
+  }
+}
+
+.video-prev-pos {
   grid-column: overlap/right-margin;
   grid-row: row-content/footer;
-  align-self: center;
-  padding: 0;
-  margin: 0;
-  display: flex;
 }

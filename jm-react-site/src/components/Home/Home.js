@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { fadeSettings as fade } from "../../variables";
 import "./Home.css";
 const Home = (props) => {
   useEffect(() => {
@@ -8,11 +9,12 @@ const Home = (props) => {
   }, []);
   return (
     <>
-      <div className="frontpage content-style-2">
+      <div className="home-position home-style">
         <motion.main
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          variants={fade}
+          initial="initial"
+          animate="animate"
+          exit="exit"
         >
           <section>
             <h1>
