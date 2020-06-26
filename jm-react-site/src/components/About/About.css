@@ -24,7 +24,7 @@
 /* form position */
 
 .contact-container main section {
-  grid-column: bg-pad/right-margin;
+  grid-column: bg-pad/overlap;
   grid-row: row-content/row-email;
   display: grid;
   align-self: flex-end;
@@ -35,12 +35,6 @@
 .contact-container h1 span,
 .contact-container h1 {
   margin: 0 0 0 0;
-}
-
-@media screen and (max-width: 1600px) {
-  .contact-container main section {
-    grid-column: bg-pad/right-margin;
-  }
 }
 
 @media screen and (max-width: 1154px) {
@@ -73,7 +67,7 @@
 .form-button button {
   grid-column: overlap/right-margin;
   border: 0;
-  align-self: center;
+  align-self: flex-start;
   justify-self: flex-end;
   font-size: var(--md);
   padding: 1.25rem;

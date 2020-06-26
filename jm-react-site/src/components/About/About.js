@@ -32,10 +32,7 @@ const Contact = (props) => {
   }, []);
 
   if (info.length > 0) {
-    const tabTest = activeTab
-      .map((e, idx) => (e ? info[idx] : ""))
-      .filter((x) => x)
-      .toString();
+    const tabTest = info[activeTab.filter((e, idx) => idx)];
     return (
       <div className="content-style video-position contact-container">
         <motion.main
@@ -68,7 +65,12 @@ const Contact = (props) => {
 
 const Showcase = ({ content }) => {
   return (
-    <motion.div variants={fade} className="preview-container about-prev-pos">
+    <motion.div
+      variants={fade}
+      whileHover={{ opacity: 0.9 }}
+      whileTap={{ opacity: 1 }}
+      className="preview-container about-prev-pos"
+    >
       <div
         className="video-preview"
         style={{
@@ -99,12 +101,15 @@ const SubNav = ({ activeTab, tabDisplay, info }) => {
 const Bio = ({ activeTab, info, content }) => {
   const desc = content.about.description.split("\n");
   return (
-    <motion.div
-      variants={fade}
-      className={`about-me ${activeTab[info.indexOf("about")] ? `` : `hidden`}`}
-    >
+    <motion.div variants={fade} className="about-me">
       <div>
-        {desc.map((e, idx) => <p key={`p-${idx}`}>{e}</p>).filter((x) => x)}
+        {desc
+          .map((e, idx) => (
+            <motion.p variants={fade} key={`p-${idx}`}>
+              {e}
+            </motion.p>
+          ))
+          .filter((x) => x)}
       </div>
     </motion.div>
   );

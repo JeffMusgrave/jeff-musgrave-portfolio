@@ -1,0 +1,29 @@
+.form-errors {
+  grid-row: post-form/footer;
+  grid-column: overlap/right-margin;
+  margin-left: 2.5rem;
+}
+
+.form-errors p {
+  color: red !important;
+}
+
+.form-thanks {
+  grid-row: row-name/row-submit;
+  grid-column: overlap/right-margin;
+  margin-left: 2.5rem;
+}
+
+.form-thanks h1 {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 1154px) {
+  .form-errors,
+  .form-thanks {
+    grid-column: logo/right-margin;
+    margin-left: 0;
+  }
+}

@@ -1,6 +1,5 @@
 .content-style section h1 {
   font-size: var(--xl);
-  width: 100%;
   color: var(--emphasis-light-color);
 }
 
