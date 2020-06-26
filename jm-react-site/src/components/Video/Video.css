@@ -1,3 +1,7 @@
+.thumbtabs {
+  margin-top: 2.5rem;
+}
+
 .thumbtabs ul {
   display: grid;
   grid-auto-flow: column;
@@ -41,9 +45,10 @@
   .thumbtabs {
     grid-column: sub-mid/sub-end;
     grid-row: sub-row-start/sub-row-mid;
+    margin-top: 0;
   }
   .thumbtabs ul li img {
-    width: 4rem;
+    width: 5rem;
     margin: 0;
     padding: 0;
   }
@@ -55,13 +60,14 @@
     margin: 0;
     height: 100%;
     z-index: 2;
-    grid-template-columns: repeat(auto-fit, 4rem);
+    grid-template-columns: repeat(auto-fit, 5rem);
   }
 
   .thumbtabs ul li {
     margin: 0;
     padding: 0;
-    height: 4rem;
+    height: 5rem;
+    width: 5rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -112,4 +118,73 @@
 .video-prev-pos {
   grid-column: overlap/right-margin;
   grid-row: row-content/footer;
+}
+
+.play-btn-container {
+  width: clamp(5rem, 8rem, 5vw);
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  z-index: 2;
+}
+
+.play-btn {
+  fill: white;
+}
+
+.youtube-hidden {
+  display: none;
+}
+
+.youtube-appear {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 0; /* NEW */
+  min-width: 0; /* NEW; needed for Firefox */
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 6;
+  grid-template-rows: [row-video-start] 5rem [row-video-top] 1fr [row-video-bottom] 5rem [row-video-bottom];
+  grid-template-columns: [column-video-start] 5rem [column-video-top] 1fr [column-video-bottom] 5rem [column-video-bottom];
+}
+
+@media screen and (max-width: 1024px) {
+  .youtube-appear {
+    grid-template-rows: [row-video-start] 3rem [row-video-top] 1fr [row-video-bottom] 3rem [row-video-bottom];
+    grid-template-columns: [column-video-start] 3rem [column-video-top] 1fr [column-video-bottom] 3rem [column-video-bottom];
+  }
+}
+
+.youtube-constraint {
+  display: flex;
+  grid-row: row-video-top/row-video-bottom;
+  grid-column: column-video-top/column-video-bottom;
+  overflow: hidden; /* NEW */
+  min-width: 0; /* NEW; needed for Firefox */
+  width: 100%;
+  height: 100%;
+}
+
+.youtube-container {
+  align-self: center;
+  margin: 0 auto;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  min-width: 100%;
+  max-width: 178vh;
+}
+
+.youtube-container iframe,
+.youtube-container object,
+.youtube-container embed {
+  height: 100%;
+  width: 100%;
 }

@@ -10,6 +10,7 @@ const content = [
     imageAlt: "I'm On Fire Preview",
     thumbnail: require("../img/covers/SV1_01_ImOnFire_1000.png"),
     thumbnailAlt: "I'm On Fire Thumbnail",
+    url: "https://www.youtube.com/watch?v=Lht5ijva2Ko",
     id: 1,
   },
   {
@@ -23,6 +24,7 @@ const content = [
     imageAlt: "Life's What You Make It Preview",
     thumbnail: require("../img/covers/SV1_02_LifesWhatYouMakeIt_1000.png"),
     thumbnailAlt: "Life's What You Make It Thumbnail",
+    url: "https://www.youtube.com/watch?v=jNdTX5gTAws",
     id: 2,
   },
   {
@@ -36,6 +38,7 @@ const content = [
     imageAlt: "Protection Preview",
     thumbnail: require("../img/covers/SV1_03_Protection_1000.png"),
     thumbnailAlt: "Protection Thumbnail",
+    url: "https://www.youtube.com/watch?v=Cik7q3MVcxo",
     id: 3,
   },
   {
@@ -49,6 +52,7 @@ const content = [
     imageAlt: "No Harm Preview",
     thumbnail: require("../img/covers/SV1_04_NoHarm_1000.png"),
     thumbnailAlt: "No Harm Thumbnail",
+    url: "https://www.youtube.com/watch?v=_L-53jkbZAc",
     id: 4,
   },
 ];

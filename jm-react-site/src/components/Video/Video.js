@@ -2,7 +2,11 @@ import React from "react";
 import { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/videoContent.js";
 import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables/variables";
+
+import {
+  fadeSettings as fade,
+  hoverSettings as hover,
+} from "../../variables/variables";
 import "./Video.css";
 import "../../styles/Showcase.css";
 import "../../styles/ContentStyle.css";
@@ -82,13 +86,13 @@ const Description = ({ activeTab, content }) => {
 
 const SubNav = ({ tabDisplay, content }) => {
   return (
-    <nav className="thumbtabs">
+    <motion.nav animate className="thumbtabs">
       <ul>
         {content.map((e, idx) => (
           <motion.li
             variants={fade}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={hover.hover}
+            whileTap={hover.tap}
             type="button"
             key={`thumbtab_${idx}`}
             style={{ background: content[idx].buttonName }}
@@ -98,29 +102,68 @@ const SubNav = ({ tabDisplay, content }) => {
           </motion.li>
         ))}
       </ul>
-    </nav>
+    </motion.nav>
   );
 };
 
 const Showcase = ({ activeTab, content }) => {
+  const [previewSize, setPreviewSize] = useState(false);
+  const toggleSize = () => {
+    setPreviewSize(!previewSize);
+  };
+
   return (
     <>
       {activeTab
         .map((e, idx) =>
           e ? (
-            <aside
+            <motion.aside
+              variants={fade}
               key={`aside_${idx}`}
               className="preview-container video-prev-pos"
+              onClick={toggleSize}
             >
+              <div className="play-btn-container">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="play-btn"
+                  viewBox="0 0 6.73 7.77"
+                >
+                  <polygon points="6.73 3.88 0 0 0 7.77 6.73 3.88" />
+                </svg>
+              </div>
               <motion.div
                 variants={fade}
-                className="video-preview"
                 whileHover={{ opacity: 0.9 }}
                 whileTap={{ opacity: 1 }}
+                className="video-preview"
                 key={`videopreview_${idx}`}
                 style={{ backgroundImage: `url(${content[idx].image})` }}
               ></motion.div>
-            </aside>
+
+              {previewSize ? (
+                <motion.div variants={fade} className="youtube-appear">
+                  <div className="youtube-constraint">
+                    <div className="youtube-container">
+                      <iframe
+                        width="560"
+                        height="315"
+                        title={`youtube-${content[idx].title}`}
+                        src={`https://www.youtube.com/embed/${content[
+                          idx
+                        ].url.replace(
+                          "https://www.youtube.com/watch?v=",
+                          ""
+                        )}?vq=hd1080`}
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                  </div>
+                </motion.div>
+              ) : null}
+            </motion.aside>
           ) : null
         )
         .filter((x) => x)}

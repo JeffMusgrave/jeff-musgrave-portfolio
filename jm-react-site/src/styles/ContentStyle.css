@@ -14,7 +14,7 @@
   margin-bottom: 2.5rem;
 }
 
-@media screen and (max-width: 1599px) {
+@media screen and (max-width: 1600px) {
   .content-style h1 {
     margin-bottom: 1.125rem;
   }
@@ -35,9 +35,6 @@
   }
 }
 
-.content-style article {
-  padding-bottom: 2.5rem;
-}
 .content-style article h2,
 .content-style article p {
   color: var(--emphasis-dark-color);
@@ -63,6 +60,9 @@
 }
 
 @media screen and (max-width: 590px) {
+  .content-style article {
+    padding-bottom: 2.5rem;
+  }
   .content-style h1 {
     padding: 0.75rem 1.125rem;
   }

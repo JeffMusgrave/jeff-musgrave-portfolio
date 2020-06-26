@@ -27,8 +27,8 @@
   --md: 1.33rem;
   --sm: 1.2rem;
   --xs: 1rem;
-  --logo: 1.5rem;
-  --navtext: 1rem;
+  --logo: 1.625rem;
+  --navtext: 1.125rem;
   --lh-xl: 4;
   --lh-lg: 3;
   --lh-ml: 2.85;
@@ -37,7 +37,7 @@
   --lh-xs: 2.5;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1550px) {
   :root {
     --xl: 2.5rem;
     --lg: 2rem;
@@ -45,6 +45,8 @@
     --md: 1.25rem;
     --sm: 1.125rem;
     --xs: 1rem;
+    --logo: 1.5rem;
+    --navtext: 1rem;
   }
 }
 
@@ -147,7 +149,13 @@ h5 {
 p {
   font-size: var(--sm);
   font-weight: 300;
-  margin: 0 0 1.125rem 0;
+  margin: 0 0 1.75rem 0;
+}
+
+@media screen and (max-width: 1550px) {
+  p {
+    margin: 0 0 1.125rem 0;
+  }
 }
 
 button {
