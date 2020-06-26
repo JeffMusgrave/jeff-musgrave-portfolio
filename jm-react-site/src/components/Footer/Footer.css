@@ -1,3 +1,12 @@
+.font-toggle-container {
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+.font-toggle-btn {
+  fill: var(--emphasis-light-color);
+}
+
 footer {
   display: flex;
   grid-column: logo/right-margin;
