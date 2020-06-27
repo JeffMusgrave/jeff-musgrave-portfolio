@@ -1,11 +1,5 @@
 /* Showcase */
 
-@media screen and (max-width: 1600px) {
-  /* .preview-container {
-    grid-column: aside/right-margin;
-  } */
-}
-
 .preview-container {
   align-self: center;
   padding: 0;

@@ -5,7 +5,7 @@
 }
 
 .form-errors p {
-  color: red !important;
+  color: var(--danger) !important;
 }
 
 .form-thanks {

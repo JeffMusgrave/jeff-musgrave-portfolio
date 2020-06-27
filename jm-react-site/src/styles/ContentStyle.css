@@ -1,10 +1,10 @@
 .content-style section h1 {
   font-size: var(--xl);
-  color: var(--emphasis-light-color);
+  color: var(--shade-2);
 }
 
 .content-style h1 span {
-  background-color: #fff;
+  background-color: var(--shade-6);
   padding: 1rem 2.5rem;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
@@ -25,11 +25,11 @@
     margin-bottom: 0;
   }
   .content-style h1 {
-    background-color: #fff;
+    background-color: var(--shade-6);
     padding: 0.625rem 1.125rem;
   }
   .content-style h1 span {
-    background-color: #fff;
+    background-color: var(--shade-6);
     padding: 0;
     margin-left: 0;
   }
@@ -41,11 +41,10 @@
 }
 .content-style h2 span,
 .content-style p span {
-  background-color: var(--background-color);
+  background-color: var(--color-bg);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  box-shadow: 0.5em 0 0 var(--background-color),
-    -0.5em 0 0 var(--background-color);
+  box-shadow: 0.5em 0 0 var(--color-bg), -0.5em 0 0 var(--color-bg);
   line-height: 2rem;
   padding: 5px;
   padding-left: 0;

@@ -16,7 +16,7 @@
 
   .hamburger span {
     z-index: 5;
-    background-color: var(--emphasis-dark-color);
+    background-color: var(--shade-1);
     border-radius: 3px;
     content: "";
     display: block;

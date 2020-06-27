@@ -30,7 +30,7 @@
 .nav-links a:hover {
   color: var(--emphasis-dark-color);
   background-color: transparent;
-  border-bottom: 0.25rem solid var(--emphasis-light-color);
+  border-bottom: 0.25rem solid var(--shade-2);
   outline: 0;
 }
 
@@ -59,7 +59,7 @@
     position: fixed;
     left: 0;
     z-index: 4;
-    background-color: white;
+    background-color: var(--shade-6);
     opacity: 0.975;
     justify-content: center;
     -webkit-user-select: none; /* Safari */

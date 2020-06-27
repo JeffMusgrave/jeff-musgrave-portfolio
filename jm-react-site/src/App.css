@@ -7,20 +7,17 @@
 }
 
 :root {
-  /* --darkest: #000000; 
-  --s1: #262626;
-  --s2: #3d3d3d;
-  --s3: #3d3d3d;
-  --w1: #7b7b7b;
-  --highlight: #eaeaea;
-  --bg: #f6f6f6;
-  --w4: #ffffff; */
-
-  --emphasis-dark-color: #3d3d3d;
-  --emphasis-light-color: #7b7b7b;
-  --emphasis-light-color2: #c9c9c9;
-  --emphasis-lighter-color: #eaeaea;
-  --background-color: #f6f6f6;
+  --shade-1: #f6f6f6;
+  --shade-2: #eaeaea;
+  --shade-3: #c9c9c9;
+  --shade-3a: #969696;
+  --shade-4: #7b7b7b;
+  --shade-5: #3d3d3d;
+  --color-bg: #222222;
+  --shade-6: black;
+  --success: green;
+  --warning: orange;
+  --danger: red;
   --xl: 3.5rem;
   --lg: 2rem;
   --ml: 1.5rem;
@@ -109,8 +106,8 @@ html {
 }
 
 body {
-  background-color: var(--background-color);
-  color: var(--emphasis-dark-color);
+  background-color: var(--color-bg);
+  color: var(--shade-1);
   overflow-y: scroll;
 }
 
@@ -118,12 +115,12 @@ a:link,
 a:visited {
   font-weight: 700;
   text-decoration: none;
-  color: #000;
+  color: var(--shade-3);
 }
 a:hover {
   font-weight: 700;
-  background-color: var(--emphasis-dark-color);
-  color: var(--emphasis-lighter-color);
+  background-color: var(--shade-1);
+  color: var(--shade-4);
   padding: 0.25rem 0.5rem;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
@@ -131,7 +128,7 @@ a:hover {
 h1 {
   font-weight: 500;
   font-size: var(--xl);
-  color: var(--emphasis-light-color);
+  color: var(--shade-2);
 }
 h2 {
   font-size: var(--lg);
@@ -175,7 +172,7 @@ input:focus,
 input:focus,
 textarea:focus,
 button:focus {
-  outline: 0.25rem solid var(--emphasis-light-color);
+  outline: 0.25rem solid var(--shade-2);
 }
 
 input:invalid,
@@ -198,7 +195,7 @@ body *::-webkit-scrollbar {
 body,
 body * {
   scrollbar-width: thin;
-  scrollbar-color: var(--emphasis-light-color2) transparent;
+  scrollbar-color: var(--shade-3) transparent;
 }
 body::-webkit-scrollbar-track,
 body *::-webkit-scrollbar-track {
@@ -206,5 +203,5 @@ body *::-webkit-scrollbar-track {
 }
 body::-webkit-scrollbar-thumb,
 body *::-webkit-scrollbar-thumb {
-  background-color: var(--emphasis-light-color2);
+  background-color: var(--shade-3);
 }
