@@ -1,10 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
-
+import { Helmet } from "react-helmet";
 const NotFound = (props) => {
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Jeff Musgrave | 404</title>
+      </Helmet>
       <div className="design-position content-style em-heading">
         <motion.main
           variants={fade}

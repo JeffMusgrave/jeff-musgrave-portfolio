@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/designContent.js";
 import { SRLWrapper } from "simple-react-lightbox";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 import {
   fadeSettings as fade,
   lightboxOptions as options,
@@ -37,6 +38,10 @@ const Design = (props) => {
   if (info.length > 0) {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Jeff Musgrave | Design</title>
+        </Helmet>
         <div className="design-position content-style em-heading">
           <motion.main
             variants={fade}
@@ -55,12 +60,12 @@ const Design = (props) => {
                 tabDisplay={tabDisplay}
                 info={info}
               />
+              <Gallery activeTab={activeTab} content={content} info={info} />
               <Description
                 activeTab={activeTab}
                 content={content}
                 info={info}
               />
-              <Gallery activeTab={activeTab} content={content} info={info} />
             </article>
           </motion.main>
         </div>

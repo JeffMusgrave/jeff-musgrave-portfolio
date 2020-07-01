@@ -20,15 +20,15 @@
   margin: 0.75rem 1.5rem 0.75rem 0;
 }
 .nav-links a {
-  padding: 0.125rem 0;
-  margin: 0.125rem 0.25rem;
+  padding: 0 0 1rem 0;
+  /* margin: 0.125rem 0.25rem; */
   font-weight: 300;
   font-size: var(--navtext);
   border-bottom: 0.25rem solid transparent;
 }
 
 .nav-links a:hover {
-  color: var(--emphasis-dark-color);
+  color: var(--shade-1);
   background-color: transparent;
   border-bottom: 0.25rem solid var(--shade-2);
   outline: 0;

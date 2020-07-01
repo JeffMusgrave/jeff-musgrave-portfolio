@@ -23,12 +23,13 @@ const Nav = ({ menu, viewWidth, menuVis }) => {
         <NavList menuVis={menuVis} />
       </motion.nav>
     );
+  } else {
+    return (
+      <nav className="nav-links">
+        <NavList menuVis={menuVis} />
+      </nav>
+    );
   }
-  return (
-    <nav className="nav-links">
-      <NavList menuVis={menuVis} />
-    </nav>
-  );
 };
 
 const NavList = ({ menuVis }) => {

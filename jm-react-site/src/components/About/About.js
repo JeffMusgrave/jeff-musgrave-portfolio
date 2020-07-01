@@ -2,6 +2,7 @@ import React, { useEffect, useState, useLayoutEffect } from "react";
 import contentLoader from "../../data/aboutContent.js";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
+import { Helmet } from "react-helmet";
 import ContactForm from "../ContactForm/ContactForm";
 import "./About.css";
 import "../../styles/Showcase.css";
@@ -35,6 +36,10 @@ const Contact = (props) => {
     const tabTest = info[activeTab.filter((e, idx) => idx)];
     return (
       <div className="content-style video-position contact-container">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Jeff Musgrave | About</title>
+        </Helmet>
         <motion.main
           variants={fade}
           initial="initial"

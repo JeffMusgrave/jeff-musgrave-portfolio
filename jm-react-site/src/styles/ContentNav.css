@@ -8,10 +8,11 @@
   width: fit-content;
   background-color: transparent;
   border-bottom: 0.25rem solid transparent;
+  margin-right: 2.5rem;
+  padding: 1.125rem 0;
 }
 
 .content-nav-btn:hover {
-  background-color: var(--shade-5);
   border-bottom: 0.25rem solid var(--shade-6);
   outline: 0;
 }
@@ -25,11 +26,13 @@
 @media screen and (max-width: 768px) {
   .content-nav-btn {
     width: 100%;
+    padding: 1.125rem;
     background-color: transparent;
     border-bottom: 0 solid transparent;
     border-left: 0.25rem solid transparent;
   }
   .content-nav-btn:hover {
+    background-color: var(--shade-5);
     border-bottom: 0 solid transparent;
     border-left: 0.25rem solid var(--shade-6);
   }

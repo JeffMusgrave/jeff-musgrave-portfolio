@@ -57,7 +57,7 @@ const Header = () => {
       </div>
 
       <motion.div
-        className={"header-bg" + (scrollDown ? " header-vis" : " header-trans")}
+        className={`header-bg ${scrollDown ? `header-vis` : `header-trans`}`}
       ></motion.div>
     </header>
   );

@@ -4,28 +4,16 @@
 .header-bg {
   grid-column: 1/-1;
   grid-row: row-start/row-content;
-  height: 7rem;
+
   align-items: center;
   opacity: 0.85;
-  z-index: 3;
+  z-index: 4;
   position: sticky;
   top: 0;
 }
 
-@media screen and (max-width: 1550) {
-  .header-bg {
-    height: 5rem;
-  }
-}
-
-@media screen and (max-width: 768) {
-  .header-bg {
-    height: 4rem;
-  }
-}
-
 .header-vis {
-  background-color: var(--background-color);
+  background-color: var(--color-bg);
 }
 
 .header-trans {

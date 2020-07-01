@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/videoContent.js";
 import { motion } from "framer-motion";
-
+import { Helmet } from "react-helmet";
 import {
   fadeSettings as fade,
   hoverSettings as hover,
@@ -41,6 +41,10 @@ const Video = () => {
         exit="exit"
         className="showcase-content video-position content-style em-heading"
       >
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Jeff Musgrave | Video</title>
+        </Helmet>
         <main>
           <Description activeTab={activeTab} content={content} />
 
@@ -143,23 +147,29 @@ const Showcase = ({ activeTab, content }) => {
 
               {previewSize ? (
                 <motion.div variants={fade} className="youtube-appear">
-                  <div className="youtube-constraint">
-                    <div className="youtube-container">
-                      <iframe
-                        width="560"
-                        height="315"
-                        title={`youtube-${content[idx].title}`}
-                        src={`https://www.youtube.com/embed/${content[
-                          idx
-                        ].url.replace(
-                          "https://www.youtube.com/watch?v=",
-                          ""
-                        )}?vq=hd1080`}
-                        frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                      ></iframe>
+                  <div className="close-btn">
+                    <div className="line">
+                      <span className="left-x"></span>
+                      <span className="right-x"></span>
                     </div>
+                  </div>
+
+                  <div className="youtube-container">
+                    {" "}
+                    <iframe
+                      width="560"
+                      height="315"
+                      title={`youtube-${content[idx].title}`}
+                      src={`https://www.youtube.com/embed/${content[
+                        idx
+                      ].url.replace(
+                        "https://www.youtube.com/watch?v=",
+                        ""
+                      )}?vq=hd1080`}
+                      frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
                   </div>
                 </motion.div>
               ) : null}
