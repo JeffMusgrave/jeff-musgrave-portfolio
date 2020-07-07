@@ -117,19 +117,10 @@ a:visited .chevron {
 .home-bg {
   grid-column: logo/right-margin;
   grid-row: row-content/footer;
-
   z-index: -4;
-  /* display: grid;
-  justify-items: center;
-  align-items: center; */
-  /* background-color: var(--shade-6); */
-  /* display: grid; */
-  /* height: 85.5vh; */
   mix-blend-mode: overlay;
   /* background-blend-mode: overlay; */
-  /* overflow: hidden; */
-  /* grid-template-rows: [first] 85vh [second]; */
-  /* clip-path: inset(0px 0px 0px 0px); */
+  clip-path: inset(0px 0px 0px 0px);
 }
 
 .vid-overlay {
