@@ -6,9 +6,13 @@
   margin: 0;
   display: grid;
   cursor: pointer;
+  clip-path: circle();
+  min-height: 0;
+  min-width: 0;
+  align-items: center;
+  justify-items: center;
 }
 .video-preview {
-  clip-path: circle();
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
 }
@@ -30,8 +34,8 @@
   background-size: cover;
   background-position: center;
   margin: 0;
-  /* flex: 1 0 auto; */
-  /* border-radius: 50%; */
+  max-width: 100%;
+  max-height: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -78,6 +82,7 @@
     grid-column: sub-start/sub-mid;
     grid-row: sub-row-title/sub-row-mid;
     align-self: center;
+    clip-path: none;
     height: 100%;
     min-width: 100%;
     grid-template-rows: [one] minmax(23.5rem, 30vh) [two];
@@ -87,7 +92,7 @@
   }
   .video-preview {
     /* border-radius: 0; */
-    clip-path: none;
+
     z-index: 1;
     background-position: center bottom;
     margin: 0;

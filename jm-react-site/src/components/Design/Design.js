@@ -3,6 +3,8 @@ import contentLoader from "../../data/designContent.js";
 import { SRLWrapper } from "simple-react-lightbox";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
+import BlurryImageLoad from "../../utils/blurryLoad";
+import "../../utils/blurryLoad.css";
 import {
   fadeSettings as fade,
   lightboxOptions as options,
@@ -81,7 +83,7 @@ const SubNav = ({ tabDisplay, activeTab, info }) => {
     <nav className="gallery-nav">
       {activeTab.map((e, idx) => (
         <button
-          className={`content-nav-btn ${e ? `selected` : `deselected`}`}
+          className={`content-nav-btn ${e ? `selected` : ` `}`}
           onClick={() => tabDisplay(idx)}
           key={`btn-${info[idx]}`}
         >
@@ -112,13 +114,17 @@ const Description = ({ activeTab, content, info }) => {
 };
 
 const Gallery = ({ activeTab, content, info }) => {
+  useLayoutEffect(() => {
+    const blurryImageLoad = new BlurryImageLoad();
+    blurryImageLoad.load();
+  });
   return (
     <>
       {activeTab
         .map((e, idx) =>
           e ? (
             <div className="gallery" key={`gallery_${idx}`}>
-              <SRLWrapper options={options} key={`SRLWrapper_${idx}_${idx}`}>
+              <SRLWrapper options={options} key={`SRLWrapper_${idx}`}>
                 {content[info[idx]]["items"].map(
                   ({ image, thumbnail, init, title, alt, id }) => (
                     <motion.figure
@@ -132,14 +138,14 @@ const Gallery = ({ activeTab, content, info }) => {
                         title={title}
                         key={`anchor-${id}`}
                         loading="lazy"
-                        className="progressive replace"
+                        data-attribute="SRL"
                       >
                         <img
+                          className="blurry-load"
+                          data-large={image}
                           src={init}
                           alt={alt}
                           key={`img-${id}`}
-                          data-attribute="SRL"
-                          className="preview"
                           loading="lazy"
                         />
                       </a>

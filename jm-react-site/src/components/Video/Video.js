@@ -3,10 +3,11 @@ import { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/videoContent.js";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
+import BlurryImageLoad from "../../utils/blurryLoad";
+import "../../utils/blurryLoad.css";
 import {
   fadeSettings as fade,
   hoverSettings as hover,
-  hoverOpacitySettings as hoverOp,
 } from "../../variables/variables";
 import useDeviceDetect from "../../utils/useDeviceDetect";
 import "./Video.css";
@@ -91,6 +92,11 @@ const Description = ({ activeTab, content }) => {
 };
 
 const SubNav = ({ tabDisplay, content }) => {
+  useLayoutEffect(() => {
+    const blurryImageLoad = new BlurryImageLoad();
+    blurryImageLoad.load();
+  });
+
   return (
     <motion.nav animate className="thumbtabs">
       <ul>
@@ -109,13 +115,13 @@ const SubNav = ({ tabDisplay, content }) => {
               key={`anchor-${e.id}`}
               title={e.title}
               loading="lazy"
-              className="progressive replace"
             >
               <img
-                src={e.init}
                 alt={e.thumbnailAlt}
-                className="preview"
                 loading="lazy"
+                className="blurry-load"
+                data-large={e.image}
+                src={e.init}
               />
             </a>
           </motion.li>
@@ -136,33 +142,36 @@ const Showcase = ({ activeTab, content }) => {
       {activeTab
         .map((e, idx) =>
           e ? (
-            <motion.aside
-              variants={fade}
-              key={`aside_${idx}`}
-              className="preview-container video-prev-pos"
-              onClick={toggleSize}
-            >
-              <div className="play-btn-container">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="play-btn"
-                  viewBox="0 0 6.73 7.77"
-                >
-                  <polygon points="6.73 3.88 0 0 0 7.77 6.73 3.88" />
-                </svg>
-              </div>
-              <motion.div
+            <>
+              <motion.aside
                 variants={fade}
-                whileHover={hoverOp.hover}
-                whileTap={hoverOp.tap}
-                className="video-preview"
-                key={`videopreview_${idx}`}
+                key={`aside_${idx}`}
+                className="preview-container video-prev-pos"
+                onClick={toggleSize}
               >
-                <VideoImagePrev content={content[idx]} />
-              </motion.div>
-
+                <div className="play-btn-container">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="play-btn"
+                    viewBox="0 0 6.73 7.77"
+                  >
+                    <polygon points="6.73 3.88 0 0 0 7.77 6.73 3.88" />
+                  </svg>
+                </div>
+                <motion.div
+                  variants={fade}
+                  className="video-preview"
+                  key={`videopreview_${idx}`}
+                >
+                  <VideoImagePrev content={content[idx]} />
+                </motion.div>
+              </motion.aside>
               {previewSize ? (
-                <motion.div variants={fade} className="youtube-appear">
+                <motion.div
+                  variants={fade}
+                  className="youtube-appear"
+                  onClick={toggleSize}
+                >
                   <div className="close-btn">
                     <div className="line">
                       <span className="left-x"></span>
@@ -189,7 +198,7 @@ const Showcase = ({ activeTab, content }) => {
                   </div>
                 </motion.div>
               ) : null}
-            </motion.aside>
+            </>
           ) : null
         )
         .filter((x) => x)}
@@ -207,6 +216,11 @@ const VideoImagePrev = ({ content }) => {
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
   };
+
+  useLayoutEffect(() => {
+    const blurryImageLoad = new BlurryImageLoad();
+    blurryImageLoad.load();
+  });
 
   return (
     <>
@@ -234,11 +248,12 @@ const VideoImagePrev = ({ content }) => {
           className="progressive replace"
         >
           <img
+            data-large={image}
             src={init}
             title={title}
             alt={imageAlt}
             key={`img-${id}`}
-            className="preview"
+            className="blurry-load"
             loading="lazy"
           />
         </a>

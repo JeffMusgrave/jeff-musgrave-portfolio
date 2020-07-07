@@ -137,7 +137,7 @@
   justify-self: center;
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
-  z-index: 2;
+  z-index: 3;
 }
 
 .play-btn {
@@ -159,8 +159,8 @@
   bottom: 0;
   min-height: 0; /* NEW */
   min-width: 0; /* NEW; needed for Firefox */
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
   grid-template-rows: [row-video-start] 5rem [row-video-top] 1fr [row-video-bottom] 5rem [row-video-end];
   grid-template-columns: [column-video-start] 5rem [column-video-left] 1fr [column-video-right] 5rem [column-video-end];
 }
@@ -173,6 +173,7 @@
   justify-items: center;
   height: 2.5rem;
   width: 2.5rem;
+  cursor: pointer;
 }
 
 .line span {

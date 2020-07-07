@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
 import contentLoader from "../../data/aboutContent.js";
 import { motion } from "framer-motion";
-import {
-  fadeSettings as fade,
-  hoverOpacitySettings as hoverOp,
-} from "../../variables/variables";
+import BlurryImageLoad from "../../utils/blurryLoad";
+import "../../utils/blurryLoad.css";
+import { fadeSettings as fade } from "../../variables/variables";
 import { Helmet } from "react-helmet";
 import ContactForm from "../ContactForm/ContactForm";
 import "./About.css";
@@ -72,6 +71,11 @@ const Contact = (props) => {
 };
 
 const Showcase = ({ content }) => {
+  useLayoutEffect(() => {
+    const blurryImageLoad = new BlurryImageLoad();
+    blurryImageLoad.load();
+  });
+
   const {
     about: {
       portrait: { one, init, title, alt },
@@ -80,25 +84,15 @@ const Showcase = ({ content }) => {
   return (
     <div className="preview-container about-prev-pos">
       <motion.div className="video-preview" loading="lazy" variants={fade}>
-        <motion.a
-          href={one}
+        <motion.img
+          className="blurry-load"
+          data-large={one}
+          src={init}
+          title={title}
+          alt={alt}
           loading="lazy"
-          className="progressive replace"
           variants={fade}
-          whileHover={hoverOp.hover}
-          whileTap={hoverOp.tap}
-        >
-          <motion.img
-            src={init}
-            title={title}
-            alt={alt}
-            className="preview"
-            loading="lazy"
-            variants={fade}
-            whileHover={hoverOp.hover}
-            whileTap={hoverOp.tap}
-          />
-        </motion.a>
+        />
       </motion.div>
     </div>
   );
