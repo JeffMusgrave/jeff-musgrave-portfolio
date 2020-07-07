@@ -48,6 +48,13 @@
   display: table;
 }
 
+@media screen and (max-width: 1154px) {
+  .content-style h2 span,
+  .content-style p span {
+    padding: 0;
+  }
+}
+
 @media screen and (max-width: 590px) {
   .content-style article {
     padding-bottom: 2.5rem;
