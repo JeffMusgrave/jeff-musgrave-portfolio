@@ -107,10 +107,10 @@ const SubNav = ({ tabDisplay, content }) => {
             <a
               href={e.image}
               key={`anchor-${e.id}`}
+              title={e.title}
               loading="lazy"
               className="progressive replace"
             >
-              {" "}
               <img
                 src={e.init}
                 alt={e.thumbnailAlt}

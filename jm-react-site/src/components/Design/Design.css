@@ -70,6 +70,9 @@
   width: auto;
   cursor: pointer;
   border-radius: 50%;
+  /* clip-path: circle(); */
+  margin: 0;
+  background-color: var(--emphasis-light-color);
 }
 
 .gallery figure a,

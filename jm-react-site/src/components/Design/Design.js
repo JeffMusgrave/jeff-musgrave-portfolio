@@ -129,6 +129,7 @@ const Gallery = ({ activeTab, content, info }) => {
                     >
                       <a
                         href={image}
+                        title={title}
                         data-attribute="SRL"
                         key={`anchor-${id}`}
                         loading="lazy"
@@ -136,7 +137,6 @@ const Gallery = ({ activeTab, content, info }) => {
                       >
                         <img
                           src={init}
-                          title={title}
                           alt={alt}
                           key={`img-${id}`}
                           className="preview"

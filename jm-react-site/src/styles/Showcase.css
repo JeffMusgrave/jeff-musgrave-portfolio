@@ -45,6 +45,7 @@
   width: 100%;
   z-index: 0;
   filter: blur(20px);
+  background-color: var(--emphasis-light-color);
 }
 
 @media screen and (max-width: 1154px) {
