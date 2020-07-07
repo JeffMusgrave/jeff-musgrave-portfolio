@@ -130,7 +130,6 @@ const Gallery = ({ activeTab, content, info }) => {
                       <a
                         href={image}
                         title={title}
-                        data-attribute="SRL"
                         key={`anchor-${id}`}
                         loading="lazy"
                         className="progressive replace"
@@ -139,6 +138,7 @@ const Gallery = ({ activeTab, content, info }) => {
                           src={init}
                           alt={alt}
                           key={`img-${id}`}
+                          data-attribute="SRL"
                           className="preview"
                           loading="lazy"
                         />

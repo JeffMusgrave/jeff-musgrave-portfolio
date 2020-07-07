@@ -83,7 +83,7 @@ const Showcase = ({ content }) => {
         <motion.a
           href={one}
           loading="lazy"
-          class="progressive replace"
+          className="progressive replace"
           variants={fade}
           whileHover={hoverOp.hover}
           whileTap={hoverOp.tap}
@@ -92,7 +92,7 @@ const Showcase = ({ content }) => {
             src={init}
             title={title}
             alt={alt}
-            class="preview"
+            className="preview"
             loading="lazy"
             variants={fade}
             whileHover={hoverOp.hover}

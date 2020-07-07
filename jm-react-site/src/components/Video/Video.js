@@ -183,7 +183,7 @@ const Showcase = ({ activeTab, content }) => {
                       )}?vq=hd1080`}
                       frameborder="0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
+                      allowFullscreen
                       loading="lazy"
                     ></iframe>
                   </div>
