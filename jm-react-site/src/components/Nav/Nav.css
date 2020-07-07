@@ -60,7 +60,8 @@
     left: 0;
     z-index: 4;
     background-color: var(--shade-6);
-    opacity: 0.975;
+    opacity: 0.8;
+    backdrop-filter: blur(20px);
     justify-content: center;
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */

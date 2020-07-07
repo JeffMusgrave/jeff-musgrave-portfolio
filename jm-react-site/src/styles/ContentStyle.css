@@ -10,15 +10,6 @@
   -webkit-box-decoration-break: clone;
   margin-left: -2.5rem;
 }
-.content-style h1 {
-  margin-bottom: 2.5rem;
-}
-
-@media screen and (max-width: 1600px) {
-  .content-style h1 {
-    margin-bottom: 1.125rem;
-  }
-}
 
 @media screen and (max-width: 1154px) {
   .content-style h1 {
@@ -52,7 +43,6 @@
 .content-style article h2 {
   font-weight: 500;
   font-size: var(--lg);
-  padding: 0 0 2rem 0;
 }
 .content-style h2 span {
   display: table;
@@ -71,10 +61,8 @@
     padding: 0;
     padding-left: 0;
   }
-  .content-style h2 {
-    padding: 0 0 0.75rem 0;
-  }
-  .content-style h2 span {
-    padding: 0 0 0.25rem 0;
+
+  .content-style h2 span:first-of-type {
+    padding: 0 0 0.5rem 0;
   }
 }

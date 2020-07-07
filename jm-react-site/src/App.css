@@ -142,9 +142,11 @@ h1 {
   font-weight: 500;
   font-size: var(--xl);
   color: var(--shade-2);
+  padding-bottom: var(--ml);
 }
 h2 {
   font-size: var(--lg);
+  padding-bottom: var(--sm);
 }
 h3 {
   font-size: var(--md);
@@ -211,7 +213,7 @@ body *::-webkit-scrollbar {
 body,
 body * {
   scrollbar-width: thin;
-  scrollbar-color: var(--shade-3) transparent;
+  scrollbar-color: var(--shade-4) transparent;
 }
 body::-webkit-scrollbar-track,
 body *::-webkit-scrollbar-track {
@@ -219,5 +221,5 @@ body *::-webkit-scrollbar-track {
 }
 body::-webkit-scrollbar-thumb,
 body *::-webkit-scrollbar-thumb {
-  background-color: var(--shade-3);
+  background-color: var(--shade-4);
 }
