@@ -64,7 +64,8 @@
   height: 10rem;
 }
 
-.gallery figure img {
+.gallery figure img,
+.gallery figure a {
   height: 100%;
   width: auto;
   cursor: pointer;

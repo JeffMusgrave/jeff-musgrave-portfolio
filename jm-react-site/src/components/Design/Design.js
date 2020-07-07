@@ -120,20 +120,27 @@ const Gallery = ({ activeTab, content, info }) => {
             <div className="gallery" key={`gallery_${idx}`}>
               <SRLWrapper options={options} key={`SRLWrapper_${idx}_${idx}`}>
                 {content[info[idx]]["items"].map(
-                  ({ image, thumbnail, title, alt, id }) => (
+                  ({ image, thumbnail, init, title, alt, id }) => (
                     <motion.figure
                       variants={fade}
-                      style={hover.link}
                       whileHover={hover.hover}
                       whileTap={hover.tap}
                       key={`figure-${id}`}
                     >
-                      <a href={image} data-attribute="SRL" key={`anchor-${id}`}>
+                      <a
+                        href={image}
+                        data-attribute="SRL"
+                        key={`anchor-${id}`}
+                        loading="lazy"
+                        className="progressive replace"
+                      >
                         <img
-                          src={thumbnail}
+                          src={init}
                           title={title}
                           alt={alt}
                           key={`img-${id}`}
+                          className="preview"
+                          loading="lazy"
                         />
                       </a>
                     </motion.figure>

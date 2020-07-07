@@ -9,6 +9,7 @@ const content = {
         alt: "No Harm Cover Art",
         image: require("../img/covers/SV1_04_NoHarm_1000.png"),
         thumbnail: require("../img/covers/thumbs/SV1_04_NoHarm_200.jpg"),
+        init: require("../img/covers/init/SV1_04_NoHarm_init.jpg"),
         id: "4",
       },
       {
@@ -16,6 +17,7 @@ const content = {
         alt: "Tilt Cover Art",
         image: require("../img/covers/SV1_05_Tilt_1000.png"),
         thumbnail: require("../img/covers/thumbs/SV1_05_Tilt_200.jpg"),
+        init: require("../img/covers/init/SV1_05_Tilt_init.jpg"),
         id: "5",
       },
       {
@@ -23,6 +25,7 @@ const content = {
         alt: "I Can't Give Everything Away Cover Art",
         image: require("../img/covers/SV1_06_ICantGiveEverythingAway_1000.png"),
         thumbnail: require("../img/covers/thumbs/SV1_06_ICantGiveEverythingAway_200.jpg"),
+        init: require("../img/covers/init/SV1_06_ICantGiveEverythingAway_init.jpg"),
         id: "6",
       },
       {
@@ -30,6 +33,7 @@ const content = {
         alt: "The Line Begins To Blur Cover Art",
         image: require("../img/covers/SV1_07_TheLineBeginsToBlur_1000.png"),
         thumbnail: require("../img/covers/thumbs/SV1_07_TheLineBeginsToBlur_200.jpg"),
+        init: require("../img/covers/init/SV1_07_TheLineBeginsToBlur_init.jpg"),
         id: "7",
       },
     ],
@@ -45,6 +49,7 @@ const content = {
         category: "albumArt3",
         image: require("../img/covers/SV1_08_Insurgentes_1000.png"),
         thumbnail: require("../img/covers/thumbs/SV1_08_Insurgentes_200.jpg"),
+        init: require("../img/covers/init/SV1_08_Insurgentes_init.jpg"),
         id: "8",
       },
     ],

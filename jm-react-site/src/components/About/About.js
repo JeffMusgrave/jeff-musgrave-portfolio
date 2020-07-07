@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
 import contentLoader from "../../data/aboutContent.js";
 import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables/variables";
+import {
+  fadeSettings as fade,
+  hoverOpacitySettings as hoverOp,
+} from "../../variables/variables";
 import { Helmet } from "react-helmet";
 import ContactForm from "../ContactForm/ContactForm";
 import "./About.css";
@@ -70,19 +73,29 @@ const Contact = (props) => {
 
 const Showcase = ({ content }) => {
   return (
-    <motion.div
-      variants={fade}
-      whileHover={{ opacity: 0.9 }}
-      whileTap={{ opacity: 1 }}
-      className="preview-container about-prev-pos"
-    >
-      <div
-        className="video-preview"
-        style={{
-          backgroundImage: `url(${content.about.portrait.one})`,
-        }}
-      ></div>
-    </motion.div>
+    <div className="preview-container about-prev-pos">
+      <motion.div className="video-preview" loading="lazy" variants={fade}>
+        <motion.a
+          href={content.about.portrait.one}
+          loading="lazy"
+          class="progressive replace"
+          variants={fade}
+          whileHover={hoverOp.hover}
+          whileTap={hoverOp.tap}
+        >
+          <motion.img
+            src={content.about.portrait.init}
+            title={content.about.portrait.title}
+            alt={content.about.portrait.alt}
+            class="preview"
+            loading="lazy"
+            variants={fade}
+            whileHover={hoverOp.hover}
+            whileTap={hoverOp.tap}
+          />
+        </motion.a>
+      </motion.div>
+    </div>
   );
 };
 

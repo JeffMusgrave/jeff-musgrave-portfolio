@@ -56,7 +56,7 @@ const Home = (props) => {
           </Link>
         </motion.main>
       </div>
-      <div className="home-bg-img"></div>
+      <div className="home-bg-img" loading="lazy"></div>
     </>
   );
 };

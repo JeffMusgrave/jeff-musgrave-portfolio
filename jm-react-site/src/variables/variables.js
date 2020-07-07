@@ -4,6 +4,11 @@ export const fadeSettings = {
   exit: { opacity: 0 },
 };
 
+export const hoverOpacitySettings = {
+  hover: { opacity: 0.9 },
+  tap: { opacity: 1 },
+};
+
 export const hoverSettings = {
   hover: {
     opacity: 1,
@@ -17,7 +22,7 @@ export const hoverSettings = {
 export const lightboxOptions = {
   settings: {
     lightboxTransitionTimingFunction: "easeInOut",
-    slideAnimationType: "slide",
+    slideAnimationType: "fade",
     lightboxTransitionSpeed: 0.4,
   },
   buttons: {

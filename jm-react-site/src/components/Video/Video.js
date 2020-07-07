@@ -6,7 +6,9 @@ import { Helmet } from "react-helmet";
 import {
   fadeSettings as fade,
   hoverSettings as hover,
+  hoverOpacitySettings as hoverOp,
 } from "../../variables/variables";
+import useDeviceDetect from "../../utils/useDeviceDetect";
 import "./Video.css";
 import "../../styles/Showcase.css";
 import "../../styles/ContentStyle.css";
@@ -99,10 +101,23 @@ const SubNav = ({ tabDisplay, content }) => {
             whileTap={hover.tap}
             type="button"
             key={`thumbtab_${idx}`}
-            style={{ background: content[idx].buttonName }}
             onClick={() => tabDisplay(idx)}
+            loading="lazy"
           >
-            <img src={content[idx].thumbnail} alt={content[idx].thumbnailAlt} />
+            <a
+              href={e.image}
+              key={`anchor-${e.id}`}
+              loading="lazy"
+              className="progressive replace"
+            >
+              {" "}
+              <img
+                src={e.init}
+                alt={e.thumbnailAlt}
+                className="preview"
+                loading="lazy"
+              />
+            </a>
           </motion.li>
         ))}
       </ul>
@@ -138,12 +153,13 @@ const Showcase = ({ activeTab, content }) => {
               </div>
               <motion.div
                 variants={fade}
-                whileHover={{ opacity: 0.9 }}
-                whileTap={{ opacity: 1 }}
+                whileHover={hoverOp.hover}
+                whileTap={hoverOp.tap}
                 className="video-preview"
                 key={`videopreview_${idx}`}
-                style={{ backgroundImage: `url(${content[idx].image})` }}
-              ></motion.div>
+              >
+                <VideoImagePrev content={content[idx]} />
+              </motion.div>
 
               {previewSize ? (
                 <motion.div variants={fade} className="youtube-appear">
@@ -155,7 +171,6 @@ const Showcase = ({ activeTab, content }) => {
                   </div>
 
                   <div className="youtube-container">
-                    {" "}
                     <iframe
                       width="560"
                       height="315"
@@ -169,6 +184,7 @@ const Showcase = ({ activeTab, content }) => {
                       frameborder="0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen
+                      loading="lazy"
                     ></iframe>
                   </div>
                 </motion.div>
@@ -177,6 +193,56 @@ const Showcase = ({ activeTab, content }) => {
           ) : null
         )
         .filter((x) => x)}
+    </>
+  );
+};
+
+//confusing, extra curly braces for "content" necessary?
+const VideoImagePrev = ({ content }) => {
+  const { isMobile } = useDeviceDetect();
+  let { image, video, id, init, title, imageAlt } = content;
+
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  const onLoadedData = () => {
+    setVideoLoaded(!videoLoaded);
+  };
+
+  return (
+    <>
+      {!isMobile ? (
+        <>
+          <motion.video
+            className="video-loop"
+            playsInline
+            autoPlay
+            muted
+            loop
+            onLoadedData={onLoadedData}
+            style={{ opacity: videoLoaded ? 1 : 0 }}
+            animate
+            variants={fade}
+          >
+            <source src={video} type="video/webm"></source>
+          </motion.video>
+        </>
+      ) : (
+        <a
+          href={image}
+          key={`anchor-${id}`}
+          loading="lazy"
+          className="progressive replace"
+        >
+          <img
+            src={init}
+            title={title}
+            alt={imageAlt}
+            key={`img-${id}`}
+            className="preview"
+            loading="lazy"
+          />
+        </a>
+      )}
     </>
   );
 };
