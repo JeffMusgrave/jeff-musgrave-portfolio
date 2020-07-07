@@ -118,9 +118,10 @@ a:visited .chevron {
   grid-column: logo/right-margin;
   grid-row: row-content/footer;
   z-index: -4;
-  mix-blend-mode: overlay;
+  mix-blend-mode: difference;
+  opacity: 0.6;
   /* background-blend-mode: overlay; */
-  clip-path: inset(0px 0px 0px 0px);
+  /* clip-path: inset(0px 0px 0px 0px); */
 }
 
 .vid-overlay {
