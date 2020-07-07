@@ -51,7 +51,7 @@ const Contact = (props) => {
         >
           <motion.section variants={fade}>
             <h1>
-              <span>Find out more</span>
+              <span>About</span>
             </h1>
           </motion.section>
           <article>
@@ -72,11 +72,16 @@ const Contact = (props) => {
 };
 
 const Showcase = ({ content }) => {
+  const {
+    about: {
+      portrait: { one, init, title, alt },
+    },
+  } = content;
   return (
     <div className="preview-container about-prev-pos">
       <motion.div className="video-preview" loading="lazy" variants={fade}>
         <motion.a
-          href={content.about.portrait.one}
+          href={one}
           loading="lazy"
           class="progressive replace"
           variants={fade}
@@ -84,9 +89,9 @@ const Showcase = ({ content }) => {
           whileTap={hoverOp.tap}
         >
           <motion.img
-            src={content.about.portrait.init}
-            title={content.about.portrait.title}
-            alt={content.about.portrait.alt}
+            src={init}
+            title={title}
+            alt={alt}
             class="preview"
             loading="lazy"
             variants={fade}

@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
 import { Helmet } from "react-helmet";
 import "./Home.css";
+import contentLoader from "../../data/videoContent.js";
+
 const Home = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,9 +58,50 @@ const Home = (props) => {
           </Link>
         </motion.main>
       </div>
-      <div className="home-bg-img" loading="lazy"></div>
+      <div className="home-bg" loading="lazy">
+        <div className="vid-overlay"></div>
+        <VideoImagePrev />
+      </div>
     </>
   );
+};
+
+const VideoImagePrev = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [content, setContent] = useState([]);
+  useLayoutEffect(() => {
+    const getData = async () => {
+      const data = await contentLoader([]);
+      setContent(data);
+    };
+    getData();
+  }, []);
+
+  const onLoadedData = () => {
+    setVideoLoaded(!videoLoaded);
+  };
+
+  if (content.length > 0) {
+    return (
+      <>
+        <motion.video
+          className="video-loop-home"
+          playsInline
+          autoPlay
+          muted
+          loop
+          onLoadedData={onLoadedData}
+          style={{ opacity: videoLoaded ? 1 : 0 }}
+          animate
+          variants={fade}
+        >
+          <source src={content[0].video} type="video/webm"></source>
+        </motion.video>
+      </>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Home;

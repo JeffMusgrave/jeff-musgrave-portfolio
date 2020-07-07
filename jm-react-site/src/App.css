@@ -112,6 +112,18 @@ body {
   overflow-y: scroll;
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-bg);
+  background-image: url(./img/noise-100x100-low.png);
+}
+
 a:link,
 a:visited {
   font-weight: 700;
@@ -147,7 +159,10 @@ h5 {
 p {
   font-size: var(--sm);
   font-weight: 300;
-  margin: 0 0 1.75rem 0;
+}
+
+p + p {
+  margin: 0.75rem 0 0 0;
 }
 
 @media screen and (max-width: 1550px) {

@@ -22,6 +22,6 @@ footer {
 
 @media screen and (max-width: 1154px) {
   footer {
-    border-top: 5px solid var(--emphasis-lighter-color);
+    border-top: 5px solid var(--shade-5);
   }
 }
