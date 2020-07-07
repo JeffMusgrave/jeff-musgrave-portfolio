@@ -11,6 +11,7 @@
   min-width: 0;
   align-items: center;
   justify-items: center;
+  background-color: var(--shade-5);
 }
 .video-preview {
   grid-row: 1 / span 1;
