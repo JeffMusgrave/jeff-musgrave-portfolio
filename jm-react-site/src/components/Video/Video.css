@@ -16,16 +16,18 @@
 
 .thumbtabs li {
   clip-path: circle();
+  width: 6rem;
+  height: 6rem;
 }
 
-.thumbtabs ul li a,
-.thumbtabs ul li a img {
-  width: 6rem;
+.thumbtabs img {
   /* border-radius: 50%; */
   background-color: var(--emphasis-light-color);
   margin: 0rem 2rem 0 0;
   cursor: pointer;
   padding: 0;
+  width: 6rem;
+  height: 6rem;
 }
 
 @media screen and (max-width: 1600px) {

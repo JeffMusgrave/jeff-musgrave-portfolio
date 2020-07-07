@@ -110,20 +110,13 @@ const SubNav = ({ tabDisplay, content }) => {
             onClick={() => tabDisplay(idx)}
             loading="lazy"
           >
-            <a
-              href={e.image}
-              key={`anchor-${e.id}`}
-              title={e.title}
+            <img
+              alt={e.thumbnailAlt}
               loading="lazy"
-            >
-              <img
-                alt={e.thumbnailAlt}
-                loading="lazy"
-                className="blurry-load"
-                data-large={e.image}
-                src={e.init}
-              />
-            </a>
+              className="blurry-load"
+              data-large={e.image}
+              src={e.init}
+            />
           </motion.li>
         ))}
       </ul>
