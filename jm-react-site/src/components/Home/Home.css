@@ -145,7 +145,7 @@ a:visited .chevron {
   right: 0;
   bottom: 0;
   z-index: 2;
-  position: absolute;
+  position: fixed;
 }
 
 @media screen and (max-width: 1154px) {

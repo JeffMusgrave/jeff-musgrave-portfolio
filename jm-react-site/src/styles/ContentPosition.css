@@ -9,7 +9,7 @@
   align-self: center;
   z-index: 2;
   min-width: 100%;
-  padding-bottom: 2.5rem;
+  /* padding-bottom: 2.5rem; */
   display: grid;
   grid-template-columns:
     [h-col-0 h-col-1] 15rem [h-col-2] 18rem [h-col-3 h-text] minmax(
