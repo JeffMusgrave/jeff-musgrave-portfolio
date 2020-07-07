@@ -81,7 +81,7 @@ const SubNav = ({ tabDisplay, activeTab, info }) => {
     <nav className="gallery-nav">
       {activeTab.map((e, idx) => (
         <button
-          className={`content-nav-btn ${e ? `selected` : ``}`}
+          className={`content-nav-btn ${e ? `selected` : `deselected`}`}
           onClick={() => tabDisplay(idx)}
           key={`btn-${info[idx]}`}
         >
