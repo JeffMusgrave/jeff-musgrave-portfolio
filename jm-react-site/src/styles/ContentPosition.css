@@ -55,10 +55,12 @@
 }
 
 .video-position main {
+  /* grid-column: content/right-fold; */
   grid-column: content/right-fold;
   grid-row: row-content/footer;
   align-self: center;
   z-index: 2;
+  margin-right: 2.5rem;
 }
 
 @media screen and (max-width: 1154px) {

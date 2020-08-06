@@ -12,12 +12,15 @@
 
 .thumbtabs ul {
   list-style: none;
+  grid-template-columns: repeat(auto-fit, var(--thumbtab-vid));
+  grid-auto-flow: row;
+  margin-right: 2.5rem;
 }
 
 .thumbtabs li {
   clip-path: circle();
-  width: 6rem;
-  height: 6rem;
+  width: var(--thumbtab-vid);
+  height: var(--thumbtab-vid);
   background-color: var(--shade-5);
 }
 
@@ -27,22 +30,11 @@
   margin: 0rem 2rem 0 0;
   cursor: pointer;
   padding: 0;
-  width: 6rem;
-  height: 6rem;
+  width: var(--thumbtab-vid);
+  height: var(--thumbtab-vid);
 }
 
-@media screen and (max-width: 1600px) {
-  .thumbtabs img {
-    width: 6rem;
-  }
-  .thumbtabs ul {
-    grid-template-columns: repeat(auto-fit, 6rem);
-    grid-auto-flow: row;
-    margin-right: 2.5rem;
-  }
-}
-
-@media screen and (max-width: 1344px) {
+/* @media screen and (max-width: 1344px) {
   .thumbtabs ul {
     grid-template-columns: repeat(auto-fit, 4.5rem);
   }
@@ -51,7 +43,7 @@
     width: 4.5rem;
     height: 4.5rem;
   }
-}
+} */
 
 @media screen and (max-width: 1154px) {
   .thumbtabs {
@@ -67,15 +59,15 @@
     margin: 0;
     height: 100%;
     z-index: 2;
-    grid-template-columns: repeat(auto-fit, 5rem);
+    /* grid-template-columns: repeat(auto-fit, 5rem); */
   }
 
   .thumbtabs li,
   .thumbtabs img {
     margin: 0;
     padding: 0;
-    height: 5rem;
-    width: 5rem;
+    /* height: 5rem;
+    width: 5rem; */
   }
 }
 @media screen and (max-width: 768px) {
@@ -89,7 +81,7 @@
   }
 }
 
-@media screen and (max-width: 630px) {
+/* @media screen and (max-width: 630px) {
   .thumbtabs li,
   .thumbtabs img {
     height: 4rem;
@@ -99,8 +91,8 @@
   .thumbtabs ul {
     grid-template-columns: repeat(auto-fit, 4rem);
   }
-}
-
+} */
+/* 
 @media screen and (max-width: 590px) {
   .thumbtabs ul {
     grid-gap: 0.625rem;
@@ -114,11 +106,12 @@
   .thumbtabs ul {
     grid-template-columns: repeat(auto-fit, 3.5rem);
   }
-}
+} */
 
 .video-prev-pos {
-  grid-column: overlap/right-margin;
+  grid-column: right-fold/right-margin;
   grid-row: row-content/footer;
+  margin-left: 2.5rem;
 }
 
 .play-btn-container {
@@ -132,7 +125,9 @@
 }
 
 .play-btn {
-  fill: white;
+  fill: var(--shade-1);
+  /* mix-blend-mode: overlay; */
+  /* opacity: 0.6; */
 }
 
 .youtube-hidden {
@@ -169,7 +164,7 @@
 
 .line span {
   z-index: 5;
-  background-color: var(--shade-1);
+  /* background-color: var(--shade-1); */
   border-radius: 3px;
   content: "";
   display: block;

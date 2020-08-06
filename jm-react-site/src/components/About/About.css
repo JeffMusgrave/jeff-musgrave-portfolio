@@ -31,11 +31,11 @@
   z-index: 3;
   margin: 2.5rem 0 2.5rem 0;
 }
-
+/* 
 .contact-container h1 span,
 .contact-container h1 {
   margin: 0 0 0 0;
-}
+} */
 
 @media screen and (max-width: 1154px) {
   .contact-container main section {

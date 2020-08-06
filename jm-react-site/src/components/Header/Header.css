@@ -55,12 +55,13 @@
 .logo a:visited {
   background-color: transparent;
   color: var(--shade-1);
-  font-weight: 500;
+  font-weight: 100;
   padding: 0;
 }
 
-.logo a:link > span,
-.logo a:hover > span,
-.logo a:visited > span {
-  color: var(--shade-3a);
+.logo span,
+.logo span,
+.logo span {
+  font-weight: 500;
+  opacity: 0.75;
 }

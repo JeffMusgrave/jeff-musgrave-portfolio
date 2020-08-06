@@ -13,7 +13,9 @@
   --shade-3a: #969696;
   --shade-4: #7b7b7b;
   --shade-5: #3d3d3d;
-  --color-bg: #222222;
+  --color-home: #222222;
+  --color-bg: #111111;
+  --color-bg-trans: rgba(17, 17, 17, 0.494);
   --shade-6: black;
   --success: green;
   --warning: orange;
@@ -32,6 +34,7 @@
   --lh-md: 2.75;
   --lh-sm: 2.66;
   --lh-xs: 2.5;
+  --thumbtab-vid: 8rem;
 }
 
 @media screen and (max-width: 1550px) {
@@ -44,11 +47,19 @@
     --xs: 1rem;
     --logo: 1.5rem;
     --navtext: 1rem;
+    --thumbtab-vid: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 1344px) {
+  :root {
+    --thumbtab-vid: 5rem;
   }
 }
 
 @media screen and (max-width: 1154px) {
   :root {
+    --thumbtab-vid: 8rem;
     --xl: 2.125rem;
     --lg: 1.5rem;
     --ml: 1.33rem;
@@ -68,6 +79,13 @@
     --xs: 0.85rem;
     --logo: 1.33rem;
     --navtext: 0.95rem;
+    --thumbtab-vid: 5rem;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  :root {
+    --thumbtab-vid: 4rem;
   }
 }
 
@@ -77,6 +95,7 @@
     --lg: 1.33rem;
     --ml: 1.125rem;
     --md: 1rem;
+    --thumbtab-vid: 3.5rem;
     /* --sm: 0.95rem;
     --xs: 0.8rem;
     --logo: 1.25rem;
@@ -106,7 +125,7 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
+  background-color: var(--color-home);
   /* background-image: url(./img/noise-100x100-low.png); */
   color: var(--shade-1);
   overflow-y: scroll;
@@ -120,8 +139,15 @@ body::after {
   right: 0;
   bottom: 0;
   left: 0;
+  background-image: url(./img/noise-100x100.png);
+}
+
+.home-bg-color::after {
+  background-color: var(--color-home);
+}
+
+.standard-bg-color::after {
   background-color: var(--color-bg);
-  background-image: url(./img/noise-100x100-low.png);
 }
 
 a:link,

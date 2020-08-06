@@ -35,7 +35,7 @@ const Header = () => {
     const handleScroll = () => {
       const rem = parseInt(getComputedStyle(document.documentElement).fontSize);
       let y = window.scrollY;
-      return y > 2 * rem ? setScrollDown(true) : setScrollDown(false);
+      return y > 1 * rem ? setScrollDown(true) : setScrollDown(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -45,9 +45,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <NavLink to="/">
-          jeff <span>musgrave</span>
-        </NavLink>
+        <NavLink to="/">jeff musgrave</NavLink>
       </div>
 
       <Nav menu={menu} viewWidth={viewWidth} menuVis={menuVis} />

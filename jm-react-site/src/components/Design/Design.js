@@ -142,7 +142,7 @@ const Gallery = ({ activeTab, content, info }) => {
                       >
                         <img
                           className="blurry-load"
-                          data-large={image}
+                          data-large={thumbnail}
                           src={init}
                           alt={alt}
                           key={`img-${id}`}

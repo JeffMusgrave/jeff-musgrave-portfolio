@@ -43,7 +43,6 @@
     "react-snap": "^1.23.0"
   },
   "reactSnap": {
-    "fixWebpackChunksIssue": false,
     "viewport": {
       "width": 1920,
       "height": 1080
