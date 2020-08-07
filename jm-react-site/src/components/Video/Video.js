@@ -206,7 +206,7 @@ const Showcase = ({ activeTab, content }) => {
 
                   <div
                     key={`showcase-youtube-container_${idx}`}
-                    className="showcase-youtube-container"
+                    className="youtube-container"
                   >
                     <iframe
                       key={`showcase-iframe_${idx}`}

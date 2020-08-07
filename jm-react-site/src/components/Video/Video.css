@@ -150,7 +150,7 @@
   bottom: 0;
   min-height: 0; /* NEW */
   min-width: 0; /* NEW; needed for Firefox */
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   z-index: 20;
   grid-template-rows: [row-video-start] 5rem [row-video-top] 1fr [row-video-bottom] 5rem [row-video-end];
   grid-template-columns: [column-video-start] 5rem [column-video-left] 1fr [column-video-right] 5rem [column-video-end];
@@ -169,7 +169,7 @@
 
 .line span {
   z-index: 5;
-  /* background-color: var(--shade-1); */
+  background-color: var(--shade-1);
   border-radius: 3px;
   content: "";
   display: block;

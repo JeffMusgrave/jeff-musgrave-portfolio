@@ -35,11 +35,11 @@ const Nav = ({ menu, viewWidth, menuVis }) => {
 const NavList = ({ menuVis }) => {
   return (
     <ul>
-      <li>
+      {/* <li>
         <NavLink to="/" onClick={menuVis}>
           Home
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink to="/video" onClick={menuVis}>
           Video
@@ -48,6 +48,11 @@ const NavList = ({ menuVis }) => {
       <li>
         <NavLink to="/design" onClick={menuVis}>
           Design
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/" onClick={menuVis}>
+          Code
         </NavLink>
       </li>
       <li>
