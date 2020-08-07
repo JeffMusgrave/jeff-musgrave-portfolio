@@ -62,7 +62,10 @@ const Design = (props) => {
                 tabDisplay={tabDisplay}
                 info={info}
               />
-              <Gallery activeTab={activeTab} content={content} info={info} />
+              <div className="gallery-container">
+                <Gallery activeTab={activeTab} content={content} info={info} />
+              </div>
+
               <Description
                 activeTab={activeTab}
                 content={content}

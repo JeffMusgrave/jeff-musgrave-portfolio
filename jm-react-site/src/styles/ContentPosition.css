@@ -86,13 +86,21 @@
   z-index: 2;
 }
 
+.content-style main {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 @media screen and (max-width: 1154px) {
   .design-position {
     display: block;
     grid-column: logo/right-margin;
     grid-row: row-content/footer;
-    margin-bottom: 2.5rem;
     min-height: 100%;
+  }
+  .content-style main {
+    margin-top: 0;
+    margin-bottom: 2.5rem;
   }
 }
 

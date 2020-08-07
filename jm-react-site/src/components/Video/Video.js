@@ -67,20 +67,34 @@ const Description = ({ activeTab, content }) => {
       {activeTab
         .map((e, idx) =>
           e ? (
-            <React.Fragment key={`fragment_${idx}`}>
-              <motion.section variants={fade} key={`section_${idx}`}>
-                <h1 key={`section_h1_${idx}`}>
-                  <span>{content[idx].title}</span>
+            <React.Fragment key={`description-fragment_${idx}`}>
+              <motion.section
+                variants={fade}
+                key={`description-section_${idx}`}
+              >
+                <h1 key={`description-section_h1_${idx}`}>
+                  <span key={`description-span0_${idx}`}>
+                    {content[idx].title}
+                  </span>
                 </h1>
               </motion.section>
 
-              <motion.article variants={fade} key={`article_${idx}`}>
-                <h2 key={`article_h2_${idx}`}>
-                  <span>{content[idx].subtitle}</span>
-                  <span>{content[idx].subtitle2}</span>
+              <motion.article
+                variants={fade}
+                key={`description-article_${idx}`}
+              >
+                <h2 key={`description-article_h2_${idx}`}>
+                  <span key={`description-span1_${idx}`}>
+                    {content[idx].subtitle}
+                  </span>
+                  <span key={`description-span2_${idx}`}>
+                    {content[idx].subtitle2}
+                  </span>
                 </h2>
-                <p key={`paragraph_${idx}`}>
-                  <span>{content[idx].description}</span>
+                <p key={`description-paragraph_${idx}`}>
+                  <span key={`description-span3_${idx}`}>
+                    {content[idx].description}
+                  </span>
                 </p>
               </motion.article>
             </React.Fragment>
@@ -106,11 +120,12 @@ const SubNav = ({ tabDisplay, content }) => {
             whileHover={hover.hover}
             whileTap={hover.tap}
             type="button"
-            key={`thumbtab_${idx}`}
+            key={`subnav-thumbtab_${idx}`}
             onClick={() => tabDisplay(idx)}
             loading="lazy"
           >
             <img
+              key={`subnav-thumbtab-img_${idx}`}
               alt={e.thumbnailAlt}
               loading="lazy"
               className="blurry-load"
@@ -138,25 +153,35 @@ const Showcase = ({ activeTab, content }) => {
             <>
               <motion.aside
                 variants={fade}
-                key={`aside_${idx}`}
+                key={`showcase-aside_${idx}`}
                 className="preview-container video-prev-pos"
                 onClick={toggleSize}
               >
-                <div className="play-btn-container">
+                <div
+                  key={`showcase-play-btn-container_${idx}`}
+                  className="play-btn-container"
+                >
                   <svg
+                    key={`showcase-svg_${idx}`}
                     xmlns="http://www.w3.org/2000/svg"
                     className="play-btn"
                     viewBox="0 0 6.73 7.77"
                   >
-                    <polygon points="6.73 3.88 0 0 0 7.77 6.73 3.88" />
+                    <polygon
+                      key={`showcase-polygon_${idx}`}
+                      points="6.73 3.88 0 0 0 7.77 6.73 3.88"
+                    />
                   </svg>
                 </div>
                 <motion.div
                   variants={fade}
                   className="video-preview"
-                  key={`videopreview_${idx}`}
+                  key={`showcase-videopreview_${idx}`}
                 >
-                  <VideoImagePrev content={content[idx]} />
+                  <VideoImagePrev
+                    key={`showcase-videoimagepreview_${idx}`}
+                    content={content[idx]}
+                  />
                 </motion.div>
               </motion.aside>
               {previewSize ? (
@@ -164,16 +189,27 @@ const Showcase = ({ activeTab, content }) => {
                   variants={fade}
                   className="youtube-appear"
                   onClick={toggleSize}
+                  key={`showcase-youtube-appear_${idx}`}
                 >
-                  <div className="close-btn">
-                    <div className="line">
-                      <span className="left-x"></span>
-                      <span className="right-x"></span>
+                  <div key={`showcase-close-btn_${idx}`} className="close-btn">
+                    <div key={`showcase-line_${idx}`} className="line">
+                      <span
+                        key={`showcase-left-x_${idx}`}
+                        className="left-x"
+                      ></span>
+                      <span
+                        key={`showcase-right-x_${idx}`}
+                        className="right-x"
+                      ></span>
                     </div>
                   </div>
 
-                  <div className="youtube-container">
+                  <div
+                    key={`showcase-youtube-container_${idx}`}
+                    className="showcase-youtube-container"
+                  >
                     <iframe
+                      key={`showcase-iframe_${idx}`}
                       width="560"
                       height="315"
                       title={`youtube-${content[idx].title}`}
@@ -229,6 +265,7 @@ const VideoImagePrev = ({ content }) => {
             style={{ opacity: videoLoaded ? 1 : 0 }}
             animate
             variants={fade}
+            key={`vidimgprev-${content.id}`}
           >
             <source src={video} type="video/webm"></source>
           </motion.video>
@@ -236,7 +273,7 @@ const VideoImagePrev = ({ content }) => {
       ) : (
         <a
           href={image}
-          key={`anchor-${id}`}
+          key={`vidimgprev-anchor-${id}`}
           loading="lazy"
           className="progressive replace"
         >
@@ -245,7 +282,7 @@ const VideoImagePrev = ({ content }) => {
             src={init}
             title={title}
             alt={imageAlt}
-            key={`img-${id}`}
+            key={`vidimgprev-img-${id}`}
             className="blurry-load"
             loading="lazy"
           />

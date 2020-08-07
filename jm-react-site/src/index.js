@@ -24,16 +24,3 @@ if (rootElement.hasChildNodes()) {
 }
 
 serviceWorker.unregister();
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <Router>
-//       <SimpleReactLightbox>
-//         <App />
-//       </SimpleReactLightbox>
-//     </Router>
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-
-// serviceWorker.unregister();

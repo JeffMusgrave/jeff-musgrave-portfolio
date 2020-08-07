@@ -20,7 +20,7 @@ const VideoBackground = (props) => {
   };
 
   const currentPath = props.location.pathname;
-  console.log(currentPath);
+
   if (content.length > 0) {
     return (
       <motion.div

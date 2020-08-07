@@ -60,7 +60,7 @@
     left: 0;
     z-index: 4;
     background-color: var(--shade-6);
-    opacity: 0.8;
+    opacity: 0.9;
     backdrop-filter: blur(20px);
     justify-content: center;
     -webkit-user-select: none; /* Safari */

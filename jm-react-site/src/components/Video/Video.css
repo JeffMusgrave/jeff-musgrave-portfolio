@@ -115,20 +115,25 @@
 }
 
 .play-btn-container {
-  width: clamp(5rem, 8rem, 5vw);
+  width: clamp(4rem, 8rem, 4vw);
   text-align: center;
   align-self: center;
   justify-self: center;
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
   z-index: 3;
+  mix-blend-mode: exclusion;
 }
 
-.play-btn {
+.play-btn polygon {
   fill: var(--shade-1);
-  /* mix-blend-mode: overlay; */
-  /* opacity: 0.6; */
 }
+
+/* .play-btn {
+  fill: var(--shade-1);
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+} */
 
 .youtube-hidden {
   display: none;

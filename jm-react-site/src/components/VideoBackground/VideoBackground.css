@@ -2,6 +2,11 @@
   grid-column: logo/right-margin;
   grid-row: row-content/footer;
   z-index: -4;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .bg-vid-home {
