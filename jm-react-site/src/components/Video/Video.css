@@ -25,7 +25,6 @@
 }
 
 .thumbtabs img {
-  /* border-radius: 50%; */
   background-color: var(--emphasis-light-color);
   margin: 0rem 2rem 0 0;
   cursor: pointer;
@@ -33,17 +32,6 @@
   width: var(--thumbtab-vid);
   height: var(--thumbtab-vid);
 }
-
-/* @media screen and (max-width: 1344px) {
-  .thumbtabs ul {
-    grid-template-columns: repeat(auto-fit, 4.5rem);
-  }
-  .thumbtabs li,
-  .thumbtabs img {
-    width: 4.5rem;
-    height: 4.5rem;
-  }
-} */
 
 @media screen and (max-width: 1154px) {
   .thumbtabs {

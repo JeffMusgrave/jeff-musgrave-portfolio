@@ -1,6 +1,12 @@
 .home-position {
-  display: contents;
   min-height: 100%;
+}
+
+.home-position,
+.video-position,
+.design-position,
+.code-position {
+  display: contents;
 }
 
 .home-position main {
@@ -50,10 +56,6 @@
   }
 }
 
-.video-position {
-  display: contents;
-}
-
 .video-position main {
   /* grid-column: content/right-fold; */
   grid-column: content/right-fold;
@@ -75,15 +77,19 @@
   }
 }
 
-.design-position {
-  display: contents;
-}
-
 .design-position main {
   grid-column: content/right-margin;
   grid-row: row-content/footer;
   align-self: center;
   z-index: 2;
+}
+
+.code-position main {
+  grid-column: aside/right-margin;
+  grid-row: row-content/footer;
+  align-self: center;
+  z-index: 2;
+  margin-left: 2.5rem;
 }
 
 .content-style main {

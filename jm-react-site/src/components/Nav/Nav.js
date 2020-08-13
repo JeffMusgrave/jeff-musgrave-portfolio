@@ -51,7 +51,7 @@ const NavList = ({ menuVis }) => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/" onClick={menuVis}>
+        <NavLink to="/code" onClick={menuVis}>
           Code
         </NavLink>
       </li>

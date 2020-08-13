@@ -235,7 +235,6 @@ const Showcase = ({ activeTab, content }) => {
   );
 };
 
-//confusing, extra curly braces for "content" necessary?
 const VideoImagePrev = ({ content }) => {
   const { isMobile } = useDeviceDetect();
   let { image, video, id, init, title, imageAlt } = content;

@@ -43,12 +43,6 @@
   }
 }
 @media screen and (max-width: 1154px) {
-  /* .content-grid {
-    grid-template-columns: [logo edge content logo-pad bg-pad right-fold] 30vw [content-mid overlap aside] 60vw [pre-margin right-margin];
-    width: auto;
-    min-height: 100%;
-  } */
-
   .standard-rows {
     grid-template-rows: [row-start] 5rem [row-content] 1fr [footer] auto [row-end];
   }

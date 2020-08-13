@@ -7,6 +7,10 @@
   grid-column: logo/logo-pad;
 }
 
+.bg-code {
+  grid-column: logo/aside;
+}
+
 .bg-about {
   grid-column: logo/overlap;
 }

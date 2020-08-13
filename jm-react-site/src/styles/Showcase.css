@@ -3,7 +3,6 @@
 .preview-container {
   align-self: center;
   padding: 0;
-
   display: grid;
   cursor: pointer;
   clip-path: circle();

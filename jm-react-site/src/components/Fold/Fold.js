@@ -9,6 +9,7 @@ const Fold = (props) => {
     "/": "bg-home",
     "/video": "bg-video",
     "/design": "bg-design",
+    "/code": "bg-code",
     "/about": "bg-about",
   };
 

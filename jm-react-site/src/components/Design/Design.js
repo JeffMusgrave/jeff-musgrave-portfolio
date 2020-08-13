@@ -51,11 +51,11 @@ const Design = (props) => {
             animate="animate"
             exit="exit"
           >
-            <section>
+            <motion.section animate>
               <h1>
                 <span>Design</span>
               </h1>
-            </section>
+            </motion.section>
             <article>
               <SubNav
                 activeTab={activeTab}
@@ -83,7 +83,7 @@ const Design = (props) => {
 
 const SubNav = ({ tabDisplay, activeTab, info }) => {
   return (
-    <nav className="gallery-nav">
+    <motion.nav animate className="gallery-nav">
       {activeTab.map((e, idx) => (
         <button
           className={`content-nav-btn ${e ? `selected` : ` `}`}
@@ -93,13 +93,13 @@ const SubNav = ({ tabDisplay, activeTab, info }) => {
           {`${info[idx]}`}
         </button>
       ))}
-    </nav>
+    </motion.nav>
   );
 };
 
 const Description = ({ activeTab, content, info }) => {
   return (
-    <div className="gallery-blurb">
+    <div className="gallery-blurb design-blurb">
       {activeTab.map((e, idx) =>
         e ? (
           <React.Fragment key={`fragment-${idx}`}>

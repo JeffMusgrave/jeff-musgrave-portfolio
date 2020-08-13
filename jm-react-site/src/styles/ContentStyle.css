@@ -73,3 +73,36 @@
     padding: 0 0 0.5rem 0;
   }
 }
+
+.gallery-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0.625rem 0 2.5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0.625rem 0 0.625rem 0;
+    margin-left: 0rem;
+  }
+}
+
+@media screen and (max-width: 1154px) {
+  .gallery-nav {
+    margin-left: 0rem;
+  }
+}
+
+/* @media screen and (max-width: 768px) {
+  .gallery-blurb {
+    margin-top: 0rem;
+  }
+} */
+
+.fadeOut {
+  mask-image: linear-gradient(to top, transparent 2%, black 96%);
+  overflow-y: scroll;
+}
