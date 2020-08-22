@@ -13,9 +13,8 @@
 
 /* Container Display: Contents */
 
-.contact-container,
-.contact-container main,
-.contact-container main article,
+.about-pos main,
+.about-pos article,
 .contact-form,
 .contact-form div {
   display: contents;
@@ -23,22 +22,16 @@
 
 /* form position */
 
-.contact-container main section {
-  grid-column: bg-pad/overlap;
-  grid-row: row-content/row-email;
+.about-pos section {
+  grid-column: bg-pad/aside;
+  grid-row: row-select/row-name;
   display: grid;
-  align-self: flex-end;
+  align-self: flex-start;
   z-index: 3;
-  margin: 2.5rem 0 2.5rem 0;
 }
-/* 
-.contact-container h1 span,
-.contact-container h1 {
-  margin: 0 0 0 0;
-} */
 
 @media screen and (max-width: 1154px) {
-  .contact-container main section {
+  .about-pos section {
     grid-column: logo/overlap;
     grid-row: row-content/row-select;
     display: grid;
@@ -48,7 +41,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .contact-container main section {
+  .about-pos section {
     grid-column: logo/right-margin;
     margin-right: 0;
   }
@@ -57,11 +50,7 @@
 .about-nav {
   grid-column: overlap/right-margin;
   grid-row: row-select/row-name;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  padding: 0 0 2.5rem 2.5rem;
-  min-height: 100%;
+  margin-left: 2.5rem;
 }
 
 .about-prev-pos {
@@ -85,6 +74,10 @@
   .about-me {
     display: contents;
   }
+  .about-nav {
+    margin: 0;
+  }
+
   .about-nav,
   .about-me h1,
   .about-me div {
@@ -103,7 +96,6 @@
 
   .about-nav {
     grid-row: row-select/row-name;
-    padding: 0.625rem 0 2.5rem 0;
   }
 
   .about-prev-pos,
@@ -125,6 +117,10 @@
   .about-me h1,
   .about-me div {
     grid-column: logo/right-margin;
+  }
+
+  .about-me h1,
+  .about-me div {
     padding: 0 0 0.625rem 0;
   }
   .about-me h1 {

@@ -1,0 +1,49 @@
+.inset-grid {
+  display: contents;
+  grid-gap: 2.5rem;
+  gap: 2.5rem;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1154px) {
+  .inset-grid {
+    display: grid;
+    grid-template-columns: [sub-start] 1fr [sub-mid] min-content [sub-end];
+    grid-template-rows:
+      [sub-row-start] min-content[sub-row-title] minmax(23.5rem, 30vh)
+      [sub-row-mid sub-post-mid] min-content[sub-row-end];
+  }
+
+  .inset-grid main {
+    display: contents;
+    align-self: flex-start;
+  }
+  .inset-grid article {
+    grid-column: sub-start/sub-mid;
+    grid-row: sub-post-mid/sub-row-end;
+  }
+  .inset-grid section:first-of-type {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .inset-grid {
+    grid-template-columns: [sub-start] 2fr [sub-mid sub-end];
+    grid-template-rows:
+      [sub-row-start] min-content [sub-row-title] minmax(10rem, 25vmax)
+      [sub-row-mid] min-content [sub-post-mid] 1fr [sub-row-end];
+    grid-gap: 1.75rem;
+    gap: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .inset-grid {
+    grid-template-columns: [sub-start] 2fr [sub-mid sub-end];
+    grid-template-rows:
+      [sub-row-start] min-content [sub-row-title] minmax(7rem, 25vmax)
+      [sub-row-mid] min-content [sub-post-mid] 1fr [sub-row-end];
+    grid-gap: 1.125rem;
+    gap: 1.125rem;
+  }
+}

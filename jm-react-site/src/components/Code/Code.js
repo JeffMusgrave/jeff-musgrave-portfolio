@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/codeContent.js";
+import NavTabs from "../NavTabs/NavTabs";
 import { SRLWrapper } from "simple-react-lightbox";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
@@ -44,25 +45,49 @@ const Code = (props) => {
           <meta charSet="utf-8" />
           <title>Jeff Musgrave | Code</title>
         </Helmet>
-        <div className="code-position content-style em-heading">
-          <section>
-            <h1>
-              <span>Code</span>
-            </h1>
-          </section>
+        <div className="code-pos standard-style">
           <motion.main
             variants={fade}
             initial="initial"
             animate="animate"
             exit="exit"
           >
+            <motion.section
+              variants={fade}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <h1>
+                <span>Code</span>
+              </h1>
+            </motion.section>
             <article>
-              <SubNav
+              <NavTabs
                 activeTab={activeTab}
                 tabDisplay={tabDisplay}
                 info={info}
               />
 
+              {activeTab.map((e, idx) =>
+                e ? (
+                  <aside
+                    className={`code-prev-pos ${
+                      Object.keys(content[info[idx]]["items"]).length > 2
+                        ? `fadeOut`
+                        : ""
+                    }`}
+                  >
+                    <div className="gallery-container">
+                      <Gallery
+                        activeTab={activeTab}
+                        content={content}
+                        info={info}
+                      />
+                    </div>
+                  </aside>
+                ) : null
+              )}
               <Description
                 activeTab={activeTab}
                 content={content}
@@ -70,47 +95,12 @@ const Code = (props) => {
               />
             </article>
           </motion.main>
-          {activeTab.map((e, idx) =>
-            e ? (
-              <aside
-                className={`code-prev-pos ${
-                  Object.keys(content[info[idx]]["items"]).length > 2
-                    ? `fadeOut`
-                    : ""
-                }`}
-              >
-                <div className="gallery-container">
-                  <Gallery
-                    activeTab={activeTab}
-                    content={content}
-                    info={info}
-                  />
-                </div>
-              </aside>
-            ) : null
-          )}
         </div>
       </>
     );
   } else {
     return null;
   }
-};
-
-const SubNav = ({ tabDisplay, activeTab, info }) => {
-  return (
-    <motion.nav animate className="gallery-nav">
-      {activeTab.map((e, idx) => (
-        <button
-          className={`content-nav-btn ${e ? `selected` : ` `}`}
-          onClick={() => tabDisplay(idx)}
-          key={`btn-${info[idx]}`}
-        >
-          {`${info[idx]}`}
-        </button>
-      ))}
-    </motion.nav>
-  );
 };
 
 const Description = ({ activeTab, content, info }) => {

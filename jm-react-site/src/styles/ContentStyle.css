@@ -1,9 +1,4 @@
-.content-style section h1 {
-  font-size: var(--xl);
-  color: var(--shade-2);
-}
-
-.content-style h1 span {
+.standard-style h1 span {
   background-color: var(--shade-6);
   padding: 1rem 2.5rem;
   box-decoration-break: clone;
@@ -12,97 +7,145 @@
 }
 
 @media screen and (max-width: 1154px) {
-  .content-style h1 {
-    margin-bottom: 0;
-  }
-  .content-style h1 {
-    background-color: var(--shade-6);
-    padding: 0.625rem 1.125rem;
-  }
-  .content-style h1 span {
+  .standard-style h1 span {
     background-color: var(--shade-6);
     padding: 0;
     margin-left: 0;
   }
 }
 
-.content-style article h2,
-.content-style article p {
-  color: var(--emphasis-dark-color);
-}
-.content-style h2 span,
-.content-style p span {
-  /* background-color: var(--color-bg-trans);
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  box-shadow: 0.5em 0 0 var(--color-bg-trans), -0.5em 0 0 var(--color-bg-trans); */
-  line-height: 2rem;
-  padding: 5px;
-  padding-left: 0;
-}
-.content-style article h2 {
-  font-weight: 500;
-  font-size: var(--lg);
-}
-.content-style h2 span {
-  display: table;
-}
-
-@media screen and (max-width: 1154px) {
-  .content-style h2 span,
-  .content-style p span {
-    padding: 0;
-  }
-}
-
 @media screen and (max-width: 590px) {
-  .content-style article {
+  .standard-style article {
     padding-bottom: 2.5rem;
   }
-  .content-style h1 {
+  .standard-style h1 {
     padding: 0.75rem 1.125rem;
   }
-  .content-style h2 span,
-  .content-style p span {
+  .standard-style h2 span,
+  .standard-style p span {
     line-height: 1.5rem;
     padding: 0;
     padding-left: 0;
   }
 
-  .content-style h2 span:first-of-type {
+  .standard-style h2 span:first-of-type {
     padding: 0 0 0.5rem 0;
   }
 }
 
-.gallery-nav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 0.625rem 0 2.5rem 0;
-}
-
-@media screen and (max-width: 768px) {
-  .gallery-nav {
-    display: flex;
-    flex-direction: column;
-    padding: 0.625rem 0 0.625rem 0;
-    margin-left: 0rem;
-  }
+.standard-style main {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 @media screen and (max-width: 1154px) {
-  .gallery-nav {
-    margin-left: 0rem;
+  .standard-style main {
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    margin-left: 0;
   }
 }
 
-/* @media screen and (max-width: 768px) {
-  .gallery-blurb {
-    margin-top: 0rem;
-  }
-} */
+.panel-bg {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 2.5rem;
+  box-shadow: -10px 9px 5px -10px rgba(0, 0, 0, 0.1),
+    -10px 20px 20px -10px rgba(0, 0, 0, 0.05);
+}
 
-.fadeOut {
-  mask-image: linear-gradient(to top, transparent 2%, black 96%);
-  overflow-y: scroll;
+/* HOME */
+
+.home-style section {
+  display: contents;
+}
+
+.home-style section h1 {
+  display: contents;
+  font-style: italic;
+}
+
+.home-style h1 span:first-of-type {
+  grid-column: h-col-1/h-col-4;
+  grid-row: h-row-1/h-row-2;
+  align-self: center;
+  font-weight: 300;
+  color: var(--shade-1);
+  font-size: 6rem;
+}
+
+.home-style h1 span:last-of-type {
+  grid-column: h-col-2/h-col-4;
+  grid-row: h-row-2/h-row-3;
+  margin: -5.5rem 0 0 0rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8rem;
+  text-transform: lowercase;
+}
+
+.home-style article {
+  align-self: flex-start;
+  grid-column: h-text/h-col-4;
+  grid-row: h-row-3/h-row-4;
+}
+
+.home-style h2 {
+  font-weight: 500;
+  font-size: 1.75rem;
+}
+
+@media screen and (max-width: 1154px) {
+  .home-style h1 span:first-of-type {
+    font-size: 4rem;
+  }
+
+  .home-style h1 span:last-of-type {
+    margin: -3rem 0 0 0rem;
+    font-size: 5.5rem;
+    text-transform: lowercase;
+    place-self: center;
+  }
+
+  .home-style article {
+    justify-self: center;
+  }
+
+  .home-style h2 {
+    font-size: 1.5rem;
+  }
+  .home-style p {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .home-style h1 span:last-of-type {
+    justify-self: flex-start;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home-style h1 span {
+    grid-column: h-col-1/h-col-4;
+    grid-row: h-row-1/h-row-2;
+  }
+  .home-style h1 span:first-of-type {
+    font-size: 3rem;
+    justify-self: center;
+  }
+
+  .home-style h1 span:last-of-type {
+    font-size: 4rem;
+    margin: -2.5rem 0 0 0rem;
+    justify-self: center;
+  }
+
+  .home-style h2 {
+    font-size: 1.25rem;
+  }
+  .home-style article {
+    margin-top: 1rem;
+    justify-self: center;
+    text-align: center;
+  }
 }

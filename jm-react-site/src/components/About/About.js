@@ -6,6 +6,7 @@ import "../../utils/blurryLoad.css";
 import { fadeSettings as fade } from "../../variables/variables";
 import { Helmet } from "react-helmet";
 import ContactForm from "../ContactForm/ContactForm";
+import NavTabs from "../NavTabs/NavTabs";
 import "./About.css";
 import "../../styles/Showcase.css";
 import "../../styles/ContentNav.css";
@@ -37,7 +38,7 @@ const Contact = (props) => {
   if (info.length > 0) {
     const tabTest = info[activeTab.filter((e, idx) => idx)];
     return (
-      <div className="content-style video-position contact-container">
+      <div className="about-pos standard-style">
         <Helmet>
           <meta charSet="utf-8" />
           <title>Jeff Musgrave | About</title>
@@ -55,7 +56,11 @@ const Contact = (props) => {
           </motion.section>
           <article>
             <Showcase content={content} />
-            <SubNav activeTab={activeTab} tabDisplay={tabDisplay} info={info} />
+            <NavTabs
+              activeTab={activeTab}
+              tabDisplay={tabDisplay}
+              info={info}
+            />
             {tabTest === "about" ? (
               <Bio activeTab={activeTab} info={info} content={content} />
             ) : (
@@ -95,23 +100,6 @@ const Showcase = ({ content }) => {
         />
       </motion.div>
     </div>
-  );
-};
-
-const SubNav = ({ activeTab, tabDisplay, info }) => {
-  return (
-    <motion.nav variants={fade} className="about-nav">
-      {activeTab.map((e, idx) => (
-        <button
-          className={`content-nav-btn ${e ? `selected` : ``}`}
-          onClick={() => tabDisplay(idx)}
-          key={`about-btn-${idx}`}
-        >
-          {`${info[idx]}`}
-        </button>
-      ))}
-      <button className="content-nav-btn cv">CV</button>
-    </motion.nav>
   );
 };
 

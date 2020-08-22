@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="flex-container">
-      <div className="content-grid contact-rows">
+      <div className="content-grid">
         <Header />
         <SwitchContainer />
         <Footer />

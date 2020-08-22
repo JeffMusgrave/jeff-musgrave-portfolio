@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
 import { Helmet } from "react-helmet";
-// import VideoBackground from "../VideoBackground/VideoBackground";
 import "./Home.css";
 
 const Home = (props) => {
@@ -16,7 +15,7 @@ const Home = (props) => {
         <meta charSet="utf-8" />
         <title>Jeff Musgrave | Home</title>
       </Helmet>
-      <div className="home-position home-style">
+      <div className="home-pos home-style">
         <motion.main
           variants={fade}
           initial="initial"
@@ -25,13 +24,13 @@ const Home = (props) => {
         >
           <section>
             <h1>
-              <span>Technically</span> <span>Creative</span>
+              <span>Logical</span> <span>Creative</span>
             </h1>
           </section>
           <article>
             <h2>
-              Design, Audio, and Video.
-              <span>find your blah blah blah here.</span>
+              Design and Code.
+              <span></span>
             </h2>
           </article>
           <Link className="home-chevron" to="/video">

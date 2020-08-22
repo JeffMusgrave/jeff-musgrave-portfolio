@@ -79,14 +79,14 @@
     --xs: 0.85rem;
     --logo: 1.33rem;
     --navtext: 0.95rem;
-    --thumbtab-vid: 5rem;
+    --thumbtab-vid: 15vmin;
   }
 }
 
 @media screen and (max-width: 630px) {
-  :root {
+  /* :root {
     --thumbtab-vid: 4rem;
-  }
+  } */
 }
 
 @media screen and (max-width: 590px) {
@@ -95,7 +95,7 @@
     --lg: 1.33rem;
     --ml: 1.125rem;
     --md: 1rem;
-    --thumbtab-vid: 3.5rem;
+    --thumbtab-vid: 15vmin;
     /* --sm: 0.95rem;
     --xs: 0.8rem;
     --logo: 1.25rem;
@@ -170,23 +170,68 @@ h1 {
   color: var(--shade-2);
   padding-bottom: var(--ml);
 }
+
+@media screen and (max-width: 590px) {
+  h1 {
+    padding: 0.75rem 1.125rem;
+  }
+}
+
+@media screen and (max-width: 1154px) {
+  h1 {
+    margin-bottom: 0;
+    background-color: var(--shade-6);
+    padding: 0.625rem 1.125rem;
+  }
+  .em-heading h1 span {
+    background-color: var(--shade-6);
+    padding: 0;
+    margin-left: 0;
+  }
+}
+
 h2 {
   font-size: var(--lg);
   padding-bottom: var(--sm);
+  color: var(--emphasis-dark-color);
+  font-weight: 500;
 }
+
+h2 span {
+  display: table;
+}
+
 h3 {
   font-size: var(--md);
   line-height: var(--lh-md);
 }
+
 h4 {
   font-size: var(--sm);
 }
+
 h5 {
   font-size: var(--xs);
 }
+
 p {
   font-size: var(--sm);
   font-weight: 300;
+  color: var(--emphasis-dark-color);
+}
+
+h2 span,
+p span {
+  line-height: 2rem;
+  padding: 5px;
+  padding-left: 0;
+}
+
+@media screen and (max-width: 1154px) {
+  h2 span,
+  p span {
+    padding: 0;
+  }
 }
 
 p + p {

@@ -10,14 +10,17 @@ import {
   hoverSettings as hover,
 } from "../../variables/variables";
 import useDeviceDetect from "../../utils/useDeviceDetect";
+import GetContent from "../GetContent";
 import "./Video.css";
 import "../../styles/Showcase.css";
+import "../../styles/MobileInsetGrid.css";
 import "../../styles/ContentStyle.css";
+import "../../styles/YoutubeLightbox.css";
 
 const Video = () => {
   const [content, setContent] = useState([]);
   const [activeTab, setActiveTab] = useState(
-    contentLoader().map((e, idx) => (idx === 0 ? 1 : 0))
+    Object.keys(contentLoader()).map((e, idx) => (idx === 0 ? 1 : 0))
   );
   const tabDisplay = (id) => {
     setActiveTab(activeTab.map((e, idx) => (idx === id ? 1 : 0)));
@@ -35,25 +38,31 @@ const Video = () => {
     getData();
   }, []);
 
-  if (content.length > 0) {
+  const info = Object.keys(content);
+
+  if (info.length > 0) {
     return (
       <motion.div
         variants={fade}
         initial="initial"
         animate="animate"
         exit="exit"
-        className="showcase-content video-position content-style em-heading"
+        className="video-pos standard-style inset-grid"
       >
         <Helmet>
           <meta charSet="utf-8" />
           <title>Jeff Musgrave | Video</title>
         </Helmet>
         <main>
-          <Description activeTab={activeTab} content={content} />
-
-          <SubNav tabDisplay={tabDisplay} content={content} />
+          <Description activeTab={activeTab} content={content} info={info} />
+          <ThumbTabs
+            tabDisplay={tabDisplay}
+            activeTab={activeTab}
+            content={content}
+            info={info}
+          />
         </main>
-        <Showcase activeTab={activeTab} content={content} />
+        <Showcase activeTab={activeTab} content={content} info={info} />
       </motion.div>
     );
   } else {
@@ -61,88 +70,87 @@ const Video = () => {
   }
 };
 
-const Description = ({ activeTab, content }) => {
+const Description = ({ activeTab, content, info }) => {
+  const descriptionContent = (
+    { heading, subheading, subheadingtwo, description },
+    idx
+  ) => {
+    return (
+      <React.Fragment key={`description-fragment_${idx}`}>
+        <motion.section variants={fade} key={`description-section_${idx}`}>
+          <h1 key={`description-section_h1_${idx}`}>
+            <span key={`description-span0_${idx}`}>{heading}</span>
+          </h1>
+        </motion.section>
+
+        <motion.article variants={fade} key={`description-article_${idx}`}>
+          <h2 key={`description-article_h2_${idx}`}>
+            <span key={`description-span1_${idx}`}>{subheading}</span>
+            <span key={`description-span2_${idx}`}>{subheadingtwo}</span>
+          </h2>
+          <p key={`description-paragraph_${idx}`}>
+            <span key={`description-span3_${idx}`}>{description}</span>
+          </p>
+        </motion.article>
+      </React.Fragment>
+    );
+  };
+
   return (
     <>
       {activeTab
         .map((e, idx) =>
-          e ? (
-            <React.Fragment key={`description-fragment_${idx}`}>
-              <motion.section
-                variants={fade}
-                key={`description-section_${idx}`}
-              >
-                <h1 key={`description-section_h1_${idx}`}>
-                  <span key={`description-span0_${idx}`}>
-                    {content[idx].title}
-                  </span>
-                </h1>
-              </motion.section>
-
-              <motion.article
-                variants={fade}
-                key={`description-article_${idx}`}
-              >
-                <h2 key={`description-article_h2_${idx}`}>
-                  <span key={`description-span1_${idx}`}>
-                    {content[idx].subtitle}
-                  </span>
-                  <span key={`description-span2_${idx}`}>
-                    {content[idx].subtitle2}
-                  </span>
-                </h2>
-                <p key={`description-paragraph_${idx}`}>
-                  <span key={`description-span3_${idx}`}>
-                    {content[idx].description}
-                  </span>
-                </p>
-              </motion.article>
-            </React.Fragment>
-          ) : null
+          e ? GetContent(content, info, idx, descriptionContent) : null
         )
         .filter((x) => x)}
     </>
   );
 };
 
-const SubNav = ({ tabDisplay, content }) => {
+const ThumbTabs = ({ tabDisplay, activeTab, content, info }) => {
   useLayoutEffect(() => {
     const blurryImageLoad = new BlurryImageLoad();
     blurryImageLoad.load();
   });
 
+  const thumbTabContent = ({ image, thumbnailAlt, init }, idx) => {
+    return (
+      <motion.li
+        variants={fade}
+        whileHover={hover.hover}
+        whileTap={hover.tap}
+        type="button"
+        key={`subnav-thumbtab_${idx}`}
+        onClick={() => tabDisplay(idx)}
+        loading="lazy"
+      >
+        <img
+          key={`subnav-thumbtab-img_${idx}`}
+          alt={thumbnailAlt}
+          loading="lazy"
+          className="blurry-load"
+          data-large={image}
+          src={init}
+        />
+      </motion.li>
+    );
+  };
+
   return (
     <motion.nav animate className="thumbtabs">
       <ul>
-        {content.map((e, idx) => (
-          <motion.li
-            variants={fade}
-            whileHover={hover.hover}
-            whileTap={hover.tap}
-            type="button"
-            key={`subnav-thumbtab_${idx}`}
-            onClick={() => tabDisplay(idx)}
-            loading="lazy"
-          >
-            <img
-              key={`subnav-thumbtab-img_${idx}`}
-              alt={e.thumbnailAlt}
-              loading="lazy"
-              className="blurry-load"
-              data-large={e.image}
-              src={e.init}
-            />
-          </motion.li>
-        ))}
+        {activeTab.map((e, idx) =>
+          GetContent(content, info, idx, thumbTabContent)
+        )}
       </ul>
     </motion.nav>
   );
 };
 
-const Showcase = ({ activeTab, content }) => {
-  const [previewSize, setPreviewSize] = useState(false);
-  const toggleSize = () => {
-    setPreviewSize(!previewSize);
+const Showcase = ({ activeTab, content, info }) => {
+  const [videoOverlay, setVideoOverlay] = useState(false);
+  const toggleVideoOverlay = () => {
+    setVideoOverlay(!videoOverlay);
   };
 
   return (
@@ -155,7 +163,7 @@ const Showcase = ({ activeTab, content }) => {
                 variants={fade}
                 key={`showcase-aside_${idx}`}
                 className="preview-container video-prev-pos"
-                onClick={toggleSize}
+                onClick={toggleVideoOverlay}
               >
                 <div
                   key={`showcase-play-btn-container_${idx}`}
@@ -176,19 +184,19 @@ const Showcase = ({ activeTab, content }) => {
                 <motion.div
                   variants={fade}
                   className="video-preview"
-                  key={`showcase-videopreview_${idx}`}
+                  key={`showcase-video-preview_${idx}`}
                 >
                   <VideoImagePrev
                     key={`showcase-videoimagepreview_${idx}`}
-                    content={content[idx]}
+                    content={content[info[idx]]}
                   />
                 </motion.div>
               </motion.aside>
-              {previewSize ? (
+              {videoOverlay ? (
                 <motion.div
                   variants={fade}
                   className="youtube-appear"
-                  onClick={toggleSize}
+                  onClick={toggleVideoOverlay}
                   key={`showcase-youtube-appear_${idx}`}
                 >
                   <div key={`showcase-close-btn_${idx}`} className="close-btn">
@@ -212,7 +220,7 @@ const Showcase = ({ activeTab, content }) => {
                       key={`showcase-iframe_${idx}`}
                       width="560"
                       height="315"
-                      title={`youtube-${content[idx].title}`}
+                      title={`youtube-${content[idx].heading}`}
                       src={`https://www.youtube.com/embed/${content[
                         idx
                       ].url.replace(
@@ -237,7 +245,6 @@ const Showcase = ({ activeTab, content }) => {
 
 const VideoImagePrev = ({ content }) => {
   const { isMobile } = useDeviceDetect();
-  let { image, video, id, init, title, imageAlt } = content;
 
   const [videoLoaded, setVideoLoaded] = useState(false);
 
@@ -249,6 +256,11 @@ const VideoImagePrev = ({ content }) => {
     const blurryImageLoad = new BlurryImageLoad();
     blurryImageLoad.load();
   });
+
+  let {
+    items: [{ image, video, id, init, imageAlt }],
+    heading,
+  } = content;
 
   return (
     <>
@@ -279,7 +291,7 @@ const VideoImagePrev = ({ content }) => {
           <img
             data-large={image}
             src={init}
-            title={title}
+            title={heading}
             alt={imageAlt}
             key={`vidimgprev-img-${id}`}
             className="blurry-load"

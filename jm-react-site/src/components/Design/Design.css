@@ -16,8 +16,6 @@
   grid-template-columns: repeat(auto-fit, 10rem);
   grid-gap: 2.5rem;
   min-height: 100%;
-  /* padding: 1rem 0; */
-  /* border-bottom: 0.5rem solid rgba(255, 255, 255, 0.1); */
 }
 
 .gallery div {
@@ -32,19 +30,17 @@
   background-color: var(--shade-5);
 }
 
-.gallery figure img,
-.gallery figure a {
+.gallery img,
+.gallery a {
   height: 100%;
   width: auto;
   cursor: pointer;
-  /* border-radius: 50%; */
-  /*  */
   margin: 0;
   background-color: var(--emphasis-light-color);
 }
 
-.gallery figure a,
-.gallery figure img,
+.gallery a,
+.gallery img,
 .gallery figure {
   padding: 0;
   color: transparent;

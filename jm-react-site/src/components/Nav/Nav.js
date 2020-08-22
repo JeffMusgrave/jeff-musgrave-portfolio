@@ -35,11 +35,6 @@ const Nav = ({ menu, viewWidth, menuVis }) => {
 const NavList = ({ menuVis }) => {
   return (
     <ul>
-      {/* <li>
-        <NavLink to="/" onClick={menuVis}>
-          Home
-        </NavLink>
-      </li> */}
       <li>
         <NavLink to="/video" onClick={menuVis}>
           Video
