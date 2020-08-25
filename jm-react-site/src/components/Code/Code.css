@@ -113,11 +113,11 @@
   align-items: center;
 }
 
-.code-gallery-one figure,
+/* .code-gallery-one figure,
 .code-gallery-two figure {
   clip-path: circle();
   height: auto;
-}
+} */
 
 .code-gallery img {
   height: 100%;

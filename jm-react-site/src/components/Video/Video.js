@@ -120,7 +120,7 @@ const ThumbTabs = ({ tabDisplay, activeTab, content, info }) => {
         whileHover={hover.hover}
         whileTap={hover.tap}
         type="button"
-        key={`subnav-thumbtab_${idx}`}
+        key={`subnav-thumbtab-li_${idx}`}
         onClick={() => tabDisplay(idx)}
         loading="lazy"
       >
@@ -151,6 +151,44 @@ const Showcase = ({ activeTab, content, info }) => {
   const [videoOverlay, setVideoOverlay] = useState(false);
   const toggleVideoOverlay = () => {
     setVideoOverlay(!videoOverlay);
+  };
+
+  const videoOverlayContent = ({ heading, url }, idx) => {
+    return (
+      <motion.div
+        variants={fade}
+        className="youtube-appear"
+        onClick={toggleVideoOverlay}
+        key={`showcase-youtube-appear_${idx}`}
+      >
+        <div key={`showcase-close-btn_${idx}`} className="close-btn">
+          <div key={`showcase-line_${idx}`} className="line">
+            <span key={`showcase-left-x_${idx}`} className="left-x"></span>
+            <span key={`showcase-right-x_${idx}`} className="right-x"></span>
+          </div>
+        </div>
+
+        <div
+          key={`showcase-youtube-container_${idx}`}
+          className="youtube-container"
+        >
+          <iframe
+            key={`showcase-iframe_${idx}`}
+            width="560"
+            height="315"
+            title={`youtube-${heading}`}
+            src={`https://www.youtube.com/embed/${url.replace(
+              "https://www.youtube.com/watch?v=",
+              ""
+            )}?vq=hd1080`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </motion.div>
+    );
   };
 
   return (
@@ -186,55 +224,17 @@ const Showcase = ({ activeTab, content, info }) => {
                   className="video-preview"
                   key={`showcase-video-preview_${idx}`}
                 >
-                  <VideoImagePrev
+                  <VideoPrev
                     key={`showcase-videoimagepreview_${idx}`}
-                    content={content[info[idx]]}
+                    content={content}
+                    idx={idx}
+                    info={info}
                   />
                 </motion.div>
               </motion.aside>
-              {videoOverlay ? (
-                <motion.div
-                  variants={fade}
-                  className="youtube-appear"
-                  onClick={toggleVideoOverlay}
-                  key={`showcase-youtube-appear_${idx}`}
-                >
-                  <div key={`showcase-close-btn_${idx}`} className="close-btn">
-                    <div key={`showcase-line_${idx}`} className="line">
-                      <span
-                        key={`showcase-left-x_${idx}`}
-                        className="left-x"
-                      ></span>
-                      <span
-                        key={`showcase-right-x_${idx}`}
-                        className="right-x"
-                      ></span>
-                    </div>
-                  </div>
-
-                  <div
-                    key={`showcase-youtube-container_${idx}`}
-                    className="youtube-container"
-                  >
-                    <iframe
-                      key={`showcase-iframe_${idx}`}
-                      width="560"
-                      height="315"
-                      title={`youtube-${content[idx].heading}`}
-                      src={`https://www.youtube.com/embed/${content[
-                        idx
-                      ].url.replace(
-                        "https://www.youtube.com/watch?v=",
-                        ""
-                      )}?vq=hd1080`}
-                      frameborder="0"
-                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullscreen
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                </motion.div>
-              ) : null}
+              {videoOverlay
+                ? GetContent(content, info, idx, videoOverlayContent)
+                : null}
             </>
           ) : null
         )
@@ -243,7 +243,7 @@ const Showcase = ({ activeTab, content, info }) => {
   );
 };
 
-const VideoImagePrev = ({ content }) => {
+const VideoPrev = ({ content, info, idx }) => {
   const { isMobile } = useDeviceDetect();
 
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -257,48 +257,48 @@ const VideoImagePrev = ({ content }) => {
     blurryImageLoad.load();
   });
 
-  let {
-    items: [{ image, video, id, init, imageAlt }],
-    heading,
-  } = content;
+  const mobileContent = ({ video, id }) => {
+    return (
+      <>
+        <motion.video
+          className="video-loop"
+          playsInline
+          autoPlay
+          muted
+          loop
+          onLoadedData={onLoadedData}
+          style={{ opacity: videoLoaded ? 1 : 0 }}
+          animate
+          variants={fade}
+          key={`vidprev-${id}`}
+        >
+          <source src={video} type="video/webm"></source>
+        </motion.video>
+      </>
+    );
+  };
+
+  const desktopContent = ({ heading, image, imageAlt, init, id }) => {
+    return (
+      <a href={image} key={`vidimgprev-anchor-${id}`} loading="lazy">
+        <img
+          data-large={image}
+          src={init}
+          title={heading}
+          alt={imageAlt}
+          key={`vidimgprev-img-${id}`}
+          className="blurry-load"
+          loading="lazy"
+        />
+      </a>
+    );
+  };
 
   return (
     <>
-      {!isMobile ? (
-        <>
-          <motion.video
-            className="video-loop"
-            playsInline
-            autoPlay
-            muted
-            loop
-            onLoadedData={onLoadedData}
-            style={{ opacity: videoLoaded ? 1 : 0 }}
-            animate
-            variants={fade}
-            key={`vidimgprev-${content.id}`}
-          >
-            <source src={video} type="video/webm"></source>
-          </motion.video>
-        </>
-      ) : (
-        <a
-          href={image}
-          key={`vidimgprev-anchor-${id}`}
-          loading="lazy"
-          className="progressive replace"
-        >
-          <img
-            data-large={image}
-            src={init}
-            title={heading}
-            alt={imageAlt}
-            key={`vidimgprev-img-${id}`}
-            className="blurry-load"
-            loading="lazy"
-          />
-        </a>
-      )}
+      {!isMobile
+        ? GetContent(content, info, idx, mobileContent)
+        : GetContent(content, info, idx, desktopContent)}
     </>
   );
 };

@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 
 const NavTabs = ({ tabDisplay, activeTab, info }) => {
   let location = useLocation();
-  console.log(location);
 
   return (
     <motion.nav

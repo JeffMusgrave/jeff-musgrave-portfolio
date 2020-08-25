@@ -2,7 +2,7 @@ const content = {
   "This Site": {
     heading: "Hey, a second heading 3",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sollicitudin diam at dolor dapibus, sit amet ultricies diam fermentum. Vivamus bibendum ipsum dolor, eget convallis ligula ornare in. Mauris auctor ipsum sed lorem sollicitudin, eget viverra leo pharetra. Nullam dignissim vitae leo in tincidunt. Donec iaculis condimentum finibus. Duis sollicitudin ipsum vitae sem facilisis, at ornare est hendrerit. Sed malesuada lorem ac lectus laoreet, vehicula venenatis lorem egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent diam tortor, ultrices ac velit ac, blandit mattis diam. Nunc porta finibus erat, a efficitur dui tincidunt sit amet. Donec nec interdum dolor. Proin vitae molestie lectus, vitae maximus justo. Proin fermentum tincidunt venenatis.",
+      "THIS SITE ipsum dolor sit amet, consectetur adipiscing elit. Quisque sollicitudin diam at dolor dapibus, sit amet ultricies diam fermentum. Vivamus bibendum ipsum dolor, eget convallis ligula ornare in. Mauris auctor ipsum sed lorem sollicitudin, eget viverra leo pharetra. Nullam dignissim vitae leo in tincidunt. Donec iaculis condimentum finibus. Duis sollicitudin ipsum vitae sem facilisis, at ornare est hendrerit. Sed malesuada lorem ac lectus laoreet, vehicula venenatis lorem egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent diam tortor, ultrices ac velit ac, blandit mattis diam. Nunc porta finibus erat, a efficitur dui tincidunt sit amet. Donec nec interdum dolor. Proin vitae molestie lectus, vitae maximus justo. Proin fermentum tincidunt venenatis.",
     items: [
       {
         title: "White Water — Style Pitch",
@@ -12,47 +12,12 @@ const content = {
         init: require("../img/portfolioItems/web/init/WhitewaterStyle_init.webp"),
         id: "0-0",
       },
-      // {
-      //   title: "Pay Per Click Ads and Email Signatures",
-      //   alt: "Clear and communicative pay per click ads and email signatures.",
-      //   image: require("../img/portfolioItems/web/SmallGraphicsSpread.webp"),
-      //   thumbnail: require("../img/portfolioItems/web/thumbs/SmallGraphicsSpread_200.webp"),
-      //   init: require("../img/portfolioItems/web/init/SmallGraphicsSpread_init.webp"),
-      //   id: "0-1",
-      // },
-
-      // {
-      //   title: "University of Guelph — FARE and Research Websites",
-      //   alt:
-      //     "Design for University of Guelph (UoG) FARE department website, as well as Research Results website for professors",
-      //   image: require("../img/portfolioItems/web/UniversitySpread.webp"),
-      //   thumbnail: require("../img/portfolioItems/web/thumbs/UniversitySpread_200.webp"),
-      //   init: require("../img/portfolioItems/web/init/UniversitySpread_init.webp"),
-      //   id: "0-4",
-      // },
-      // {
-      //   title: "Moscone Tile Magazine Ad",
-      //   alt: "Design for Moscone Tile",
-      //   image: require("../img/portfolioItems/print/MosconeTileFullPage.webp"),
-      //   thumbnail: require("../img/portfolioItems/print/thumbs/MosconeTileFullPage_200.webp"),
-      //   init: require("../img/portfolioItems/print/init/MosconeTileFullPage_init.webp"),
-      //   id: "0-5",
-      // },
-      // {
-      //   title: "KCM Whitepaper",
-      //   alt:
-      //     "Whitepaper designed for cloud services provider, KCM, to be used by their sales staff",
-      //   image: require("../img/portfolioItems/print/WhitePaperSpread.webp"),
-      //   thumbnail: require("../img/portfolioItems/print/thumbs/WhitePaperSpread_200.webp"),
-      //   init: require("../img/portfolioItems/print/init/WhitePaperSpread_init.webp"),
-      //   id: "0-6",
-      // },
     ],
   },
   "ML Video Pipeline": {
     heading: "Hey, a second heading 3",
     description:
-      "2 In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+      "ML THINGS In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
     items: [
       {
         title: "Half The Truth Is A Whole Lie",
@@ -155,7 +120,7 @@ const content = {
   Unity: {
     heading: "Hey, a second heading 3",
     description:
-      "2 In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+      "UNITY In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
     items: [
       {
         title: "Half The Truth Is A Whole Lie",
@@ -173,22 +138,23 @@ const content = {
         init: require("../img/portfolioItems/album-art/snp/covers/init/SV1_03_Protection_init.webp"),
         id: "1-1",
       },
-      // {
-      //   title: "No Harm",
-      //   alt: "No Harm Album Art",
-      //   image: require("../img/portfolioItems/album-art/snp/covers/SV1_04_NoHarm_1000.webp"),
-      //   thumbnail: require("../img/portfolioItems/album-art/snp/covers/thumbs/SV1_04_NoHarm_200.webp"),
-      //   init: require("../img/portfolioItems/album-art/snp/covers/init/SV1_04_NoHarm_init.webp"),
-      //   id: "1-2",
-      // },
-      // {
-      //   title: "Tilt",
-      //   alt: "Tilt Album Art",
-      //   image: require("../img/portfolioItems/album-art/snp/covers/SV1_05_Tilt_1000.webp"),
-      //   thumbnail: require("../img/portfolioItems/album-art/snp/covers/thumbs/SV1_05_Tilt_200.webp"),
-      //   init: require("../img/portfolioItems/album-art/snp/covers/init/SV1_05_Tilt_init.webp"),
-      //   id: "1-3",
-      // },
+    ],
+  },
+  TEST: {
+    heading: "Hey, a second heading 3",
+    description:
+      "TEST In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+    items: [
+      {
+        video: require("../img/portfolioItems/video/MLPipelinePreview.webm"),
+        image: require("../img/portfolioItems/video/MLPipelineImage.webp"),
+        imageAlt: "Machine Learning Video Pipeline",
+        thumbnail: require("../img/portfolioItems/video/thumbs/MLPipeline_200.webp"),
+        thumbnailAlt: "Machine Learning Video Pipeline",
+        init: require("../img/portfolioItems/video/init/MLPipeline_init.webp"),
+        url: "https://www.youtube.com/watch?v=Lht5ijva2Ko",
+        id: "3-0",
+      },
     ],
   },
 };

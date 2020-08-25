@@ -38,6 +38,8 @@ const Design = (props) => {
 
   const info = Object.keys(content);
 
+  const theProps = { activeTab, content, info };
+
   if (info.length > 0) {
     return (
       <>
@@ -64,7 +66,7 @@ const Design = (props) => {
                 info={info}
               />
               <div className="gallery-container">
-                <Gallery activeTab={activeTab} content={content} info={info} />
+                <Gallery {...theProps} />
               </div>
 
               <Description
