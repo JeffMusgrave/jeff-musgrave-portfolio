@@ -12,7 +12,7 @@
   justify-items: center;
   background-color: var(--shade-6);
 }
-.video-preview {
+/* .video-preview {
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
 }
@@ -74,7 +74,7 @@
   padding: 0;
   z-index: 2;
   position: relative;
-}
+} */
 
 @media screen and (max-width: 1154px) {
   .preview-container {
@@ -88,7 +88,7 @@
     margin: 0;
     align-self: flex-start;
   }
-  .video-preview {
+  /* .video-preview {
     background-position: center bottom;
     margin: 0;
     overflow: hidden;
@@ -96,7 +96,7 @@
     flex-direction: row;
     align-items: center;
     text-align: center;
-  }
+  } */
 }
 
 .video-blur {

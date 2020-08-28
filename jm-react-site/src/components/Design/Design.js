@@ -1,20 +1,15 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/designContent.js";
 import NavTabs from "../NavTabs/NavTabs";
-import { SRLWrapper } from "simple-react-lightbox";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
-import BlurryImageLoad from "../../utils/blurryLoad";
 import "../../utils/blurryLoad.css";
-import {
-  fadeSettings as fade,
-  lightboxOptions as options,
-  hoverSettings as hover,
-} from "../../variables/variables";
+import { fadeSettings as fade } from "../../variables/variables";
 import "./Design.css";
 import "../../styles/ContentNav.css";
-
-const Design = (props) => {
+import Showcase from "../Showcase/Showcase";
+import GetContent from "../GetContent";
+const Design = () => {
   const [content, setContent] = useState({});
   const [activeTab, setActiveTab] = useState(
     Object.keys(contentLoader()).map((e, idx) => (idx === 0 ? 1 : 0))
@@ -65,15 +60,19 @@ const Design = (props) => {
                 tabDisplay={tabDisplay}
                 info={info}
               />
-              <div className="gallery-container">
-                <Gallery {...theProps} />
-              </div>
+              {activeTab.map((e, idx) =>
+                e ? (
+                  <>
+                    <Showcase {...theProps} idx={idx} key={`showcase_${idx}`} />
 
-              <Description
-                activeTab={activeTab}
-                content={content}
-                info={info}
-              />
+                    <Description
+                      {...theProps}
+                      idx={idx}
+                      key={`description_${idx}`}
+                    />
+                  </>
+                ) : null
+              )}
             </article>
           </motion.main>
         </div>
@@ -84,71 +83,22 @@ const Design = (props) => {
   }
 };
 
-const Description = ({ activeTab, content, info }) => {
-  return (
-    <div className="gallery-blurb design-blurb">
-      {activeTab.map((e, idx) =>
-        e ? (
-          <React.Fragment key={`fragment-${idx}`}>
-            <motion.h3 variants={fade} key={`h-${idx}`}>{`${
-              content[info[idx]]["heading"]
-            }`}</motion.h3>
-            <motion.p variants={fade} key={`p-${idx}`}>
-              {`${content[info[idx]]["description"]}`}
-            </motion.p>
-          </React.Fragment>
-        ) : null
-      )}
-    </div>
-  );
-};
+const Description = ({ activeTab, content, info, idx }) => {
+  const descriptionContent = (contentProps) => {
+    const { heading, description } = contentProps;
+    return (
+      <div className="gallery-blurb design-blurb" key={`gallery-blurb-${idx}`}>
+        <React.Fragment key={`fragment-${idx}`}>
+          <motion.h3 variants={fade} key={`h-${idx}`}>{`${heading}`}</motion.h3>
+          <motion.p variants={fade} key={`p-${idx}`}>
+            {`${description}`}
+          </motion.p>
+        </React.Fragment>
+      </div>
+    );
+  };
 
-const Gallery = ({ activeTab, content, info }) => {
-  useLayoutEffect(() => {
-    const blurryImageLoad = new BlurryImageLoad();
-    blurryImageLoad.load();
-  });
-  return (
-    <>
-      {activeTab
-        .map((e, idx) =>
-          e ? (
-            <div className="gallery" key={`gallery_${idx}`}>
-              <SRLWrapper options={options} key={`SRLWrapper_${idx}`}>
-                {content[info[idx]]["items"].map(
-                  ({ image, thumbnail, init, title, alt, id }) => (
-                    <motion.figure
-                      variants={fade}
-                      whileHover={hover.hover}
-                      whileTap={hover.tap}
-                      key={`figure-${id}`}
-                    >
-                      <a
-                        href={image}
-                        title={title}
-                        key={`anchor-${id}`}
-                        loading="lazy"
-                        data-attribute="SRL"
-                      >
-                        <img
-                          className="blurry-load"
-                          data-large={thumbnail}
-                          src={init}
-                          alt={alt}
-                          key={`img-${id}`}
-                          loading="lazy"
-                        />
-                      </a>
-                    </motion.figure>
-                  )
-                )}
-              </SRLWrapper>
-            </div>
-          ) : null
-        )
-        .filter((x) => x)}
-    </>
-  );
+  return GetContent(content, info, idx, descriptionContent);
 };
 
 export default Design;

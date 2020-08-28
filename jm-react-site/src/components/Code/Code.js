@@ -1,17 +1,12 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import contentLoader from "../../data/codeContent.js";
 import NavTabs from "../NavTabs/NavTabs";
-import Thumbnail from "../Thumbnail/Thumbnail";
-import { SRLWrapper } from "simple-react-lightbox";
+import Showcase from "../Showcase/Showcase";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
-import BlurryImageLoad from "../../utils/blurryLoad";
 import GetContent from "../GetContent";
 import "../../utils/blurryLoad.css";
-import {
-  fadeSettings as fade,
-  lightboxOptions as options,
-} from "../../variables/variables";
+import { fadeSettings as fade } from "../../variables/variables";
 import "./Code.css";
 import "../../styles/ContentNav.css";
 
@@ -38,7 +33,7 @@ const Code = () => {
   };
 
   const info = Object.keys(content);
-  console.log(info);
+
   if (info.length > 0) {
     return (
       <>
@@ -53,12 +48,7 @@ const Code = () => {
             animate="animate"
             exit="exit"
           >
-            <motion.section
-              variants={fade}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
+            <motion.section variants={fade}>
               <h1>
                 <span>Code</span>
               </h1>
@@ -73,12 +63,14 @@ const Code = () => {
               {activeTab.map((e, idx) =>
                 e ? (
                   <>
-                    <Gallery
-                      content={content}
-                      info={info}
-                      idx={idx}
-                      activeTab={activeTab}
-                    />
+                    <aside className="code-prev-pos" key={`code-aside-${idx}`}>
+                      <Showcase
+                        content={content}
+                        info={info}
+                        idx={idx}
+                        activeTab={activeTab}
+                      />
+                    </aside>
                     <Description
                       activeTab={activeTab}
                       content={content}
@@ -118,40 +110,6 @@ const Description = ({ content, info, activeTab, idx }) => {
       )}
     </div>
   );
-};
-
-const Gallery = ({ content, info, idx }) => {
-  useLayoutEffect(() => {
-    const blurryImageLoad = new BlurryImageLoad();
-    blurryImageLoad.load();
-  });
-  console.log(idx);
-  const galleryContent = (contentProps) => {
-    const { items, id } = contentProps;
-    // console.log(items);
-
-    return (
-      <aside className={`code-prev-pos ${items.length > 2 ? `fadeOut` : ""}`}>
-        <div className="gallery-container">
-          <div
-            animate
-            className={`code-gallery ${
-              items.length < 2 ? `code-gallery-one` : `code-gallery-two`
-            }`}
-            key={`code-gallery_${id}`}
-          >
-            <SRLWrapper options={options} key={`SRLWrapper_${id}`}>
-              {items.map((e) => (
-                <Thumbnail content={content} info={info} idx={idx} item={e} />
-              ))}
-            </SRLWrapper>
-          </div>
-        </div>
-      </aside>
-    );
-  };
-
-  return GetContent(content, info, idx, galleryContent);
 };
 
 export default Code;

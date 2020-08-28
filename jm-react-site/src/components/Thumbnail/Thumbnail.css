@@ -1,23 +1,33 @@
 .thumbnail {
-  display: flex;
   justify-self: flex-start;
-  width: 10rem;
-  height: 10rem;
+  width: calc(100% - 2.5rem);
   clip-path: circle();
-  background-color: var(--shade-5);
+  background-color: var(--shade-6);
+  align-self: center;
+  height: auto;
+  cursor: pointer;
+  justify-items: center;
+}
+
+.thumb-flex {
+  display: flex;
+}
+
+.thumb-grid {
+  display: grid;
+  min-height: 0;
+  min-width: 0;
+}
+
+.thumbnail img {
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 .thumbnail img,
 .thumbnail a {
-  height: 100%;
-  /* width: auto; */
-  cursor: pointer;
-  margin: 0;
-  background-color: var(--emphasis-light-color);
   object-fit: cover;
-  width: 100%;
-  max-height: 100%;
-  border-radius: 50%;
 }
 
 .thumbnail a,
@@ -30,4 +40,80 @@
 .thumbnail a {
   width: 100%;
   height: auto;
+}
+
+.play-btn-container {
+  width: clamp(2.5rem, 20vmin, 5rem);
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  z-index: 3;
+  mix-blend-mode: exclusion;
+  pointer-events: none;
+}
+
+.play-btn polygon {
+  fill: var(--shade-1);
+}
+
+.video-preview {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  border-radius: 50%;
+}
+
+.thumbnail a:link,
+.thumbnail a:hover,
+.thumbnail a:active,
+.thumbnail a:focus {
+  outline: none;
+  color: transparent;
+  background-color: transparent;
+  padding: 0;
+}
+
+.video-preview,
+.video-preview a,
+.video-preview img,
+.video-preview video {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.video-preview::before,
+.video-preview a::before,
+.video-preview img::before,
+.video-preview video::before {
+  content: "";
+  float: left;
+  padding-top: 100%;
+}
+
+.video-preview video {
+  position: relative;
+}
+
+@media screen and (max-width: 1154px) {
+  .video-preview {
+    background-position: center bottom;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 390px) {
+}
+
+@media screen and (max-width: 1154px) {
 }

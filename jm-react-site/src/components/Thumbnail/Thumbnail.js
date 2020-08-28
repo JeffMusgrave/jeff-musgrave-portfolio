@@ -9,16 +9,13 @@ import {
 } from "../../variables/variables";
 import "./Thumbnail.css";
 
-const Thumbnail = ({ item }) => {
+const Thumbnail = ({ item, items }) => {
   const { video, id } = item;
-  // console.log(info);
   return (
     <motion.figure
       variants={fade}
-      whileHover={hover.hover}
-      whileTap={hover.tap}
       key={`figure-${id}`}
-      className="thumbnail"
+      className={`thumbnail ${items.length < 2 ? `thumb-grid` : `thumb-flex`}`}
     >
       {video ? <VideoMobileDesktopSwitch {...item} /> : <Image {...item} />}
     </motion.figure>
@@ -38,7 +35,10 @@ const Image = ({ image, video, title, id, thumbnail, init, imageAlt }) => {
       loading="lazy"
       data-attribute={!video ? `SRL` : ` `}
     >
-      <img
+      <motion.img
+        animate
+        whileHover={hover.hover}
+        whileTap={hover.tap}
         className="blurry-load"
         data-large={thumbnail}
         src={init}
@@ -52,9 +52,12 @@ const Image = ({ image, video, title, id, thumbnail, init, imageAlt }) => {
 
 const Video = ({ video, id }) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
-
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
+  };
+  const [videoOverlay, setVideoOverlay] = useState(false);
+  const toggleVideoOverlay = () => {
+    setVideoOverlay(!videoOverlay);
   };
 
   useLayoutEffect(() => {
@@ -63,9 +66,10 @@ const Video = ({ video, id }) => {
   });
   return (
     <>
-      <div
+      <motion.div
         key={`showcase-play-btn-container_${id}`}
         className="play-btn-container"
+        variants={fade}
       >
         <svg
           key={`showcase-svg_${id}`}
@@ -78,21 +82,28 @@ const Video = ({ video, id }) => {
             points="6.73 3.88 0 0 0 7.77 6.73 3.88"
           />
         </svg>
-      </div>
-      <motion.video
-        className="video-loop"
-        playsInline
-        autoPlay
-        muted
-        loop
-        onLoadedData={onLoadedData}
-        style={{ opacity: videoLoaded ? 1 : 0 }}
-        animate
+      </motion.div>
+      <motion.div
+        className="video-preview"
         variants={fade}
-        key={`vidprev-${id}`}
+        whileHover={hover.hover}
+        whileTap={hover.tap}
       >
-        <source src={video} type="video/webm" key={`video-${id}`}></source>
-      </motion.video>
+        <video
+          className="video-loop"
+          playsInline
+          autoPlay
+          muted
+          loop
+          onLoadedData={onLoadedData}
+          style={{ opacity: videoLoaded ? 1 : 0 }}
+          variants={fade}
+          key={`vidprev-${id}`}
+          onClick={toggleVideoOverlay}
+        >
+          <source src={video} type="video/webm" key={`video-${id}`}></source>
+        </video>
+      </motion.div>
     </>
   );
 };

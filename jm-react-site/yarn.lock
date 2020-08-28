@@ -4895,6 +4895,22 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+framer-motion@2.0.0-beta.65:
+  version "2.0.0-beta.65"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-2.0.0-beta.65.tgz#09376a471850836b055f41a406a62dfec44c580c"
+  integrity sha512-G8Iqq3Rw86ax28MK9NY6eOyoRY3nsIzvDuVI9ijoqn6dcUavknMkinS7d7a0CsapygCFOvmJr6fkBCTwmg47mw==
+  dependencies:
+    "@popmotion/easing" "^1.0.2"
+    "@popmotion/popcorn" "^0.4.2"
+    framesync "^4.0.4"
+    hey-listen "^1.0.8"
+    popmotion "9.0.0-beta-8"
+    style-value-types "^3.1.6"
+    stylefire "7.0.3"
+    tslib "^1.10.0"
+  optionalDependencies:
+    "@emotion/is-prop-valid" "^0.8.2"
+
 framer-motion@^1.11.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-1.11.0.tgz#9463a4d8e1be9f25d0f75712a4a835691c028d65"
@@ -4907,22 +4923,6 @@ framer-motion@^1.11.0:
     popmotion "9.0.0-beta-8"
     style-value-types "^3.1.6"
     stylefire "^7.0.2"
-    tslib "^1.10.0"
-  optionalDependencies:
-    "@emotion/is-prop-valid" "^0.8.2"
-
-framer-motion@^2.0.0-beta.65:
-  version "2.0.0-beta.65"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-2.0.0-beta.65.tgz#09376a471850836b055f41a406a62dfec44c580c"
-  integrity sha512-G8Iqq3Rw86ax28MK9NY6eOyoRY3nsIzvDuVI9ijoqn6dcUavknMkinS7d7a0CsapygCFOvmJr6fkBCTwmg47mw==
-  dependencies:
-    "@popmotion/easing" "^1.0.2"
-    "@popmotion/popcorn" "^0.4.2"
-    framesync "^4.0.4"
-    hey-listen "^1.0.8"
-    popmotion "9.0.0-beta-8"
-    style-value-types "^3.1.6"
-    stylefire "7.0.3"
     tslib "^1.10.0"
   optionalDependencies:
     "@emotion/is-prop-valid" "^0.8.2"

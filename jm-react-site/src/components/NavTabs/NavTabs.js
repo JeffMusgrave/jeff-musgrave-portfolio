@@ -2,13 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./NavTabs.css";
 import { useLocation } from "react-router-dom";
+import { fadeSettings as fade } from "../../variables/variables";
 
 const NavTabs = ({ tabDisplay, activeTab, info }) => {
   let location = useLocation();
 
   return (
     <motion.nav
-      animate
+      variants={fade}
       className={`nav-tabs ${location.pathname.substr(1)}-nav`}
     >
       {activeTab.map((e, idx) => (

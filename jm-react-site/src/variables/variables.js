@@ -12,10 +12,10 @@ export const hoverOpacitySettings = {
 export const hoverSettings = {
   hover: {
     opacity: 1,
-    scale: 1.05,
+    scale: 1.1,
   },
   tap: {
-    scale: 0.95,
+    scale: 1,
   },
 };
 

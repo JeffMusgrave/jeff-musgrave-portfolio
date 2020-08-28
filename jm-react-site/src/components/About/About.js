@@ -1,17 +1,18 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
 import contentLoader from "../../data/aboutContent.js";
 import { motion } from "framer-motion";
-import BlurryImageLoad from "../../utils/blurryLoad";
 import "../../utils/blurryLoad.css";
 import { fadeSettings as fade } from "../../variables/variables";
 import { Helmet } from "react-helmet";
 import ContactForm from "../ContactForm/ContactForm";
 import NavTabs from "../NavTabs/NavTabs";
+import Showcase from "../Showcase/Showcase";
+// import GetContent from "../GetContent";
 import "./About.css";
 import "../../styles/Showcase.css";
 import "../../styles/ContentNav.css";
 
-const Contact = (props) => {
+const Contact = () => {
   const [content, setContent] = useState({});
   const [activeTab, setActiveTab] = useState(
     Object.keys(contentLoader()).map((e, idx) => (idx === 0 ? 1 : 0))
@@ -35,8 +36,10 @@ const Contact = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
+  const theProps = { activeTab, content, info };
+
   if (info.length > 0) {
-    const tabTest = info[activeTab.filter((e, idx) => idx)];
+    // const tabTest = info[activeTab.filter((e, idx) => idx)];
     return (
       <div className="about-pos standard-style">
         <Helmet>
@@ -55,17 +58,30 @@ const Contact = (props) => {
             </h1>
           </motion.section>
           <article>
-            <Showcase content={content} />
+            {activeTab.map((e, idx) =>
+              e ? (
+                <>
+                  <div className="preview-container about-prev-pos">
+                    <Showcase {...theProps} idx={idx} key={`showcase_${idx}`} />
+                  </div>
+                  <Description
+                    {...theProps}
+                    idx={idx}
+                    key={`description_${idx}`}
+                  />
+                </>
+              ) : null
+            )}
             <NavTabs
               activeTab={activeTab}
               tabDisplay={tabDisplay}
               info={info}
             />
-            {tabTest === "about" ? (
-              <Bio activeTab={activeTab} info={info} content={content} />
+            {/* {tabTest === "about" ? (
+              <Description {...theProps} />
             ) : (
               <ContactForm activeTab={activeTab} info={info} />
-            )}
+            )} */}
           </article>
         </motion.main>
       </div>
@@ -75,49 +91,49 @@ const Contact = (props) => {
   }
 };
 
-const Showcase = ({ content }) => {
-  useLayoutEffect(() => {
-    const blurryImageLoad = new BlurryImageLoad();
-    blurryImageLoad.load();
-  });
+// const Showcase = ({ content }) => {
+//   useLayoutEffect(() => {
+//     const blurryImageLoad = new BlurryImageLoad();
+//     blurryImageLoad.load();
+//   });
 
-  const {
-    about: {
-      portrait: { one, init, title, alt },
-    },
-  } = content;
-  return (
-    <div className="preview-container about-prev-pos">
-      <motion.div className="video-preview" loading="lazy" variants={fade}>
-        <motion.img
-          className="blurry-load"
-          data-large={one}
-          src={init}
-          title={title}
-          alt={alt}
-          loading="lazy"
-          variants={fade}
-        />
-      </motion.div>
-    </div>
-  );
-};
+//   const {
+//     about: {
+//       portrait: { one, init, title, alt },
+//     },
+//   } = content;
+//   return (
+//     <div className="preview-container about-prev-pos">
+//       <motion.div className="video-preview" loading="lazy" variants={fade}>
+//         <motion.img
+//           className="blurry-load"
+//           data-large={one}
+//           src={init}
+//           title={title}
+//           alt={alt}
+//           loading="lazy"
+//           variants={fade}
+//         />
+//       </motion.div>
+//     </div>
+//   );
+// };
 
-const Bio = ({ activeTab, info, content }) => {
-  const desc = content.about.description.split("\n");
-  return (
-    <motion.div variants={fade} className="about-me">
-      <div>
-        {desc
-          .map((e, idx) => (
-            <motion.p variants={fade} key={`p-${idx}`}>
-              {e}
-            </motion.p>
-          ))
-          .filter((x) => x)}
-      </div>
-    </motion.div>
-  );
-};
+// const Bio = ({ activeTab, info, content }) => {
+//   const desc = content.about.description.split("\n");
+//   return (
+//     <motion.div variants={fade} className="about-me">
+//       <div>
+//         {desc
+//           .map((e, idx) => (
+//             <motion.p variants={fade} key={`p-${idx}`}>
+//               {e}
+//             </motion.p>
+//           ))
+//           .filter((x) => x)}
+//       </div>
+//     </motion.div>
+//   );
+// };
 
 export default Contact;
