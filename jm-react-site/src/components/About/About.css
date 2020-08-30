@@ -59,19 +59,19 @@
   grid-row: row-content/footer;
 }
 
-.about-me {
+.about-blurb {
   grid-column: overlap/right-margin;
   grid-row: row-name/post-form;
   margin-left: 2.5rem;
   overflow-y: scroll;
 }
 
-.about-me p {
+.about-blurb p {
   margin-right: 0.75rem;
 }
 
 @media screen and (max-width: 1154px) {
-  .about-me {
+  .about-blurb {
     display: contents;
   }
   .about-nav {
@@ -79,17 +79,17 @@
   }
 
   .about-nav,
-  .about-me h1,
-  .about-me div {
+  .about-blurb h1,
+  .about-blurb div {
     grid-column: logo/overlap;
   }
 
-  .about-me h1 {
+  .about-blurb h1 {
     grid-row: row-content / row-select;
     margin: 0 2.5rem 0 0;
   }
 
-  .about-me div {
+  .about-blurb div {
     grid-row: row-name / row-submit;
     margin: 1.125rem 2.5rem 0 0;
   }
@@ -99,7 +99,7 @@
   }
 
   .about-prev-pos,
-  .about-me {
+  .about-blurb {
     margin: 0;
   }
 
@@ -114,21 +114,21 @@
     display: none;
   }
   .about-nav,
-  .about-me h1,
-  .about-me div {
+  .about-blurb h1,
+  .about-blurb div {
     grid-column: logo/right-margin;
   }
 
-  .about-me h1,
-  .about-me div {
+  .about-blurb h1,
+  .about-blurb div {
     padding: 0 0 0.625rem 0;
   }
-  .about-me h1 {
+  .about-blurb h1 {
     grid-row: row-content / row-select;
     margin: 0 0 0 0;
   }
 
-  .about-me div {
+  .about-blurb div {
     grid-row: row-name / row-submit;
     margin: 0.5rem 0 0 0;
   }

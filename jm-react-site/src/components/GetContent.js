@@ -1,4 +1,4 @@
-const GetContent = (content, info, idx, inputFunc) => {
+const GetContent = (content, info, idx, inputFunc, e = null) => {
   let {
     heading,
     subheading,
@@ -7,7 +7,11 @@ const GetContent = (content, info, idx, inputFunc) => {
     items,
     items: [{ video, image, imageAlt, thumbnail, thumbnailAlt, init, url, id }],
   } = content[info[idx]];
+  let tabName = Object.keys(content)[idx] ? Object.keys(content)[idx] : null;
+  console.log(tabName);
+  console.log(e);
   const contentProps = {
+    tabName,
     heading,
     subheading,
     subheadingtwo,
@@ -21,6 +25,7 @@ const GetContent = (content, info, idx, inputFunc) => {
     init,
     url,
     id,
+    e,
   };
   return inputFunc({ ...contentProps });
 };

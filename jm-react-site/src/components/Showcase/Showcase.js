@@ -16,7 +16,6 @@ const Showcase = ({ content, info, idx }) => {
     const blurryImageLoad = new BlurryImageLoad();
     blurryImageLoad.load();
   });
-  console.log(location);
   const galleryContent = (contentProps) => {
     const { items, id } = contentProps;
 
@@ -39,7 +38,12 @@ const Showcase = ({ content, info, idx }) => {
         >
           <SRLWrapper options={options} key={`SRLWrapper_${id}`}>
             {items.map((e) => (
-              <Thumbnail item={e} items={items} key={`thumbnail_${id}`} />
+              <Thumbnail
+                item={e}
+                items={items}
+                key={`thumbnail_${id}`}
+                idx={idx}
+              />
             ))}
           </SRLWrapper>
         </div>

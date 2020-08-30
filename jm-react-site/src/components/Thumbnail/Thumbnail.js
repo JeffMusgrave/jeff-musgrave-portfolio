@@ -3,13 +3,14 @@ import { useState, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import useDeviceDetect from "../../utils/useDeviceDetect";
 import BlurryImageLoad from "../../utils/blurryLoad";
+import VideoLightbox from "../VideoLightbox";
 import {
   fadeSettings as fade,
   hoverSettings as hover,
 } from "../../variables/variables";
 import "./Thumbnail.css";
 
-const Thumbnail = ({ item, items }) => {
+const Thumbnail = ({ item, items, idx }) => {
   const { video, id } = item;
   return (
     <motion.figure
@@ -17,7 +18,11 @@ const Thumbnail = ({ item, items }) => {
       key={`figure-${id}`}
       className={`thumbnail ${items.length < 2 ? `thumb-grid` : `thumb-flex`}`}
     >
-      {video ? <VideoMobileDesktopSwitch {...item} /> : <Image {...item} />}
+      {video ? (
+        <VideoMobileDesktopSwitch {...item} idx={idx} />
+      ) : (
+        <Image {...item} />
+      )}
     </motion.figure>
   );
 };
@@ -50,7 +55,7 @@ const Image = ({ image, video, title, id, thumbnail, init, imageAlt }) => {
   );
 };
 
-const Video = ({ video, id }) => {
+const Video = ({ video, imageAlt, url, id, idx }) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
@@ -64,6 +69,7 @@ const Video = ({ video, id }) => {
     const blurryImageLoad = new BlurryImageLoad();
     blurryImageLoad.load();
   });
+
   return (
     <>
       <motion.div
@@ -88,6 +94,7 @@ const Video = ({ video, id }) => {
         variants={fade}
         whileHover={hover.hover}
         whileTap={hover.tap}
+        onClick={toggleVideoOverlay}
       >
         <video
           className="video-loop"
@@ -104,6 +111,14 @@ const Video = ({ video, id }) => {
           <source src={video} type="video/webm" key={`video-${id}`}></source>
         </video>
       </motion.div>
+      {videoOverlay ? (
+        <VideoLightbox
+          imageAlt={imageAlt}
+          url={url}
+          idx={idx}
+          toggleVideoOverlay={toggleVideoOverlay}
+        />
+      ) : null}
     </>
   );
 };

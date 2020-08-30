@@ -1,16 +1,12 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
 import contentLoader from "../../data/aboutContent.js";
 import { motion } from "framer-motion";
-import "../../utils/blurryLoad.css";
 import { fadeSettings as fade } from "../../variables/variables";
-import { Helmet } from "react-helmet";
 import ContactForm from "../ContactForm/ContactForm";
+import Description from "../Description/Description";
 import NavTabs from "../NavTabs/NavTabs";
 import Showcase from "../Showcase/Showcase";
-// import GetContent from "../GetContent";
 import "./About.css";
-import "../../styles/Showcase.css";
-import "../../styles/ContentNav.css";
 
 const Contact = () => {
   const [content, setContent] = useState({});
@@ -39,52 +35,41 @@ const Contact = () => {
   const theProps = { activeTab, content, info };
 
   if (info.length > 0) {
-    // const tabTest = info[activeTab.filter((e, idx) => idx)];
+    const tabTest = info[activeTab.filter((e, idx) => idx)];
     return (
-      <div className="about-pos standard-style">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Jeff Musgrave | About</title>
-        </Helmet>
-        <motion.main
-          variants={fade}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-        >
-          <motion.section variants={fade}>
-            <h1>
-              <span>About</span>
-            </h1>
-          </motion.section>
-          <article>
-            {activeTab.map((e, idx) =>
-              e ? (
-                <>
-                  <div className="preview-container about-prev-pos">
-                    <Showcase {...theProps} idx={idx} key={`showcase_${idx}`} />
-                  </div>
+      <>
+        <motion.section variants={fade}>
+          <h1>
+            <span>About</span>
+          </h1>
+        </motion.section>
+        <article>
+          {activeTab.map((e, idx) =>
+            e ? (
+              <>
+                <div className="preview-container about-prev-pos">
+                  <Showcase {...theProps} idx={idx} key={`showcase_${idx}`} />
+                </div>
+
+                {tabTest === "about" ? (
                   <Description
                     {...theProps}
                     idx={idx}
                     key={`description_${idx}`}
                   />
-                </>
-              ) : null
-            )}
-            <NavTabs
-              activeTab={activeTab}
-              tabDisplay={tabDisplay}
-              info={info}
-            />
-            {/* {tabTest === "about" ? (
-              <Description {...theProps} />
-            ) : (
-              <ContactForm activeTab={activeTab} info={info} />
-            )} */}
-          </article>
-        </motion.main>
-      </div>
+                ) : (
+                  <ContactForm
+                    activeTab={activeTab}
+                    info={info}
+                    key={`ContactForm_${idx}`}
+                  />
+                )}
+              </>
+            ) : null
+          )}
+          <NavTabs activeTab={activeTab} tabDisplay={tabDisplay} info={info} />
+        </article>
+      </>
     );
   } else {
     return null;
