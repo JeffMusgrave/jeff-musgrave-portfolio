@@ -15,6 +15,7 @@ const content = {
 
   about: {
     heading: "About me",
+    subheading: "subheading Test",
     description:
       "ABOUT TEST In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
     items: [

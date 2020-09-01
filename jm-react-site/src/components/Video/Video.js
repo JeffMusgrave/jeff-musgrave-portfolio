@@ -98,9 +98,7 @@ const ThumbTabs = ({ tabDisplay, activeTab, content, info }) => {
   return (
     <motion.nav animate className="thumbtabs">
       <ul>
-        {activeTab.map((e, idx) =>
-          GetContent(content, info, idx, thumbTabContent)
-        )}
+        {activeTab.map((e, idx) => GetContent(info, idx, thumbTabContent))}
       </ul>
     </motion.nav>
   );

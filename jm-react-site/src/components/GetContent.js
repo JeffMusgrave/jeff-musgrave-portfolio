@@ -1,4 +1,8 @@
-const GetContent = (content, info, idx, inputFunc, e = null) => {
+import { useStoreState } from "easy-peasy";
+
+const GetContent = (info, idx, inputFunc, e = null) => {
+  const content = useStoreState((state) => state.storeContent.pageContent);
+
   let {
     heading,
     subheading,
@@ -8,8 +12,6 @@ const GetContent = (content, info, idx, inputFunc, e = null) => {
     items: [{ video, image, imageAlt, thumbnail, thumbnailAlt, init, url, id }],
   } = content[info[idx]];
   let tabName = Object.keys(content)[idx] ? Object.keys(content)[idx] : null;
-  console.log(tabName);
-  console.log(e);
   const contentProps = {
     tabName,
     heading,
@@ -26,6 +28,7 @@ const GetContent = (content, info, idx, inputFunc, e = null) => {
     url,
     id,
     e,
+    idx,
   };
   return inputFunc({ ...contentProps });
 };

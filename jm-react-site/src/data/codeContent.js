@@ -1,4 +1,4 @@
-const content = {
+export const content = {
   TEST: {
     heading: "Hey, a second heading 3",
     description:
@@ -159,8 +159,8 @@ const content = {
   },
 };
 
-function contentLoader() {
-  return content;
-}
+// function contentLoader() {
+//   return content;
+// }
 
-export default contentLoader;
+// export default contentLoader;

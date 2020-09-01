@@ -10,7 +10,7 @@ import {
 } from "../../variables/variables";
 import "./Thumbnail.css";
 
-const Thumbnail = ({ item, items, idx }) => {
+const Thumbnail = ({ item, items, idx, thumbtab = false }) => {
   const { video, id } = item;
   return (
     <motion.figure
@@ -18,7 +18,7 @@ const Thumbnail = ({ item, items, idx }) => {
       key={`figure-${id}`}
       className={`thumbnail ${items.length < 2 ? `thumb-grid` : `thumb-flex`}`}
     >
-      {video ? (
+      {video && !thumbtab ? (
         <VideoMobileDesktopSwitch {...item} idx={idx} />
       ) : (
         <Image {...item} />
@@ -32,6 +32,7 @@ const Image = ({ image, video, title, id, thumbnail, init, imageAlt }) => {
     const blurryImageLoad = new BlurryImageLoad();
     blurryImageLoad.load();
   });
+
   return (
     <a
       href={image}

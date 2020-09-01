@@ -51,7 +51,7 @@ const Showcase = ({ content, info, idx }) => {
     );
   };
 
-  return GetContent(content, info, idx, galleryContent);
+  return GetContent(info, idx, galleryContent);
 };
 
 export default Showcase;

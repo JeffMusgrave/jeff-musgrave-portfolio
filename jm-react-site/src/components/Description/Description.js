@@ -66,7 +66,7 @@ const Description = ({ content, info, activeTab, idx }) => {
   return (
     <div className={`${location}-blurb`}>
       {activeTab.map((e, idx) =>
-        e ? GetContent(content, info, idx, descriptionContent) : null
+        e ? GetContent(info, idx, descriptionContent) : null
       )}
     </div>
   );
