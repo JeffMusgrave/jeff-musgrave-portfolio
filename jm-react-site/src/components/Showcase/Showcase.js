@@ -9,7 +9,7 @@ import BlurryImageLoad from "../../utils/blurryLoad";
 import "./Showcase.css";
 import { lightboxOptions as options } from "../../variables/variables";
 
-const Showcase = ({ content, info, idx }) => {
+const Showcase = ({ info, idx }) => {
   let location = useLocation().pathname.substring(1);
 
   useLayoutEffect(() => {
@@ -38,12 +38,7 @@ const Showcase = ({ content, info, idx }) => {
         >
           <SRLWrapper options={options} key={`SRLWrapper_${id}`}>
             {items.map((e) => (
-              <Thumbnail
-                item={e}
-                items={items}
-                key={`thumbnail_${id}`}
-                idx={idx}
-              />
+              <Thumbnail item={e} key={`thumbnail_${id}`} idx={idx} />
             ))}
           </SRLWrapper>
         </div>

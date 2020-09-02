@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
-// import contentLoader from "../../data/codeContent.js";
+import React from "react";
 import NavTabs from "../NavTabs/NavTabs";
 import Showcase from "../Showcase/Showcase";
+import Boilerplate from "../Boilerplate/Boilerplate";
 import { motion } from "framer-motion";
 import Description from "../Description/Description";
 import "../../utils/blurryLoad.css";
@@ -10,32 +9,7 @@ import { fadeSettings as fade } from "../../variables/variables";
 import "./Code.css";
 
 const Code = () => {
-  const content = useStoreState((state) => state.storeContent.pageContent);
-  const loadContent = useStoreActions(
-    (actions) => actions.storeContent.loadContent
-  );
-  useEffect(() => {
-    loadContent("code");
-    // eslint-disable-next-line
-  }, []);
-
-  const [activeTab, setActiveTab] = useState([]);
-  const tabDisplay = (id) => {
-    setActiveTab(activeTab.map((e, idx) => (idx === id ? 1 : 0)));
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const info = Object.keys(content);
-  const theProps = { tabDisplay, activeTab, content, info };
-
-  if (info.length > 0) {
-    if (activeTab.length === 0) {
-      setActiveTab(info.map((e, idx) => (idx === 0 ? 1 : 0)));
-    }
-
+  const returnFunction = (content, info, activeTab, theProps) => {
     return (
       <>
         <motion.section variants={fade}>
@@ -44,7 +18,7 @@ const Code = () => {
           </h1>
         </motion.section>
         <article>
-          <NavTabs {...theProps} thumbtab={true} />
+          <NavTabs {...theProps} thumbtab={false} />
 
           {activeTab.map((e, idx) =>
             e ? (
@@ -68,9 +42,8 @@ const Code = () => {
         </article>
       </>
     );
-  } else {
-    return null;
-  }
+  };
+  return <Boilerplate returnFunction={returnFunction} />;
 };
 
 export default Code;

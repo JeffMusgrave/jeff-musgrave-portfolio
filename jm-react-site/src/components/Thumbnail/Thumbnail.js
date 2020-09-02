@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useLayoutEffect } from "react";
+import { useStoreState } from "easy-peasy";
 import { motion } from "framer-motion";
 import useDeviceDetect from "../../utils/useDeviceDetect";
 import BlurryImageLoad from "../../utils/blurryLoad";
@@ -10,7 +11,14 @@ import {
 } from "../../variables/variables";
 import "./Thumbnail.css";
 
-const Thumbnail = ({ item, items, idx, thumbtab = false }) => {
+const Thumbnail = ({ item, idx, thumbtab = false }) => {
+  let items = useStoreState((state) => state.storeContent.items);
+  // let itemsInit = [];
+  // if (!items) {
+  //   items = [];
+  // }
+  // console.log("items");
+  // console.log(items);
   const { video, id } = item;
   return (
     <motion.figure

@@ -7,10 +7,6 @@ import Thumbnail from "../Thumbnail/Thumbnail";
 import GetContent from "../GetContent";
 
 const NavTabs = ({ tabDisplay, activeTab, info, thumbtab = false }) => {
-  console.log("navtabs");
-  console.log("info");
-  console.log(info);
-
   let location = useLocation();
   const navTabContent = ({ items, id, e, idx }) => {
     return (
