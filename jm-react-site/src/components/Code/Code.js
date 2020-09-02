@@ -1,41 +1,31 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+import { useStoreState } from "easy-peasy";
 import NavTabs from "../NavTabs/NavTabs";
 import Showcase from "../Showcase/Showcase";
 import Boilerplate from "../Boilerplate/Boilerplate";
-import { motion } from "framer-motion";
 import Description from "../Description/Description";
+import PageTitle from "../PageTitle/PageTitle";
 import "../../utils/blurryLoad.css";
-import { fadeSettings as fade } from "../../variables/variables";
 import "./Code.css";
 
 const Code = () => {
-  const returnFunction = (content, info, activeTab, theProps) => {
+  const location = useLocation().pathname.substr(1);
+  const activeTab = useStoreState((state) => state.storeContent.activeTab);
+  const returnFunction = () => {
     return (
       <>
-        <motion.section variants={fade}>
-          <h1>
-            <span>Code</span>
-          </h1>
-        </motion.section>
+        <PageTitle pageTitle={"Code"} />
         <article>
-          <NavTabs {...theProps} thumbtab={false} />
+          <NavTabs thumbtab={false} />
 
           {activeTab.map((e, idx) =>
             e ? (
               <>
                 <aside className="code-prev-pos" key={`code-aside-${idx}`}>
-                  <Showcase
-                    content={content}
-                    info={info}
-                    idx={idx}
-                    activeTab={activeTab}
-                  />
+                  <Showcase idx={idx} key={`Showcase_${idx}`} />
                 </aside>
-                <Description
-                  {...theProps}
-                  idx={idx}
-                  key={`description_${idx}`}
-                />
+                <Description key={`description_${idx}`} />
               </>
             ) : null
           )}
@@ -43,7 +33,12 @@ const Code = () => {
       </>
     );
   };
-  return <Boilerplate returnFunction={returnFunction} />;
+  return (
+    <Boilerplate
+      key={`Boilerplate-${location}`}
+      returnFunction={returnFunction}
+    />
+  );
 };
 
 export default Code;

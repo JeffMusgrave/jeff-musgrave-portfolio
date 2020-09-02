@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import { Switch, Route, __RouterContext } from "react-router-dom";
-
 import Home from "./Home/Home";
 import Video from "./Video/Video";
 import Design from "./Design/Design";
 import Code from "./Code/Code";
 import Contact from "./About/About";
 import NotFound from "./NotFound/NotFound";
-// import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 const SwitchContainer = () => {
   const { location } = useContext(__RouterContext);

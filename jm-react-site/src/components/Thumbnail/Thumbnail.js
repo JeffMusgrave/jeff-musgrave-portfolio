@@ -11,14 +11,9 @@ import {
 } from "../../variables/variables";
 import "./Thumbnail.css";
 
-const Thumbnail = ({ item, idx, thumbtab = false }) => {
-  let items = useStoreState((state) => state.storeContent.items);
-  // let itemsInit = [];
-  // if (!items) {
-  //   items = [];
-  // }
-  // console.log("items");
-  // console.log(items);
+const Thumbnail = ({ item, thumbtab = false }) => {
+  const items = useStoreState((state) => state.storeContent.items);
+
   const { video, id } = item;
   return (
     <motion.figure
@@ -27,7 +22,7 @@ const Thumbnail = ({ item, idx, thumbtab = false }) => {
       className={`thumbnail ${items.length < 2 ? `thumb-grid` : `thumb-flex`}`}
     >
       {video && !thumbtab ? (
-        <VideoMobileDesktopSwitch {...item} idx={idx} />
+        <VideoMobileDesktopSwitch {...item} />
       ) : (
         <Image {...item} />
       )}
@@ -64,7 +59,7 @@ const Image = ({ image, video, title, id, thumbnail, init, imageAlt }) => {
   );
 };
 
-const Video = ({ video, imageAlt, url, id, idx }) => {
+const Video = ({ video, imageAlt, url, id }) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
@@ -124,7 +119,7 @@ const Video = ({ video, imageAlt, url, id, idx }) => {
         <VideoLightbox
           imageAlt={imageAlt}
           url={url}
-          idx={idx}
+          id={id}
           toggleVideoOverlay={toggleVideoOverlay}
         />
       ) : null}
