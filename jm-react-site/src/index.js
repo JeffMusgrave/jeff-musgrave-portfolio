@@ -6,15 +6,12 @@ import { StoreProvider } from "easy-peasy";
 import store from "./store/store";
 import "./index.css";
 import App from "./App";
-import SimpleReactLightbox from "simple-react-lightbox";
 import * as serviceWorker from "./serviceWorker";
 
 const Site = (
   <Router>
     <StoreProvider store={store}>
-      <SimpleReactLightbox>
-        <App />
-      </SimpleReactLightbox>
+      <App />
     </StoreProvider>
   </Router>
 );

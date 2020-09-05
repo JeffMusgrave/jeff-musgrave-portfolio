@@ -13,7 +13,7 @@ const SwitchContainer = () => {
   return (
     <Switch location={location}>
       <Route path="/" exact component={Home} key={location.pathname} />
-      <Route path="/video" component={Video} key={location.pathname} />
+      {/* <Route path="/video" component={Video} key={location.pathname} /> */}
       <Route path="/design" component={Design} key={location.pathname} />
       <Route path="/code" component={Code} key={location.pathname} />
       <Route path="/about" component={Contact} key={location.pathname} />

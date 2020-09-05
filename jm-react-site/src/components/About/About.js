@@ -1,124 +1,103 @@
-import React, { useEffect, useState, useLayoutEffect } from "react";
-import contentLoader from "../../data/aboutContent.js";
-import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables/variables";
-import ContactForm from "../ContactForm/ContactForm";
-import Description from "../Description/Description";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useStoreState } from "easy-peasy";
 import NavTabs from "../NavTabs/NavTabs";
 import Showcase from "../Showcase/Showcase";
+import Boilerplate from "../Boilerplate/Boilerplate";
+import PageTitle from "../PageTitle/PageTitle";
+import ContactForm from "../ContactForm/ContactForm";
+import Description from "../Description/Description";
 import "./About.css";
 
 const Contact = () => {
-  const [content, setContent] = useState({});
-  const [activeTab, setActiveTab] = useState(
-    Object.keys(contentLoader()).map((e, idx) => (idx === 0 ? 1 : 0))
-  );
+  const location = useLocation().pathname.substr(1);
+  const pageName = location.charAt(0).toUpperCase() + location.slice(1);
+  const activeTab = useStoreState((state) => state.storeContent.activeTab);
+  const info = useStoreState((state) => state.storeContent.info);
 
-  const info = Object.keys(content);
+  // useEffect(() => {
+  //   console.log("ABOUT MOUNT");
+  //   return () => {
+  //     console.log("ABOUT unmount");
+  //   };
+  // });
 
-  useLayoutEffect(() => {
-    const getData = async () => {
-      const data = await contentLoader([]);
-      setContent(data);
-    };
-    getData();
-  }, []);
-
-  const tabDisplay = (id) => {
-    setActiveTab(activeTab.map((e, idx) => (idx === id ? 1 : 0)));
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const theProps = { activeTab, content, info };
-
-  if (info.length > 0) {
+  const thePage = () => {
     const tabTest = info[activeTab.filter((e, idx) => idx)];
     return (
       <>
-        <motion.section variants={fade}>
-          <h1>
-            <span>About</span>
-          </h1>
-        </motion.section>
+        <PageTitle pageTitle={pageName} />
         <article>
           {activeTab.map((e, idx) =>
             e ? (
-              <>
-                <div className="preview-container about-prev-pos">
-                  <Showcase {...theProps} idx={idx} key={`showcase_${idx}`} />
+              <React.Fragment key={`fragment-${idx}`}>
+                <div className="about-prev-pos">
+                  <Showcase idx={idx} key={`showcase_${idx}`} />
                 </div>
 
                 {tabTest === "about" ? (
-                  <Description
-                    {...theProps}
-                    idx={idx}
-                    key={`description_${idx}`}
-                  />
+                  <Description key={`description_${idx}`} />
                 ) : (
-                  <ContactForm
-                    activeTab={activeTab}
-                    info={info}
-                    key={`ContactForm_${idx}`}
-                  />
+                  <ContactForm key={`ContactForm_${idx}`} />
                 )}
-              </>
+              </React.Fragment>
             ) : null
           )}
-          <NavTabs activeTab={activeTab} tabDisplay={tabDisplay} info={info} />
+          <NavTabs />
         </article>
       </>
     );
-  } else {
-    return null;
-  }
+  };
+  return <Boilerplate key={`boilerplate-${location}`} thePage={thePage} />;
 };
 
-// const Showcase = ({ content }) => {
-//   useLayoutEffect(() => {
-//     const blurryImageLoad = new BlurryImageLoad();
-//     blurryImageLoad.load();
-//   });
-
-//   const {
-//     about: {
-//       portrait: { one, init, title, alt },
-//     },
-//   } = content;
-//   return (
-//     <div className="preview-container about-prev-pos">
-//       <motion.div className="video-preview" loading="lazy" variants={fade}>
-//         <motion.img
-//           className="blurry-load"
-//           data-large={one}
-//           src={init}
-//           title={title}
-//           alt={alt}
-//           loading="lazy"
-//           variants={fade}
-//         />
-//       </motion.div>
-//     </div>
-//   );
-// };
-
-// const Bio = ({ activeTab, info, content }) => {
-//   const desc = content.about.description.split("\n");
-//   return (
-//     <motion.div variants={fade} className="about-me">
-//       <div>
-//         {desc
-//           .map((e, idx) => (
-//             <motion.p variants={fade} key={`p-${idx}`}>
-//               {e}
-//             </motion.p>
-//           ))
-//           .filter((x) => x)}
-//       </div>
-//     </motion.div>
-//   );
-// };
-
 export default Contact;
+
+// import React, { useEffect } from "react";
+// import { useLocation } from "react-router-dom";
+// import { useStoreState } from "easy-peasy";
+// import NavTabs from "../NavTabs/NavTabs";
+// import Showcase from "../Showcase/Showcase";
+// import Boilerplate from "../Boilerplate/Boilerplate";
+// import Description from "../Description/Description";
+// import PageTitle from "../PageTitle/PageTitle";
+// //
+// import "./About.css";
+
+// const About = () => {
+//   const location = useLocation().pathname.substr(1);
+//   const pageName = location.charAt(0).toUpperCase() + location.slice(1);
+//   const activeTab = useStoreState((state) => state.storeContent.activeTab);
+
+//   // useEffect(() => {
+//   //   console.log("CODE MOUNT");
+//   //   return () => {
+//   //     console.log("CODE unmount");
+//   //   };
+//   // });
+
+//   const thePage = () => {
+//     return (
+//       <>
+//         <PageTitle key={`pagetitle`} pageTitle={pageName} />
+//         <article>
+//           <NavTabs />
+
+//           {activeTab.map((e, idx) =>
+//             e ? (
+//               <React.Fragment key={`fragment-${idx}`}>
+//                 <aside className="code-prev-pos" key={`code-aside-${idx}`}>
+//                   <Showcase idx={idx} key={`showcase_${idx}`} />
+//                 </aside>
+//                 <Description key={`description_${idx}`} />
+//               </React.Fragment>
+//             ) : null
+//           )}
+//         </article>
+//       </>
+//     );
+//   };
+//   return <Boilerplate key={`boilerplate-${location}`} thePage={thePage} />;
+// };
+
+// export default About;

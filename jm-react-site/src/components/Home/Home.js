@@ -2,19 +2,14 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
-import { Helmet } from "react-helmet";
 import "./Home.css";
 
 const Home = (props) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Jeff Musgrave | Home</title>
-      </Helmet>
       <div className="home-pos home-style">
         <motion.main
           variants={fade}

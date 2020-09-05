@@ -1,9 +1,9 @@
 import React from "react";
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import { useStoreState } from "easy-peasy";
 import { motion } from "framer-motion";
 import useDeviceDetect from "../../utils/useDeviceDetect";
-import BlurryImageLoad from "../../utils/blurryLoad";
+// import BlurryImageLoad from "../../utils/blurryLoad";
 import VideoLightbox from "../VideoLightbox";
 import {
   fadeSettings as fade,
@@ -21,39 +21,44 @@ const Thumbnail = ({ item, thumbtab = false }) => {
       key={`figure-${id}`}
       className={`thumbnail ${items.length < 2 ? `thumb-grid` : `thumb-flex`}`}
     >
-      {video && !thumbtab ? (
+      <Image {...item} />
+      {/* {video && !thumbtab ? (
         <VideoMobileDesktopSwitch {...item} />
       ) : (
         <Image {...item} />
-      )}
+      )} */}
     </motion.figure>
   );
 };
 
-const Image = ({ image, video, title, id, thumbnail, init, imageAlt }) => {
-  useLayoutEffect(() => {
-    const blurryImageLoad = new BlurryImageLoad();
-    blurryImageLoad.load();
-  });
+const Image = ({ image, title, id, thumbnail, init, imageAlt }) => {
+  // useEffect(() => {
+  //   let unmounted = false;
+
+  //   if (!unmounted) {
+  //     const blurryImageLoad = new BlurryImageLoad();
+  //     blurryImageLoad.load();
+  //   }
+
+  //   return () => {
+  //     unmounted = true;
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   const blurryImageLoad = new BlurryImageLoad();
+  //   blurryImageLoad.load();
+  //   return () => {}
+  // });
 
   return (
-    <a
-      href={image}
-      title={title}
-      key={`anchor-${id}`}
-      loading="lazy"
-      data-attribute={!video ? `SRL` : ` `}
-    >
-      <motion.img
-        animate
-        whileHover={hover.hover}
-        whileTap={hover.tap}
+    <a href={image} title={title} key={`anchor-${id}`} data-attribute="SRL">
+      <img
         className="blurry-load"
         data-large={thumbnail}
         src={init}
         alt={imageAlt}
         key={`img-${id}`}
-        loading="lazy"
       />
     </a>
   );
@@ -68,11 +73,6 @@ const Video = ({ video, imageAlt, url, id }) => {
   const toggleVideoOverlay = () => {
     setVideoOverlay(!videoOverlay);
   };
-
-  useLayoutEffect(() => {
-    const blurryImageLoad = new BlurryImageLoad();
-    blurryImageLoad.load();
-  });
 
   return (
     <>
@@ -110,7 +110,6 @@ const Video = ({ video, imageAlt, url, id }) => {
           style={{ opacity: videoLoaded ? 1 : 0 }}
           variants={fade}
           key={`vidprev-${id}`}
-          onClick={toggleVideoOverlay}
         >
           <source src={video} type="video/webm" key={`video-${id}`}></source>
         </video>
