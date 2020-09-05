@@ -1,107 +1,41 @@
 import React from "react";
-import { useState, useEffect, useLayoutEffect } from "react";
-import contentLoader from "../../data/videoContent.js";
-import { motion } from "framer-motion";
-import BlurryImageLoad from "../../utils/blurryLoad";
+import { useLocation } from "react-router-dom";
+import { useStoreState } from "easy-peasy";
+import NavTabs from "../NavTabs/NavTabs";
 import Showcase from "../Showcase/Showcase";
+import Boilerplate from "../Boilerplate/Boilerplate";
 import Description from "../Description/Description";
 import "../../utils/blurryLoad.css";
-import {
-  fadeSettings as fade,
-  hoverSettings as hover,
-} from "../../variables/variables";
-import GetContent from "../GetContent";
+
 import "./Video.css";
-import "../../styles/Showcase.css";
+
 import "../../styles/MobileInsetGrid.css";
-import "../../styles/ContentStyle.css";
-import "../../styles/YoutubeLightbox.css";
 
 const Video = () => {
-  const [content, setContent] = useState([]);
-  const [activeTab, setActiveTab] = useState(
-    Object.keys(contentLoader()).map((e, idx) => (idx === 0 ? 1 : 0))
-  );
-  const tabDisplay = (id) => {
-    setActiveTab(activeTab.map((e, idx) => (idx === id ? 1 : 0)));
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  useLayoutEffect(() => {
-    const getData = async () => {
-      const data = await contentLoader([]);
-      setContent(data);
-    };
-    getData();
-  }, []);
-
-  const info = Object.keys(content);
-  const theProps = { activeTab, content, info };
-
-  if (info.length > 0) {
+  const location = useLocation().pathname.substr(1);
+  const activeTab = useStoreState((state) => state.storeContent.activeTab);
+  const thePage = () => {
     return (
       <>
         {activeTab.map((e, idx) =>
           e ? (
-            <>
-              <Description {...theProps} idx={idx} key={`description_${idx}`} />
-            </>
+            <React.Fragment key={`desc-fragment-${idx}`}>
+              <Description key={`description_${idx}`} />
+            </React.Fragment>
           ) : null
         )}
-        <ThumbTabs tabDisplay={tabDisplay} {...theProps} />
+        <NavTabs thumbtab={true} />
         {activeTab.map((e, idx) =>
           e ? (
-            <>
-              <Showcase {...theProps} idx={idx} key={`showcase_${idx}`} />
-            </>
+            <React.Fragment key={`showcase-fragment-${idx}`}>
+              <Showcase idx={idx} key={`showcase_${idx}`} />
+            </React.Fragment>
           ) : null
         )}
       </>
     );
-  } else {
-    return null;
-  }
-};
-
-const ThumbTabs = ({ tabDisplay, activeTab, content, info }) => {
-  useLayoutEffect(() => {
-    const blurryImageLoad = new BlurryImageLoad();
-    blurryImageLoad.load();
-  });
-
-  const thumbTabContent = ({ image, thumbnailAlt, init }, idx) => {
-    return (
-      <motion.li
-        variants={fade}
-        whileHover={hover.hover}
-        whileTap={hover.tap}
-        type="button"
-        key={`subnav-thumbtab-li_${idx}`}
-        onClick={() => tabDisplay(idx)}
-        loading="lazy"
-      >
-        <img
-          key={`subnav-thumbtab-img_${idx}`}
-          alt={thumbnailAlt}
-          loading="lazy"
-          className="blurry-load"
-          data-large={image}
-          src={init}
-        />
-      </motion.li>
-    );
   };
-
-  return (
-    <motion.nav animate className="thumbtabs">
-      <ul>
-        {activeTab.map((e, idx) => GetContent(info, idx, thumbTabContent))}
-      </ul>
-    </motion.nav>
-  );
+  return <Boilerplate key={`boilerplate-${location}`} thePage={thePage} />;
 };
 
 export default Video;

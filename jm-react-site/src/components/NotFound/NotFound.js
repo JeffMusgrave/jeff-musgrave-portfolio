@@ -1,31 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
 import { Helmet } from "react-helmet";
+import { useStoreActions } from "easy-peasy";
 const NotFound = (props) => {
+  const setNotFound = useStoreActions(
+    (actions) => actions.storeContent.setNotFound
+  );
+  useEffect(() => {
+    setNotFound();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Jeff Musgrave | 404</title>
       </Helmet>
-      <div className="design-position content-style em-heading">
-        <motion.main
-          variants={fade}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-        >
-          <section>
-            <h1>
-              <span>404!</span>
-            </h1>
-          </section>
-          <article>
-            <h2>There's nothing here!</h2>
-          </article>
-        </motion.main>
-      </div>
+
+      <motion.section
+        variants={fade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <h1>
+          <span>404!</span>
+        </h1>
+      </motion.section>
+      <motion.article
+        variants={fade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <h2>There's nothing here!</h2>
+      </motion.article>
     </>
   );
 };

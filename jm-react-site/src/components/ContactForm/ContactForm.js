@@ -1,16 +1,21 @@
 import React, { useState } from "react";
+import { useStoreState } from "easy-peasy";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import "./ContactForm.css";
 
-export default function ContactForm({ activeTab, info }) {
+export default function ContactForm() {
+  const activeTab = useStoreState((state) => state.storeContent.activeTab);
+  const info = useStoreState((state) => state.storeContent.info);
+
   const { register, handleSubmit, errors } = useForm();
   const [thanks, setThanks] = useState(false);
   const thanksMsg = () => {
     setThanks(!thanks);
   };
+
   const onSubmit = (data, e) => {
     axios({
       method: "POST",

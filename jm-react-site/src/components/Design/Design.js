@@ -1,67 +1,36 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import contentLoader from "../../data/designContent.js";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { useStoreState } from "easy-peasy";
 import NavTabs from "../NavTabs/NavTabs";
-import { motion } from "framer-motion";
-import "../../utils/blurryLoad.css";
-import "./Design.css";
 import Showcase from "../Showcase/Showcase";
+import Boilerplate from "../Boilerplate/Boilerplate";
 import Description from "../Description/Description";
+import PageTitle from "../PageTitle/PageTitle";
+import "./Design.css";
 
 const Design = () => {
-  const [content, setContent] = useState({});
-  const [activeTab, setActiveTab] = useState(
-    Object.keys(contentLoader()).map((e, idx) => (idx === 0 ? 1 : 0))
-  );
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  useLayoutEffect(() => {
-    const getData = async () => {
-      const data = await contentLoader([]);
-      setContent(data);
-    };
-    getData();
-  }, []);
-
-  const tabDisplay = (id) => {
-    setActiveTab(activeTab.map((e, idx) => (idx === id ? 1 : 0)));
-  };
-
-  const info = Object.keys(content);
-
-  const theProps = { activeTab, content, info };
-
-  if (info.length > 0) {
+  const location = useLocation().pathname.substr(1);
+  const pageName = location.charAt(0).toUpperCase() + location.slice(1);
+  const activeTab = useStoreState((state) => state.storeContent.activeTab);
+  const thePage = () => {
     return (
       <>
-        <motion.section animate>
-          <h1>
-            <span>Design</span>
-          </h1>
-        </motion.section>
+        <PageTitle pageTitle={pageName} />
         <article>
-          <NavTabs activeTab={activeTab} tabDisplay={tabDisplay} info={info} />
+          <NavTabs />
           {activeTab.map((e, idx) =>
             e ? (
-              <>
-                <Showcase {...theProps} idx={idx} key={`showcase_${idx}`} />
-
-                <Description
-                  {...theProps}
-                  idx={idx}
-                  key={`description_${idx}`}
-                />
-              </>
+              <React.Fragment key={`fragment-${idx}`}>
+                <Showcase idx={idx} key={`showcase_${idx}`} />
+                <Description key={`description_${idx}`} />
+              </React.Fragment>
             ) : null
           )}
         </article>
       </>
     );
-  } else {
-    return null;
-  }
+  };
+  return <Boilerplate key={`boilerplate-${location}`} thePage={thePage} />;
 };
 
 export default Design;

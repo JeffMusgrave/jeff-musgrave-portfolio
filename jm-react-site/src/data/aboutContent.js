@@ -1,37 +1,179 @@
-const content = {
-  // about: {
-  //   title: "Test",
-  //   subTitle: "Subtitle",
-  //   description:
-  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quis minima error corporis laudantium! Maxime, cum molestias atque odit, amet fuga doloremque esse enim temporibus aut ducimus eos, tempore consequatur? \nAs far as I'm aware, it was nobody's favorite in the game Maxime, cum molestias atque odit, amet fuga doloremque esse enim temporibus aut ducimus eos, tempore consequatur? Maxime, cum molestias atque odit, amet fuga doloremque esse enim temporibus aut ducimus eos, tempore consequatur?",
-  //   portrait: {
-  //     one: require("../img/photos/jeff-studio-1.png"),
-  //     init: require("../img/photos/init/jeff-studio-1-init.jpg"),
-  //     title: "Jeff Musgrave",
-  //     alt: "Portrait of Jeff Musgrave",
-  //   },
-  // },
-  // contact: "contact",
+// export const content = {
+//   about: {
+//     heading: "About me",
+//     subheading: "subheading Test",
+//     description:
+//       "ABOUT TEST In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+//     items: [
+//       {
+//         image: require("../img/photos/jeff-studio-1.png"),
+//         imageAlt: "Jeff Musgrave Portrait",
+//         init: require("../img/photos/init/jeff-studio-1-init.jpg"),
+//         id: "0-0",
+//       },
+//     ],
+//   },
+//   contact: "contact",
+// };
+import { v4 as uuidv4 } from "uuid";
 
-  about: {
-    heading: "About me",
-    subheading: "subheading Test",
+export const content = {
+  TEST: {
+    heading: "Hey, a second heading 3",
     description:
-      "ABOUT TEST In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+      "TEST In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
     items: [
       {
-        image: require("../img/photos/jeff-studio-1.png"),
-        imageAlt: "Jeff Musgrave Portrait",
-        init: require("../img/photos/init/jeff-studio-1-init.jpg"),
-        id: "0-0",
+        // video: require("../img/portfolioItems/video/MLPipelinePreview.webm"),
+        image: require("../img/portfolioItems/video/MLPipelineImage.webp"),
+        imageAlt: "Machine Learning Video Pipeline",
+        thumbnail: require("../img/portfolioItems/video/thumbs/MLPipeline_200.webp"),
+        thumbnailAlt: "Machine Learning Video Pipeline",
+        init: require("../img/portfolioItems/video/init/MLPipeline_init.webp"),
+        url: "https://www.youtube.com/watch?v=Lht5ijva2Ko",
+        id: uuidv4(),
       },
     ],
   },
-  contact: "contact",
+  "This Site": {
+    heading: "Hey, a second heading 3",
+    description:
+      "THIS SITE ipsum dolor sit amet, consectetur adipiscing elit. Quisque sollicitudin diam at dolor dapibus, sit amet ultricies diam fermentum. Vivamus bibendum ipsum dolor, eget convallis ligula ornare in. Mauris auctor ipsum sed lorem sollicitudin, eget viverra leo pharetra. Nullam dignissim vitae leo in tincidunt. Donec iaculis condimentum finibus. Duis sollicitudin ipsum vitae sem facilisis, at ornare est hendrerit. Sed malesuada lorem ac lectus laoreet, vehicula venenatis lorem egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent diam tortor, ultrices ac velit ac, blandit mattis diam. Nunc porta finibus erat, a efficitur dui tincidunt sit amet. Donec nec interdum dolor. Proin vitae molestie lectus, vitae maximus justo. Proin fermentum tincidunt venenatis.",
+    items: [
+      {
+        title: "White Water — Style Pitch",
+        alt: "Design for White Water ski resort",
+        image: require("../img/portfolioItems/web/WhitewaterStyle.webp"),
+        thumbnail: require("../img/portfolioItems/web/thumbs/WhitewaterStyle_200.webp"),
+        init: require("../img/portfolioItems/web/init/WhitewaterStyle_init.webp"),
+        id: uuidv4(),
+      },
+    ],
+  },
+  "ML Video Pipeline": {
+    heading: "Hey, a second heading 3",
+    description:
+      "ML THINGS In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+    items: [
+      {
+        title: "Half The Truth Is A Whole Lie",
+        alt: "Half The Truth Is A Whole Lie Album Art",
+        image: require("../img/portfolioItems/album-art/snp/halfthetruth/HalfTheTruthIsAWholeLieArt.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/snp/halfthetruth/thumbs/HalfTheTruthIsAWholeLieArt_200.webp"),
+        init: require("../img/portfolioItems/album-art/snp/halfthetruth/init/HalfTheTruthIsAWholeLieArt_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "Protection",
+        alt: "Protection Album Art",
+        image: require("../img/portfolioItems/album-art/snp/covers/SV1_03_Protection_1000.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/snp/covers/thumbs/SV1_03_Protection_200.webp"),
+        init: require("../img/portfolioItems/album-art/snp/covers/init/SV1_03_Protection_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "No Harm",
+        alt: "No Harm Album Art",
+        image: require("../img/portfolioItems/album-art/snp/covers/SV1_04_NoHarm_1000.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/snp/covers/thumbs/SV1_04_NoHarm_200.webp"),
+        init: require("../img/portfolioItems/album-art/snp/covers/init/SV1_04_NoHarm_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "Tilt",
+        alt: "Tilt Album Art",
+        image: require("../img/portfolioItems/album-art/snp/covers/SV1_05_Tilt_1000.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/snp/covers/thumbs/SV1_05_Tilt_200.webp"),
+        init: require("../img/portfolioItems/album-art/snp/covers/init/SV1_05_Tilt_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "I Can't Give Everything Away",
+        alt: "I Can't Give Everything Away Album Art",
+        image: require("../img/portfolioItems/album-art/snp/covers/SV1_06_ICantGiveEverythingAway_1000.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/snp/covers/thumbs/SV1_06_ICantGiveEverythingAway_200.webp"),
+        init: require("../img/portfolioItems/album-art/snp/covers/init/SV1_06_ICantGiveEverythingAway_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "The Line Begins To Blur",
+        alt: "The Line Begins To Blur Album Art",
+        image: require("../img/portfolioItems/album-art/snp/covers/SV1_07_TheLineBeginsToBlur_1000.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/snp/covers/thumbs/SV1_07_TheLineBeginsToBlur_200.webp"),
+        init: require("../img/portfolioItems/album-art/snp/covers/init/SV1_07_TheLineBeginsToBlur_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "Strange & Primitive LP1",
+        alt: "Strange & Primitive LP1 Album Art",
+        image: require("../img/portfolioItems/album-art/snp/lpone/LPOneAndPhotos.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/snp/lpone/thumbs/LPOne_200.webp"),
+        init: require("../img/portfolioItems/album-art/snp/lpone/init/LPOne_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "Audiograft: Melody in the Half-Light",
+        alt: "Audiograft: Melody in the Half-Light Album Art",
+        image: require("../img/portfolioItems/album-art/audiograft/MelodyInTheHalfLightAndPhoto.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/audiograft/thumbs/MelodyInTheHalfLight_200.webp"),
+        init: require("../img/portfolioItems/album-art/audiograft/init/MelodyInTheHalfLight_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "Ephemeral Firelight",
+        alt: "Ephemeral Firelight Album Art",
+        image: require("../img/portfolioItems/album-art/kevinmusgrave/EphemeralFirelight.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/kevinmusgrave/thumbs/EphemeralFirelight_200.webp"),
+        init: require("../img/portfolioItems/album-art/kevinmusgrave/init/EphemeralFirelight_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "Yellow Brick Road",
+        alt: "Yellow Brick Road Album Art",
+        image: require("../img/portfolioItems/album-art/aprilavenue/YellowBrickRoad.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/aprilavenue/thumbs/YellowBrickRoad_200.webp"),
+        init: require("../img/portfolioItems/album-art/aprilavenue/init/YellowBrickRoad_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "Pachelbel Peace",
+        alt: "Pachelbel Peace Album Art",
+        image: require("../img/portfolioItems/album-art/aprilavenue/PachelbelPeace.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/aprilavenue/thumbs/PachelbelPeace_200.webp"),
+        init: require("../img/portfolioItems/album-art/aprilavenue/init/PachelbelPeace_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "You'd Be So Nice to Come Home to",
+        alt: "You'd Be So Nice to Come Home to",
+        image: require("../img/portfolioItems/album-art/aprilavenue/YoudBeSoNiceToComeHomeTo.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/aprilavenue/thumbs/YoudBeSoNiceToComeHomeTo_200.webp"),
+        init: require("../img/portfolioItems/album-art/aprilavenue/init/YoudBeSoNiceToComeHomeTo_init.webp"),
+        id: uuidv4(),
+      },
+    ],
+  },
+  Unity: {
+    heading: "Hey, a second heading 3",
+    description:
+      "UNITY In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+    items: [
+      {
+        title: "Half The Truth Is A Whole Lie",
+        alt: "Half The Truth Is A Whole Lie Album Art",
+        image: require("../img/portfolioItems/album-art/snp/halfthetruth/HalfTheTruthIsAWholeLieArt.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/snp/halfthetruth/thumbs/HalfTheTruthIsAWholeLieArt_200.webp"),
+        init: require("../img/portfolioItems/album-art/snp/halfthetruth/init/HalfTheTruthIsAWholeLieArt_init.webp"),
+        id: uuidv4(),
+      },
+      {
+        title: "Protection",
+        alt: "Protection Album Art",
+        image: require("../img/portfolioItems/album-art/snp/covers/SV1_03_Protection_1000.webp"),
+        thumbnail: require("../img/portfolioItems/album-art/snp/covers/thumbs/SV1_03_Protection_200.webp"),
+        init: require("../img/portfolioItems/album-art/snp/covers/init/SV1_03_Protection_init.webp"),
+        id: uuidv4(),
+      },
+    ],
+  },
 };
-
-function contentLoader() {
-  return content;
-}
-
-export default contentLoader;

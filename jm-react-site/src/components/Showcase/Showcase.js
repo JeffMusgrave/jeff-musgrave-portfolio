@@ -1,20 +1,16 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
-import { SRLWrapper } from "simple-react-lightbox";
-import Thumbnail from "../Thumbnail/Thumbnail";
-import BlurryImageLoad from "../../utils/blurryLoad";
+// import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
+// import Thumbnail from "../Thumbnail/Thumbnail";
 import "./Showcase.css";
-import { lightboxOptions as options } from "../../variables/variables";
+import Gallery from "./Gallery";
+// import { lightboxOptions as options } from "../../variables/variables";
 
 const Showcase = ({ idx }) => {
-  let location = useLocation().pathname.substring(1);
+  const location = useLocation().pathname.substring(1);
   const items = useStoreState((state) => state.storeContent.items);
 
-  useLayoutEffect(() => {
-    const blurryImageLoad = new BlurryImageLoad();
-    blurryImageLoad.load();
-  });
   return (
     <div
       className="gallery-container"
@@ -32,11 +28,14 @@ const Showcase = ({ idx }) => {
         }
         key={`showcase-album_${idx}`}
       >
-        <SRLWrapper options={options} key={`SRLWrapper_${idx}`}>
-          {items.map((e) => (
-            <Thumbnail item={e} key={`thumbnail_${e.id}`} />
-          ))}
-        </SRLWrapper>
+        <Gallery idx={idx} />
+        {/* <SimpleReactLightbox>
+          <SRLWrapper options={options} key={`SRLWrapper_${location}-${idx}`}>
+            {items.map((e) => (
+              <Thumbnail item={e} key={`thumbnail_${location}-${e.id}`} />
+            ))}
+          </SRLWrapper>
+        </SimpleReactLightbox> */}
       </div>
     </div>
   );
