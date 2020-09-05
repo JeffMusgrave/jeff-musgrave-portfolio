@@ -9,19 +9,34 @@ import { lightboxOptions as options } from "../../variables/variables";
 const Gallery = ({ idx }) => {
   const location = useLocation().pathname.substring(1);
   const items = useStoreState((state) => state.storeContent.items);
-  const isMounted = useRef(null);
+  const isLoaded = useStoreState((state) => state.storeContent.isLoaded);
+  // let loadIt = false;
+  // const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+  // const yourFunction = async () => {
+  //   await delay(5000).then(() => {
+  //     loadIt = true;
+  //     console.log("Waited 5s");
+  //     console.log("it's: " + loadIt);
+  //   });
+  // };
 
-  useEffect(() => {
-    // executed when component mounted
+  // useEffect(() => {
+  //   yourFunction();
+  // });
 
-    isMounted.current = true;
-    console.log("yessss" + isMounted.current);
-    return () => {
-      // executed when unmount
-      isMounted.current = false;
-      console.log("NOOOO" + isMounted.current);
-    };
-  }, []);
+  // const isMounted = useRef(null);
+
+  // useEffect(() => {
+  //   // executed when component mounted
+
+  //   isMounted.current = true;
+  //   console.log("yessss" + isMounted.current);
+  //   return () => {
+  //     // executed when unmount
+  //     isMounted.current = false;
+  //     console.log("NOOOO" + isMounted.current);
+  //   };
+  // }, []);
 
   // useEffect(() => {
   //   loadContent(location);
@@ -34,29 +49,29 @@ const Gallery = ({ idx }) => {
   //   }
   // }, []);
   return (
-    <SimpleReactLightbox>
-      {isMounted && (
-        <SRLWrapper options={options} key={`SRLWrapper_${location}-${idx}`}>
-          {items.map((e) => (
-            // <Thumbnail item={e} key={`thumbnail_${location}-${e.id}`} />
-            <a
-              href={e.image}
-              title={e.title}
-              key={`anchor-${e.id}`}
-              data-attribute="SRL"
-            >
-              <img
-                className="blurry-load"
-                data-large={e.thumbnail}
-                src={e.init}
-                alt={e.imageAlt}
-                key={`img-${e.id}`}
-              />
-            </a>
-          ))}
-        </SRLWrapper>
+    <React.Fragment key={`Gallery_${location}-${idx}`}>
+      {isLoaded && (
+        <SimpleReactLightbox key={`SRL_${location}-${idx}`}>
+          <SRLWrapper options={options} key={`SRLWrapper_${location}-${idx}`}>
+            {items.map((e) => (
+              <a
+                href={e.image}
+                title={e.title}
+                key={`anchor-${e.id}`}
+                data-attribute="SRL"
+              >
+                <img
+                  data-large={e.thumbnail}
+                  src={e.init}
+                  alt={e.imageAlt}
+                  key={`img-${e.id}`}
+                />
+              </a>
+            ))}
+          </SRLWrapper>
+        </SimpleReactLightbox>
       )}
-    </SimpleReactLightbox>
+    </React.Fragment>
   );
 };
 

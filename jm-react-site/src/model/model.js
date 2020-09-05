@@ -1,4 +1,4 @@
-import { action, computed } from "easy-peasy";
+import { action } from "easy-peasy";
 import allContent from "../data/content";
 
 const contentModel = {
@@ -7,6 +7,7 @@ const contentModel = {
   info: [],
   activeTab: [],
   items: [],
+  isloaded: false,
 
   //actions
   loadContent: action((state, payload) => {
@@ -14,13 +15,14 @@ const contentModel = {
     state.info = Object.keys(state.pageContent);
     state.activeTab = state.info.map((e, idx) => (idx === 0 ? 1 : 0));
     state.items = state.pageContent[state.info[0]].items;
-    console.log(state.items);
+    state.isLoaded = true;
   }),
-  resetContent: action((state, payload) => {
+  resetContent: action((state) => {
     state.pageContent = {};
     state.info = [];
     state.activeTab = [];
     state.items = [];
+    state.isLoaded = false;
   }),
 
   setActiveTab: action((state, id) => {

@@ -22,22 +22,22 @@ function App() {
     (state) => state.storeContent.pageNotFound
   );
 
-  // const [homePage, setHomePage] = useState(false);
+  const [homePage, setHomePage] = useState(false);
 
-  // const pageClass = () => {
-  //   location === "/" ? setHomePage(true) : setHomePage(false);
-  // };
+  const pageClass = () => {
+    location === "/" ? setHomePage(true) : setHomePage(false);
+  };
 
-  // useEffect(() => {
-  //   pageClass();
-  //   if (homePage) {
-  //     document.body.classList.add("home-bg-color");
-  //     document.body.classList.remove("standard-bg-color");
-  //   } else {
-  //     document.body.classList.add("standard-bg-color");
-  //     document.body.classList.remove("home-bg-color");
-  //   }
-  // });
+  useEffect(() => {
+    pageClass();
+    if (homePage) {
+      document.body.classList.add("home-bg-color");
+      document.body.classList.remove("standard-bg-color");
+    } else {
+      document.body.classList.add("standard-bg-color");
+      document.body.classList.remove("home-bg-color");
+    }
+  });
 
   // useEffect(() => {
   //   if (location === "/") {
@@ -51,10 +51,10 @@ function App() {
 
   return (
     <>
-      {/* <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <title>Jeff Musgrave | {pgTitle}</title>
-      </Helmet> */}
+      </Helmet>
       <div className="flex-container">
         <div className="content-grid">
           <Header />
@@ -72,9 +72,9 @@ function App() {
               <SwitchContainer />
             </motion.main>
           </div>
-          {/* <Footer /> */}
-          {/* <Fold location={location} /> */}
-          {/* <VideoBackground location={location} /> */}
+          <Footer />
+          <Fold location={location} />
+          <VideoBackground location={location} />
         </div>
       </div>
     </>

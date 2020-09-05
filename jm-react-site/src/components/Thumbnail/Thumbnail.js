@@ -52,7 +52,13 @@ const Image = ({ image, title, id, thumbnail, init, imageAlt }) => {
   // });
 
   return (
-    <a href={image} title={title} key={`anchor-${id}`} data-attribute="SRL">
+    <a
+      data-fslightbox="gallery"
+      href={image}
+      title={title}
+      key={`anchor-${id}`}
+      data-attribute="SRL"
+    >
       <img
         className="blurry-load"
         data-large={thumbnail}
