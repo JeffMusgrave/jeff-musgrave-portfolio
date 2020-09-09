@@ -18,11 +18,11 @@ const Description = () => {
         {location === "video" ? (
           <>
             <motion.section variants={fade} key={`section_${idx}`}>
-              <h1 key={`section_h1_${idx}`}>
+              <h2 key={`section_h2_${idx}`}>
                 <span>{heading}</span>
-              </h1>
+              </h2>
             </motion.section>
-            <h2 key={`descr-article_h2_${idx}`}>
+            <h3 key={`descr-article_h3_${idx}`}>
               {subheading ? (
                 <span key={`desc-span1_${idx}`}>{subheading}</span>
               ) : (
@@ -33,7 +33,7 @@ const Description = () => {
               ) : (
                 ""
               )}
-            </h2>
+            </h3>
           </>
         ) : (
           <motion.h3 variants={fade} key={`h-${idx}`}>{`${heading}`}</motion.h3>

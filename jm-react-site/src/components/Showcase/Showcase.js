@@ -1,43 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
-// import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
-// import Thumbnail from "../Thumbnail/Thumbnail";
+import FsLightbox from "fslightbox-react";
+import Thumbnail from "../Thumbnail/Thumbnail";
 import "./Showcase.css";
-import Gallery from "./Gallery";
-// import { lightboxOptions as options } from "../../variables/variables";
 
 const Showcase = ({ idx }) => {
   const location = useLocation().pathname.substring(1);
   const items = useStoreState((state) => state.storeContent.items);
+  const [toggler, setToggler] = useState(false);
+  const regexYT = /(youtube)/gi;
 
   return (
-    <div
-      className="gallery-container"
-      key={`showcase-gallery-container_${idx}`}
-    >
+    <>
+      <FsLightbox
+        toggler={toggler}
+        sources={items.map((e) => (e.url ? e.url : e.image))}
+        types={items.map((e) =>
+          e.url ? (e.url.match(regexYT) ? "youtube" : null) : "image"
+        )}
+      />
       <div
-        className={
-          location !== `design`
-            ? `album ${
-                items.length < 2
-                  ? `album-one`
-                  : `album-two ${items.length > 2 ? `fade-out` : ``}`
-              }`
-            : `gallery`
-        }
-        key={`showcase-album_${idx}`}
+        className="gallery-container"
+        key={`showcase-gallery-container_${idx}`}
       >
-        <Gallery idx={idx} />
-        {/* <SimpleReactLightbox>
-          <SRLWrapper options={options} key={`SRLWrapper_${location}-${idx}`}>
-            {items.map((e) => (
-              <Thumbnail item={e} key={`thumbnail_${location}-${e.id}`} />
-            ))}
-          </SRLWrapper>
-        </SimpleReactLightbox> */}
+        <div
+          className={
+            location !== `design`
+              ? `album ${
+                  items.length < 2
+                    ? `album-one`
+                    : `album-two ${items.length > 2 ? `fade-out` : ``}`
+                }`
+              : `gallery`
+          }
+          key={`showcase-album_${idx}`}
+        >
+          {items.map((e) => (
+            <Thumbnail
+              item={e}
+              key={`thumbnail_${e.id}`}
+              idx={idx}
+              setToggler={setToggler}
+              toggler={toggler}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

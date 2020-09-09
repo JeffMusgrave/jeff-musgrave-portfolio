@@ -82,11 +82,11 @@ const StandardBoilerPlate = ({ thePage, FoundPage }) => {
     return () => {
       resetContent();
     };
-  });
+  }, [loadContent, location, resetContent]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   return <FoundPage thePage={thePage} />;
 };

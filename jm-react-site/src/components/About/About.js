@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
 import NavTabs from "../NavTabs/NavTabs";
@@ -15,13 +15,6 @@ const Contact = () => {
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
   const info = useStoreState((state) => state.storeContent.info);
 
-  // useEffect(() => {
-  //   console.log("ABOUT MOUNT");
-  //   return () => {
-  //     console.log("ABOUT unmount");
-  //   };
-  // });
-
   const thePage = () => {
     const tabTest = info[activeTab.filter((e, idx) => idx)];
     return (
@@ -31,9 +24,9 @@ const Contact = () => {
           {activeTab.map((e, idx) =>
             e ? (
               <React.Fragment key={`fragment-${idx}`}>
-                <div className="about-prev-pos">
+                <aside className="about-prev-pos">
                   <Showcase idx={idx} key={`showcase_${idx}`} />
-                </div>
+                </aside>
 
                 {tabTest === "about" ? (
                   <Description key={`description_${idx}`} />

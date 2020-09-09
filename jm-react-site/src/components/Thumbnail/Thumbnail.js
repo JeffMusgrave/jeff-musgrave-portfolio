@@ -3,81 +3,72 @@ import { useState, useEffect } from "react";
 import { useStoreState } from "easy-peasy";
 import { motion } from "framer-motion";
 import useDeviceDetect from "../../utils/useDeviceDetect";
-// import BlurryImageLoad from "../../utils/blurryLoad";
-import VideoLightbox from "../VideoLightbox";
+import BlurryImageLoad from "../../utils/blurryLoad";
+
 import {
   fadeSettings as fade,
   hoverSettings as hover,
 } from "../../variables/variables";
 import "./Thumbnail.css";
 
-const Thumbnail = ({ item, thumbtab = false }) => {
+const Thumbnail = ({ item, setToggler, toggler, thumbtab = false }) => {
   const items = useStoreState((state) => state.storeContent.items);
 
   const { video, id } = item;
   return (
     <motion.figure
+      onClick={!thumbtab ? () => setToggler(!toggler) : null}
       variants={fade}
       key={`figure-${id}`}
-      className={`thumbnail ${items.length < 2 ? `thumb-grid` : `thumb-flex`}`}
+      className={`thumbnail ${!thumbtab ? `thumbnail-size` : `thumbtab-size`} ${
+        items.length < 2 ? `thumb-grid` : `thumb-flex`
+      }`}
     >
-      <Image {...item} />
-      {/* {video && !thumbtab ? (
-        <VideoMobileDesktopSwitch {...item} />
+      {video ? (
+        !thumbtab ? (
+          <VideoMobileDesktopSwitch {...item} />
+        ) : (
+          <Image {...item} />
+        )
       ) : (
         <Image {...item} />
-      )} */}
+      )}
     </motion.figure>
   );
 };
 
-const Image = ({ image, title, id, thumbnail, init, imageAlt }) => {
-  // useEffect(() => {
-  //   let unmounted = false;
+const Image = ({ id, thumbnail, init, imageAlt }) => {
+  useEffect(() => {
+    let unmounted = false;
 
-  //   if (!unmounted) {
-  //     const blurryImageLoad = new BlurryImageLoad();
-  //     blurryImageLoad.load();
-  //   }
+    if (!unmounted) {
+      const blurryImageLoad = new BlurryImageLoad();
+      blurryImageLoad.load();
+    }
 
-  //   return () => {
-  //     unmounted = true;
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   const blurryImageLoad = new BlurryImageLoad();
-  //   blurryImageLoad.load();
-  //   return () => {}
-  // });
+    return () => {
+      unmounted = true;
+    };
+  }, []);
 
   return (
-    <a
-      data-fslightbox="gallery"
-      href={image}
-      title={title}
-      key={`anchor-${id}`}
-      data-attribute="SRL"
-    >
-      <img
-        className="blurry-load"
-        data-large={thumbnail}
-        src={init}
-        alt={imageAlt}
-        key={`img-${id}`}
-      />
-    </a>
+    <motion.img
+      whileHover={hover.hover}
+      whileTap={hover.tap}
+      animate
+      className="blurry-load"
+      data-large={thumbnail}
+      src={init}
+      alt={imageAlt}
+      key={`img-${id}`}
+    />
   );
 };
 
-const Video = ({ video, imageAlt, url, id }) => {
+const Video = ({ video, image, id }) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
-  };
-  const [videoOverlay, setVideoOverlay] = useState(false);
-  const toggleVideoOverlay = () => {
-    setVideoOverlay(!videoOverlay);
   };
 
   return (
@@ -104,7 +95,7 @@ const Video = ({ video, imageAlt, url, id }) => {
         variants={fade}
         whileHover={hover.hover}
         whileTap={hover.tap}
-        onClick={toggleVideoOverlay}
+        type="video"
       >
         <video
           className="video-loop"
@@ -116,18 +107,11 @@ const Video = ({ video, imageAlt, url, id }) => {
           style={{ opacity: videoLoaded ? 1 : 0 }}
           variants={fade}
           key={`vidprev-${id}`}
+          poster={image}
         >
           <source src={video} type="video/webm" key={`video-${id}`}></source>
         </video>
       </motion.div>
-      {videoOverlay ? (
-        <VideoLightbox
-          imageAlt={imageAlt}
-          url={url}
-          id={id}
-          toggleVideoOverlay={toggleVideoOverlay}
-        />
-      ) : null}
     </>
   );
 };

@@ -1,12 +1,21 @@
 .thumbnail {
   justify-self: flex-start;
-  width: calc(100% - 2.5rem);
+
   clip-path: circle();
   background-color: var(--shade-6);
   align-self: center;
   height: auto;
   cursor: pointer;
   justify-items: center;
+}
+
+.thumbtab-size {
+  width: var(--thumbtab-vid);
+  height: var(--thumbtab-vid);
+}
+
+.thumbnail-size {
+  width: calc(100% - 2.5rem);
 }
 
 .thumb-flex {

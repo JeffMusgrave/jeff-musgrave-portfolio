@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import "./App.css";
 import "./styles/Grid.css";
 import "./styles/ContentPosition.css";
+import "./styles/ContentStyle.css";
 import "./styles/SRLmod.css";
 import Header from "./components/Header/Header";
 import Fold from "./components/Fold/Fold";
@@ -59,9 +60,10 @@ function App() {
         <div className="content-grid">
           <Header />
           <div
-            className={`standard-style ${
-              pageNotFound ? `design` : pgName
-            }-pos ${pgName === "video" ? `inset-grid` : ``}`}
+            className={`${homePage ? `home-style ` : `standard-style `} 
+            ${pageNotFound ? `design` : pgName}-pos ${
+              pgName === "video" ? `inset-grid` : ``
+            }`}
           >
             <motion.main
               variants={fade}

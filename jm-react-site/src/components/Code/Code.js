@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
 import NavTabs from "../NavTabs/NavTabs";
@@ -6,20 +6,12 @@ import Showcase from "../Showcase/Showcase";
 import Boilerplate from "../Boilerplate/Boilerplate";
 import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
-//
 import "./Code.css";
 
 const Code = () => {
   const location = useLocation().pathname.substr(1);
   const pageName = location.charAt(0).toUpperCase() + location.slice(1);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
-
-  // useEffect(() => {
-  //   console.log("CODE MOUNT");
-  //   return () => {
-  //     console.log("CODE unmount");
-  //   };
-  // });
 
   const thePage = () => {
     return (

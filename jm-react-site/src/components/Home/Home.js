@@ -5,9 +5,9 @@ import { fadeSettings as fade } from "../../variables/variables";
 import "./Home.css";
 
 const Home = (props) => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="home-pos home-style">

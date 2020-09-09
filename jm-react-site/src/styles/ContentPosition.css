@@ -1,5 +1,6 @@
 .home-pos,
 .video-pos,
+.video-pos main,
 .design-pos,
 .about-pos,
 .code-pos,
@@ -65,21 +66,18 @@
   }
 }
 
-/* VIDEO / ABOUT */
+/* ABOUT */
 
-.video-pos main,
 .about-pos main {
   grid-column: content/right-fold;
   margin-right: 2.5rem;
 }
 
 @media screen and (max-width: 1154px) {
-  .video-pos,
   .about-pos {
     grid-column: logo/right-margin;
     grid-row: row-content/footer;
   }
-  .video-pos section,
   .about-pos section {
     grid-column: sub-start/sub-mid;
     grid-row: 1/2;
@@ -91,10 +89,6 @@
 
 .design-pos main {
   grid-column: content/right-margin;
-}
-
-.code-pos main {
-  display: contents;
 }
 
 @media screen and (max-width: 1154px) {

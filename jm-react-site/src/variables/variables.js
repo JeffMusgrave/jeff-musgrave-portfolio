@@ -19,22 +19,22 @@ export const hoverSettings = {
   },
 };
 
-export const lightboxOptions = {
-  settings: {
-    lightboxTransitionTimingFunction: "easeInOut",
-    slideAnimationType: "fade",
-    lightboxTransitionSpeed: 0.4,
-  },
-  buttons: {
-    showAutoplayButton: false,
-    showDownloadButton: false,
-    showThumbnailsButton: false,
-  },
-  caption: {
-    captionFontFamily: "Barlow, sans-serif",
-  },
-  thumbnails: {
-    thumbnailsGap: ".5em",
-    thumbnailsSize: ["5em", "5em"],
-  },
-};
+// export const lightboxOptions = {
+//   settings: {
+//     lightboxTransitionTimingFunction: "easeInOut",
+//     slideAnimationType: "fade",
+//     lightboxTransitionSpeed: 0.4,
+//   },
+//   buttons: {
+//     showAutoplayButton: false,
+//     showDownloadButton: false,
+//     showThumbnailsButton: false,
+//   },
+//   caption: {
+//     captionFontFamily: "Barlow, sans-serif",
+//   },
+//   thumbnails: {
+//     thumbnailsGap: ".5em",
+//     thumbnailsSize: ["5em", "5em"],
+//   },
+// };

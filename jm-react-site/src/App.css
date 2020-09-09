@@ -169,6 +169,7 @@ h1 {
   font-size: var(--xl);
   color: var(--shade-2);
   padding-bottom: var(--ml);
+  /* background-color: var(--shade-6); */
 }
 
 @media screen and (max-width: 590px) {
@@ -180,7 +181,7 @@ h1 {
 @media screen and (max-width: 1154px) {
   h1 {
     margin-bottom: 0;
-    background-color: var(--shade-6);
+
     padding: 0.625rem 1.125rem;
   }
   .em-heading h1 span {
