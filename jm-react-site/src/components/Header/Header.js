@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
 import Nav from "../Nav/Nav";
-import "./Header.css";
 import MenuButton from "../MenuButton/MenuButton";
+import { HeaderContainer, Logo, Background } from "./Header.styled";
+import { useStoreActions } from "easy-peasy";
 
 const Header = () => {
-  const [menu, setMenu] = useState(false);
+  const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
   const [viewWidth, setViewWidth] = useState(window.innerWidth <= 768);
   const [scrollDown, setScrollDown] = useState(false);
-
-  const menuVis = () => {
-    setMenu(!menu);
-  };
 
   // View Width
   useEffect(() => {
@@ -43,21 +39,17 @@ const Header = () => {
   }, [scrollDown]);
 
   return (
-    <header className="header">
-      <div className="logo">
+    <HeaderContainer>
+      <Logo>
         <NavLink to="/">jeff musgrave</NavLink>
-      </div>
+      </Logo>
 
-      <Nav menu={menu} viewWidth={viewWidth} menuVis={menuVis} />
+      <Nav viewWidth={viewWidth} />
 
-      <div className="menu-btn" onClick={menuVis}>
-        <MenuButton menu={menu} />
-      </div>
+      <MenuButton />
 
-      <motion.div
-        className={`header-bg ${scrollDown ? `header-vis` : `header-trans`}`}
-      ></motion.div>
-    </header>
+      <Background scrollDown={scrollDown} />
+    </HeaderContainer>
   );
 };
 

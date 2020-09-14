@@ -8,6 +8,7 @@ const contentModel = {
   activeTab: [],
   items: [],
   isloaded: false,
+  menu: false,
 
   //actions
   loadContent: action((state, payload) => {
@@ -35,6 +36,10 @@ const contentModel = {
   }),
   setFound: action((state) => {
     state.pageNotFound = false;
+  }),
+
+  setMenu: action((state, payload) => {
+    state.menu = payload;
   }),
 };
 

@@ -1,6 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
-import "./NavTabs.css";
+import { Container, Button } from "./NavTabs.styled";
 import { useLocation } from "react-router-dom";
 import { fadeSettings as fade } from "../../variables/variables";
 import Thumbnail from "../Thumbnail/Thumbnail";
@@ -18,17 +17,11 @@ const NavTabs = ({ thumbtabs = false }) => {
   );
 
   return (
-    <motion.nav
-      variants={fade}
-      className={
-        !thumbtabs ? `nav-tabs ${location.pathname.substr(1)}-nav` : `thumbtabs`
-      }
-    >
+    <Container variants={fade} thumbtabs={thumbtabs}>
       {activeTab.map((e, idx) => (
-        <button
-          className={`content-nav-btn 
-          ${!thumbtabs && `text-btn `} 
-          ${!thumbtabs ? (e ? `selected` : ` `) : ``}`}
+        <Button
+          thumbtabs={thumbtabs}
+          e={e}
           onClick={() => setActiveTab(idx)}
           key={`btn-${info[idx]}`}
         >
@@ -42,9 +35,9 @@ const NavTabs = ({ thumbtabs = false }) => {
           ) : (
             info[idx]
           )}
-        </button>
+        </Button>
       ))}
-    </motion.nav>
+    </Container>
   );
 };
 

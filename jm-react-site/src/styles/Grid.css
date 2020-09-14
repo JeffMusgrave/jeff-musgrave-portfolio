@@ -1,4 +1,4 @@
-.content-grid {
+/* .content-grid {
   justify-self: center;
   display: grid;
   width: 80vw;
@@ -59,4 +59,4 @@
       )
       [row-name] 4rem [row-email] 4rem [row-message] 4rem [row-msg-end] 6rem [row-submit] 6rem [post-form] 1fr [footer] auto [row-end];
   }
-}
+} */

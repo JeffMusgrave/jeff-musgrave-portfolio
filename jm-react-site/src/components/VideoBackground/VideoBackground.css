@@ -10,21 +10,11 @@
 }
 
 .bg-vid-home {
-  /* transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);  */
   mix-blend-mode: difference;
-  /* filter: hue-rotate(0deg); */
-  /* filter: blur(20px); */
   opacity: 0.6;
-  /* background-blend-mode: difference; */
-  /* clip-path: inset(0px 0px 0px 0px); */
-  /* background-color: black; */
 }
 .bg-vid-standard {
   mix-blend-mode: color-dodge;
-  /* background-blend-mode: difference;
-  background-color: black; */
   opacity: 0.25;
 }
 

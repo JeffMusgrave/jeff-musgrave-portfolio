@@ -1,13 +1,14 @@
 import React from "react";
+import { Heading1 } from "../../styled/Text.styled";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
 
 const PageTitle = ({ pageTitle }) => {
   return (
     <motion.section variants={fade}>
-      <h1>
+      <Heading1>
         <span>{pageTitle}</span>
-      </h1>
+      </Heading1>
     </motion.section>
   );
 };

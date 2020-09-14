@@ -1,9 +1,10 @@
 import React from "react";
-import "./Nav.css";
-import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import { SiteNav, MobileNav, NavA } from "./Nav.styled";
+import { useStoreState, useStoreActions } from "easy-peasy";
 
-const Nav = ({ menu, viewWidth, menuVis }) => {
+const Nav = ({ viewWidth, menuVis }) => {
+  const menu = useStoreState((state) => state.storeContent.menu);
+  const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
   let navSlider = {
     hidden: {
       x: "-110vw",
@@ -15,47 +16,46 @@ const Nav = ({ menu, viewWidth, menuVis }) => {
 
   if (viewWidth) {
     return (
-      <motion.nav
+      <MobileNav
         initial={navSlider.hidden}
         animate={!menu && viewWidth ? { x: "-110vw" } : { x: "0vw" }}
-        className="nav-links"
       >
-        <NavList menuVis={menuVis} />
-      </motion.nav>
+        <div>
+          <NavList />
+        </div>
+      </MobileNav>
     );
   } else {
     return (
-      <nav className="nav-links">
-        <NavList menuVis={menuVis} />
-      </nav>
+      <SiteNav>
+        <NavList />
+      </SiteNav>
     );
   }
 };
 
-const NavList = ({ menuVis }) => {
+const NavList = () => {
+  const menu = useStoreState((state) => state.storeContent.menu);
+  const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
+  const menuVis = () => {
+    setMenu(!menu);
+  };
+
   return (
-    <ul>
-      <li>
-        <NavLink to="/video" onClick={menuVis}>
-          Video
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/design" onClick={menuVis}>
-          Design
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/code" onClick={menuVis}>
-          Code
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/about" onClick={menuVis}>
-          About
-        </NavLink>
-      </li>
-    </ul>
+    <>
+      <NavA to="/video" onClick={menuVis}>
+        Video
+      </NavA>
+      <NavA to="/design" onClick={menuVis}>
+        Design
+      </NavA>
+      <NavA to="/code" onClick={menuVis}>
+        Code
+      </NavA>
+      <NavA to="/about" onClick={menuVis}>
+        About
+      </NavA>
+    </>
   );
 };
 

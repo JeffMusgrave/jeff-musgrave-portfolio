@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useLayoutEffect } from "react";
+// import { motion } from "framer-motion";
+import { FlexContainer, Grid, SetBody } from "./styled/General.styled";
+import { Position, Main } from "./styled/Position.styled";
 import "./App.css";
-import "./styles/Grid.css";
-import "./styles/ContentPosition.css";
-import "./styles/ContentStyle.css";
-import "./styles/SRLmod.css";
 import Header from "./components/Header/Header";
 import Fold from "./components/Fold/Fold";
 import SwitchContainer from "./components/SwitchContainer";
@@ -16,9 +14,9 @@ import { Helmet } from "react-helmet";
 import { useStoreState } from "easy-peasy";
 
 function App() {
-  let location = useLocation();
-  let pgName = location.pathname === "/" ? "home" : location.pathname.substr(1);
-  let pgTitle = pgName.charAt(0).toUpperCase() + pgName.slice(1);
+  const location = useLocation().pathname;
+  const pgName = location === "/" ? "home" : location.substr(1);
+  const pgTitle = pgName.charAt(0).toUpperCase() + pgName.slice(1);
   const pageNotFound = useStoreState(
     (state) => state.storeContent.pageNotFound
   );
@@ -29,26 +27,9 @@ function App() {
     location === "/" ? setHomePage(true) : setHomePage(false);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     pageClass();
-    if (homePage) {
-      document.body.classList.add("home-bg-color");
-      document.body.classList.remove("standard-bg-color");
-    } else {
-      document.body.classList.add("standard-bg-color");
-      document.body.classList.remove("home-bg-color");
-    }
   });
-
-  // useEffect(() => {
-  //   if (location === "/") {
-  //     document.body.classList.add("home-bg-color");
-  //     document.body.classList.remove("standard-bg-color");
-  //   } else {
-  //     document.body.classList.add("standard-bg-color");
-  //     document.body.classList.remove("home-bg-color");
-  //   }
-  // });
 
   return (
     <>
@@ -56,29 +37,26 @@ function App() {
         <meta charSet="utf-8" />
         <title>Jeff Musgrave | {pgTitle}</title>
       </Helmet>
-      <div className="flex-container">
-        <div className="content-grid">
+      <SetBody homePage={homePage} />
+      <FlexContainer>
+        <Grid>
           <Header />
-          <div
-            className={`${homePage ? `home-style ` : `standard-style `} 
-            ${pageNotFound ? `design` : pgName}-pos ${
-              pgName === "video" ? `inset-grid` : ``
-            }`}
-          >
-            <motion.main
+          <Position pgName={pgName}>
+            <Main
+              pgName={pgName}
               variants={fade}
               initial="initial"
               animate="animate"
               exit="exit"
             >
               <SwitchContainer />
-            </motion.main>
-          </div>
+            </Main>
+          </Position>
           <Footer />
-          <Fold location={location} />
-          <VideoBackground location={location} />
-        </div>
-      </div>
+          {/* <Fold /> */}
+          <VideoBackground />
+        </Grid>
+      </FlexContainer>
     </>
   );
 }
