@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useStoreState } from "easy-peasy";
+import { useStoreState, useStoreActions } from "easy-peasy";
 // import { motion } from "framer-motion";
 import useDeviceDetect from "../../utils/useDeviceDetect";
 import BlurryImageLoad from "../../utils/blurryLoad";
@@ -15,29 +15,29 @@ import {
   hoverSettings as hover,
 } from "../../variables/variables";
 
-const Thumbnail = ({
-  item,
-  setToggler,
-  toggler,
-  thumbtab = false,
-  clickable = true,
-}) => {
+const Thumbnail = ({ item, thumbtab = false, clickable = true }) => {
   const items = useStoreState((state) => state.storeContent.items);
-
+  const setLightbox = useStoreActions(
+    (actions) => actions.storeContent.setLightbox
+  );
   const { video, id } = item;
+  const currentIdx = items.indexOf(item);
+  console.log(currentIdx);
+
   return (
     <Container
-      onClick={clickable ? !thumbtab && (() => setToggler(!toggler)) : () => {}}
+      onClick={() => (!thumbtab && clickable ? setLightbox(currentIdx) : null)}
       variants={fade}
       key={`figure-${id}`}
       thumbtab={thumbtab}
       quantity={items.length}
+      clickable={clickable}
     >
       {video ? (
         !thumbtab ? (
           <VideoMobileDesktopSwitch {...item} />
         ) : (
-          <Image {...item} />
+          <Image {...item} clickable={clickable} />
         )
       ) : (
         <Image {...item} clickable={clickable} />
@@ -102,7 +102,6 @@ const Video = ({ video, image, id }) => {
       >
         <svg
           key={`showcase-svg_${id}`}
-          xmlns="http://www.w3.org/2000/svg"
           className="play-btn"
           viewBox="0 0 6.73 7.77"
         >

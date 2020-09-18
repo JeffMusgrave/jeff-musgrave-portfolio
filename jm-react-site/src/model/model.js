@@ -10,6 +10,8 @@ const contentModel = {
   items: [],
   isloaded: false,
   menu: false,
+  lightbox: false,
+  srcIndex: 0,
 
   //actions
   loadContent: action((state, payload) => {
@@ -45,6 +47,11 @@ const contentModel = {
 
   setPage: action((state, payload) => {
     state.page = payload;
+  }),
+
+  setLightbox: action((state, payload) => {
+    state.lightbox = !state.lightbox;
+    state.srcIndex = payload;
   }),
 };
 

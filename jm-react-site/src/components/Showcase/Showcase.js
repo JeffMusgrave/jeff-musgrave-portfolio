@@ -8,22 +8,33 @@ import { Album } from "./Showcase.styled";
 const Showcase = ({ showcasePos, clickable, idx }) => {
   const location = useLocation().pathname.substring(1);
   const items = useStoreState((state) => state.storeContent.items);
-  const [toggler, setToggler] = useState(false);
+  const lightbox = useStoreState((state) => state.storeContent.lightbox);
+  const srcIndex = useStoreState((state) => state.storeContent.srcIndex);
+  const quantity = items.length;
+  // const [lightbox, setLightbox] = useState({ toggler: false, sourceIndex: 0 });
+
+  // const viewLightbox = (srcIdx) => {
+  //   setLightbox({
+  //     toggler: !lightbox.toggler,
+  //     sourceIndex: srcIdx,
+  //   });
+  // };
+
   const regexYT = /(youtube)/gi;
-  console.log(items);
   return (
     <>
       <FsLightbox
-        toggler={toggler}
+        toggler={lightbox}
         sources={items.map((e) => (e.url ? e.url : e.image))}
+        sourceIndex={srcIndex}
         types={items.map((e) =>
-          e.url ? !!e.url.match(regexYT) && "youtube" : "image"
+          e.url ? (e.url.match(regexYT) ? "youtube" : null) : "image"
         )}
       />
       <Album
         showcasePos={showcasePos}
         location={location}
-        quantity={items.length}
+        quantity={quantity}
         key={`showcase-album_${idx}`}
       >
         {items.map((e) => (
@@ -32,8 +43,6 @@ const Showcase = ({ showcasePos, clickable, idx }) => {
             item={e}
             key={`thumbnail_${e.id}`}
             idx={idx}
-            setToggler={setToggler}
-            toggler={toggler}
           />
         ))}
       </Album>
