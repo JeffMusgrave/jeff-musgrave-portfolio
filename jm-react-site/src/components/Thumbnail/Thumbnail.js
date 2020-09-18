@@ -1,28 +1,37 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useStoreState } from "easy-peasy";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import useDeviceDetect from "../../utils/useDeviceDetect";
 import BlurryImageLoad from "../../utils/blurryLoad";
-
+import {
+  Container,
+  ImageContainer,
+  PlayButton,
+  VideoContainer,
+} from "./Thumbnail.styled";
 import {
   fadeSettings as fade,
   hoverSettings as hover,
 } from "../../variables/variables";
-import "./Thumbnail.css";
 
-const Thumbnail = ({ item, setToggler, toggler, thumbtab = false }) => {
+const Thumbnail = ({
+  item,
+  setToggler,
+  toggler,
+  thumbtab = false,
+  clickable = true,
+}) => {
   const items = useStoreState((state) => state.storeContent.items);
 
   const { video, id } = item;
   return (
-    <motion.figure
-      onClick={!thumbtab ? () => setToggler(!toggler) : null}
+    <Container
+      onClick={clickable ? !thumbtab && (() => setToggler(!toggler)) : () => {}}
       variants={fade}
       key={`figure-${id}`}
-      className={`thumbnail ${!thumbtab ? `thumbnail-size` : `thumbtab-size`} ${
-        items.length < 2 ? `thumb-grid` : `thumb-flex`
-      }`}
+      thumbtab={thumbtab}
+      quantity={items.length}
     >
       {video ? (
         !thumbtab ? (
@@ -31,13 +40,13 @@ const Thumbnail = ({ item, setToggler, toggler, thumbtab = false }) => {
           <Image {...item} />
         )
       ) : (
-        <Image {...item} />
+        <Image {...item} clickable={clickable} />
       )}
-    </motion.figure>
+    </Container>
   );
 };
 
-const Image = ({ id, thumbnail, init, imageAlt }) => {
+const Image = ({ id, image, thumbnail, init, imageAlt, clickable }) => {
   useEffect(() => {
     let unmounted = false;
 
@@ -52,16 +61,29 @@ const Image = ({ id, thumbnail, init, imageAlt }) => {
   }, []);
 
   return (
-    <motion.img
-      whileHover={hover.hover}
-      whileTap={hover.tap}
-      animate
-      className="blurry-load"
-      data-large={thumbnail}
-      src={init}
-      alt={imageAlt}
-      key={`img-${id}`}
-    />
+    <>
+      {clickable ? (
+        <ImageContainer
+          whileHover={hover.hover}
+          whileTap={hover.tap}
+          animate
+          className="blurry-load"
+          data-large={thumbnail}
+          src={init}
+          alt={imageAlt}
+          key={`img-${id}`}
+        />
+      ) : (
+        <ImageContainer
+          animate
+          className="blurry-load"
+          data-large={image}
+          src={init}
+          alt={imageAlt}
+          key={`img-${id}`}
+        />
+      )}
+    </>
   );
 };
 
@@ -73,7 +95,7 @@ const Video = ({ video, image, id }) => {
 
   return (
     <>
-      <motion.div
+      <PlayButton
         key={`showcase-play-btn-container_${id}`}
         className="play-btn-container"
         variants={fade}
@@ -89,9 +111,8 @@ const Video = ({ video, image, id }) => {
             points="6.73 3.88 0 0 0 7.77 6.73 3.88"
           />
         </svg>
-      </motion.div>
-      <motion.div
-        className="video-preview"
+      </PlayButton>
+      <VideoContainer
         variants={fade}
         whileHover={hover.hover}
         whileTap={hover.tap}
@@ -111,7 +132,7 @@ const Video = ({ video, image, id }) => {
         >
           <source src={video} type="video/webm" key={`video-${id}`}></source>
         </video>
-      </motion.div>
+      </VideoContainer>
     </>
   );
 };

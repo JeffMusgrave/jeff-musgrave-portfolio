@@ -1,14 +1,14 @@
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
-export const BurgerContainer = styled.header`
+export const BurgerContainer = styled.div`
   @media screen and (max-width: 768px) {
     display: flex;
     justify-self: flex-end;
     align-self: center;
     align-items: center;
     text-align: center;
-    grid-column: right-fold/right-margin;
+    grid-column: col-4/col-right;
     grid-row: 1/2;
     z-index: 5;
     position: sticky;

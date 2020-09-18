@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const Anchor = styled(motion.a)`
@@ -21,8 +20,8 @@ export const Anchor = styled(motion.a)`
   }
 `;
 
-export const Heading1 = styled.h1`
-  font-weight: 500;
+export const H1 = styled(motion.h1)`
+  font-weight: 300;
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xl)`)};
   color: ${(props) => (props.color ? props.color : `var(--shade-2)`)};
   /* padding: var(--xxs) var(--xs); */
@@ -30,6 +29,10 @@ export const Heading1 = styled.h1`
   @media screen and (max-width: 1154px) {
     margin-left: 0;
     margin-bottom: 0;
+    background-color: var(--shade-6-alpha);
+    text-align: center;
+    padding: var(--xs) var(--xl);
+    font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xl)`)};
   }
 
   span {
@@ -37,17 +40,17 @@ export const Heading1 = styled.h1`
     padding: var(--ml) var(--xl);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    margin-left: calc(-1 * var(--xl));
   }
 
   @media screen and (max-width: 1154px) {
     span {
       margin-left: 0;
+      background-color: transparent;
     }
   }
 `;
 
-export const Heading2 = styled.h2`
+export const H2 = styled(motion.h2)`
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--lg)`)};
   padding-bottom: ${(props) =>
     props.padbottom ? props.padbottom : `var(--sm)`};
@@ -59,21 +62,21 @@ export const Heading2 = styled.h2`
   }
 `;
 
-export const Heading3 = styled.h3`
+export const H3 = styled(motion.h3)`
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--md)`)};
   line-height: ${(props) =>
-    props.lineheight ? props.lineheight : `var(--lh-md)`};
+    props.lineheight ? props.lineheight : `var(--lh-sm)`};
 `;
 
-export const Heading4 = styled.h4`
+export const H4 = styled(motion.h4)`
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--sm)`)};
 `;
 
-export const Heading5 = styled.h5`
+export const H5 = styled(motion.h5)`
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xs)`)};
 `;
 
-export const Paragraph = styled.p`
+export const Paragraph = styled(motion.p)`
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--sm)`)};
   font-weight: 300;
   color: ${(props) => (props.color ? props.color : `var(--shade-1)`)};

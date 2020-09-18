@@ -17,6 +17,7 @@
   --color-bg: #111111;
   --color-bg-trans: rgba(17, 17, 17, 0.494);
   --shade-6: black;
+  --shade-6-alpha: rgba(0, 0, 0, 0.25);
   --success: green;
   --warning: orange;
   --danger: red;
@@ -37,6 +38,7 @@
   --lh-sm: 2.66;
   --lh-xs: 2.5;
   --thumbtab-vid: 8rem;
+  --bookend: 7rem;
 }
 
 @media screen and (max-width: 1550px) {
@@ -50,6 +52,7 @@
     --logo: 1.5rem;
     --navtext: 1rem;
     --thumbtab-vid: 6.5rem;
+    --bookend: 5rem;
   }
 }
 
@@ -68,6 +71,7 @@
     --md: 1.125rem;
     --sm: 1rem;
     --xs: 0.9rem;
+    --bookend: 4rem;
   }
 }
 

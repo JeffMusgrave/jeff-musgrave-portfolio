@@ -1,13 +1,14 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
-import NavTabs from "../NavTabs/NavTabs";
+import Tabs from "../Tabs/Tabs";
 import Showcase from "../Showcase/Showcase";
 import Boilerplate from "../Boilerplate/Boilerplate";
 import PageTitle from "../PageTitle/PageTitle";
 import ContactForm from "../ContactForm/ContactForm";
 import Description from "../Description/Description";
-import "./About.css";
+// import "./About.css";
+import { Container, Blurb, ShowcasePos } from "./About.styled";
 
 const Contact = () => {
   const location = useLocation().pathname.substr(1);
@@ -19,25 +20,28 @@ const Contact = () => {
     const tabTest = info[activeTab.filter((e, idx) => idx)];
     return (
       <>
-        <PageTitle pageTitle={pageName} />
-        <article>
+        <PageTitle key={`pagetitle`} pageTitle={pageName} />
+        {activeTab.map(
+          (e, idx) =>
+            !!e && (
+              <Showcase
+                clickable={false}
+                showcasePos={ShowcasePos}
+                idx={idx}
+                key={`showcase_${idx}`}
+              />
+            )
+        )}
+        <Container>
+          <Tabs />
           {activeTab.map((e, idx) =>
-            e ? (
-              <React.Fragment key={`fragment-${idx}`}>
-                <aside className="about-prev-pos">
-                  <Showcase idx={idx} key={`showcase_${idx}`} />
-                </aside>
-
-                {tabTest === "about" ? (
-                  <Description key={`description_${idx}`} />
-                ) : (
-                  <ContactForm key={`ContactForm_${idx}`} />
-                )}
-              </React.Fragment>
-            ) : null
+            !!e && tabTest === "about" ? (
+              <Description blurb={Blurb} key={`description_${idx}`} />
+            ) : (
+              <ContactForm key={`ContactForm_${idx}`} />
+            )
           )}
-          <NavTabs />
-        </article>
+        </Container>
       </>
     );
   };

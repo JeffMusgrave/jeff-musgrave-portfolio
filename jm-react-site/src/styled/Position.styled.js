@@ -11,8 +11,8 @@ const StandardPos = css`
 const BlockPos = css`
   @media screen and (max-width: 1154px) {
     display: block;
-    grid-column: logo/right-margin;
-    grid-row: row-content/footer;
+    grid-column: col-left/col-right;
+    grid-row: header/footer;
     min-height: 100%;
   }
 `;
@@ -60,22 +60,20 @@ const InsetGrid = css`
 
 // MAIN options
 const Standard = css`
-  grid-row: row-content/footer;
-  align-self: center;
-  z-index: 2;
+  display: contents;
 `;
 
 const About = css`
-  grid-column: content/right-fold;
+  grid-column: content/col-4;
   margin-right: 2.5rem;
 `;
 
 const Design = css`
-  grid-column: content/right-margin;
+  display: contents;
 `;
 
 const Home = css`
-  grid-column: content/right-margin;
+  grid-column: content/col-right;
   min-width: 100%;
   display: grid;
   grid-template-columns:
@@ -86,14 +84,13 @@ const Home = css`
     [h-col-4 chev] auto [chev-end h-col-5] 20rem [h-col-6];
   grid-template-rows: [h-row-1] 0.5fr [h-row-2] 0.5fr [h-row-3] 1fr [h-row-4];
   @media screen and (max-width: 1550px) {
-    grid-column: logo/right-margin;
-    grid-row: row-content/footer;
+    grid-column: col-left/col-right;
+    grid-row: header/footer;
     grid-template-columns: [h-col-0].25fr[h-col-1] 13rem [h-col-2] 13rem [h-col-3 h-text] 1fr [h-col-4 chev] 0.25fr [chev-end h-col-5].25fr [h-col-6];
   }
 
   @media screen and (max-width: 1154px) {
     grid-template-columns: [h-col-0 h-col-pad-l] 0.25fr [h-col-1 h-col-2 h-col-3] 0.5fr [h-text] 0.5fr [chev] 0.25fr [chev-end h-col-4] 0.25fr [h-col-5 h-col-6];
-    grid-row: row-content/footer;
   }
 
   @media screen and (max-width: 900px) {
@@ -116,7 +113,5 @@ export const Position = styled.div`
 // prettier-ignore
 export const Main = styled(motion.main)`
   ${Standard}
-  ${(props) => props.pgName === "about" && About}
-  ${(props) => props.pgName === "design" && Design}
-  ${(props) => props.pgName === "home" && Home}
+
 `;

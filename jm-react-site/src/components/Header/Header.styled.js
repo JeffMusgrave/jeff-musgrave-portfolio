@@ -13,8 +13,8 @@ export const Logo = styled.div`
   z-index: 6;
   position: sticky;
   top: 0;
-  grid-column: logo/span 1;
-  grid-row: row-start/span 1;
+  grid-column: col-left/span 1;
+  grid-row: row-top/span 1;
   height: 100%;
   white-space: nowrap;
 

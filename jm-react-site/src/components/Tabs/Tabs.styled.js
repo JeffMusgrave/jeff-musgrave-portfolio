@@ -7,8 +7,7 @@ const NavTabs = css`
   flex-direction: row;
   flex-wrap: wrap;
 
-  padding: ${(props) =>
-    props.padding ? props.padding : "var(--xxs) 0 var(--xl) 0"};
+  padding: ${(props) => props.padding && props.padding};
 
   @media screen and (max-width: 1154px) {
     margin: 0rem;
@@ -16,7 +15,6 @@ const NavTabs = css`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    padding: 0.625rem 0 0.625rem 0;
   }
 `;
 
@@ -47,7 +45,10 @@ const ThumbTabs = css`
 `;
 
 export const Container = styled(motion.nav)`
+  margin-bottom: 2rem;
+
   ${(props) => (props.thumbtabs ? ThumbTabs : NavTabs)}
+  ${(props) => props.tabPos}
 `;
 
 // Button
@@ -70,7 +71,7 @@ const TextButton = css`
   padding: 1.125rem 0;
 
   &:hover {
-    border-bottom: 0.25rem solid var(--danger);
+    border-bottom: 0.25rem solid var(--shade-6);
     outline: 0;
   }
 
@@ -86,7 +87,7 @@ const TextButton = css`
     border-left: 0.25rem solid transparent;
 
     &:hover {
-      background-color: var(--shade-5);
+      background-color: var(--shade-6-alpha);
       border-bottom: 0 solid transparent;
       border-left: 0.25rem solid var(--shade-6);
     }

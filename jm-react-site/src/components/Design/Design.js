@@ -1,12 +1,14 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
-import NavTabs from "../NavTabs/NavTabs";
+import Tabs from "../Tabs/Tabs";
 import Showcase from "../Showcase/Showcase";
 import Boilerplate from "../Boilerplate/Boilerplate";
 import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
-import "./Design.css";
+import { Article, Blurb, Content } from "./Design.styled";
+
+// import "./Design.css";
 
 const Design = () => {
   const location = useLocation().pathname.substr(1);
@@ -16,17 +18,18 @@ const Design = () => {
     return (
       <>
         <PageTitle pageTitle={pageName} />
-        <article>
-          <NavTabs />
-          {activeTab.map((e, idx) =>
-            e ? (
-              <React.Fragment key={`fragment-${idx}`}>
-                <Showcase idx={idx} key={`showcase_${idx}`} />
-                <Description key={`description_${idx}`} />
-              </React.Fragment>
-            ) : null
+        <Article>
+          <Tabs />
+          {activeTab.map(
+            (e, idx) =>
+              !!e && (
+                <React.Fragment key={`fragment-${idx}`}>
+                  <Showcase idx={idx} key={`showcase_${idx}`} />
+                  <Description blurb={Blurb} key={`description_${idx}`} />
+                </React.Fragment>
+              )
           )}
-        </article>
+        </Article>
       </>
     );
   };

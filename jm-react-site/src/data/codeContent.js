@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 export const content = {
   TEST: {
     heading: "Hey, a second heading 3",
-    description:
-      "TEST In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+    description: `TEST In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. 
+      New paragraph starts now, then the next sentence shall begin, only to end abruptly.`,
     items: [
       {
         video: require("../img/portfolioItems/video/MLPipelinePreview.webm"),

@@ -1,14 +1,11 @@
 import React from "react";
-import { Container, Button } from "./NavTabs.styled";
-import { useLocation } from "react-router-dom";
+import { Container, Button } from "./Tabs.styled";
 import { fadeSettings as fade } from "../../variables/variables";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
-const NavTabs = ({ thumbtabs = false }) => {
-  const location = useLocation();
+const NavTabs = ({ tabPos, thumbtabs = false }) => {
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
-
   const content = useStoreState((state) => state.storeContent.pageContent);
   const info = useStoreState((state) => state.storeContent.info);
   const items = useStoreState((state) => state.storeContent.items);
@@ -17,7 +14,7 @@ const NavTabs = ({ thumbtabs = false }) => {
   );
 
   return (
-    <Container variants={fade} thumbtabs={thumbtabs}>
+    <Container tabPos={tabPos} variants={fade} thumbtabs={thumbtabs}>
       {activeTab.map((e, idx) => (
         <Button
           thumbtabs={thumbtabs}

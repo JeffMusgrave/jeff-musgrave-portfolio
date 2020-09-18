@@ -1,15 +1,15 @@
 import React from "react";
-import { Heading1 } from "../../styled/Text.styled";
-import { motion } from "framer-motion";
+import { H1 } from "../../styled/Text.styled";
+import { Container } from "./PageTitle.styled";
 import { fadeSettings as fade } from "../../variables/variables";
 
 const PageTitle = ({ pageTitle }) => {
   return (
-    <motion.section variants={fade}>
-      <Heading1>
+    <Container variants={fade}>
+      <H1>
         <span>{pageTitle}</span>
-      </Heading1>
-    </motion.section>
+      </H1>
+    </Container>
   );
 };
 

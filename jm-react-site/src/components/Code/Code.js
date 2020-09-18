@@ -1,12 +1,13 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
-import NavTabs from "../NavTabs/NavTabs";
+import Tabs from "../Tabs/Tabs";
 import Showcase from "../Showcase/Showcase";
 import Boilerplate from "../Boilerplate/Boilerplate";
 import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
-import "./Code.css";
+// import "./Code.css";
+import { Container, Blurb, ShowcasePos } from "./Code.styled";
 
 const Code = () => {
   const location = useLocation().pathname.substr(1);
@@ -17,20 +18,24 @@ const Code = () => {
     return (
       <>
         <PageTitle key={`pagetitle`} pageTitle={pageName} />
-        <article>
-          <NavTabs />
-
-          {activeTab.map((e, idx) =>
-            e ? (
-              <React.Fragment key={`fragment-${idx}`}>
-                <aside className="code-prev-pos" key={`code-aside-${idx}`}>
-                  <Showcase idx={idx} key={`showcase_${idx}`} />
-                </aside>
-                <Description key={`description_${idx}`} />
-              </React.Fragment>
-            ) : null
+        <Container>
+          <Tabs />
+          {activeTab.map(
+            (e, idx) =>
+              !!e && <Description blurb={Blurb} key={`description_${idx}`} />
           )}
-        </article>
+        </Container>
+
+        {activeTab.map(
+          (e, idx) =>
+            !!e && (
+              <Showcase
+                showcasePos={ShowcasePos}
+                idx={idx}
+                key={`showcase_${idx}`}
+              />
+            )
+        )}
       </>
     );
   };

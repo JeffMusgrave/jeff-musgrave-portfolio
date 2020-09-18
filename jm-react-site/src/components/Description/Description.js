@@ -1,12 +1,13 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
-import "./Description.css";
 import { fadeSettings as fade } from "../../variables/variables";
+import { H2, H3, Paragraph } from "../../styled/Text.styled";
+import { Blurb } from "./Description.styled";
 
-const Description = () => {
-  let location = useLocation().pathname.substr(1);
+const Description = ({ blurb }) => {
+  const route = useLocation().pathname;
+  const location = route === "/" ? "home" : route.substr(1);
   const content = useStoreState((state) => state.storeContent.pageContent);
   const info = useStoreState((state) => state.storeContent.info);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
@@ -17,26 +18,20 @@ const Description = () => {
       <>
         {location === "video" ? (
           <>
-            <motion.section variants={fade} key={`section_${idx}`}>
-              <h2 key={`section_h2_${idx}`}>
-                <span>{heading}</span>
-              </h2>
-            </motion.section>
-            <h3 key={`descr-article_h3_${idx}`}>
-              {subheading ? (
-                <span key={`desc-span1_${idx}`}>{subheading}</span>
-              ) : (
-                ""
-              )}
-              {subheadingtwo ? (
-                <span key={`desc-span2_${idx}`}>{subheadingtwo}</span>
-              ) : (
-                ""
-              )}
-            </h3>
+            <H2 key={`section_Heading2_${idx}`}>{heading}</H2>
+            {subheading || subheadingtwo ? (
+              <H3 key={`descr-article_H3_${idx}`}>
+                {subheading ? (
+                  <span key={`desc-span1_${idx}`}>{subheading}</span>
+                ) : null}
+                {subheadingtwo ? (
+                  <span key={`desc-span2_${idx}`}>{subheadingtwo}</span>
+                ) : null}
+              </H3>
+            ) : null}
           </>
         ) : (
-          <motion.h3 variants={fade} key={`h-${idx}`}>{`${heading}`}</motion.h3>
+          <H3 variants={fade} key={`h-${idx}`}>{`${heading}`}</H3>
         )}
       </>
     );
@@ -44,19 +39,20 @@ const Description = () => {
 
   const ParagraphContent = ({ idx }) => {
     const { description } = content[info[idx]];
+    const paragraphs = description.split("\n");
     return (
-      <motion.p variants={fade} key={`p-${idx}`}>
-        {location === "video" ? (
-          <span key={`desc-span3_${idx}`}>{description}</span>
-        ) : (
-          description
-        )}
-      </motion.p>
+      <>
+        {paragraphs.map((e, index) => (
+          <Paragraph variants={fade} key={`p-${idx}-${index}`}>
+            {e}
+          </Paragraph>
+        ))}
+      </>
     );
   };
 
   return (
-    <div className={`${location}-blurb`}>
+    <Blurb blurb={blurb} location={location}>
       {activeTab.map((e, idx) =>
         e ? (
           <React.Fragment key={`desc-fragment-${idx}`}>
@@ -65,7 +61,7 @@ const Description = () => {
           </React.Fragment>
         ) : null
       )}
-    </div>
+    </Blurb>
   );
 };
 

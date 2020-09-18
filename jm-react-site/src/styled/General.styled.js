@@ -9,31 +9,53 @@ export const FlexContainer = styled.div`
 `;
 
 export const Grid = styled.div`
+  /* @media screen and (min-height: 1100px) {
+    --height-spacer: 25vh;
+  } */
+  --height-spacer: 25vmin;
+
+  /* @media screen and (max-width: 1550px) {
+    --height-spacer: 15vh;
+  } */
+
+  @media screen and (max-height: 1200px) {
+    --height-spacer: 20vmin;
+  }
+
+  @media screen and (max-height: 1100px) {
+    --height-spacer: 15vmin;
+  }
+
+  @media screen and (max-height: 800px) {
+    --height-spacer: 7.5rem;
+  }
   justify-self: center;
   display: grid;
   width: 80vw;
   max-width: 1800px;
-  grid-gap: 0;
-  min-height: 100%;
+  min-height: 100vh;
+  height: 100vh;
+
+  margin-bottom: 0;
   grid-template-columns:
-    [logo] min-content
-    [edge] 2.5rem [logo-pad] 2.5rem [bg-pad content] 1fr [content-mid] minmax(
+    [col-left] min-content
+    [logo] 2.5rem [logo-pad] 2.5rem [content] 1fr [col-1] minmax(
       min-content,
       1fr
     )
-    [aside] 1fr[overlap] 0.5fr
-    [right-fold] 1fr [pre-margin] 1fr [right-margin];
-  grid-template-rows: [row-start] 7rem [row-content] 1fr [footer] auto [row-end];
+    [col-2] 1fr[col-3] 0.5fr
+    [col-4] 1fr [col-5] 1fr [col-right];
 
-  @media screen and (max-width: 1550px) {
-    grid-template-rows: [row-start] 5rem [row-content] 1fr [footer] auto [row-end];
-  }
+  grid-template-rows:
+    [row-top] var(--bookend) [header] minmax(var(--height-spacer), 1fr)
+    [row-1] 4fr
+    [row-2] minmax(0, 1fr) [footer] var(--bookend) [row-bottom];
 
-  @media screen and (max-width: 768px) {
-    .content-grid {
-      grid-template-columns: [logo edge content logo-pad bg-pad aside overlap right-fold] 1fr [content-mid aside] 1fr [pre-margin right-margin];
-      grid-template-rows: [row-start] 4rem [row-content] 1fr [footer] auto [row-end];
-    }
+  @media screen and (max-width: 1154px) {
+    grid-template-columns: [col-left logo content logo-pad col-1] 1fr [col-2 col-3 col-4] 1fr [col-5 col-right];
+    grid-template-rows:
+      [row-top] var(--bookend) [header] min-content [row-1] 1fr
+      [row-2 footer] var(--bookend) [row-bottom];
   }
 `;
 

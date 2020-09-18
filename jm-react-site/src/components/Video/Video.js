@@ -1,14 +1,15 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
-import NavTabs from "../NavTabs/NavTabs";
+import Tabs from "../Tabs/Tabs";
 import Showcase from "../Showcase/Showcase";
 import Boilerplate from "../Boilerplate/Boilerplate";
 import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
 import "../../utils/blurryLoad.css";
 
-import "./Video.css";
+// import "./Video.css";
+import { Container, Blurb, ShowcasePos, TabPos } from "./Video.styled";
 
 import "../../styles/MobileInsetGrid.css";
 
@@ -19,23 +20,23 @@ const Video = () => {
   const thePage = () => {
     return (
       <>
-        <div className="video-desc-nav">
-          <PageTitle pageTitle={pageName} />
-          <NavTabs thumbtabs={true} />
-          {activeTab.map((e, idx) =>
-            e ? (
-              <React.Fragment key={`desc-fragment-${idx}`}>
-                <Description key={`description_${idx}`} />
-              </React.Fragment>
-            ) : null
+        <PageTitle pageTitle={pageName} />
+        <Container>
+          <Tabs thumbtabs={true} tabPos={TabPos} />
+          {activeTab.map(
+            (e, idx) =>
+              !!e && <Description blurb={Blurb} key={`description_${idx}`} />
           )}
-        </div>
-        {activeTab.map((e, idx) =>
-          e ? (
-            <aside className="video-prev-pos" key={`showcase-fragment-${idx}`}>
-              <Showcase idx={idx} key={`showcase_${idx}`} />
-            </aside>
-          ) : null
+        </Container>
+        {activeTab.map(
+          (e, idx) =>
+            !!e && (
+              <Showcase
+                showcasePos={ShowcasePos}
+                idx={idx}
+                key={`showcase_${idx}`}
+              />
+            )
         )}
       </>
     );

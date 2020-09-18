@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 // import { motion } from "framer-motion";
 import { FlexContainer, Grid, SetBody } from "./styled/General.styled";
 import { Position, Main } from "./styled/Position.styled";
@@ -11,11 +11,16 @@ import { useLocation } from "react-router-dom";
 import VideoBackground from "./components/VideoBackground/VideoBackground";
 import { fadeSettings as fade } from "./variables/variables";
 import { Helmet } from "react-helmet";
-import { useStoreState } from "easy-peasy";
+import { useStoreState, useStoreActions } from "easy-peasy";
 
 function App() {
   const location = useLocation().pathname;
   const pgName = location === "/" ? "home" : location.substr(1);
+  const setPage = useStoreActions((actions) => actions.storeContent.setPage);
+  useEffect(() => {
+    setPage(pgName);
+  });
+
   const pgTitle = pgName.charAt(0).toUpperCase() + pgName.slice(1);
   const pageNotFound = useStoreState(
     (state) => state.storeContent.pageNotFound
@@ -41,19 +46,19 @@ function App() {
       <FlexContainer>
         <Grid>
           <Header />
-          <Position pgName={pgName}>
-            <Main
-              pgName={pgName}
-              variants={fade}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
-              <SwitchContainer />
-            </Main>
-          </Position>
+          {/* <Position pgName={pgName}> */}
+          <Main
+            pgName={pgName}
+            variants={fade}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <SwitchContainer />
+          </Main>
+          {/* </Position> */}
           <Footer />
-          {/* <Fold /> */}
+          <Fold />
           <VideoBackground />
         </Grid>
       </FlexContainer>

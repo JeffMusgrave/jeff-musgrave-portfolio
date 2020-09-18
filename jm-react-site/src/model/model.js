@@ -3,6 +3,7 @@ import allContent from "../data/content";
 
 const contentModel = {
   pageNotFound: false,
+  page: " ",
   pageContent: {},
   info: [],
   activeTab: [],
@@ -40,6 +41,10 @@ const contentModel = {
 
   setMenu: action((state, payload) => {
     state.menu = payload;
+  }),
+
+  setPage: action((state, payload) => {
+    state.page = payload;
   }),
 };
 

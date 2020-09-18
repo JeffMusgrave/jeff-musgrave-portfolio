@@ -8,7 +8,7 @@ const Gallery = css`
   display: grid;
   grid-template-columns: repeat(auto-fit, 10rem);
   grid-gap: 2.5rem;
-  min-height: 100%;
+  margin-top: 2.5rem;
 
   @media screen and (max-width: 1600px) {
     grid-template-columns: repeat(auto-fit, 8rem);
@@ -25,10 +25,12 @@ const Gallery = css`
     grid-gap: 2.5rem;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 768px) {
     justify-content: center;
+  }
+
+  @media screen and (max-width: 500px) {
     min-width: 100%;
-    min-height: 100%;
   }
 
   figure,
@@ -129,6 +131,7 @@ const StandardAlbum = css`
 `;
 
 export const Album = styled.div`
+  ${(props) => props.showcasePos}
   ${(props) => props.location === "design" && Gallery}
   ${(props) =>
     props.location !== "design" && StandardAlbum

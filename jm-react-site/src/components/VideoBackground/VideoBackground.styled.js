@@ -12,8 +12,8 @@ const Standard = css`
 `;
 
 export const BgVidContainer = styled.div`
-  grid-column: logo/right-margin;
-  grid-row: row-content/footer;
+  grid-column: col-left/col-right;
+  grid-row: header/footer;
   z-index: -4;
   position: absolute;
   top: 0;
