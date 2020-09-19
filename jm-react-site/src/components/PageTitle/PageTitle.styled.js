@@ -10,6 +10,7 @@ export const Container = styled(motion.section)`
   margin-left: calc(-1 * var(--xl));
 
   @media screen and (max-width: 1154px) {
+    grid-row: header/row-0;
     margin-top: 2.5rem;
     margin-left: 0;
     margin-bottom: 0;

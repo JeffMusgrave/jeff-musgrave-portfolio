@@ -1,79 +1,15 @@
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
-// POSITION options
-
-const StandardPos = css`
-  display: contents;
-`;
-
-// code and design
-const BlockPos = css`
-  @media screen and (max-width: 1154px) {
-    display: block;
-    grid-column: col-left/col-right;
-    grid-row: header/footer;
-    min-height: 100%;
-  }
-`;
-
-const InsetGrid = css`
-  display: contents;
-
-  @media screen and (max-width: 1154px) {
-    display: grid;
-    gap: 2.5rem;
-    flex-direction: row;
-    grid-template-columns: [sub-start] 1fr [sub-mid] min-content [sub-end];
-    grid-template-rows:
-      [sub-row-start] min-content[sub-row-title] minmax(23.5rem, 30vh)
-      [sub-row-mid sub-post-mid] min-content[sub-row-end];
-
-    main {
-      display: contents;
-      align-self: flex-start;
-    }
-    article {
-      grid-column: sub-start/sub-mid;
-      grid-row: sub-post-mid/sub-row-end;
-    }
-    section:first-of-type {
-      margin: 0;
-    }
-  }
-  @media screen and (max-width: 768px) {
-    grid-template-columns: [sub-start] 2fr [sub-mid sub-end];
-    grid-template-rows:
-      [sub-row-start] min-content [sub-row-title] minmax(10rem, 25vmax)
-      [sub-row-mid] min-content [sub-post-mid] 1fr [sub-row-end];
-    gap: 1.75rem;
-  }
-
-  @media screen and (max-width: 390px) {
-    grid-template-columns: [sub-start] 2fr [sub-mid sub-end];
-    grid-template-rows:
-      [sub-row-start] min-content [sub-row-title] minmax(7rem, 25vmax)
-      [sub-row-mid] min-content [sub-post-mid] 1fr [sub-row-end];
-    gap: 1.125rem;
-  }
-`;
-
 // MAIN options
 const Standard = css`
   display: contents;
 `;
 
-const About = css`
-  grid-column: content/col-4;
-  margin-right: 2.5rem;
-`;
-
-const Design = css`
-  display: contents;
-`;
-
 const Home = css`
   grid-column: content/col-right;
+  grid-row: header/footer;
+  align-self: center;
   min-width: 100%;
   display: grid;
   grid-template-columns:
@@ -106,12 +42,10 @@ const Home = css`
 // Exports
 
 export const Position = styled.div`
-  ${StandardPos}
-  ${(props) => props.full && BlockPos}
+  ${(props) => (props.pgName === "home" ? Home : Standard)}
 `;
 
 // prettier-ignore
 export const Main = styled(motion.main)`
   ${Standard}
-
 `;

@@ -7,7 +7,7 @@ import Boilerplate from "../Boilerplate/Boilerplate";
 import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
 // import "./Code.css";
-import { Container, Blurb, ShowcasePos } from "./Code.styled";
+import { Container, Blurb, ShowcasePos, TabPos } from "./Code.styled";
 
 const Code = () => {
   const location = useLocation().pathname.substr(1);
@@ -19,7 +19,7 @@ const Code = () => {
       <>
         <PageTitle key={`pagetitle`} pageTitle={pageName} />
         <Container>
-          <Tabs />
+          <Tabs tabPos={TabPos} />
           {activeTab.map(
             (e, idx) =>
               !!e && <Description blurb={Blurb} key={`description_${idx}`} />

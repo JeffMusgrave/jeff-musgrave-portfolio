@@ -5,22 +5,14 @@ import FsLightbox from "fslightbox-react";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import { Album } from "./Showcase.styled";
 
-const Showcase = ({ showcasePos, clickable, idx }) => {
+const Showcase = ({ showcasePos, clickable, idx, gallery = false }) => {
   const location = useLocation().pathname.substring(1);
   const items = useStoreState((state) => state.storeContent.items);
   const lightbox = useStoreState((state) => state.storeContent.lightbox);
   const srcIndex = useStoreState((state) => state.storeContent.srcIndex);
   const quantity = items.length;
-  // const [lightbox, setLightbox] = useState({ toggler: false, sourceIndex: 0 });
-
-  // const viewLightbox = (srcIdx) => {
-  //   setLightbox({
-  //     toggler: !lightbox.toggler,
-  //     sourceIndex: srcIdx,
-  //   });
-  // };
-
   const regexYT = /(youtube)/gi;
+
   return (
     <>
       <FsLightbox
@@ -36,6 +28,7 @@ const Showcase = ({ showcasePos, clickable, idx }) => {
         location={location}
         quantity={quantity}
         key={`showcase-album_${idx}`}
+        gallery={gallery}
       >
         {items.map((e) => (
           <Thumbnail

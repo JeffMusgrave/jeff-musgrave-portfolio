@@ -17,12 +17,12 @@ import {
 
 const Thumbnail = ({ item, thumbtab = false, clickable = true }) => {
   const items = useStoreState((state) => state.storeContent.items);
+  const quantity = items.length;
   const setLightbox = useStoreActions(
     (actions) => actions.storeContent.setLightbox
   );
   const { video, id } = item;
   const currentIdx = items.indexOf(item);
-  console.log(currentIdx);
 
   return (
     <Container
@@ -30,19 +30,32 @@ const Thumbnail = ({ item, thumbtab = false, clickable = true }) => {
       variants={fade}
       key={`figure-${id}`}
       thumbtab={thumbtab}
-      quantity={items.length}
+      quantity={quantity}
       clickable={clickable}
     >
       {video ? (
-        !thumbtab ? (
-          <VideoMobileDesktopSwitch {...item} />
-        ) : (
-          <Image {...item} clickable={clickable} />
-        )
+        <Switch
+          item={item}
+          thumbtab={thumbtab}
+          clickable={clickable}
+          quantity={quantity}
+        />
       ) : (
         <Image {...item} clickable={clickable} />
       )}
     </Container>
+  );
+};
+
+const Switch = ({ item, thumbtab, clickable, quantity }) => {
+  return (
+    <>
+      {!thumbtab ? (
+        <VideoMobileDesktopSwitch {...item} quantity={quantity} />
+      ) : (
+        <Image {...item} clickable={clickable} />
+      )}
+    </>
   );
 };
 
@@ -61,33 +74,20 @@ const Image = ({ id, image, thumbnail, init, imageAlt, clickable }) => {
   }, []);
 
   return (
-    <>
-      {clickable ? (
-        <ImageContainer
-          whileHover={hover.hover}
-          whileTap={hover.tap}
-          animate
-          className="blurry-load"
-          data-large={thumbnail}
-          src={init}
-          alt={imageAlt}
-          key={`img-${id}`}
-        />
-      ) : (
-        <ImageContainer
-          animate
-          className="blurry-load"
-          data-large={image}
-          src={init}
-          alt={imageAlt}
-          key={`img-${id}`}
-        />
-      )}
-    </>
+    <ImageContainer
+      whileHover={clickable ? hover.hover : hover.noHover}
+      whileTap={hover.tap}
+      animate
+      className="blurry-load"
+      data-large={clickable ? thumbnail : image}
+      src={init}
+      alt={imageAlt}
+      key={`img-${id}`}
+    />
   );
 };
 
-const Video = ({ video, image, id }) => {
+const Video = ({ video, image, id, quantity }) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
@@ -116,6 +116,7 @@ const Video = ({ video, image, id }) => {
         whileHover={hover.hover}
         whileTap={hover.tap}
         type="video"
+        quantity={quantity}
       >
         <video
           className="video-loop"

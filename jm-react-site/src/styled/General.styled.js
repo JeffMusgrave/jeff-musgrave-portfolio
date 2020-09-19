@@ -47,15 +47,16 @@ export const Grid = styled.div`
     [col-4] 1fr [col-5] 1fr [col-right];
 
   grid-template-rows:
-    [row-top] var(--bookend) [header] minmax(var(--height-spacer), 1fr)
+    [row-top] var(--bookend) [header row-0] minmax(var(--height-spacer), 1fr)
     [row-1] 4fr
     [row-2] minmax(0, 1fr) [footer] var(--bookend) [row-bottom];
 
   @media screen and (max-width: 1154px) {
     grid-template-columns: [col-left logo content logo-pad col-1] 1fr [col-2 col-3 col-4] 1fr [col-5 col-right];
     grid-template-rows:
-      [row-top] var(--bookend) [header] min-content [row-1] 1fr
-      [row-2 footer] var(--bookend) [row-bottom];
+      [row-top] var(--bookend)
+      [header] min-content [row-0] min-content [row-1] min-content
+      [row-2] minmax(min-content, 1fr) [footer] var(--bookend) [row-bottom];
   }
 `;
 

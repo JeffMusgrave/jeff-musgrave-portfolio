@@ -3,4 +3,10 @@ import styled from "styled-components";
 //prettier-ignore
 export const Blurb = styled.aside`
   ${(props) => props.blurb}
+  @media screen and (max-width: 1154px) {
+    overflow: auto;
+    padding-right: 0;
+    grid-row: row-2/footer;
+    grid-column: col-left/col-right;
+  }
 `;

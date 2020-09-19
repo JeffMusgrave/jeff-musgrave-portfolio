@@ -22,6 +22,15 @@ const Flex = css`
   display: flex;
 `;
 
+const ContainerSingle = css`
+  ${(props) => !props.thumbtab && "clip-path: margin-box;"}
+
+  grid-row: row-1/row-2;
+  @media screen and (max-width: 1154px) {
+    ${(props) => !props.thumbtab && "height: 25vh;"}
+  }
+`;
+
 export const Container = styled(motion.figure)`
   justify-self: flex-start;
   clip-path: circle();
@@ -38,7 +47,12 @@ export const Container = styled(motion.figure)`
   }
 
   ${(props) => (!props.thumbtab ? ThumbnailSize : ThumbtabSize)}
-  ${(props) => (props.quantity < 2 ? Grid : Flex)}
+  ${(props) =>
+    props.quantity < 2 ? Grid : Flex}
+
+  @media screen and (max-width: 1154px) {
+    ${(props) => props.quantity < 2 && ContainerSingle}
+  }
 `;
 
 // IMAGE
@@ -74,6 +88,10 @@ export const VideoContainer = styled(motion.div)`
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
   border-radius: 50%;
+  @media screen and (max-width: 1154px) {
+    ${(props) =>
+      props.quantity < 2 ? !props.thumbtab && "border-radius: 0;" : null}
+  }
 
   video {
     position: relative;

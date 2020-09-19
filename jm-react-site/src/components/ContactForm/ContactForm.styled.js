@@ -62,6 +62,7 @@ export const Form = styled(motion.form)``;
 
 export const Gotcha = styled.input.attrs((props) => ({
   type: props.type || "text",
+  name: "_gotcha",
 }))`
   display: none;
 `;

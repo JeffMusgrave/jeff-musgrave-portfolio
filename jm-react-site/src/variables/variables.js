@@ -11,30 +11,12 @@ export const hoverOpacitySettings = {
 
 export const hoverSettings = {
   hover: {
-    opacity: 1,
     scale: 1.1,
   },
   tap: {
     scale: 1,
   },
+  noHover: {
+    scale: 1,
+  },
 };
-
-// export const lightboxOptions = {
-//   settings: {
-//     lightboxTransitionTimingFunction: "easeInOut",
-//     slideAnimationType: "fade",
-//     lightboxTransitionSpeed: 0.4,
-//   },
-//   buttons: {
-//     showAutoplayButton: false,
-//     showDownloadButton: false,
-//     showThumbnailsButton: false,
-//   },
-//   caption: {
-//     captionFontFamily: "Barlow, sans-serif",
-//   },
-//   thumbnails: {
-//     thumbnailsGap: ".5em",
-//     thumbnailsSize: ["5em", "5em"],
-//   },
-// };

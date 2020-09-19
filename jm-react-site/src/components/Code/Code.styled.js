@@ -9,18 +9,13 @@ export const Container = styled.article`
   margin-top: 2.5rem;
 
   @media screen and (max-width: 1154px) {
-    margin-left: 0;
+    display: contents;
   }
 `;
 
 export const Blurb = css`
   min-height: 100%;
   overflow-y: scroll;
-
-  @media screen and (max-width: 1154px) {
-    overflow: auto;
-    padding-right: 0;
-  }
 `;
 
 export const ShowcasePos = css`
@@ -28,8 +23,11 @@ export const ShowcasePos = css`
   grid-column: content/col-2;
   margin-right: 2.5rem;
   margin-top: 2.5rem;
+`;
 
+export const TabPos = css`
   @media screen and (max-width: 1154px) {
-    margin-right: 0;
+    grid-column: col-left/col-right;
+    grid-row: row-0/row-1;
   }
 `;

@@ -46,17 +46,17 @@ function App() {
       <FlexContainer>
         <Grid>
           <Header />
-          {/* <Position pgName={pgName}> */}
-          <Main
-            pgName={pgName}
-            variants={fade}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-          >
-            <SwitchContainer />
-          </Main>
-          {/* </Position> */}
+          <Position pgName={pgName}>
+            <Main
+              pgName={pgName}
+              variants={fade}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <SwitchContainer />
+            </Main>
+          </Position>
           <Footer />
           <Fold />
           <VideoBackground />

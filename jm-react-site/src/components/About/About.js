@@ -18,6 +18,7 @@ const Contact = () => {
 
   const thePage = () => {
     const tabTest = info[activeTab.filter((e, idx) => idx)];
+    console.log(tabTest);
     return (
       <>
         <PageTitle key={`pagetitle`} pageTitle={pageName} />
@@ -38,7 +39,8 @@ const Contact = () => {
             !!e && tabTest === "about" ? (
               <Description blurb={Blurb} key={`description_${idx}`} />
             ) : (
-              <ContactForm key={`ContactForm_${idx}`} />
+              <p>TEST</p>
+              // <ContactForm key={`ContactForm_${idx}`} />
             )
           )}
         </Container>

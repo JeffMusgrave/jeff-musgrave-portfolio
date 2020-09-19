@@ -90,6 +90,14 @@ const Gallery = css`
 const Single = css`
   grid-template-columns: 1fr;
   height: 40vh;
+  @media screen and (max-width: 1154px) {
+    margin-right: 0;
+    grid-column: content/col-right;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: auto;
+  }
 
   figure {
     width: 100%;
@@ -104,7 +112,7 @@ const Double = css`
   }
 
   @media screen and (max-width: 1154px) {
-    height: 70vh;
+    height: auto;
   }
 
   figure {
@@ -122,23 +130,31 @@ const StandardAlbum = css`
   display: grid;
   min-height: 100%;
   margin: 0 0 0 2.5rem;
+`;
+
+const FadeCheck = css`
+  @media screen and (min-width: 1155px) {
+    ${(props) => props.quantity > 2 && Fade}
+  }
 
   @media screen and (max-width: 1154px) {
-    display: grid;
-    min-height: 100%;
-    margin: 0;
+    ${Gallery}
   }
+`;
+
+const QuantityCheck = css`
+  ${(props) => (props.quantity < 2 ? Single : Double && FadeCheck)}
+`;
+
+const StandardAlbumCheck = css`
+  ${StandardAlbum && QuantityCheck}
 `;
 
 export const Album = styled.div`
   ${(props) => props.showcasePos}
-  ${(props) => props.location === "design" && Gallery}
-  ${(props) =>
-    props.location !== "design" && StandardAlbum
-      ? props.quantity < 2
-        ? Single
-        : Double
-        ? props.quantity > 2 && Fade
-        : ""
-      : ""}
+  @media screen and (max-width: 1154px) {
+    margin-right: 0;
+    grid-column: content/col-right;
+  }
+  ${(props) => (props.gallery ? Gallery : StandardAlbumCheck)}
 `;

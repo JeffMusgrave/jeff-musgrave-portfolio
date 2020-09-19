@@ -27,20 +27,12 @@ const ThumbTabs = css`
   grid-auto-flow: row;
 
   @media screen and (max-width: 1154px) {
-    grid-column: sub-mid/sub-end;
-    grid-row: sub-row-start/sub-row-mid;
-    display: flex;
-    flex-direction: column;
+    grid-row: row-0/row-1;
+    grid-column: col-left/col-right;
+    display: grid;
     justify-content: space-between;
     margin: 0;
-    height: 100%;
     z-index: 2;
-  }
-  @media screen and (max-width: 768px) {
-    grid-column: sub-start/sub-end;
-    grid-row: sub-row-mid/sub-post-mid;
-    display: grid;
-    flex-direction: row;
   }
 `;
 

@@ -24,7 +24,7 @@ const Design = () => {
             (e, idx) =>
               !!e && (
                 <React.Fragment key={`fragment-${idx}`}>
-                  <Showcase idx={idx} key={`showcase_${idx}`} />
+                  <Showcase gallery={true} idx={idx} key={`showcase_${idx}`} />
                   <Description blurb={Blurb} key={`description_${idx}`} />
                 </React.Fragment>
               )

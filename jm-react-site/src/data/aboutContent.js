@@ -15,5 +15,10 @@ export const content = {
       },
     ],
   },
-  contact: "contact",
+  contact: {
+    tabContent: "contactform",
+  },
+  cv: {
+    link: "www.jeffmusgrave.com",
+  },
 };
