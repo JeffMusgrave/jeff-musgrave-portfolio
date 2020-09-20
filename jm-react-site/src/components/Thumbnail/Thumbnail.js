@@ -17,12 +17,12 @@ import {
 
 const Thumbnail = ({ item, thumbtab = false, clickable = true }) => {
   const items = useStoreState((state) => state.storeContent.items);
-  const quantity = items.length;
+  const quantity = items ? items.length : 1;
   const setLightbox = useStoreActions(
     (actions) => actions.storeContent.setLightbox
   );
   const { video, id } = item;
-  const currentIdx = items.indexOf(item);
+  const currentIdx = items ? items.indexOf(item) : 0;
 
   return (
     <Container

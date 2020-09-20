@@ -36,7 +36,7 @@ const StandardBoilerPlate = ({ thePage, FoundPage }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [location]);
 
   return <FoundPage thePage={thePage} />;
 };

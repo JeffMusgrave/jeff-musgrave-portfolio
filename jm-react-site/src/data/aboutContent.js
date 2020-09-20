@@ -16,9 +16,25 @@ export const content = {
     ],
   },
   contact: {
-    tabContent: "contactform",
+    tabContent: "ContactForm",
+    items: [
+      {
+        image: require("../img/photos/jeff-studio-1.png"),
+        imageAlt: "Jeff Musgrave Portrait",
+        init: require("../img/photos/init/jeff-studio-1-init.jpg"),
+        id: uuidv4(),
+      },
+    ],
   },
   cv: {
-    link: "www.jeffmusgrave.com",
+    link: "http://www.jeffmusgrave.com",
+    items: [
+      {
+        image: require("../img/photos/jeff-studio-1.png"),
+        imageAlt: "Jeff Musgrave Portrait",
+        init: require("../img/photos/init/jeff-studio-1-init.jpg"),
+        id: uuidv4(),
+      },
+    ],
   },
 };

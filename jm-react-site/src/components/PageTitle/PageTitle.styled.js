@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
-export const Container = styled(motion.section)`
+export const Container = styled(motion.header)`
   grid-row: header/row-1;
   grid-column: content/col-right;
   align-self: flex-end;

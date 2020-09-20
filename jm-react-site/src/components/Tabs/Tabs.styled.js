@@ -68,7 +68,11 @@ const TextButton = css`
   }
 
   &:focus {
-    ${Selected}
+    outline: 0;
+  }
+
+  &:focus {
+    ${(props) => (!props.external ? props.e && Selected : ``)}
   }
 
   @media screen and (max-width: 768px) {
@@ -82,10 +86,6 @@ const TextButton = css`
       background-color: var(--shade-6-alpha);
       border-bottom: 0 solid transparent;
       border-left: 0.25rem solid var(--shade-6);
-    }
-
-    &:focus {
-      ${Selected}
     }
   }
 `;
@@ -105,5 +105,16 @@ export const Button = styled.button`
 
   ${(props) => !props.thumbtabs && TextButton}
 
-  ${(props) => (!props.thumbtabs ? props.e && Selected : ``)}
+  ${(props) => !props.thumbtabs && (!props.external ? props.e && Selected : ``)}
+`;
+
+export const TabLink = styled.a`
+  &link,
+  &:hover,
+  &visited,
+  &:focus {
+    text-decoration: none;
+    color: inherit;
+    cursor: auto;
+  }
 `;

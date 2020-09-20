@@ -1,10 +1,10 @@
 import React from "react";
-import { Container, Button } from "./Tabs.styled";
+import { Container, Button, TabLink } from "./Tabs.styled";
 import { fadeSettings as fade } from "../../variables/variables";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
-const NavTabs = ({ tabPos, thumbtabs = false }) => {
+const Tabs = ({ tabPos, thumbtabs = false }) => {
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
   const content = useStoreState((state) => state.storeContent.pageContent);
   const info = useStoreState((state) => state.storeContent.info);
@@ -12,30 +12,53 @@ const NavTabs = ({ tabPos, thumbtabs = false }) => {
   const setActiveTab = useStoreActions(
     (actions) => actions.storeContent.setActiveTab
   );
+  console.log("content");
+  console.log(content);
 
-  return (
-    <Container tabPos={tabPos} variants={fade} thumbtabs={thumbtabs}>
-      {activeTab.map((e, idx) => (
-        <Button
-          thumbtabs={thumbtabs}
-          e={e}
-          onClick={() => setActiveTab(idx)}
-          key={`btn-${info[idx]}`}
-        >
-          {thumbtabs ? (
-            <Thumbnail
-              item={content[info[idx]]["items"][0]}
-              key={`thumbnail_${items[0].id}`}
-              idx={idx}
-              thumbtab={true}
-            />
+  const TheTabs = ({ e, idx, external }) => {
+    return (
+      <Button
+        thumbtabs={thumbtabs}
+        e={e}
+        external={external}
+        onClick={() => !external && setActiveTab(idx)}
+        key={`btn-${info[idx]}`}
+      >
+        {thumbtabs && content[info[idx]] ? (
+          <Thumbnail
+            item={content[info[idx]]["items"][0]}
+            key={`thumbnail_${items[0].id}`}
+            idx={idx}
+            thumbtab={true}
+          />
+        ) : (
+          info[idx]
+        )}
+      </Button>
+    );
+  };
+
+  const LinkWrapper = ({ e, idx }) => {
+    return (
+      <TabLink href="#">
+        <TheTabs e={e} idx={idx} external={true} />
+      </TabLink>
+    );
+  };
+
+  if (items) {
+    return (
+      <Container tabPos={tabPos} variants={fade} thumbtabs={thumbtabs}>
+        {activeTab.map((e, idx) =>
+          content[info[idx]]["links"] ? (
+            <LinkWrapper e={e} idx={idx} key={`linkwrapper-${idx}`} />
           ) : (
-            info[idx]
-          )}
-        </Button>
-      ))}
-    </Container>
-  );
+            <TheTabs e={e} idx={idx} key={`thetabs-${idx}`} />
+          )
+        )}
+      </Container>
+    );
+  }
 };
 
-export default NavTabs;
+export default Tabs;
