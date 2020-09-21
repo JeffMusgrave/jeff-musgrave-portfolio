@@ -24,27 +24,33 @@ const Thumbnail = ({ item, thumbtab = false, clickable = true }) => {
   const { video, id } = item;
   const currentIdx = items ? items.indexOf(item) : 0;
 
-  return (
-    <Container
-      onClick={() => (!thumbtab && clickable ? setLightbox(currentIdx) : null)}
-      variants={fade}
-      key={`figure-${id}`}
-      thumbtab={thumbtab}
-      quantity={quantity}
-      clickable={clickable}
-    >
-      {video ? (
-        <Switch
-          item={item}
-          thumbtab={thumbtab}
-          clickable={clickable}
-          quantity={quantity}
-        />
-      ) : (
-        <Image {...item} clickable={clickable} />
-      )}
-    </Container>
-  );
+  if (items) {
+    return (
+      <Container
+        onClick={() =>
+          !thumbtab && clickable ? setLightbox(currentIdx) : null
+        }
+        variants={fade}
+        key={`figure-${id}`}
+        thumbtab={thumbtab}
+        quantity={quantity}
+        clickable={clickable}
+      >
+        {video ? (
+          <Switch
+            item={item}
+            thumbtab={thumbtab}
+            clickable={clickable}
+            quantity={quantity}
+          />
+        ) : (
+          <Image {...item} clickable={clickable} />
+        )}
+      </Container>
+    );
+  } else {
+    return null;
+  }
 };
 
 const Switch = ({ item, thumbtab, clickable, quantity }) => {

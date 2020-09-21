@@ -19,10 +19,7 @@ export const content = {
     tabContent: "ContactForm",
     items: [
       {
-        image: require("../img/photos/jeff-studio-1.png"),
-        imageAlt: "Jeff Musgrave Portrait",
-        init: require("../img/photos/init/jeff-studio-1-init.jpg"),
-        id: uuidv4(),
+        image: "0",
       },
     ],
   },
@@ -30,10 +27,7 @@ export const content = {
     link: "http://www.jeffmusgrave.com",
     items: [
       {
-        image: require("../img/photos/jeff-studio-1.png"),
-        imageAlt: "Jeff Musgrave Portrait",
-        init: require("../img/photos/init/jeff-studio-1-init.jpg"),
-        id: uuidv4(),
+        image: "0",
       },
     ],
   },

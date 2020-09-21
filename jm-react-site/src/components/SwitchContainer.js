@@ -4,7 +4,7 @@ import Home from "./Home/Home";
 import Video from "./Video/Video";
 import Design from "./Design/Design";
 import Code from "./Code/Code";
-import Contact from "./About/About";
+import About from "./About/About";
 import NotFound from "./NotFound/NotFound";
 
 const SwitchContainer = () => {
@@ -14,7 +14,7 @@ const SwitchContainer = () => {
       <Route path="/video" component={Video} />
       <Route path="/design" component={Design} />
       <Route path="/code" component={Code} />
-      <Route path="/about" component={Contact} />
+      <Route path="/about" component={About} />
       <Route component={NotFound} />
     </Switch>
   );
