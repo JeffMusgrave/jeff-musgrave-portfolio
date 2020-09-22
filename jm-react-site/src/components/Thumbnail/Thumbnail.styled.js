@@ -14,8 +14,6 @@ const ThumbtabSize = css`
 
 const Grid = css`
   display: grid;
-  min-height: 0;
-  min-width: 0;
 `;
 
 const Flex = css`
@@ -32,8 +30,8 @@ const ContainerSingle = css`
 
 export const Container = styled(motion.figure)`
   justify-self: flex-start;
-  clip-path: circle();
-  background-color: var(--shade-6);
+  clip-path: circle(47%);
+
   align-self: center;
   height: auto;
   ${(props) => props.clickable && "cursor: pointer;"}
@@ -43,11 +41,15 @@ export const Container = styled(motion.figure)`
     padding: 0;
     color: transparent;
   }
-  ${(props) => (!props.thumbtab ? ThumbnailSize : ThumbtabSize)}
+  ${(props) => props.thumbtab && ThumbtabSize}
   ${(props) =>
-    props.quantity < 2 ? Grid : Flex}
+    props.mediaType ? Grid : Flex}
   @media screen and (max-width: 1154px) {
+    width: 100%;
+    ${(props) => (props.quantity < 2 ? Grid : Flex)}
     ${(props) => props.quantity < 2 && ContainerSingle}
+    ${(props) =>
+      props.quantity < 2 && `clip-path: none;`}
   }
 `;
 
@@ -58,6 +60,7 @@ export const ImageContainer = styled(motion.img)`
   width: 100%;
   margin: 0;
   object-fit: cover;
+  background-color: var(--shade-6);
 `;
 
 // Button
@@ -72,6 +75,7 @@ export const PlayButton = styled(motion.div)`
   z-index: 3;
   mix-blend-mode: exclusion;
   pointer-events: none;
+  will-change: opacity;
   polygon {
     fill: var(--shade-1);
   }
@@ -83,9 +87,12 @@ export const VideoContainer = styled(motion.div)`
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
   border-radius: 50%;
+  will-change: opacity;
+  background-color: var(--shade-6);
   @media screen and (max-width: 1154px) {
     ${(props) =>
       props.quantity < 2 ? !props.thumbtab && "border-radius: 0;" : null}
+    border-radius: 0;
   }
   video {
     position: relative;

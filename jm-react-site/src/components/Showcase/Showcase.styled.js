@@ -82,9 +82,6 @@ const Single = css`
     overflow: hidden;
     height: auto;
   }
-  figure {
-    width: 100%;
-  }
 `;
 
 const Double = css`
@@ -132,11 +129,16 @@ const StandardAlbumCheck = css`
 
 export const Album = styled.div`
   ${(props) => props.showcasePos}
+
+  ${(props) =>
+    props.gallery
+      ? Gallery
+      : StandardAlbumCheck}
   @media screen and (max-width: 1154px) {
+    ${(props) => props.thumbPos && props.thumbPos}
     margin-right: 0;
     grid-column: content/col-right;
   }
-  ${(props) => (props.gallery ? Gallery : StandardAlbumCheck)}
 `;
 
 //  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&

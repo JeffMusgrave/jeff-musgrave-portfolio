@@ -2,25 +2,26 @@ import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 const Standard = css`
-  grid-column: overlap/right-margin;
+  /* grid-column: overlap/right-margin; */
   border: 0;
   align-self: flex-start;
   justify-self: flex-end;
   font-size: var(--md);
   padding: 1rem;
   height: calc(100% - 1.125rem);
-  width: calc(100% - 2.5rem);
+  width: 100%;
   box-sizing: border-box;
   color: var(--shade-1);
   background-color: transparent;
   font-family: inherit;
 
   @media screen and (max-width: 1154px) {
-    grid-column: logo/overlap;
+    /* grid-column: logo/overlap; */
     justify-self: flex-start;
+    grid-row: row-2/footer;
   }
   @media screen and (max-width: 768px) {
-    grid-column: content/right-margin;
+    /* grid-column: content/right-margin; */
     font-size: 1rem;
     width: 100%;
   }
@@ -58,7 +59,12 @@ const Label = css`
   display: none;
 `;
 
-export const Form = styled(motion.form)``;
+export const Form = styled(motion.form)`
+  @media screen and (max-width: 1154px) {
+    grid-row: row-2/footer;
+    grid-column: col-left/col-right;
+  }
+`;
 
 export const Gotcha = styled.input.attrs((props) => ({
   type: props.type || "text",

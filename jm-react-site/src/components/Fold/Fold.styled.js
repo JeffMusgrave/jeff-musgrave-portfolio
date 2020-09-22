@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 // prettier-ignore
 const Position = css`
   ${(props) => props.location === "home" && "col-left/col-5"}
-  ${(props) => props.location === "video" && "col-left/col-4"}
+  ${(props) => props.location === "video" && "col-left/col-3"}
   ${(props) => props.location === "design" && "col-left/logo-pad"}
   ${(props) => props.location === "code" && "col-left/col-2"}
-  ${(props) => props.location === "about" && "col-left/col-3"}
+  ${(props) => props.location === "about" && "col-left/col-4"}
   ${(props) => props.location === "404" && "col-left/logo-pad"}
 `;
 

@@ -32,7 +32,7 @@ export const Grid = styled.div`
   justify-self: center;
   display: grid;
   width: 80vw;
-  max-width: 1800px;
+  max-width: 1600px;
   min-height: 100vh;
   height: 100vh;
 
@@ -43,7 +43,7 @@ export const Grid = styled.div`
       min-content,
       1fr
     )
-    [col-2] 1fr[col-3] 0.5fr
+    [col-2] 1fr[col-3] 1fr
     [col-4] 1fr [col-5] 1fr [col-right];
 
   grid-template-rows:

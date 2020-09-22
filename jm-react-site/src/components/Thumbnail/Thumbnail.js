@@ -15,7 +15,12 @@ import {
   hoverSettings as hover,
 } from "../../variables/variables";
 
-const Thumbnail = ({ item, thumbtab = false, clickable = true }) => {
+const Thumbnail = ({
+  item,
+  thumbtab = false,
+  clickable = true,
+  thumbPos = null,
+}) => {
   const items = useStoreState((state) => state.storeContent.items);
   const quantity = items ? items.length : 1;
   const setLightbox = useStoreActions(
@@ -34,7 +39,9 @@ const Thumbnail = ({ item, thumbtab = false, clickable = true }) => {
         key={`figure-${id}`}
         thumbtab={thumbtab}
         quantity={quantity}
+        mediaType={!!video}
         clickable={clickable}
+        thumbPos={thumbPos}
       >
         {video ? (
           <Switch
@@ -122,7 +129,6 @@ const Video = ({ video, image, id, quantity }) => {
         whileHover={hover.hover}
         whileTap={hover.tap}
         type="video"
-        quantity={quantity}
       >
         <video
           className="video-loop"

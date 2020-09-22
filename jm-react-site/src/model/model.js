@@ -8,7 +8,7 @@ const contentModel = {
   info: [],
   activeTab: [],
   items: [],
-  isloaded: false,
+  isLoaded: false,
   menu: false,
   lightbox: false,
   srcIndex: 0,
@@ -21,6 +21,7 @@ const contentModel = {
     state.items = state.pageContent[state.info[0]].items;
     state.isLoaded = true;
   }),
+
   resetContent: action((state) => {
     state.pageContent = {};
     state.info = [];

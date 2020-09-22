@@ -8,7 +8,13 @@ import Boilerplate from "../Boilerplate/Boilerplate";
 import PageTitle from "../PageTitle/PageTitle";
 import ContactForm from "../ContactForm/ContactForm";
 import Description from "../Description/Description";
-import { Container, Blurb, ShowcasePos } from "./About.styled";
+import {
+  Container,
+  Blurb,
+  ShowcasePos,
+  TabPos,
+  ThumbPos,
+} from "./About.styled";
 
 const About = () => {
   const location = useLocation().pathname.substr(1);
@@ -23,12 +29,12 @@ const About = () => {
       <>
         <PageTitle key={`pagetitle`} pageTitle={pageName} />
 
-        <Album showcasePos={ShowcasePos}>
+        <Album showcasePos={ShowcasePos} thumbPos={ThumbPos}>
           <Thumbnail item={theItem} clickable={false} />
         </Album>
 
         <Container>
-          <Tabs />
+          <Tabs tabPos={TabPos} />
           {!!activeTab[0] && (
             <Description
               blurb={Blurb}
