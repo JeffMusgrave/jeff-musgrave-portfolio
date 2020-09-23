@@ -3,12 +3,17 @@ import { NavLink } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import MenuButton from "../MenuButton/MenuButton";
 import { HeaderContainer, Logo, Background } from "./Header.styled";
-import { useStoreActions } from "easy-peasy";
+import { useStoreState, useStoreActions } from "easy-peasy";
 
 const Header = () => {
   const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
+  const menu = useStoreState((state) => state.storeContent.menu);
   const [viewWidth, setViewWidth] = useState(window.innerWidth <= 768);
   const [scrollDown, setScrollDown] = useState(false);
+
+  const menuVis = () => {
+    setMenu(!menu);
+  };
 
   // View Width
   useEffect(() => {
@@ -19,6 +24,7 @@ const Header = () => {
         setMenu(false);
       } else {
         setViewWidth(true);
+        setMenu(false);
       }
     };
 
@@ -41,7 +47,9 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Logo>
-        <NavLink to="/">jeff musgrave</NavLink>
+        <NavLink to="/" onClick={viewWidth && menuVis}>
+          jeff musgrave
+        </NavLink>
       </Logo>
 
       <Nav viewWidth={viewWidth} />

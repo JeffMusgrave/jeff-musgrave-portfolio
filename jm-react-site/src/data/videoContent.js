@@ -2,8 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 export const content = {
   Neural: {
     heading: "Machine Learning Video Pipeline",
-    subheading: "Music videos and neural networks.",
-    subheadingtwo: "Machine learning for the arts.",
+    subheading:
+      "Music videos and neural networks. Machine learning for the arts.",
     description:
       "0. labore aliqua voluptate et sunt amet. Velit aliquip ex consectetur aute dolore duis consectetur deserunt fugiat aute sint.",
     items: [

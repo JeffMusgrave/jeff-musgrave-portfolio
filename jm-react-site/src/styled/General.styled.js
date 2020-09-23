@@ -44,7 +44,7 @@ export const Grid = styled.div`
     [row-1] 4fr
     [row-2] minmax(0, 1fr) [footer] var(--bookend) [row-bottom];
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     grid-template-columns:
       [col-left content] min-content
       [logo logo-pad col-1] minmax(min-content, 1fr)

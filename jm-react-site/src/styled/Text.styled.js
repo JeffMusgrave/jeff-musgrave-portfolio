@@ -26,7 +26,7 @@ export const H1 = styled(motion.h1)`
   color: ${(props) => (props.color ? props.color : `var(--shade-2)`)};
   /* padding: var(--xxs) var(--xs); */
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     margin-left: 0;
     margin-bottom: 0;
     background-color: var(--shade-6-alpha);
@@ -42,7 +42,7 @@ export const H1 = styled(motion.h1)`
     -webkit-box-decoration-break: clone;
   }
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     span {
       margin-left: 0;
       background-color: transparent;
@@ -58,14 +58,20 @@ export const H2 = styled(motion.h2)`
   font-weight: 500;
 
   span {
-    display: table;
+    background-color: var(--shade-6);
+    padding: var(--ml) var(--xl);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 `;
 
 export const H3 = styled(motion.h3)`
+  letter-spacing: 1pt;
+  margin-bottom: 1.125rem;
+
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--md)`)};
-  line-height: ${(props) =>
-    props.lineheight ? props.lineheight : `var(--lh-sm)`};
+  /* line-height: ${(props) =>
+    props.lineheight ? props.lineheight : `var(--lh-sm)`}; */
 `;
 
 export const H4 = styled(motion.h4)`
@@ -82,6 +88,6 @@ export const Paragraph = styled(motion.p)`
   color: ${(props) => (props.color ? props.color : `var(--shade-1)`)};
 
   & + & {
-    margin: 0 0 0.75rem 0;
+    margin: var(--sm) 0 0 0;
   }
 `;

@@ -24,7 +24,7 @@ export const Title = styled(motion.h1)`
     font-size: 8rem;
     text-transform: lowercase;
   }
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     span:first-of-type {
       font-size: 4rem;
     }
@@ -75,7 +75,7 @@ export const SubTitle = styled(motion.h2)`
   font-weight: 500;
   font-size: 1.75rem;
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     justify-self: center;
     font-size: 1.5rem;
   }
@@ -114,7 +114,7 @@ export const Chevron = styled(Link)`
     background-color: transparent;
   }
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     margin: 0 0 1.125rem 0;
     justify-self: flex-end;
   }

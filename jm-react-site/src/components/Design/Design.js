@@ -6,7 +6,7 @@ import Showcase from "../Showcase/Showcase";
 import Boilerplate from "../Boilerplate/Boilerplate";
 import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
-import { Article, Blurb, Content } from "./Design.styled";
+import { Article, Blurb } from "./Design.styled";
 
 // import "./Design.css";
 

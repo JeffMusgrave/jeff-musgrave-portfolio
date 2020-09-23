@@ -27,7 +27,7 @@ export const FoldPos = styled(motion.div)`
   border-right: 2px solid rgba(73, 73, 73, 0.3);
   z-index: -5;
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     grid-column: none;
     grid-row: none;
     background-color: none;

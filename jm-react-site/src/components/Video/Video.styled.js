@@ -7,7 +7,7 @@ export const Container = styled.article`
   grid-column: content/col-3;
   margin-right: 2.5rem;
   margin-top: 2.5rem;
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     margin-right: 0;
   }
   @media screen and (max-width: 768px) {
@@ -33,5 +33,6 @@ export const ShowcasePos = css`
 
   @media screen and (max-width: 768px) {
     margin-left: 0;
+    margin-bottom: 2.5rem;
   }
 `;

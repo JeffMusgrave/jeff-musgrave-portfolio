@@ -27,7 +27,7 @@ export const Chevron = styled(Link)`
     background-color: transparent;
   }
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     margin: 0 0 1.125rem 0;
     justify-self: flex-end;
   }

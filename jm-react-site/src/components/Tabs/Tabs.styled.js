@@ -98,6 +98,7 @@ export const Button = styled.button`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     padding: 0.625rem 0 0.625rem 0;
+    margin-right: 0;
   }
 
   ${(props) => !props.thumbtabs && TextButton}

@@ -19,7 +19,7 @@ export const SiteNav = styled.nav`
   grid-row: 1/2;
   margin-right: 5rem;
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     justify-content: flex-end;
     grid-column: col-left/col-right;
     margin-right: 0;
@@ -59,7 +59,7 @@ export const NavA = styled(NavLink)`
     color: var(--shade-3);
   }
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     &:last-child {
       margin-right: 0;
     }
@@ -76,15 +76,15 @@ export const NavA = styled(NavLink)`
 export const MobileNav = styled(motion.nav)`
   ${Navigation}
   justify-items: center;
-  flex-direction: column;
+  flex-direction: row;
   height: 100vh;
   width: 100vw;
   position: fixed;
   left: 0;
-  background-color: var(--shade-6);
-  opacity: 0.9;
+  background-color: var(--shade-6-alpha-dark);
   backdrop-filter: blur(20px);
   user-select: none;
+  will-change: opacity;
 
   div {
     display: flex;

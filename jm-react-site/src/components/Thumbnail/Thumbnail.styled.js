@@ -37,7 +37,7 @@ const ContainerSingle = css`
 export const Container = styled(motion.figure)`
   justify-self: flex-start;
   clip-path: circle();
-  background-color: var(--shade-6a);
+  background-color: var(--shade-6-alpha);
   align-self: center;
   height: auto;
   ${(props) => props.clickable && "cursor: pointer;"}
@@ -51,7 +51,7 @@ export const Container = styled(motion.figure)`
   ${(props) =>
     props.mediaType ? Grid : Flex}
 
-@media screen and (max-width: 1154px) {
+@media screen and (max-width: 1280px) {
   }
   @media screen and (max-width: 768px) {
     width: 100%;

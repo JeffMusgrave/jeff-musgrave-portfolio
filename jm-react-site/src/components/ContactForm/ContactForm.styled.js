@@ -15,7 +15,7 @@ const Standard = css`
   background-color: transparent;
   font-family: inherit;
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     /* grid-column: logo/overlap; */
     justify-self: flex-start;
     grid-row: row-2/footer;
@@ -42,7 +42,7 @@ const InputTextArea = css`
 `;
 
 const Input = css`
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     padding: 0.75rem;
   }
   @supports (-webkit-appearance: none) or (-moz-appearance: none) {
@@ -60,7 +60,7 @@ const Label = css`
 `;
 
 export const Form = styled(motion.form)`
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     grid-row: row-2/footer;
     grid-column: col-left/col-right;
   }
@@ -102,7 +102,7 @@ export const Message = styled.div`
   textarea {
     ${InputTextArea}
     resize: none;
-    @media screen and (max-width: 1154px) {
+    @media screen and (max-width: 1280px) {
       padding: 1.25rem;
     }
     grid-row: row-message/row-submit;
@@ -128,7 +128,7 @@ export const Button = styled.div`
 `;
 
 const PostForm = css`
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     grid-column: logo/right-margin;
     margin-left: 0;
   }

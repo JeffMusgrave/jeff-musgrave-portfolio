@@ -18,6 +18,7 @@
   --color-bg-trans: rgba(17, 17, 17, 0.494);
   --shade-6: black;
   --shade-6-alpha: rgba(0, 0, 0, 0.25);
+  --shade-6-alpha-dark: rgba(0, 0, 0, 0.87);
   --success: green;
   --warning: orange;
   --danger: red;
@@ -62,7 +63,7 @@
   }
 }
 
-@media screen and (max-width: 1154px) {
+@media screen and (max-width: 1280px) {
   :root {
     --thumbtab-vid: 8rem;
     --xl: 2.125rem;

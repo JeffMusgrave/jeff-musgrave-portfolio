@@ -8,7 +8,7 @@ export const Container = styled.article`
   margin-right: 2.5rem;
   margin-top: 2.5rem;
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     margin-right: 0;
     grid-column: content/col-3;
   }
@@ -35,13 +35,14 @@ export const ShowcasePos = css`
   margin-left: 2.5rem;
   margin-top: 2.5rem;
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 1280px) {
     grid-column: col-3/col-right;
   }
 
   @media screen and (max-width: 768px) {
     margin-left: 0;
     width: 100%;
+    margin-bottom: 2.5rem;
   }
 `;
 
@@ -58,58 +59,3 @@ export const ThumbPos = css`
     clip-path: border-box;
   }
 `;
-
-// export const Blurb = css`
-//   grid-column: col-3/col-right;
-//   grid-row: row-1/row-2;
-//   margin-left: 2.5rem;
-//   overflow-y: scroll;
-
-//   .about-blurb p {
-//     margin-right: 0.75rem;
-//   }
-
-//   @media screen and (max-width: 768px) {
-//     display: contents;
-
-//     h1,
-//     div {
-//       grid-column: logo/overlap;
-//     }
-
-//     h1 {
-//       grid-row: row-content / row-select;
-//       margin: 0 2.5rem 0 0;
-//     }
-
-//     div {
-//       grid-row: row-name / row-submit;
-//       margin: 1.125rem 2.5rem 0 0;
-//     }
-
-//     .about-blurb {
-//       margin: 0;
-//     }
-//   }
-
-//   @media screen and (max-width: 768px) {
-//     h1,
-//     div {
-//       grid-column: logo/right-margin;
-//     }
-
-//     h1,
-//     div {
-//       padding: 0 0 0.625rem 0;
-//     }
-//     h1 {
-//       grid-row: row-content / row-select;
-//       margin: 0 0 0 0;
-//     }
-
-//     div {
-//       grid-row: row-name / row-submit;
-//       margin: 0.5rem 0 0 0;
-//     }
-//   }
-// `;
