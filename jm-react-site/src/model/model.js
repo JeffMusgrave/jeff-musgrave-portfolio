@@ -3,6 +3,7 @@ import allContent from "../data/content";
 
 const contentModel = {
   pageNotFound: false,
+  viewWidth: window.innerWidth <= 768,
   page: " ",
   pageContent: {},
   info: [],
@@ -40,6 +41,11 @@ const contentModel = {
   }),
   setFound: action((state) => {
     state.pageNotFound = false;
+  }),
+
+  setViewWidth: action((state, payload) => {
+    state.viewWidth = payload;
+    console.log(state.viewWidth);
   }),
 
   setMenu: action((state, payload) => {

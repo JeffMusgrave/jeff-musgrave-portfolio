@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import MenuButton from "../MenuButton/MenuButton";
 import { HeaderContainer, Logo, Background } from "./Header.styled";
@@ -8,7 +8,10 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 const Header = () => {
   const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
   const menu = useStoreState((state) => state.storeContent.menu);
-  const [viewWidth, setViewWidth] = useState(window.innerWidth <= 768);
+  const viewWidth = useStoreState((state) => state.storeContent.viewWidth);
+  const setViewWidth = useStoreActions(
+    (actions) => actions.storeContent.setViewWidth
+  );
   const [scrollDown, setScrollDown] = useState(false);
 
   const menuVis = () => {
@@ -24,7 +27,6 @@ const Header = () => {
         setMenu(false);
       } else {
         setViewWidth(true);
-        setMenu(false);
       }
     };
 
@@ -44,10 +46,12 @@ const Header = () => {
     return () => window.addEventListener("scroll", handleScroll);
   }, [scrollDown]);
 
+  const logoClick = () => menuVis();
+
   return (
     <HeaderContainer>
       <Logo>
-        <NavLink to="/" onClick={viewWidth && menuVis}>
+        <NavLink to="/" onClick={logoClick}>
           jeff musgrave
         </NavLink>
       </Logo>

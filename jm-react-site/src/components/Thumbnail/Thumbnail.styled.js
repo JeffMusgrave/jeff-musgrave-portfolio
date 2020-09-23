@@ -36,10 +36,11 @@ const ContainerSingle = css`
 
 export const Container = styled(motion.figure)`
   justify-self: flex-start;
+  width: 100%;
   clip-path: circle();
   background-color: var(--shade-6-alpha);
   align-self: center;
-  height: auto;
+  height: ${(props) => (props.mediaType ? `auto` : `100%`)};
   ${(props) => props.clickable && "cursor: pointer;"}
   justify-items: center;
   &,

@@ -12,9 +12,6 @@ const TheTabs = ({ e, idx, external, thumbtabs = false, noswitch = false }) => {
   );
   const currItem = content[info[idx]]["items"];
 
-  const render = React.useRef(0);
-  console.log("RENDER THETBS: ", render.current++);
-
   return (
     <Button
       thumbtabs={thumbtabs}

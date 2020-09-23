@@ -10,9 +10,6 @@ const Tabs = ({ tabPos, thumbtabs }) => {
   const content = useStoreState((state) => state.storeContent.pageContent);
   const info = useStoreState((state) => state.storeContent.info);
 
-  const render = React.useRef(0);
-  console.log("RENDER Tabs: ", render.current++);
-
   return (
     <Container tabPos={tabPos} variants={fade} thumbtabs={thumbtabs}>
       {activeTab.map((e, idx) =>
