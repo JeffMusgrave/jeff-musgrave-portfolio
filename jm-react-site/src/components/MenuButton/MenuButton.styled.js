@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const BurgerContainer = styled.div`
@@ -10,7 +10,7 @@ export const BurgerContainer = styled.div`
     text-align: center;
     grid-column: col-4/col-right;
     grid-row: 1/2;
-    z-index: 5;
+    z-index: 7;
     position: sticky;
     top: 0;
     cursor: pointer;
@@ -21,7 +21,7 @@ export const BurgerContainer = styled.div`
 export const Hamburger = styled(motion.div)`
   @media screen and (max-width: 768px) {
     span {
-      z-index: 5;
+      z-index: 7;
       background-color: var(--shade-1);
       border-radius: 3px;
       content: "";

@@ -23,6 +23,7 @@ const About = () => {
   const info = useStoreState((state) => state.storeContent.info);
   const content = useStoreState((state) => state.storeContent.pageContent);
   const theItem = content[info[0]] && content[info[0]]["items"][0];
+  const viewWidth = useStoreState((state) => state.storeContent.viewWidth);
 
   const thePage = () => {
     return (
@@ -34,7 +35,7 @@ const About = () => {
           </Album>
         )}
 
-        <Container>
+        <Container viewWidth={viewWidth} activeTab={activeTab}>
           <Tabs tabPos={TabPos} />
           {!!activeTab[0] && (
             <Description

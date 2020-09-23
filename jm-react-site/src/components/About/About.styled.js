@@ -10,7 +10,8 @@ export const Container = styled.article`
 
   @media screen and (max-width: 1280px) {
     margin-right: 0;
-    grid-column: content/col-3;
+    grid-column: ${(props) =>
+      props.activeTab[1] ? `content/col-right` : `content/col-3`};
   }
 
   @media screen and (max-width: 768px) {
@@ -56,6 +57,5 @@ export const TabPos = css`
 export const ThumbPos = css`
   @media screen and (max-width: 768px) {
     display: flex;
-    clip-path: border-box;
   }
 `;

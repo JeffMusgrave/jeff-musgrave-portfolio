@@ -40,7 +40,7 @@ export const Container = styled(motion.figure)`
   clip-path: circle();
   background-color: var(--shade-6-alpha);
   align-self: center;
-  height: ${(props) => (props.mediaType ? `auto` : `100%`)};
+  height: auto;
   ${(props) => props.clickable && "cursor: pointer;"}
   justify-items: center;
   &,
@@ -81,7 +81,7 @@ export const PlayButton = styled(motion.div)`
   justify-self: center;
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
-  z-index: 3;
+  z-index: 2;
   mix-blend-mode: exclusion;
   pointer-events: none;
   will-change: opacity;

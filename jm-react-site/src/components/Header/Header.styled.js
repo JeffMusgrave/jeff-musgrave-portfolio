@@ -10,8 +10,7 @@ export const Logo = styled.div`
   align-items: center;
   font-weight: 500;
   font-size: var(--logo);
-  z-index: 6;
-  position: sticky;
+  z-index: 4;
   top: 0;
   grid-column: col-left/span 1;
   grid-row: row-top/span 1;
@@ -26,6 +25,7 @@ export const Logo = styled.div`
     font-weight: 100;
     padding: 0;
     text-decoration: none;
+    position: fixed;
   }
 
   span {
@@ -35,9 +35,8 @@ export const Logo = styled.div`
 `;
 
 export const Background = styled(motion.div)`
-  opacity: 0.75;
   backdrop-filter: blur(20px);
-  z-index: 1;
+  z-index: 3;
   position: fixed;
   left: 0;
   right: 0;
@@ -54,5 +53,7 @@ export const Background = styled(motion.div)`
   }
 
   ${(props) =>
-    props.scrollDown ? "background-color: var(--shade-6)" : "display: none"};
+    props.scrollDown
+      ? "background-color: var(--shade-6-alpha-med)"
+      : "display: none"};
 `;

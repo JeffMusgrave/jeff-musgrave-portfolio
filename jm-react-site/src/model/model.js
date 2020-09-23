@@ -45,7 +45,6 @@ const contentModel = {
 
   setViewWidth: action((state, payload) => {
     state.viewWidth = payload;
-    console.log(state.viewWidth);
   }),
 
   setMenu: action((state, payload) => {

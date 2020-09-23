@@ -46,14 +46,10 @@ const Header = () => {
     return () => window.addEventListener("scroll", handleScroll);
   }, [scrollDown]);
 
-  const logoClick = () => menuVis();
-
   return (
     <HeaderContainer>
       <Logo>
-        <NavLink to="/" onClick={logoClick}>
-          jeff musgrave
-        </NavLink>
+        <NavLink to="/">jeff musgrave</NavLink>
       </Logo>
 
       <Nav viewWidth={viewWidth} />

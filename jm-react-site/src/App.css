@@ -18,10 +18,13 @@
   --color-bg-trans: rgba(17, 17, 17, 0.494);
   --shade-6: black;
   --shade-6-alpha: rgba(0, 0, 0, 0.25);
+  --shade-6-alpha-med: rgba(0, 0, 0, 0.75);
   --shade-6-alpha-dark: rgba(0, 0, 0, 0.87);
   --success: green;
   --warning: orange;
   --danger: red;
+  --form-message: 15rem;
+  --form-submit: 6rem;
   --xxl: 5rem;
   --xl: 2.5rem;
   --lg: 1.75rem;
@@ -42,8 +45,16 @@
   --bookend: 7rem;
 }
 
+@media screen and (max-height: 1280px), screen and (max-width: 1550px) {
+  :root {
+    --form-message: 10rem;
+    --xxl: 3.5rem;
+  }
+}
+
 @media screen and (max-width: 1550px) {
   :root {
+    --xxl: 4.5rem;
     --xl: 2rem;
     --lg: 1.5rem;
     --ml: 1.33rem;
@@ -63,8 +74,17 @@
   }
 }
 
+@media screen and (max-height: 800px), screen and (max-width: 1280px) {
+  :root {
+    --form-message: 8em;
+    --xxl: 3rem;
+  }
+}
+
 @media screen and (max-width: 1280px) {
   :root {
+    --form-message: 10rem;
+    --xxl: 3.5rem;
     --thumbtab-vid: 8rem;
     --xl: 2.125rem;
     --lg: 1.5rem;
@@ -76,8 +96,18 @@
   }
 }
 
+@media screen and (max-height: 640px), screen and (max-width: 840px) {
+  :root {
+    --form-message: 4.5rem;
+    --xxl: 2.5rem;
+    --form-submit: 4.5rem;
+  }
+}
+
 @media screen and (max-width: 840px) {
   :root {
+    --form-message: 8rem;
+    --xxl: 3rem;
     --xl: 2rem;
     --lg: 1.33rem;
     --ml: 1.25rem;

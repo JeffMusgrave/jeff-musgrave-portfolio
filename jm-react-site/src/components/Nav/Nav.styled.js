@@ -6,7 +6,7 @@ const Navigation = css`
   display: flex;
   align-self: center;
   top: 0;
-  z-index: 4;
+  z-index: 6;
 `;
 
 export const SiteNav = styled.nav`
@@ -25,11 +25,6 @@ export const SiteNav = styled.nav`
     margin-right: 0;
   }
 
-  @media screen and (max-width: 768px) {
-  }
-`;
-
-export const NavLI = styled.li`
   @media screen and (max-width: 768px) {
   }
 `;
@@ -79,7 +74,6 @@ export const MobileNav = styled(motion.nav)`
   flex-direction: row;
   height: 100vh;
   width: 100vw;
-  position: fixed;
   left: 0;
   background-color: var(--shade-6-alpha-dark);
   backdrop-filter: blur(20px);
@@ -87,6 +81,7 @@ export const MobileNav = styled(motion.nav)`
   will-change: opacity;
 
   div {
+    position: fixed;
     display: flex;
     align-self: center;
     flex-direction: column;

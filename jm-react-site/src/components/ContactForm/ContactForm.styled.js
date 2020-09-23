@@ -6,9 +6,9 @@ const Standard = css`
   border: 0;
   align-self: flex-start;
   justify-self: flex-end;
-  font-size: var(--md);
+  font-size: var(--ml);
   padding: 1rem;
-  height: calc(100% - 1.125rem);
+  height: 100%;
   width: 100%;
   box-sizing: border-box;
   color: var(--shade-1);
@@ -59,11 +59,27 @@ const Label = css`
   display: none;
 `;
 
+const formGrid = css`
+  display: grid;
+  gap: var(--lg);
+  grid-template-rows: var(--xxl) var(--xxl) var(--form-message) var(
+      --form-submit
+    );
+  grid-template-areas:
+    "Name"
+    "Email"
+    "Message"
+    "Submit";
+`;
+
 export const Form = styled(motion.form)`
+  grid-row: row-1/row-2;
+  grid-column: content/col-4;
   @media screen and (max-width: 1280px) {
-    grid-row: row-2/footer;
     grid-column: col-left/col-right;
+    margin-bottom: 2.5rem;
   }
+  ${formGrid}
 `;
 
 export const Gotcha = styled.input.attrs((props) => ({
@@ -137,7 +153,6 @@ const PostForm = css`
 export const Errors = styled.div`
   grid-row: post-form/footer;
   grid-column: overlap/right-margin;
-  margin-left: 2.5rem;
 
   p {
     color: var(--danger) !important;
@@ -149,7 +164,6 @@ export const Errors = styled.div`
 export const Thanks = styled.div`
   grid-row: row-name/row-submit;
   grid-column: overlap/right-margin;
-  margin-left: 2.5rem;
 
   h1 {
     background-color: transparent;

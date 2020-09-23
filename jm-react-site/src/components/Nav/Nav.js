@@ -4,7 +4,6 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 
 const Nav = ({ viewWidth, menuVis }) => {
   const menu = useStoreState((state) => state.storeContent.menu);
-  const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
   let navSlider = {
     hidden: {
       x: "-110vw",
@@ -35,6 +34,7 @@ const Nav = ({ viewWidth, menuVis }) => {
 };
 
 const NavList = () => {
+  const viewWidth = useStoreState((state) => state.storeContent.viewWidth);
   const menu = useStoreState((state) => state.storeContent.menu);
   const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
   const menuVis = () => {
@@ -43,6 +43,12 @@ const NavList = () => {
 
   return (
     <>
+      {!!viewWidth && (
+        <NavA to="/video" onClick={menuVis}>
+          Home
+        </NavA>
+      )}
+
       <NavA to="/video" onClick={menuVis}>
         Video
       </NavA>
