@@ -11,9 +11,10 @@ export const Container = styled(motion.header)`
 
   @media screen and (max-width: 1154px) {
     grid-row: header/row-0;
-    margin-top: 2.5rem;
-    margin-left: 0;
-    margin-bottom: 0;
-    margin-top: 0;
+    margin: 2rem 0 0 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 0;
   }
 `;

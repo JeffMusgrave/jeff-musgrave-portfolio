@@ -9,12 +9,9 @@ const NavTabs = css`
 
   padding: ${(props) => props.padding && props.padding};
 
-  @media screen and (max-width: 1154px) {
-    margin: 0rem;
-  }
-
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    margin: 0rem;
   }
 `;
 
@@ -26,7 +23,7 @@ const ThumbTabs = css`
   grid-template-columns: repeat(auto-fit, var(--thumbtab-vid));
   grid-auto-flow: row;
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     grid-row: row-0/row-1;
     grid-column: col-left/col-right;
     display: grid;

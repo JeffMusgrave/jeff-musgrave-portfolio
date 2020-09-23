@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { useStoreState } from "easy-peasy";
 import Tabs from "../Tabs/Tabs";
 import Showcase from "../Showcase/Showcase";
 import Boilerplate from "../Boilerplate/Boilerplate";
@@ -9,8 +9,6 @@ import PageTitle from "../PageTitle/PageTitle";
 import "../../utils/blurryLoad.css";
 
 import { Container, Blurb, ShowcasePos, TabPos } from "./Video.styled";
-
-import "../../styles/MobileInsetGrid.css";
 
 const Video = () => {
   const location = useLocation().pathname.substr(1);

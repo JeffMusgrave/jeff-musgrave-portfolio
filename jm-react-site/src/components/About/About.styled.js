@@ -9,6 +9,11 @@ export const Container = styled.article`
   margin-top: 2.5rem;
 
   @media screen and (max-width: 1154px) {
+    margin-right: 0;
+    grid-column: content/col-3;
+  }
+
+  @media screen and (max-width: 768px) {
     display: contents;
   }
 `;
@@ -17,7 +22,7 @@ export const Blurb = css`
   min-height: 100%;
   overflow-y: scroll;
 
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     overflow: auto;
     padding-right: 0;
   }
@@ -31,21 +36,26 @@ export const ShowcasePos = css`
   margin-top: 2.5rem;
 
   @media screen and (max-width: 1154px) {
+    grid-column: col-3/col-right;
+  }
+
+  @media screen and (max-width: 768px) {
     margin-left: 0;
     width: 100%;
   }
 `;
 
 export const TabPos = css`
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     grid-column: col-left/col-right;
     grid-row: row-0/row-1;
   }
 `;
 
 export const ThumbPos = css`
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     display: flex;
+    clip-path: border-box;
   }
 `;
 
@@ -59,7 +69,7 @@ export const ThumbPos = css`
 //     margin-right: 0.75rem;
 //   }
 
-//   @media screen and (max-width: 1154px) {
+//   @media screen and (max-width: 768px) {
 //     display: contents;
 
 //     h1,

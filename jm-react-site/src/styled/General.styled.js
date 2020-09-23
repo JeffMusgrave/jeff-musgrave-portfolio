@@ -9,14 +9,7 @@ export const FlexContainer = styled.div`
 `;
 
 export const Grid = styled.div`
-  /* @media screen and (min-height: 1100px) {
-    --height-spacer: 25vh;
-  } */
   --height-spacer: 25vmin;
-
-  /* @media screen and (max-width: 1550px) {
-    --height-spacer: 15vh;
-  } */
 
   @media screen and (max-height: 1200px) {
     --height-spacer: 20vmin;
@@ -32,7 +25,7 @@ export const Grid = styled.div`
   justify-self: center;
   display: grid;
   width: 80vw;
-  max-width: 1600px;
+  max-width: 1500px;
   min-height: 100vh;
   height: 100vh;
 
@@ -52,6 +45,18 @@ export const Grid = styled.div`
     [row-2] minmax(0, 1fr) [footer] var(--bookend) [row-bottom];
 
   @media screen and (max-width: 1154px) {
+    grid-template-columns:
+      [col-left content] min-content
+      [logo logo-pad col-1] minmax(min-content, 1fr)
+      [col-2] 1fr[col-3] 1fr
+      [col-4] 1fr [col-5] 1fr [col-right];
+    grid-template-rows:
+      [row-top] var(--bookend) [header row-0] min-content
+      [row-1] 4fr
+      [row-2] minmax(0, 1fr) [footer] var(--bookend) [row-bottom];
+  }
+
+  @media screen and (max-width: 768px) {
     grid-template-columns: [col-left logo content logo-pad col-1] 1fr [col-2 col-3 col-4] 1fr [col-5 col-right];
     grid-template-rows:
       [row-top] var(--bookend)

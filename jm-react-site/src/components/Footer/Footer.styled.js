@@ -8,7 +8,7 @@ export const Container = styled.footer`
   justify-content: flex-start;
   min-width: 100%;
   color: var(--emphasis-light-color);
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     border-top: 5px solid var(--shade-5);
   }
 `;

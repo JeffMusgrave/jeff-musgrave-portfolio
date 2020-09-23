@@ -7,8 +7,12 @@ export const Container = styled.article`
   grid-column: col-2/col-right;
   margin-left: 2.5rem;
   margin-top: 2.5rem;
-
   @media screen and (max-width: 1154px) {
+    margin-left: 0;
+    grid-column: col-2/col-right;
+  }
+
+  @media screen and (max-width: 768px) {
     display: contents;
   }
 `;
@@ -26,7 +30,7 @@ export const ShowcasePos = css`
 `;
 
 export const TabPos = css`
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     grid-column: col-left/col-right;
     grid-row: row-0/row-1;
   }

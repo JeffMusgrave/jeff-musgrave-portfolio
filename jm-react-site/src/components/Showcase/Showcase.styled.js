@@ -74,7 +74,7 @@ const Gallery = css`
 const Single = css`
   grid-template-columns: 1fr;
   height: 40vh;
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     margin-right: 0;
     grid-column: content/col-right;
     display: flex;
@@ -90,7 +90,7 @@ const Double = css`
   @media screen and (max-width: 1280px) {
     grid-template-columns: 1fr;
   }
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     height: auto;
   }
   figure {
@@ -111,10 +111,10 @@ const StandardAlbum = css`
 `;
 
 const FadeCheck = css`
-  @media screen and (min-width: 1155px) {
+  @media screen and (min-width: 901px) {
     ${(props) => props.quantity > 2 && Fade}
   }
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     ${Gallery}
   }
 `;
@@ -134,7 +134,7 @@ export const Album = styled.div`
     props.gallery
       ? Gallery
       : StandardAlbumCheck}
-  @media screen and (max-width: 1154px) {
+  @media screen and (max-width: 768px) {
     ${(props) => props.thumbPos && props.thumbPos}
     margin-right: 0;
     grid-column: content/col-right;

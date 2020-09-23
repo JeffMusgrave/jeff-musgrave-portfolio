@@ -28,10 +28,11 @@ const About = () => {
     return (
       <>
         <PageTitle key={`pagetitle`} pageTitle={pageName} />
-
-        <Album showcasePos={ShowcasePos} thumbPos={ThumbPos}>
-          <Thumbnail item={theItem} clickable={false} />
-        </Album>
+        {!!activeTab[0] && (
+          <Album showcasePos={ShowcasePos} thumbPos={ThumbPos}>
+            <Thumbnail item={theItem} clickable={false} />
+          </Album>
+        )}
 
         <Container>
           <Tabs tabPos={TabPos} />

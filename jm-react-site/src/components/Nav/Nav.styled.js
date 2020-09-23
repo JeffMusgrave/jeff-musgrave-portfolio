@@ -15,12 +15,14 @@ export const SiteNav = styled.nav`
   justify-content: flex-start;
   width: 100%;
   height: 100%;
-  grid-column: content/col-3;
+  grid-column: content/col-2;
   grid-row: 1/2;
+  margin-right: 5rem;
 
   @media screen and (max-width: 1154px) {
     justify-content: flex-end;
-    grid-column: logo/col-right;
+    grid-column: col-left/col-right;
+    margin-right: 0;
   }
 
   @media screen and (max-width: 768px) {

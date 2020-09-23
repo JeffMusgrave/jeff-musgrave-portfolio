@@ -131,7 +131,6 @@ const Video = ({ video, image, id, quantity }) => {
         type="video"
       >
         <video
-          className="video-loop"
           playsInline
           autoPlay
           muted
