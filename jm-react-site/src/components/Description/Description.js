@@ -17,6 +17,7 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
     const { heading, subheading, subheadingtwo } = staticDesc
       ? staticDesc
       : currItem;
+
     return (
       <>
         {location === "video" ? (

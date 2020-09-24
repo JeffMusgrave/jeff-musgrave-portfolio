@@ -1,23 +1,27 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
-export const Anchor = styled(motion.a)`
+export const ALink = css`
   font-weight: 700;
   text-decoration: none;
-  color: ${(props) => (props.color ? props.color : `var(--danger)`)};
+  color: ${(props) => (props.color ? props.color : `var(--shade-1)`)};
+  border-bottom: 0.25rem solid var(--shade-1);
 
   &:visited {
-    color: var(--shade-3);
+    color: var(--shade-1);
   }
 
   &:hover {
     font-weight: 700;
-    background-color: var(--shade-1);
-    color: var(--shade-4);
-    padding: 0.25rem 0.5rem;
+    border-bottom: 0.25rem solid var(--warning);
+    color: var(--warning);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
+`;
+
+export const Anchor = styled(motion.a)`
+  ${ALink}
 `;
 
 export const H1 = styled(motion.h1)`

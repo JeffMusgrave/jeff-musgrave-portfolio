@@ -11,7 +11,7 @@ import { useLocation } from "react-router-dom";
 import VideoBackground from "./components/VideoBackground/VideoBackground";
 import { fadeSettings as fade } from "./variables/variables";
 import { Helmet } from "react-helmet";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { useStoreActions } from "easy-peasy";
 
 function App() {
   const location = useLocation().pathname;
@@ -22,9 +22,6 @@ function App() {
   });
 
   const pgTitle = pgName.charAt(0).toUpperCase() + pgName.slice(1);
-  const pageNotFound = useStoreState(
-    (state) => state.storeContent.pageNotFound
-  );
 
   const [homePage, setHomePage] = useState(false);
 

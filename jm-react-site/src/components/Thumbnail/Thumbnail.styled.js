@@ -3,10 +3,6 @@ import { motion } from "framer-motion";
 
 // Figure / container
 
-const ThumbnailSize = css`
-  /* width: calc(100% - 2.5rem); */
-`;
-
 const ThumbtabSize = css`
   width: var(--thumbtab-vid);
   height: var(--thumbtab-vid);

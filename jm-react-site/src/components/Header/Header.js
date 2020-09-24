@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import MenuButton from "../MenuButton/MenuButton";
 import { HeaderContainer, Logo, Background } from "./Header.styled";
@@ -7,16 +7,11 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 
 const Header = () => {
   const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
-  const menu = useStoreState((state) => state.storeContent.menu);
   const viewWidth = useStoreState((state) => state.storeContent.viewWidth);
   const setViewWidth = useStoreActions(
     (actions) => actions.storeContent.setViewWidth
   );
   const [scrollDown, setScrollDown] = useState(false);
-
-  const menuVis = () => {
-    setMenu(!menu);
-  };
 
   // View Width
   useEffect(() => {

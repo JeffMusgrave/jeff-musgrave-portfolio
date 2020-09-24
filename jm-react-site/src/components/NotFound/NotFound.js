@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables/variables";
-import { Helmet } from "react-helmet";
 import { useStoreActions } from "easy-peasy";
+import { Main, PageLink } from "./NotFound.styled";
+import PageTitle from "../PageTitle/PageTitle";
+import { H2, Paragraph } from "../../styled/Text.styled";
+
 const NotFound = (props) => {
   const setNotFound = useStoreActions(
     (actions) => actions.storeContent.setNotFound
@@ -14,29 +15,14 @@ const NotFound = (props) => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Jeff Musgrave | 404</title>
-      </Helmet>
-
-      <motion.section
-        variants={fade}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
-        <h1>
-          <span>404!</span>
-        </h1>
-      </motion.section>
-      <motion.article
-        variants={fade}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
-        <h2>There's nothing here!</h2>
-      </motion.article>
+      <PageTitle pageTitle={"404"} />
+      <Main>
+        <H2>Ain't Nothing to see here!</H2>
+        <Paragraph>
+          Perhaps some of these <PageLink to="/video">video reels</PageLink>{" "}
+          might be of interest?
+        </Paragraph>
+      </Main>
     </>
   );
 };
