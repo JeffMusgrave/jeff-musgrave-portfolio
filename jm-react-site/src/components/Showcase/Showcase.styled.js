@@ -32,7 +32,7 @@ const Gallery = css`
 
 const Single = css`
   grid-template-columns: 1fr;
-  height: 40vh;
+  /* height: 40vh; */
   @media screen and (max-width: 768px) {
     margin-right: 0;
     grid-column: content/col-right;

@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
 
 export const Logo = styled.div`
   display: flex;
+  position: sticky;
   align-items: center;
   font-weight: 500;
   font-size: var(--logo);
@@ -25,7 +26,6 @@ export const Logo = styled.div`
     font-weight: 100;
     padding: 0;
     text-decoration: none;
-    position: fixed;
   }
 
   span {
@@ -48,7 +48,7 @@ export const Background = styled(motion.div)`
     height: 5rem;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1280px) {
     height: 4rem;
   }
 

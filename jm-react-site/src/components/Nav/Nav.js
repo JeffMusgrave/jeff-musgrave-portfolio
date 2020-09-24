@@ -44,7 +44,7 @@ const NavList = () => {
   return (
     <>
       {!!viewWidth && (
-        <NavA to="/video" onClick={menuVis}>
+        <NavA to="/" onClick={menuVis}>
           Home
         </NavA>
       )}

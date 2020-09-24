@@ -43,6 +43,7 @@
   --lh-xs: 2.5;
   --thumbtab-vid: 8rem;
   --bookend: 7rem;
+  --height-spacer: 25vmin;
 }
 
 @media screen and (max-height: 1280px), screen and (max-width: 1550px) {
@@ -71,6 +72,7 @@
 @media screen and (max-width: 1344px) {
   :root {
     --thumbtab-vid: 5rem;
+    --height-spacer: 20vmin;
   }
 }
 
@@ -93,6 +95,7 @@
     --sm: 1rem;
     --xs: 0.9rem;
     --bookend: 4rem;
+    --height-spacer: 15vmin;
   }
 }
 
@@ -118,6 +121,7 @@
     --logo: 1.33rem;
     --navtext: 0.95rem;
     --thumbtab-vid: 15vmin;
+    --height-spacer: 7.5rem;
   }
 }
 
@@ -134,6 +138,7 @@
 body,
 html {
   min-height: 100vh;
+  height: 100%;
   font-size: 16px;
   line-height: 1.5;
   font-family: Barlow, Arial, Helvetica, sans-serif;

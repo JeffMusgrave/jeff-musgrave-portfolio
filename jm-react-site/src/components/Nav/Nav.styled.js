@@ -11,13 +11,13 @@ const Navigation = css`
 
 export const SiteNav = styled.nav`
   ${Navigation}
-  position: sticky;
   justify-content: flex-start;
   width: 100%;
   height: 100%;
   grid-column: content/col-2;
   grid-row: 1/2;
   margin-right: 5rem;
+  position: sticky;
 
   @media screen and (max-width: 1280px) {
     justify-content: flex-end;
@@ -70,6 +70,7 @@ export const NavA = styled(NavLink)`
 
 export const MobileNav = styled(motion.nav)`
   ${Navigation}
+  position: fixed;
   justify-items: center;
   flex-direction: row;
   height: 100vh;
@@ -81,7 +82,6 @@ export const MobileNav = styled(motion.nav)`
   will-change: opacity;
 
   div {
-    position: fixed;
     display: flex;
     align-self: center;
     flex-direction: column;
@@ -89,5 +89,8 @@ export const MobileNav = styled(motion.nav)`
     height: 80vh;
     width: 100vw;
     user-select: none;
+    @media screen and (max-width: 768px) {
+      position: absolute;
+    }
   }
 `;
