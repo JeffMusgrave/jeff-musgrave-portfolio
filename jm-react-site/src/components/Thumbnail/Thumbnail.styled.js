@@ -36,7 +36,7 @@ export const Container = styled(motion.figure)`
   clip-path: circle();
   background-color: var(--shade-6-alpha);
   align-self: center;
-  height: auto;
+  height: ${(props) => (props.quantity < 2 ? "auto" : "100%")};
   ${(props) => props.clickable && "cursor: pointer;"}
   justify-items: center;
   &,
