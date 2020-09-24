@@ -7,7 +7,7 @@ export const Container = styled(motion.header)`
   align-self: flex-end;
   margin-top: 5rem;
   margin-bottom: var(--ml);
-  margin-left: calc(-1 * var(--xl));
+  margin-left: calc(-1 * var(--standard));
 
   @media screen and (max-width: 1280px) {
     grid-row: header/row-0;

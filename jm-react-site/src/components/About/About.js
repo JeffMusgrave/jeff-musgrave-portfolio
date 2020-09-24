@@ -30,7 +30,7 @@ const About = () => {
       <>
         <PageTitle key={`pagetitle`} pageTitle={pageName} />
         {!!activeTab[0] && (
-          <Album showcasePos={ShowcasePos} thumbPos={ThumbPos}>
+          <Album quantity={1} showcasePos={ShowcasePos} thumbPos={ThumbPos}>
             <Thumbnail item={theItem} clickable={false} />
           </Album>
         )}

@@ -41,7 +41,7 @@ export const H1 = styled(motion.h1)`
 
   span {
     background-color: var(--shade-6);
-    padding: var(--ml) var(--xl);
+    padding: var(--ml) var(--standard);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
