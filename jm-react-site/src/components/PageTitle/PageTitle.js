@@ -4,10 +4,11 @@ import { Container } from "./PageTitle.styled";
 import { fadeSettings as fade } from "../../variables/variables";
 
 const PageTitle = React.memo(({ pageTitle }) => {
+  const heading = pageTitle.replace(/\//gi, "");
   return (
     <Container variants={fade}>
       <H1>
-        <span>{pageTitle}</span>
+        <span>{heading}</span>
       </H1>
     </Container>
   );

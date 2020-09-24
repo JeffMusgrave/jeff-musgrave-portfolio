@@ -18,7 +18,9 @@ const FoundPage = ({ thePage }) => {
 };
 
 const StandardBoilerPlate = ({ thePage, FoundPage }) => {
-  const location = useLocation().pathname.substr(1);
+  const location = useLocation().pathname.replace(/\//gi, "");
+  const setPage = useStoreActions((actions) => actions.storeContent.setPage);
+
   const loadContent = useStoreActions(
     (actions) => actions.storeContent.loadContent
   );
@@ -37,6 +39,10 @@ const StandardBoilerPlate = ({ thePage, FoundPage }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+  useEffect(() => {
+    setPage(location);
+  });
 
   return <FoundPage thePage={thePage} />;
 };

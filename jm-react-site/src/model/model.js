@@ -54,6 +54,7 @@ const contentModel = {
 
   setPage: action((state, payload) => {
     state.page = payload;
+    console.log(state.page);
   }),
 
   setLightbox: action((state, payload) => {
