@@ -1,8 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
-// import { motion } from "framer-motion";
-import useDeviceDetect from "../../utils/useDeviceDetect";
+// import useDeviceDetect from "../../utils/useDeviceDetect";
 import BlurryImageLoad from "../../utils/blurryLoad";
 import {
   Container,
@@ -64,7 +63,7 @@ const Switch = ({ item, thumbtab, clickable, quantity }) => {
   return (
     <>
       {!thumbtab ? (
-        <VideoMobileDesktopSwitch {...item} quantity={quantity} />
+        <Video {...item} quantity={quantity} />
       ) : (
         <Image {...item} clickable={clickable} />
       )}
@@ -100,7 +99,7 @@ const Image = ({ id, image, thumbnail, init, imageAlt, clickable }) => {
   );
 };
 
-const Video = ({ video, image, id, quantity }) => {
+const Video = ({ video, id }) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
@@ -139,7 +138,6 @@ const Video = ({ video, image, id, quantity }) => {
           style={{ opacity: videoLoaded ? 1 : 0 }}
           variants={fade}
           key={`vidprev-${id}`}
-          poster={image}
         >
           <source src={video} type="video/webm" key={`video-${id}`}></source>
         </video>
@@ -148,9 +146,9 @@ const Video = ({ video, image, id, quantity }) => {
   );
 };
 
-const VideoMobileDesktopSwitch = (item) => {
-  const { isMobile } = useDeviceDetect();
-  return <>{!isMobile ? <Video {...item} /> : <Image {...item} />}</>;
-};
+// const VideoMobileDesktopSwitch = (item) => {
+//   const { isMobile } = useDeviceDetect();
+//   return <>{!isMobile ? <Video {...item} /> : <Image {...item} />}</>;
+// };
 
 export default Thumbnail;

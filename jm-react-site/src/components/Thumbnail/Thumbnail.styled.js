@@ -93,6 +93,8 @@ export const VideoContainer = styled(motion.div)`
   grid-column: 1 / span 1;
   border-radius: 50%;
   will-change: opacity;
+  width: 100%;
+  height: 100%;
 
   @media screen and (max-width: 768px) {
     ${(props) =>
@@ -101,13 +103,16 @@ export const VideoContainer = styled(motion.div)`
   }
   video {
     display: block;
+    z-index: 1;
   }
   img,
   video {
     margin: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    @media screen and (max-width: 768px) {
+      object-fit: cover;
+    }
   }
   &::before,
   img::before,

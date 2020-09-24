@@ -11,7 +11,7 @@ export const BurgerContainer = styled.div`
     grid-column: col-4/col-right;
     grid-row: 1/2;
     z-index: 7;
-    position: fixed;
+    position: sticky;
     top: 0;
     cursor: pointer;
     height: 4rem;

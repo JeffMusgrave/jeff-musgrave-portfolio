@@ -11,9 +11,6 @@ const Showcase = ({ showcasePos, idx, gallery = false }) => {
   const srcIndex = useStoreState((state) => state.storeContent.srcIndex);
   const quantity = items && items.length;
   const regexYT = /(youtube)/gi;
-
-  console.log(location);
-
   return (
     <>
       <FsLightbox
