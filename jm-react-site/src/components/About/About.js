@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
 import Tabs from "../Tabs/Tabs";
 import Thumbnail from "../Thumbnail/Thumbnail";
@@ -17,7 +16,7 @@ import {
 } from "./About.styled";
 
 const About = () => {
-  const location = useLocation().pathname.substr(1);
+  const location = useStoreState((state) => state.storeContent.page);
   const pageName = location.charAt(0).toUpperCase() + location.slice(1);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
   const info = useStoreState((state) => state.storeContent.info);

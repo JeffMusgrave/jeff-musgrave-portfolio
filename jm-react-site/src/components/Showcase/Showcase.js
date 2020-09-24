@@ -1,17 +1,18 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
 import FsLightbox from "fslightbox-react";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import { Album } from "./Showcase.styled";
 
 const Showcase = ({ showcasePos, idx, gallery = false }) => {
-  const location = useLocation().pathname.substring(1);
+  const location = useStoreState((state) => state.storeContent.page);
   const items = useStoreState((state) => state.storeContent.items);
   const lightbox = useStoreState((state) => state.storeContent.lightbox);
   const srcIndex = useStoreState((state) => state.storeContent.srcIndex);
   const quantity = items && items.length;
   const regexYT = /(youtube)/gi;
+
+  console.log(location);
 
   return (
     <>

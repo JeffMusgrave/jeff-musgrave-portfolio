@@ -16,11 +16,10 @@ const contentModel = {
 
   //actions
   loadContent: action((state, payload) => {
-    let currContent = allContent[payload];
-    state.pageContent = currContent;
-    state.info = Object.keys(currContent);
+    state.pageContent = allContent[payload];
+    state.info = Object.keys(state.pageContent);
     state.activeTab = state.info.map((e, idx) => (idx === 0 ? 1 : 0));
-    state.items = currContent[state.info[0]].items;
+    state.items = state.pageContent[state.info[0]].items;
     state.isLoaded = true;
   }),
 
@@ -54,7 +53,6 @@ const contentModel = {
 
   setPage: action((state, payload) => {
     state.page = payload;
-    console.log(state.page);
   }),
 
   setLightbox: action((state, payload) => {

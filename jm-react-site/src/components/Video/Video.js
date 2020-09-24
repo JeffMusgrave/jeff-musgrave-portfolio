@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
 import Tabs from "../Tabs/Tabs";
 import Showcase from "../Showcase/Showcase";
@@ -11,7 +10,7 @@ import "../../utils/blurryLoad.css";
 import { Container, Blurb, ShowcasePos, TabPos } from "./Video.styled";
 
 const Video = () => {
-  const location = useLocation().pathname.substr(1);
+  const location = useStoreState((state) => state.storeContent.page);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
   const pageName = location.charAt(0).toUpperCase() + location.slice(1);
   const info = useStoreState((state) => state.storeContent.info);
