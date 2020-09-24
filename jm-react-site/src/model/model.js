@@ -16,10 +16,11 @@ const contentModel = {
 
   //actions
   loadContent: action((state, payload) => {
-    state.pageContent = allContent[payload];
-    state.info = Object.keys(state.pageContent);
+    let currContent = allContent[payload];
+    state.pageContent = currContent;
+    state.info = Object.keys(currContent);
     state.activeTab = state.info.map((e, idx) => (idx === 0 ? 1 : 0));
-    state.items = state.pageContent[state.info[0]].items;
+    state.items = currContent[state.info[0]].items;
     state.isLoaded = true;
   }),
 

@@ -32,7 +32,7 @@ const Gallery = css`
 
 const Single = css`
   grid-template-columns: 1fr;
-  /* height: 40vh; */
+
   @media screen and (max-width: 768px) {
     margin-right: 0;
     grid-column: content/col-right;
@@ -43,24 +43,11 @@ const Single = css`
   }
 `;
 
-const Double = css`
-  grid-template-columns: repeat(2, 1fr);
-  height: 30vh;
-  @media screen and (max-width: 1280px) {
-    grid-template-columns: 1fr;
-  }
-  @media screen and (max-width: 768px) {
-    height: auto;
-  }
-  figure {
-    margin-right: 1.125rem;
-    margin-bottom: 1.125rem;
-  }
-`;
-
 const Fade = css`
   mask-image: linear-gradient(to top, transparent, black, black, transparent);
   overflow-y: scroll;
+  overflow-x: hidden;
+  height: 30vh;
 `;
 
 const StandardAlbum = css`
@@ -70,7 +57,7 @@ const StandardAlbum = css`
 `;
 
 const FadeCheck = css`
-  @media screen and (min-width: 901px) {
+  @media screen and (min-width: 768px) {
     ${(props) => props.quantity > 2 && Fade}
   }
   @media screen and (max-width: 768px) {
@@ -78,8 +65,22 @@ const FadeCheck = css`
   }
 `;
 
+const Double = css`
+  display: grid;
+  padding-right: 1rem;
+  gap: 2.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  height: 20vh;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
+
+  ${FadeCheck}
+`;
+
 const QuantityCheck = css`
-  ${(props) => (props.quantity < 2 ? Single : Double && FadeCheck)}
+  ${(props) => (props.quantity < 2 ? Single : Double)}
 `;
 
 const StandardAlbumCheck = css`
