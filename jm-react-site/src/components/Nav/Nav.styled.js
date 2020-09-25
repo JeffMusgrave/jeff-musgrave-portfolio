@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { NavLink } from "react-router-dom";
+
 import { motion } from "framer-motion";
 
 const Navigation = css`
@@ -9,27 +9,7 @@ const Navigation = css`
   z-index: 6;
 `;
 
-export const SiteNav = styled.nav`
-  ${Navigation}
-  justify-content: flex-start;
-  width: 100%;
-  height: 100%;
-  grid-column: content/col-2;
-  grid-row: 1/2;
-  margin-right: 5rem;
-  position: sticky;
-
-  @media screen and (max-width: 1280px) {
-    justify-content: flex-end;
-    grid-column: col-left/col-right;
-    margin-right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-  }
-`;
-
-export const NavA = styled(NavLink)`
+const Links = css`
   align-self: center;
   margin: 1.25rem 1.5rem 0rem 0;
   text-decoration: none;
@@ -53,18 +33,33 @@ export const NavA = styled(NavLink)`
   &:visited {
     color: var(--shade-3);
   }
+`;
+
+export const SiteNav = styled.nav`
+  ${Navigation}
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  grid-column: content/col-2;
+  grid-row: 1/2;
+  margin-right: 5rem;
+  position: sticky;
 
   @media screen and (max-width: 1280px) {
-    &:last-child {
-      margin-right: 0;
-    }
+    justify-content: flex-end;
+    grid-column: col-left/col-right;
+    margin-right: 0;
   }
-
-  @media screen and (max-width: 768px) {
-    display: flex;
-    margin: 0rem;
-    align-self: center;
-    font-size: 2rem;
+  a {
+    ${Links}
+    @media screen and (max-width: 1280px) {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 
@@ -90,7 +85,15 @@ export const MobileNav = styled(motion.nav)`
     height: 80vh;
     width: 100vw;
     user-select: none;
+  }
+
+  a {
+    ${Links}
     @media screen and (max-width: 768px) {
+      display: flex;
+      margin: 0rem;
+      align-self: center;
+      font-size: 2rem;
     }
   }
 `;

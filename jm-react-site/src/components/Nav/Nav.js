@@ -1,7 +1,8 @@
 import React from "react";
-import { SiteNav, MobileNav, NavA } from "./Nav.styled";
+import { SiteNav, MobileNav } from "./Nav.styled";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import useHasMounted from "../../utils/useHasMounted";
+import { NavLink } from "react-router-dom";
 const Nav = ({ viewWidth }) => {
   const menu = useStoreState((state) => state.storeContent.menu);
 
@@ -50,23 +51,23 @@ const NavList = () => {
   return (
     <>
       {!!viewWidth && (
-        <NavA to="/" onClick={menuVis}>
+        <NavLink to="/" onClick={menuVis}>
           Home
-        </NavA>
+        </NavLink>
       )}
 
-      <NavA to="/video" onClick={menuVis}>
+      <NavLink to="/video" onClick={menuVis}>
         Video
-      </NavA>
-      <NavA to="/design" onClick={menuVis}>
+      </NavLink>
+      <NavLink to="/design" onClick={menuVis}>
         Design
-      </NavA>
-      <NavA to="/code" onClick={menuVis}>
+      </NavLink>
+      <NavLink to="/code" onClick={menuVis}>
         Code
-      </NavA>
-      <NavA to="/about" onClick={menuVis}>
+      </NavLink>
+      <NavLink to="/about" onClick={menuVis}>
         About
-      </NavA>
+      </NavLink>
     </>
   );
 };
