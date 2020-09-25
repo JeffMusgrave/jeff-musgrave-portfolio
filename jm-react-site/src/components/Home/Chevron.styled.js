@@ -10,6 +10,10 @@ export const Chevron = styled(Link)`
   display: block;
   cursor: pointer;
 
+  @media screen and (max-width: 1720px) {
+    margin: 0 -3.625rem 2.5rem 5rem;
+  }
+
   &:link,
   &:visited,
   &:hover {
@@ -37,5 +41,6 @@ export const Chevron = styled(Link)`
     grid-row: h-row-4/ h-row-5;
     justify-self: center;
     margin: 0;
+    margin: 1.25rem 0 0 0;
   }
 `;
