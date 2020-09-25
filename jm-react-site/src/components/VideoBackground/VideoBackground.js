@@ -4,9 +4,10 @@ import { useLocation } from "react-router-dom";
 import contentLoader from "../../data/backgroundContent.js";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
+import { useStoreState } from "easy-peasy";
 import "./VideoBackground.css";
 
-const VideoBackground = () => {
+const VideoBackground = ({ homePage }) => {
   // const isHomePage = useLocation().pathname === "/" ? true : false;
   let location = useLocation().pathname;
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -19,35 +20,42 @@ const VideoBackground = () => {
     getData();
   }, []);
 
+  const isMobile = useStoreState((state) => state.storeContent.mobileDevice);
+
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
   };
 
   if (content.length > 0) {
     return (
-      <motion.div
-        className={`bg-vid-area ${
-          location === "/" ? "bg-vid-home" : "bg-vid-standard"
-        }`}
-        animate
-        variants={fade}
-      >
-        <div className={location === "/" ? "vid-overlay" : ""}></div>
+      <>
+        {(homePage || !isMobile) && (
+          <motion.div
+            className={`bg-vid-area ${
+              location === "/" ? "bg-vid-home" : "bg-vid-standard"
+            }`}
+            animate
+            variants={fade}
+          >
+            <div className={location === "/" ? "vid-overlay" : ""}></div>
 
-        <motion.video
-          className="video-loop"
-          playsInline
-          autoPlay
-          muted
-          loop
-          onLoadedData={onLoadedData}
-          style={{ opacity: videoLoaded ? 1 : 0 }}
-          animate
-          variants={fade}
-        >
-          <source src={content[0].video} type="video/webm"></source>
-        </motion.video>
-      </motion.div>
+            <motion.video
+              className="video-loop"
+              playsInline
+              autoPlay
+              muted
+              loop
+              onLoadedData={onLoadedData}
+              style={{ opacity: videoLoaded ? 1 : 0 }}
+              animate
+              variants={fade}
+            >
+              <source src={content[0].video} type="video/webm"></source>
+            </motion.video>
+          </motion.div>
+        )}
+      </>
+
       // <BgVidContainer isHomePage={isHomePage}>
       //   <VidOverlay isHomePage={isHomePage} videoLoaded={videoLoaded} />
       //   <VidLoop

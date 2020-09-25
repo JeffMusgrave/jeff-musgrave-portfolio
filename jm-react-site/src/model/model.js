@@ -13,6 +13,7 @@ const contentModel = {
   menu: false,
   lightbox: false,
   srcIndex: 0,
+  mobileDevice: true,
 
   //actions
   loadContent: action((state, payload) => {
@@ -53,6 +54,10 @@ const contentModel = {
 
   setPage: action((state, payload) => {
     state.page = payload;
+  }),
+
+  setMobileDevice: action((state, payload) => {
+    state.mobileDevice = payload;
   }),
 
   setLightbox: action((state, payload) => {

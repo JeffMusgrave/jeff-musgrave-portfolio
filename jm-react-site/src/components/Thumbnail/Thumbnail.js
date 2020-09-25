@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
-// import useDeviceDetect from "../../utils/useDeviceDetect";
+
 import BlurryImageLoad from "../../utils/blurryLoad";
 import {
   Container,
@@ -63,7 +63,7 @@ const Switch = ({ item, thumbtab, clickable, quantity }) => {
   return (
     <>
       {!thumbtab ? (
-        <Video {...item} quantity={quantity} />
+        <VideoMobileDesktopSwitch {...item} quantity={quantity} />
       ) : (
         <Image {...item} clickable={clickable} />
       )}
@@ -146,9 +146,9 @@ const Video = ({ video, id }) => {
   );
 };
 
-// const VideoMobileDesktopSwitch = (item) => {
-//   const { isMobile } = useDeviceDetect();
-//   return <>{!isMobile ? <Video {...item} /> : <Image {...item} />}</>;
-// };
+const VideoMobileDesktopSwitch = (item) => {
+  const isMobile = useStoreState((state) => state.storeContent.mobileDevice);
+  return <>{!isMobile ? <Video {...item} /> : <Image {...item} />}</>;
+};
 
 export default Thumbnail;

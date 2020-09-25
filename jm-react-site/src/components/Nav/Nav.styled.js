@@ -47,7 +47,7 @@ export const SiteNav = styled.nav`
 
   @media screen and (max-width: 1280px) {
     justify-content: flex-end;
-    grid-column: col-left/col-right;
+    grid-column: col-1/col-right;
     margin-right: 0;
   }
   a {

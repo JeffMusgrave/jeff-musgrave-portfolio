@@ -12,6 +12,7 @@ import VideoBackground from "./components/VideoBackground/VideoBackground";
 import { fadeSettings as fade } from "./variables/variables";
 import { Helmet } from "react-helmet";
 import { useStoreActions } from "easy-peasy";
+import useDeviceDetect from "./utils/useDeviceDetect";
 
 function App() {
   const location = useLocation().pathname;
@@ -21,13 +22,22 @@ function App() {
     setPage(pgName);
   });
 
+  const setMobile = useStoreActions(
+    (actions) => actions.storeContent.setMobileDevice
+  );
+
   const pgTitle = pgName.charAt(0).toUpperCase() + pgName.slice(1);
 
   const [homePage, setHomePage] = useState(false);
-
+  console.log(homePage);
   const pageClass = () => {
     location === "/" ? setHomePage(true) : setHomePage(false);
   };
+
+  const { isMobile } = useDeviceDetect();
+  useEffect(() => {
+    setMobile(isMobile);
+  });
 
   useLayoutEffect(() => {
     pageClass();
@@ -39,7 +49,7 @@ function App() {
         <meta charSet="utf-8" />
         <title>Jeff Musgrave | {pgTitle}</title>
       </Helmet>
-      <SetBody homePage={homePage} />
+      <SetBody homePage={homePage} isMobile={isMobile} />
       <FlexContainer>
         <Grid>
           <Header />
@@ -56,7 +66,7 @@ function App() {
           </Position>
           <Footer />
           <Fold />
-          <VideoBackground />
+          <VideoBackground homePage={homePage} />
         </Grid>
       </FlexContainer>
     </>
