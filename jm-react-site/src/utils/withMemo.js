@@ -1,5 +1,7 @@
 import { memo } from "react";
 
+// unused. from: https://github.com/DJanoskova/React-withMemo-/blob/master/withMemo.js
+
 const withMemo = (Component, checkedProps) => {
   function areEqual(prevProps, nextProps) {
     let isEqual = true;

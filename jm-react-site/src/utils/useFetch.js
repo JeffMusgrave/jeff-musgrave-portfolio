@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+// unused.
+
 const isObject = (obj) => {
   obj === Object(obj);
 };

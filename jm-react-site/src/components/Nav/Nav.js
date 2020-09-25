@@ -1,10 +1,11 @@
 import React from "react";
 import { SiteNav, MobileNav, NavA } from "./Nav.styled";
 import { useStoreState, useStoreActions } from "easy-peasy";
-
-const Nav = ({ viewWidth, menuVis }) => {
+import useHasMounted from "../../utils/useHasMounted";
+const Nav = ({ viewWidth }) => {
   const menu = useStoreState((state) => state.storeContent.menu);
-  let navSlider = {
+
+  const navSlider = {
     hidden: {
       x: "-110vw",
     },
@@ -12,6 +13,11 @@ const Nav = ({ viewWidth, menuVis }) => {
       x: "0vw",
     },
   };
+
+  const hasMounted = useHasMounted();
+  if (!hasMounted) {
+    return null;
+  }
 
   if (viewWidth) {
     return (

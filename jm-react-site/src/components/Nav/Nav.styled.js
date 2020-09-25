@@ -82,6 +82,7 @@ export const MobileNav = styled(motion.nav)`
   will-change: opacity;
 
   div {
+    position: absolute;
     display: flex;
     align-self: center;
     flex-direction: column;
@@ -90,7 +91,6 @@ export const MobileNav = styled(motion.nav)`
     width: 100vw;
     user-select: none;
     @media screen and (max-width: 768px) {
-      position: absolute;
     }
   }
 `;
