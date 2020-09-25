@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 // import { motion } from "framer-motion";
 import { FlexContainer, Grid, SetBody } from "./styled/General.styled";
 import { Position, Main } from "./styled/Position.styled";
@@ -11,37 +11,39 @@ import { useLocation } from "react-router-dom";
 import VideoBackground from "./components/VideoBackground/VideoBackground";
 import { fadeSettings as fade } from "./variables/variables";
 import { Helmet } from "react-helmet";
-import { useStoreActions } from "easy-peasy";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import useDeviceDetect from "./utils/useDeviceDetect";
+import useHasMounted from "./utils/useHasMounted";
 
 function App() {
   const location = useLocation().pathname;
   const pgName = location === "/" ? "home" : location.substr(1);
   const setPage = useStoreActions((actions) => actions.storeContent.setPage);
-  useEffect(() => {
+  useLayoutEffect(() => {
     setPage(pgName);
   });
 
+  const page = useStoreState((state) => state.storeContent.page);
+  console.log(page);
   const setMobile = useStoreActions(
     (actions) => actions.storeContent.setMobileDevice
   );
 
   const pgTitle = pgName.charAt(0).toUpperCase() + pgName.slice(1);
 
-  const [homePage, setHomePage] = useState(false);
-  console.log(homePage);
-  const pageClass = () => {
-    location === "/" ? setHomePage(true) : setHomePage(false);
-  };
-
   const { isMobile } = useDeviceDetect();
   useEffect(() => {
     setMobile(isMobile);
   });
 
-  useLayoutEffect(() => {
-    pageClass();
-  });
+  const mobileDevice = useStoreState(
+    (state) => state.storeContent.mobileDevice
+  );
+
+  const hasMounted = useHasMounted();
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <>
@@ -49,13 +51,13 @@ function App() {
         <meta charSet="utf-8" />
         <title>Jeff Musgrave | {pgTitle}</title>
       </Helmet>
-      <SetBody homePage={homePage} isMobile={isMobile} />
+      <SetBody page={page} mobile={mobileDevice} />
       <FlexContainer>
         <Grid>
           <Header />
-          <Position pgName={pgName}>
+          <Position page={page}>
             <Main
-              pgName={pgName}
+              page={page}
               variants={fade}
               initial="initial"
               animate="animate"
@@ -66,7 +68,7 @@ function App() {
           </Position>
           <Footer />
           <Fold />
-          <VideoBackground homePage={homePage} />
+          <VideoBackground />
         </Grid>
       </FlexContainer>
     </>

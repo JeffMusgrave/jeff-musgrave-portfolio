@@ -60,8 +60,8 @@ const BodyDesktop = css`
 export const SetBody = createGlobalStyle`
   body::after{
     background-color: ${(props) =>
-      props.homePage ? "var(--color-home)" : "var(--color-bg)"};
+      props.page === "home" ? "var(--color-home)" : "var(--color-bg)"};
     ${(props) =>
-      props.homePage ? BodyDesktop : !props.isMobile && BodyDesktop}
+      props.page === "home" ? BodyDesktop : !props.mobile && BodyDesktop}
   }
 `;

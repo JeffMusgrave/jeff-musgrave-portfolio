@@ -1,15 +1,14 @@
 import React, { useState, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
-// import { BgVidContainer, VidLoop, VidOverlay } from "./VideoBackground.styled";
 import contentLoader from "../../data/backgroundContent.js";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
 import { useStoreState } from "easy-peasy";
 import "./VideoBackground.css";
 
-const VideoBackground = ({ homePage }) => {
-  // const isHomePage = useLocation().pathname === "/" ? true : false;
+const VideoBackground = () => {
   let location = useLocation().pathname;
+  const page = useStoreState((state) => state.storeContent.page);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [content, setContent] = useState([]);
   useLayoutEffect(() => {
@@ -29,7 +28,7 @@ const VideoBackground = ({ homePage }) => {
   if (content.length > 0) {
     return (
       <>
-        {(homePage || !isMobile) && (
+        {(page === "home" || !isMobile) && (
           <motion.div
             className={`bg-vid-area ${
               location === "/" ? "bg-vid-home" : "bg-vid-standard"
@@ -55,22 +54,6 @@ const VideoBackground = ({ homePage }) => {
           </motion.div>
         )}
       </>
-
-      // <BgVidContainer isHomePage={isHomePage}>
-      //   <VidOverlay isHomePage={isHomePage} videoLoaded={videoLoaded} />
-      //   <VidLoop
-      //     playsInline
-      //     autoPlay
-      //     muted
-      //     loop
-      //     onLoadedData={onLoadedData}
-
-      //     animate
-      //     variants={fade}
-      //   >
-      //     <source src={content[0].video} type="video/webm"></source>
-      //   </VidLoop>
-      // </BgVidContainer>
     );
   } else {
     return null;
