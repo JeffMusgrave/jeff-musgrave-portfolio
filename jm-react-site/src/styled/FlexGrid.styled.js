@@ -1,4 +1,4 @@
-import styled, { css, createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export const FlexContainer = styled.div`
   min-height: 100vh;
@@ -49,19 +49,5 @@ export const Grid = styled.div`
       [row-top] var(--bookend)
       [header] min-content [row-0] min-content [row-1] min-content
       [row-2] minmax(min-content, 1fr) [footer] var(--bookend) [row-bottom];
-  }
-`;
-
-const BodyDesktop = css`
-  position: fixed;
-  background-image: var(--desktopbg);
-`;
-
-export const SetBody = createGlobalStyle`
-  body::after{
-    background-color: ${(props) =>
-      props.page === "home" ? "var(--color-home)" : "var(--color-bg)"};
-    ${(props) =>
-      props.page === "home" ? BodyDesktop : !props.mobile && BodyDesktop}
   }
 `;

@@ -1,8 +1,9 @@
 import React, { useEffect, useLayoutEffect } from "react";
 // import { motion } from "framer-motion";
-import { FlexContainer, Grid, SetBody } from "./styled/General.styled";
+import { CSSVars } from "./styled/Variables.styled";
+import { Body } from "./styled/Global.styled";
+import { FlexContainer, Grid } from "./styled/FlexGrid.styled";
 import { Position, Main } from "./styled/Position.styled";
-import "./App.css";
 import Header from "./components/Header/Header";
 import Fold from "./components/Fold/Fold";
 import SwitchContainer from "./components/SwitchContainer";
@@ -14,6 +15,7 @@ import { Helmet } from "react-helmet";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import useDeviceDetect from "./utils/useDeviceDetect";
 import useHasMounted from "./utils/useHasMounted";
+import "./App.css";
 
 function App() {
   const location = useLocation().pathname;
@@ -50,7 +52,8 @@ function App() {
         <meta charSet="utf-8" />
         <title>Jeff Musgrave | {pgTitle}</title>
       </Helmet>
-      <SetBody page={page} mobile={mobileDevice} />
+      <CSSVars page={page} mobile={mobileDevice} />
+      <Body page={page} mobile={mobileDevice} />
       <FlexContainer>
         <Grid>
           <Header />

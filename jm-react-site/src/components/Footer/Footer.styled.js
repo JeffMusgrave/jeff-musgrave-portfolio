@@ -9,7 +9,7 @@ export const Container = styled.footer`
   min-width: 100%;
   color: var(--emphasis-light-color);
   @media screen and (max-width: 768px) {
-    border-top: 5px solid var(--shade-5);
+    /* border-top: 5px solid var(--shade-5); */
   }
 `;
 

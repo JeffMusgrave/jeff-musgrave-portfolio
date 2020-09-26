@@ -3,6 +3,8 @@ import { SiteNav, MobileNav } from "./Nav.styled";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import useHasMounted from "../../utils/useHasMounted";
 import { NavLink } from "react-router-dom";
+import { use100vh } from "react-div-100vh";
+
 const Nav = ({ viewWidth }) => {
   const menu = useStoreState((state) => state.storeContent.menu);
 
@@ -15,6 +17,8 @@ const Nav = ({ viewWidth }) => {
     },
   };
 
+  const height = use100vh();
+
   const hasMounted = useHasMounted();
   if (!hasMounted) {
     return null;
@@ -25,6 +29,7 @@ const Nav = ({ viewWidth }) => {
       <MobileNav
         initial={navSlider.hidden}
         animate={!menu && viewWidth ? { x: "-110vw" } : { x: "0vw" }}
+        height={height}
       >
         <div>
           <NavList />

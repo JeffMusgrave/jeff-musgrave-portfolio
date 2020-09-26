@@ -39,6 +39,10 @@ export const H1 = styled(motion.h1)`
     font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xl)`)};
   }
 
+  @media screen and (max-width: 768px) {
+    padding: var(--xxs) var(--xl);
+  }
+
   span {
     background-color: var(--shade-6);
     padding: var(--ml) var(--standard);
@@ -49,6 +53,7 @@ export const H1 = styled(motion.h1)`
   @media screen and (max-width: 1280px) {
     span {
       margin-left: 0;
+      padding: 0;
       background-color: transparent;
     }
   }

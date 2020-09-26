@@ -1,13 +1,13 @@
 import React, { useState, useLayoutEffect } from "react";
-import { useLocation } from "react-router-dom";
+
 import contentLoader from "../../data/backgroundContent.js";
 import { motion } from "framer-motion";
 import { fadeSettings as fade } from "../../variables/variables";
 import { useStoreState } from "easy-peasy";
 import "./VideoBackground.css";
+// import { BgVidContainer, VidLoop, VidOverlay } from "./VideoBackground.styled";
 
 const VideoBackground = () => {
-  let location = useLocation().pathname;
   const page = useStoreState((state) => state.storeContent.page);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [content, setContent] = useState([]);
@@ -31,12 +31,12 @@ const VideoBackground = () => {
         {(page === "home" || !mobile) && (
           <motion.div
             className={`bg-vid-area ${
-              location === "/" ? "bg-vid-home" : "bg-vid-standard"
+              page === "home" ? "bg-vid-home" : "bg-vid-standard"
             }`}
             animate
             variants={fade}
           >
-            <div className={location === "/" ? "vid-overlay" : ""}></div>
+            <div className={page === "home" ? "vid-overlay" : ""}></div>
 
             <motion.video
               className="video-loop"
@@ -52,6 +52,21 @@ const VideoBackground = () => {
               <source src={content[0].video} type="video/webm"></source>
             </motion.video>
           </motion.div>
+
+          // <BgVidContainer page={page}>
+          //   <VidOverlay page={page} videoLoaded={videoLoaded} />
+          //   <VidLoop
+          //     playsInline
+          //     autoPlay
+          //     muted
+          //     loop
+          //     onLoadedData={onLoadedData}
+          //     animate
+          //     variants={fade}
+          //   >
+          //     <source src={content[0].video} type="video/webm"></source>
+          //   </VidLoop>
+          // </BgVidContainer>
         )}
       </>
     );

@@ -20,8 +20,8 @@ export const BgVidContainer = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-
-  ${(props) => (props.isHomePage ? Home : Standard)}
+  will-change: opacity;
+  ${(props) => (props.page === "home" ? Home : Standard)}
 `;
 
 export const VidLoop = styled(motion.video)`
@@ -35,6 +35,7 @@ export const VidLoop = styled(motion.video)`
   bottom: 0;
   z-index: -4;
   position: absolute;
+  will-change: opacity;
   opacity: ${(props) => (props.videoLoaded ? `1` : `0`)};
 `;
 
@@ -50,8 +51,9 @@ const OverlayStyle = css`
   transform: rotateY(0deg);
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
+  will-change: opacity;
 `;
 
 export const VidOverlay = styled.div`
-  ${(props) => props.isHomePage && OverlayStyle}
+  ${(props) => props.page === "home" && OverlayStyle}
 `;
