@@ -52,7 +52,7 @@ function App() {
         <meta charSet="utf-8" />
         <title>Jeff Musgrave | {pgTitle}</title>
       </Helmet>
-      <CSSVars page={page} mobile={mobileDevice} />
+      <CSSVars />
       <Body page={page} mobile={mobileDevice} />
       <FlexContainer>
         <Grid>

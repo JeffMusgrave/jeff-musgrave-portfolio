@@ -1,6 +1,6 @@
 import { css, createGlobalStyle } from "styled-components";
 
-const BodyAfter = css`
+const DesktopBodyAfter = css`
   body::after {
     content: "";
     z-index: -10;
@@ -18,7 +18,8 @@ const BodyAfter = css`
 
 export const Body = createGlobalStyle`
 
-${(props) => !props.mobile && BodyAfter}
+${(props) => !props.mobile && DesktopBodyAfter}
+
 
 body,
 html {
