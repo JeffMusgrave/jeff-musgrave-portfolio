@@ -45,8 +45,7 @@ export const Container = styled(motion.figure)`
     color: transparent;
   }
   ${(props) => props.thumbtab && ThumbtabSize}
-  ${(props) =>
-    props.mediaType ? Grid : Flex}
+  ${(props) => (props.mediaType ? Grid : Flex)}
 
 @media screen and (max-width: 1280px) {
   }
@@ -54,9 +53,13 @@ export const Container = styled(motion.figure)`
     width: 100%;
     ${(props) => (props.quantity < 2 ? Grid : Flex)}
     ${(props) => props.quantity < 2 && ContainerSingle}
-    ${(props) =>
-      props.quantity < 2 && `clip-path: none;`}
+    ${(props) => props.quantity < 2 && `clip-path: none;`}
   }
+`;
+
+const gridLayout = css`
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
 `;
 
 // IMAGE
@@ -66,6 +69,7 @@ export const ImageContainer = styled(motion.img)`
   width: 100%;
   margin: 0;
   object-fit: cover;
+  ${(props) => props.video && gridLayout}
 `;
 
 // Button
@@ -89,8 +93,7 @@ export const PlayButton = styled(motion.div)`
 // VIDEO
 
 export const VideoContainer = styled(motion.div)`
-  grid-row: 1 / span 1;
-  grid-column: 1 / span 1;
+  ${gridLayout}
   border-radius: 50%;
   will-change: opacity;
   width: 100%;
