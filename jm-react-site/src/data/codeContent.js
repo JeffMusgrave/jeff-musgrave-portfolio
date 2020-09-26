@@ -160,9 +160,3 @@ export const content = {
     ],
   },
 };
-
-// function contentLoader() {
-//   return content;
-// }
-
-// export default contentLoader;

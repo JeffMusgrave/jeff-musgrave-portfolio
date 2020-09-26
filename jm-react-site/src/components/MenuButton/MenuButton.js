@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { BurgerContainer, Hamburger } from "./MenuButton.styled";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import { BurgerContainer, Hamburger } from "./MenuButton.styled";
 
 export default function MenuButton() {
   const menu = useStoreState((state) => state.storeContent.menu);

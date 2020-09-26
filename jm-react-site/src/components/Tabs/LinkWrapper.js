@@ -1,6 +1,6 @@
 import React from "react";
-import { TabLink } from "./Tabs.styled";
 import TheTabs from "./TheTabs";
+import { TabLink } from "./Tabs.styled";
 
 const LinkWrapper = ({ e, idx, content }) => {
   return (

@@ -28,12 +28,12 @@ export const H1 = styled(motion.h1)`
   font-weight: 300;
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xl)`)};
   color: ${(props) => (props.color ? props.color : `var(--shade-2)`)};
-  /* padding: var(--xxs) var(--xs); */
 
   @media screen and (max-width: 1280px) {
+    backdrop-filter: blur(20px);
     margin-left: 0;
     margin-bottom: 0;
-    background-color: var(--shade-6-alpha);
+    background-color: var(--shade-6-alpha-half);
     text-align: center;
     padding: var(--xs) var(--xl);
     font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xl)`)};
@@ -52,6 +52,9 @@ export const H1 = styled(motion.h1)`
 
   @media screen and (max-width: 1280px) {
     span {
+      will-change: opacity;
+      backdrop-filter: none;
+      background-color: transparent;
       margin-left: 0;
       padding: 0;
       background-color: transparent;
@@ -79,8 +82,6 @@ export const H3 = styled(motion.h3)`
   margin-bottom: 1.125rem;
 
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--md)`)};
-  /* line-height: ${(props) =>
-    props.lineheight ? props.lineheight : `var(--lh-sm)`}; */
 `;
 
 export const H4 = styled(motion.h4)`

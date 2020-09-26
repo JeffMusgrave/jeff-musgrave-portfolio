@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 const Standard = css`
-  /* grid-column: overlap/right-margin; */
   border: 0;
   align-self: flex-start;
   justify-self: flex-end;
@@ -16,12 +15,10 @@ const Standard = css`
   font-family: inherit;
 
   @media screen and (max-width: 1280px) {
-    /* grid-column: logo/overlap; */
     justify-self: flex-start;
     grid-row: row-2/footer;
   }
   @media screen and (max-width: 768px) {
-    /* grid-column: content/right-margin; */
     font-size: 1rem;
     width: 100%;
   }

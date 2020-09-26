@@ -18,7 +18,6 @@ const FoundPage = ({ thePage }) => {
 };
 
 const StandardBoilerPlate = ({ thePage, FoundPage }) => {
-  // const location = useLocation().pathname.replace(/\//gi, "");
   const location = useLocation().pathname.substr(1);
 
   const loadContent = useStoreActions(

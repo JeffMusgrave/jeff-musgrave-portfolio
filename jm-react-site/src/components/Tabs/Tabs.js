@@ -1,9 +1,11 @@
 import React from "react";
-import { Container } from "./Tabs.styled";
+import { useStoreState } from "easy-peasy";
+
 import LinkWrapper from "./LinkWrapper";
 import TheTabs from "./TheTabs";
+
 import { fadeSettings as fade } from "../../variables/variables";
-import { useStoreState } from "easy-peasy";
+import { Container } from "./Tabs.styled";
 
 const Tabs = ({ tabPos, thumbtabs }) => {
   const activeTab = useStoreState((state) => state.storeContent.activeTab);

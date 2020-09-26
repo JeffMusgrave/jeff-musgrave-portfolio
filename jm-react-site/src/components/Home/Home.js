@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+
 import { fadeSettings as fade } from "../../variables/variables";
+
 import { Title, SubTitle } from "./Home.styled";
 import { Chevron } from "./Chevron.styled";
-import { motion } from "framer-motion";
 
 const Home = (props) => {
   useEffect(() => {

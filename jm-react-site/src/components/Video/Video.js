@@ -1,8 +1,8 @@
 import React from "react";
 import { useStoreState } from "easy-peasy";
+import Boilerplate from "../Boilerplate/Boilerplate";
 import Tabs from "../Tabs/Tabs";
 import Showcase from "../Showcase/Showcase";
-import Boilerplate from "../Boilerplate/Boilerplate";
 import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
 import "../../utils/blurryLoad.css";

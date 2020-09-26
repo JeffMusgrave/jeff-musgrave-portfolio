@@ -1,7 +1,11 @@
+// Should clean this up.
+
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
+
 import { fadeSettings as fade } from "../../variables/variables";
+
 import { H2, H3, Paragraph } from "../../styled/Text.styled";
 import { Blurb } from "./Description.styled";
 

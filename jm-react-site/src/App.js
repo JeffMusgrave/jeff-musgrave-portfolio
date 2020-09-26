@@ -1,20 +1,23 @@
 import React, { useEffect, useLayoutEffect } from "react";
-// import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { useStoreActions, useStoreState } from "easy-peasy";
+
 import { CSSVars } from "./styled/Variables.styled";
 import { Body } from "./styled/Global.styled";
 import { FlexContainer, Grid } from "./styled/FlexGrid.styled";
 import { Position, Main } from "./styled/Position.styled";
+
 import Header from "./components/Header/Header";
 import Fold from "./components/Fold/Fold";
 import SwitchContainer from "./components/SwitchContainer";
 import Footer from "./components/Footer/Footer";
-import { useLocation } from "react-router-dom";
 import VideoBackground from "./components/VideoBackground/VideoBackground";
+
 import { fadeSettings as fade } from "./variables/variables";
-import { Helmet } from "react-helmet";
-import { useStoreActions, useStoreState } from "easy-peasy";
 import useDeviceDetect from "./utils/useDeviceDetect";
 import useHasMounted from "./utils/useHasMounted";
+
 import "./App.css";
 
 function App() {

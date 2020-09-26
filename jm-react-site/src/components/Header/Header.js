@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useStoreState, useStoreActions } from "easy-peasy";
+
 import Nav from "../Nav/Nav";
 import MenuButton from "../MenuButton/MenuButton";
+
 import { HeaderContainer, Logo, Background } from "./Header.styled";
-import { useStoreState, useStoreActions } from "easy-peasy";
 
 const Header = () => {
   const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);

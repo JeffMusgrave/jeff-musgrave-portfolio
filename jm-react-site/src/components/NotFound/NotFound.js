@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useStoreActions } from "easy-peasy";
-import { Main, PageLink } from "./NotFound.styled";
 import PageTitle from "../PageTitle/PageTitle";
+import { Main, PageLink } from "./NotFound.styled";
 import { H2, Paragraph } from "../../styled/Text.styled";
 
 const NotFound = (props) => {

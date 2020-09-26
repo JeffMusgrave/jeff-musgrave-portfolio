@@ -1,7 +1,9 @@
 import React from "react";
-import { Button } from "./Tabs.styled";
-import Thumbnail from "../Thumbnail/Thumbnail";
 import { useStoreState, useStoreActions } from "easy-peasy";
+
+import Thumbnail from "../Thumbnail/Thumbnail";
+
+import { Button } from "./Tabs.styled";
 
 const TheTabs = ({ e, idx, external, thumbtabs = false, noswitch = false }) => {
   const content = useStoreState((state) => state.storeContent.pageContent);

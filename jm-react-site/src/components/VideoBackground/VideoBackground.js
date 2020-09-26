@@ -1,11 +1,12 @@
-import React, { useState, useLayoutEffect } from "react";
+// Styled Component version doesn't work right now.
 
-import contentLoader from "../../data/backgroundContent.js";
+import React, { useState, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables/variables";
 import { useStoreState } from "easy-peasy";
+import contentLoader from "../../data/backgroundContent.js";
+import { fadeSettings as fade } from "../../variables/variables";
+
 import "./VideoBackground.css";
-// import { BgVidContainer, VidLoop, VidOverlay } from "./VideoBackground.styled";
 
 const VideoBackground = () => {
   const page = useStoreState((state) => state.storeContent.page);
@@ -52,21 +53,6 @@ const VideoBackground = () => {
               <source src={content[0].video} type="video/webm"></source>
             </motion.video>
           </motion.div>
-
-          // <BgVidContainer page={page}>
-          //   <VidOverlay page={page} videoLoaded={videoLoaded} />
-          //   <VidLoop
-          //     playsInline
-          //     autoPlay
-          //     muted
-          //     loop
-          //     onLoadedData={onLoadedData}
-          //     animate
-          //     variants={fade}
-          //   >
-          //     <source src={content[0].video} type="video/webm"></source>
-          //   </VidLoop>
-          // </BgVidContainer>
         )}
       </>
     );

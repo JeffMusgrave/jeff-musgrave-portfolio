@@ -1,3 +1,5 @@
+// UNUSED STYLED COMPONENT
+
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
@@ -57,3 +59,20 @@ const OverlayStyle = css`
 export const VidOverlay = styled.div`
   ${(props) => props.page === "home" && OverlayStyle}
 `;
+
+// UNUSED Style Components for later testing:
+
+// <BgVidContainer page={page}>
+//   <VidOverlay page={page} videoLoaded={videoLoaded} />
+//   <VidLoop
+//     playsInline
+//     autoPlay
+//     muted
+//     loop
+//     onLoadedData={onLoadedData}
+//     animate
+//     variants={fade}
+//   >
+//     <source src={content[0].video} type="video/webm"></source>
+//   </VidLoop>
+// </BgVidContainer>

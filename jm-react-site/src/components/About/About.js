@@ -1,12 +1,14 @@
 import React from "react";
 import { useStoreState } from "easy-peasy";
+
+import Boilerplate from "../Boilerplate/Boilerplate";
 import Tabs from "../Tabs/Tabs";
 import Thumbnail from "../Thumbnail/Thumbnail";
-import { Album } from "../Showcase/Showcase.styled";
-import Boilerplate from "../Boilerplate/Boilerplate";
 import PageTitle from "../PageTitle/PageTitle";
 import ContactForm from "../ContactForm/ContactForm";
 import Description from "../Description/Description";
+
+import { Album } from "../Showcase/Showcase.styled";
 import {
   Container,
   Blurb,

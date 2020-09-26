@@ -21,6 +21,7 @@ export const CSSVars = createGlobalStyle`
   --color-bg-trans: rgba(17, 17, 17, 0.494);
   --shade-6: black;
   --shade-6-alpha: rgba(0, 0, 0, 0.25);
+  --shade-6-alpha-half: rgba(0, 0, 0, 0.5);
   --shade-6-alpha-med: rgba(0, 0, 0, 0.75);
   --shade-6-alpha-dark: rgba(0, 0, 0, 0.87);
   --success: green;
