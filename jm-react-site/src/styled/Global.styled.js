@@ -20,7 +20,6 @@ export const Body = createGlobalStyle`
 
 ${(props) => !props.mobile && DesktopBodyAfter}
 
-
 body,
 html {
   min-height: 100vh;
@@ -35,8 +34,6 @@ body {
   color: var(--shade-1);
   overflow-y: scroll;
 }
-
-
 
 button {
   cursor: pointer;
