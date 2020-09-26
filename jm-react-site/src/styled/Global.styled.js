@@ -1,20 +1,26 @@
 import { css, createGlobalStyle } from "styled-components";
 
-const BodyDesktop = css`
-  position: fixed;
-  background-image: var(--desktopbg);
+const BodyAfter = css`
+  body::after {
+    content: "";
+    z-index: -10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    background-image: var(--desktopbg);
+    ${(props) =>
+      props.page === "home" && "background-color: var(--color-home)"};
+    ${(props) => props.page !== "home" && "background-color:var(--color-bg)"};
+  }
 `;
 
 export const Body = createGlobalStyle`
 
-  body::after{
-    background-color: ${(props) =>
-      props.page === "home" ? "var(--color-home)" : "var(--color-bg)"};
-    ${(props) =>
-      props.page === "home" ? BodyDesktop : !props.mobile && BodyDesktop}
-  }
+${(props) => !props.mobile && BodyAfter}
 
-  body,
+body,
 html {
   min-height: 100vh;
   height: 100%;
@@ -29,16 +35,7 @@ body {
   overflow-y: scroll;
 }
 
-body::after {
-  content: "";
-  /* position: fixed; */
-  z-index: -10;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  /* background-image: url(./img/noise-100x100.png); */
-}
+
 
 button {
   cursor: pointer;
