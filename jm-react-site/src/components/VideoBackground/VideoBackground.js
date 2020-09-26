@@ -19,16 +19,16 @@ const VideoBackground = () => {
     getData();
   }, []);
 
-  const isMobile = useStoreState((state) => state.storeContent.mobileDevice);
+  const mobile = useStoreState((state) => state.storeContent.mobileDevice);
 
   const onLoadedData = () => {
-    setVideoLoaded(!videoLoaded);
+    setVideoLoaded(true);
   };
 
   if (content.length > 0) {
     return (
       <>
-        {(page === "home" || !isMobile) && (
+        {(page === "home" || !mobile) && (
           <motion.div
             className={`bg-vid-area ${
               location === "/" ? "bg-vid-home" : "bg-vid-standard"

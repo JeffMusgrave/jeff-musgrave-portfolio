@@ -24,7 +24,6 @@ function App() {
   });
 
   const page = useStoreState((state) => state.storeContent.page);
-  console.log(page);
   const setMobile = useStoreActions(
     (actions) => actions.storeContent.setMobileDevice
   );

@@ -30,7 +30,6 @@ const Home = (props) => {
         >
           <motion.path
             variants={fade}
-            animate
             fillRule="evenodd"
             clipRule="evenodd"
             d="M20.2426 25.9828L0.443602 6.18383L6.10046 0.526973L31.5563 25.9828L6.10046 51.4387L0.443603 45.7818L20.2426 25.9828Z"
@@ -38,7 +37,6 @@ const Home = (props) => {
           />
           <motion.path
             variants={fade}
-            animate
             fillRule="evenodd"
             clipRule="evenodd"
             d="M41.4975 25.9828L21.6985 6.18383L27.3553 0.526973L52.8112 25.9828L27.3553 51.4387L21.6985 45.7818L41.4975 25.9828Z"
