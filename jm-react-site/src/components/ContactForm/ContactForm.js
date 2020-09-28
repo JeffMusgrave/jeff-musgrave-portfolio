@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useStoreState } from "easy-peasy";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import TextareaAutosize from "react-autosize-textarea";
 import axios from "axios";
 
 import { fadeSettings as fade } from "../../variables/variables";
@@ -90,7 +91,7 @@ export default function ContactForm() {
           </Email>
           <Message>
             <label htmlFor="msg">Message</label>
-            <motion.textarea
+            <TextareaAutosize
               ref={register({
                 required: true,
                 minLength: 5,
@@ -102,7 +103,8 @@ export default function ContactForm() {
               name="user_message"
               rows="5"
               placeholder="Your Message"
-            ></motion.textarea>
+              onResize={(e) => {}}
+            />
           </Message>
           <input
             type="hidden"

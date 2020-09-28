@@ -59,9 +59,10 @@ const Label = css`
 const formGrid = css`
   display: grid;
   gap: var(--lg);
-  grid-template-rows: var(--xxl) var(--xxl) var(--form-message) var(
-      --form-submit
-    );
+  grid-template-rows: var(--xxl) var(--xxl) minmax(
+      var(--form-message),
+      min-content
+    ) var(--form-submit);
   grid-template-areas:
     "Name"
     "Email"
