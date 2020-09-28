@@ -56,13 +56,14 @@ const NavList = () => {
           Home
         </NavLink>
       )}
+      <NavLink to="/design" onClick={menuVis}>
+        Design
+      </NavLink>
 
       <NavLink to="/video" onClick={menuVis}>
         Video
       </NavLink>
-      <NavLink to="/design" onClick={menuVis}>
-        Design
-      </NavLink>
+
       <NavLink to="/code" onClick={menuVis}>
         Code
       </NavLink>

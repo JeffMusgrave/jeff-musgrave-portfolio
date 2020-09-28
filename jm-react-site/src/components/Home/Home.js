@@ -22,7 +22,7 @@ const Home = (props) => {
         <span></span>
       </SubTitle>
 
-      <Chevron variants={fade} to="/video">
+      <Chevron variants={fade} to="/design">
         <svg
           width="53"
           height="52"

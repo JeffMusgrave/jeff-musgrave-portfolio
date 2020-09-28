@@ -13,8 +13,8 @@ const SwitchContainer = () => {
     <Switch>
       <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
       <Route path="/" exact component={Home} />
-      <Route path="/video" component={Video} />
       <Route path="/design" component={Design} />
+      <Route path="/video" component={Video} />
       <Route path="/code" component={Code} />
       <Route path="/about" component={About} />
       <Route component={NotFound} />
