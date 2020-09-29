@@ -40,8 +40,6 @@ function App() {
     setMobile(isMobile);
   });
 
-  console.log(isMobile);
-
   const hasMounted = useHasMounted();
   if (!hasMounted) {
     return null;
