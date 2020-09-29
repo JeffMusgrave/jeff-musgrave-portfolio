@@ -3,11 +3,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
+import { Anchorme } from "react-anchorme";
 
 import { fadeSettings as fade } from "../../variables/variables";
 
-import { H2, H3, Paragraph } from "../../styled/Text.styled";
-import { Blurb } from "./Description.styled";
+import { H2, H3, Paragraph, Anchor } from "../../styled/Text.styled";
+import { Blurb, Button } from "./Description.styled";
 
 const Description = React.memo(({ blurb, staticDesc = null }) => {
   const route = useLocation().pathname;
@@ -24,24 +25,20 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
 
     return (
       <>
-        {location === "video" ? (
-          <>
-            <H2 variants={fade} key={`section_Heading2_${idx}`}>
-              {heading}
-            </H2>
-            {subheading || subheadingtwo ? (
-              <H3 variants={fade} key={`descr-article_H3_${idx}`}>
-                {subheading ? (
-                  <span key={`desc-span1_${idx}`}>{subheading}</span>
-                ) : null}
-                {subheadingtwo ? (
-                  <span key={`desc-span2_${idx}`}>{subheadingtwo}</span>
-                ) : null}
-              </H3>
-            ) : null}
-          </>
-        ) : (
-          <H3 variants={fade} key={`h-${idx}`}>{`${heading}`}</H3>
+        {!!heading && (
+          <H2 variants={fade} key={`section_Heading2_${idx}`}>
+            {heading}
+          </H2>
+        )}
+        {(!!subheading || !!subheadingtwo) && (
+          <H3 variants={fade} key={`descr-article_H3_${idx}`}>
+            {!!subheading && (
+              <span key={`desc-span1_${idx}`}>{subheading}</span>
+            )}
+            {!!subheadingtwo && (
+              <span key={`desc-span2_${idx}`}>{subheadingtwo}</span>
+            )}
+          </H3>
         )}
       </>
     );
@@ -56,8 +53,37 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
         <>
           {paragraphs.map((e, index) => (
             <Paragraph variants={fade} key={`p-${idx}-${index}`}>
-              {e}
+              <Anchorme
+                linkComponent={Anchor}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {e}
+              </Anchorme>
             </Paragraph>
+          ))}
+        </>
+      );
+    } else {
+      return null;
+    }
+  };
+
+  const ButtonLink = ({ idx, staticDesc }) => {
+    const currItem = content[info[idx]];
+    const { links } = staticDesc ? staticDesc : currItem;
+    if (links) {
+      return (
+        <>
+          {links.map((e, index) => (
+            <Button
+              href={e.url}
+              target="_blank"
+              variants={fade}
+              key={`button-${idx}-${index}`}
+            >
+              {e.title}
+            </Button>
           ))}
         </>
       );
@@ -68,13 +94,15 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
 
   return (
     <Blurb blurb={blurb} location={location}>
-      {activeTab.map((e, idx) =>
-        e ? (
-          <React.Fragment key={`desc-fragment-${idx}`}>
-            <SubHeadingContent idx={idx} staticDesc={staticDesc} />
-            <ParagraphContent idx={idx} staticDesc={staticDesc} />
-          </React.Fragment>
-        ) : null
+      {activeTab.map(
+        (e, idx) =>
+          !!e && (
+            <React.Fragment key={`desc-fragment-${idx}`}>
+              <SubHeadingContent idx={idx} staticDesc={staticDesc} />
+              <ParagraphContent idx={idx} staticDesc={staticDesc} />
+              <ButtonLink idx={idx} staticDesc={staticDesc} />
+            </React.Fragment>
+          )
       )}
     </Blurb>
   );

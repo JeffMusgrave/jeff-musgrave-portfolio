@@ -53,7 +53,7 @@ const Selected = css`
 `;
 
 const TextButton = css`
-  font-size: clamp(0.8rem, 1.33rem, 1vw);
+  font-size: clamp(0.75rem, 1.33rem, 0.75vw);
   color: var(--shade-1);
   border-bottom: 0.25rem solid transparent;
   margin-right: 2.5rem;

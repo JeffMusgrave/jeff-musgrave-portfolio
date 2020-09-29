@@ -38,6 +38,7 @@ const VideoBackground = () => {
               onLoadedData={onLoadedData}
               animate
               variants={fade}
+              videoLoaded={videoLoaded}
             >
               <source src={content[0].video} type="video/webm"></source>
             </VidLoop>
