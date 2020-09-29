@@ -1,12 +1,8 @@
-// Styled Component version doesn't work right now.
-
 import React, { useState, useLayoutEffect } from "react";
-import { motion } from "framer-motion";
 import { useStoreState } from "easy-peasy";
 import contentLoader from "../../data/backgroundContent.js";
 import { fadeSettings as fade } from "../../variables/variables";
-
-import "./VideoBackground.css";
+import { BgVidContainer, VidOverlay, VidLoop } from "./VideoBackground.styled";
 
 const VideoBackground = () => {
   const page = useStoreState((state) => state.storeContent.page);
@@ -26,33 +22,26 @@ const VideoBackground = () => {
     setVideoLoaded(true);
   };
 
+  console.log(videoLoaded);
+
   if (content.length > 0) {
     return (
       <>
         {(page === "home" || !mobile) && (
-          <motion.div
-            className={`bg-vid-area ${
-              page === "home" ? "bg-vid-home" : "bg-vid-standard"
-            }`}
-            animate
-            variants={fade}
-          >
-            <div className={page === "home" ? "vid-overlay" : ""}></div>
-
-            <motion.video
-              className="video-loop"
+          <BgVidContainer page={page}>
+            <VidOverlay page={page} videoLoaded={videoLoaded} />
+            <VidLoop
               playsInline
               autoPlay
               muted
               loop
               onLoadedData={onLoadedData}
-              style={{ opacity: videoLoaded ? 1 : 0 }}
               animate
               variants={fade}
             >
               <source src={content[0].video} type="video/webm"></source>
-            </motion.video>
-          </motion.div>
+            </VidLoop>
+          </BgVidContainer>
         )}
       </>
     );

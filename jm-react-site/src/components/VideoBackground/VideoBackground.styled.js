@@ -38,7 +38,7 @@ export const VidLoop = styled(motion.video)`
   z-index: -4;
   position: absolute;
   will-change: opacity;
-  opacity: ${(props) => (props.videoLoaded ? `1` : `0`)};
+  /* opacity: ${(props) => (props.videoLoaded ? `1` : `0`)}; */
 `;
 
 const OverlayStyle = css`
