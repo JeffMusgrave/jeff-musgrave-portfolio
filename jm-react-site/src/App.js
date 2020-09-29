@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useStoreActions, useStoreState } from "easy-peasy";
+import { isMobile } from "react-device-detect";
 
 import { CSSVars } from "./styled/Variables.styled";
 import { Body } from "./styled/Global.styled";
@@ -15,7 +16,6 @@ import Footer from "./components/Footer/Footer";
 import VideoBackground from "./components/VideoBackground/VideoBackground";
 
 import { fadeSettings as fade } from "./variables/variables";
-import useDeviceDetect from "./utils/useDeviceDetect";
 import useHasMounted from "./utils/useHasMounted";
 
 import "./App.css";
@@ -29,20 +29,18 @@ function App() {
   });
 
   const page = useStoreState((state) => state.storeContent.page);
+
+  const pgTitle = pgName.charAt(0).toUpperCase() + pgName.slice(1);
+
   const setMobile = useStoreActions(
     (actions) => actions.storeContent.setMobileDevice
   );
 
-  const pgTitle = pgName.charAt(0).toUpperCase() + pgName.slice(1);
-
-  const { isMobile } = useDeviceDetect();
   useEffect(() => {
     setMobile(isMobile);
   });
 
-  const mobileDevice = useStoreState(
-    (state) => state.storeContent.mobileDevice
-  );
+  console.log(isMobile);
 
   const hasMounted = useHasMounted();
   if (!hasMounted) {
@@ -56,7 +54,7 @@ function App() {
         <title>Jeff Musgrave | {pgTitle}</title>
       </Helmet>
       <CSSVars />
-      <Body page={page} mobile={mobileDevice} />
+      <Body page={page} mobile={isMobile} />
       <FlexContainer>
         <Grid>
           <Header />

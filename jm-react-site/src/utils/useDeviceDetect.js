@@ -1,5 +1,6 @@
 import React from "react";
 
+// Unused.
 // from https://reedbarger.com/how-to-create-a-custom-usedevicedetect-react-hook/
 
 export default function useDeviceDetect() {
@@ -13,6 +14,7 @@ export default function useDeviceDetect() {
         /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
       )
     );
+
     setMobile(mobile);
   }, []);
 

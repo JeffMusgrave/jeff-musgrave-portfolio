@@ -13,7 +13,7 @@ const contentModel = {
   menu: false,
   lightbox: false,
   srcIndex: 0,
-  mobileDevice: true,
+  mobileDevice: null,
 
   //actions
   loadContent: action((state, payload) => {

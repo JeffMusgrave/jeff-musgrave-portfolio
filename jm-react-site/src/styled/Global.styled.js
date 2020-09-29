@@ -16,9 +16,18 @@ const DesktopBodyAfter = css`
   }
 `;
 
+const MobileBodyAfter = css`
+  body::after {
+    content: "";
+    position: fixed;
+    background-image: none;
+    background-color: transparent;
+  }
+`;
+
 export const Body = createGlobalStyle`
 
-${(props) => !props.mobile && DesktopBodyAfter}
+${(props) => (!props.mobile ? DesktopBodyAfter : MobileBodyAfter)}
 
 body,
 html {

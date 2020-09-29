@@ -12,6 +12,7 @@
     "fslightbox-react": "^1.5.0",
     "react": "^16.13.1",
     "react-autosize-textarea": "^7.1.0",
+    "react-device-detect": "^1.13.1",
     "react-div-100vh": "^0.5.5",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
@@ -46,5 +47,11 @@
   },
   "devDependencies": {
     "react-snap": "^1.23.0"
+  },
+  "reactSnap": {
+    "viewport": {
+      "width": 375,
+      "height": 667
+    }
   }
 }
