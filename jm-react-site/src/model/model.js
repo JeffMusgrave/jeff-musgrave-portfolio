@@ -1,4 +1,4 @@
-import { action } from "easy-peasy";
+import { action, debug } from "easy-peasy";
 import allContent from "../data/content";
 
 const contentModel = {
@@ -34,7 +34,9 @@ const contentModel = {
     if (state.pageContent && state.info.length > id) {
       state.items = state.pageContent[state.info[id]].items;
       state.activeTab = state.activeTab.map((e, idx) => (idx === id ? 1 : 0));
-      state.tabSuccess = true;
+      if (state.assignTab !== null) {
+        state.tabSuccess = true;
+      }
     }
   }),
 
