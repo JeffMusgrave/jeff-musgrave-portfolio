@@ -7,6 +7,7 @@ const contentModel = {
   page: " ",
   pageContent: {},
   info: [],
+  assignTab: null,
   activeTab: [],
   items: [],
   isLoaded: false,
@@ -14,6 +15,7 @@ const contentModel = {
   lightbox: false,
   srcIndex: 0,
   mobileDevice: null,
+  tabSuccess: false,
 
   //actions
   loadContent: action((state, payload) => {
@@ -33,8 +35,19 @@ const contentModel = {
   }),
 
   setActiveTab: action((state, id) => {
-    state.activeTab = state.activeTab.map((e, idx) => (idx === id ? 1 : 0));
-    state.items = state.pageContent[state.info[id]].items;
+    if (state.pageContent && state.info.length > id) {
+      state.items = state.pageContent[state.info[id]].items;
+      state.activeTab = state.activeTab.map((e, idx) => (idx === id ? 1 : 0));
+      state.tabSuccess = true;
+    }
+  }),
+
+  setTabSuccess: action((state, payload) => {
+    state.tabSuccess = payload;
+  }),
+
+  setAssignTab: action((state, payload) => {
+    state.assignTab = payload;
   }),
 
   setNotFound: action((state) => {

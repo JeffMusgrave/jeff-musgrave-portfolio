@@ -24,7 +24,7 @@ export const Anchor = styled(motion.a)`
 
 export const H1 = styled(motion.h1)`
   font-weight: 300;
-  font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xl)`)};
+  font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xlm)`)};
   color: ${(props) => (props.color ? props.color : `var(--shade-2)`)};
 
   @media screen and (max-width: 1280px) {
@@ -34,7 +34,7 @@ export const H1 = styled(motion.h1)`
     background-color: var(--shade-6-alpha-half);
     text-align: center;
     padding: var(--xs) var(--xl);
-    font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xl)`)};
+    font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xlm)`)};
   }
 
   @media screen and (max-width: 768px) {

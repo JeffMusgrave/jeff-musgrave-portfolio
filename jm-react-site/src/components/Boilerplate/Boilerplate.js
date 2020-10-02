@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
@@ -19,13 +19,23 @@ const FoundPage = ({ thePage }) => {
 
 const StandardBoilerPlate = ({ thePage, FoundPage }) => {
   const location = useLocation().pathname.substr(1);
-
   const loadContent = useStoreActions(
     (actions) => actions.storeContent.loadContent
   );
-
   const resetContent = useStoreActions(
     (actions) => actions.storeContent.resetContent
+  );
+  const assignTab = useStoreState((state) => state.storeContent.assignTab);
+  const info = useStoreState((state) => state.storeContent.info);
+  const tabSuccess = useStoreState((state) => state.storeContent.tabSuccess);
+  const setTabSuccess = useStoreActions(
+    (actions) => actions.storeContent.setTabSuccess
+  );
+  const setAssignTab = useStoreActions(
+    (actions) => actions.storeContent.setAssignTab
+  );
+  const setActiveTab = useStoreActions(
+    (actions) => actions.storeContent.setActiveTab
   );
 
   useEffect(() => {
@@ -34,6 +44,16 @@ const StandardBoilerPlate = ({ thePage, FoundPage }) => {
       resetContent();
     };
   }, [loadContent, location, resetContent]);
+
+  useLayoutEffect(() => {
+    if (assignTab) {
+      setActiveTab(assignTab);
+      if (tabSuccess) {
+        setAssignTab(null);
+        setTabSuccess(false);
+      }
+    }
+  }, [info]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

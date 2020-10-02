@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 //prettier-ignore
 export const Blurb = styled.aside`
@@ -12,7 +13,7 @@ export const Blurb = styled.aside`
   }
 `;
 
-export const Button = styled.a`
+const BottomLinkStyle = css`
   display: inline-block;
   font-weight: 500;
   font-size: var(--md);
@@ -31,10 +32,17 @@ export const Button = styled.a`
   }
 
   &:hover {
-    background-color: var(--warning);
+    background-color: var(--shade-1);
     color: var(--shade-6);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    mix-blend-mode: overlay;
   }
+`;
+
+export const Button = styled.a`
+  ${BottomLinkStyle}
+`;
+
+export const PageLink = styled(Link)`
+  ${BottomLinkStyle}
 `;

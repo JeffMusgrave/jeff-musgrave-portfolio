@@ -22,8 +22,6 @@ const VideoBackground = () => {
     setVideoLoaded(true);
   };
 
-  console.log(videoLoaded);
-
   if (content.length > 0) {
     return (
       <>

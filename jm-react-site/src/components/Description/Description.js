@@ -2,13 +2,13 @@
 
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { useStoreState } from "easy-peasy";
+import { useStoreState, useStoreActions } from "easy-peasy";
 import { Anchorme } from "react-anchorme";
 
 import { fadeSettings as fade } from "../../variables/variables";
 
 import { H2, H3, Paragraph, Anchor } from "../../styled/Text.styled";
-import { Blurb, Button } from "./Description.styled";
+import { Blurb, Button, PageLink } from "./Description.styled";
 
 const Description = React.memo(({ blurb, staticDesc = null }) => {
   const route = useLocation().pathname;
@@ -70,21 +70,38 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
   };
 
   const ButtonLink = ({ idx, staticDesc }) => {
+    const setAssignTab = useStoreActions(
+      (actions) => actions.storeContent.setAssignTab
+    );
     const currItem = content[info[idx]];
-    const { links } = staticDesc ? staticDesc : currItem;
-    if (links) {
+    const { links, internalLinks } = staticDesc ? staticDesc : currItem;
+    if (links || internalLinks) {
       return (
         <>
-          {links.map((e, index) => (
-            <Button
-              href={e.url}
-              target="_blank"
-              variants={fade}
-              key={`button-${idx}-${index}`}
-            >
-              {e.title}
-            </Button>
-          ))}
+          {!!links &&
+            links.map((e, index) => (
+              <Button
+                href={e.url}
+                target="_blank"
+                variants={fade}
+                key={`button-${idx}-${index}`}
+              >
+                {e.title}
+              </Button>
+            ))}
+
+          {!!internalLinks &&
+            internalLinks.map((e, index) => (
+              <PageLink
+                onClick={() => {
+                  setAssignTab(e.tab);
+                }}
+                to={e.link}
+                key={`PageLink-${idx}-${index}`}
+              >
+                {e.title}
+              </PageLink>
+            ))}
         </>
       );
     } else {

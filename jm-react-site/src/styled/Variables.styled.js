@@ -32,6 +32,7 @@ export const CSSVars = createGlobalStyle`
   --standard: 2.5rem;
   --half: 1.125rem;
   --xxl: 5rem;
+  --xlm:3rem;
   --xl: 2.5rem;
   --lg: 2.25rem;
   --ml: 1.5rem;
@@ -62,7 +63,6 @@ export const CSSVars = createGlobalStyle`
 @media screen and (max-width: 1550px) {
   :root {
     --xxl: 4.5rem;
-    --xl: 2.5rem;
     --lg: 1.75rem;
     --ml: 1.33rem;
     --md: 1.15rem;
@@ -94,6 +94,7 @@ export const CSSVars = createGlobalStyle`
     --form-message: 10rem;
     --xxl: 3.5rem;
     --thumbtab-vid: 8rem;
+    --xlm:2.5rem;
     --xl: 2.125rem;
     --lg: 1.75rem;
     --ml: 1.33rem;
@@ -117,6 +118,7 @@ export const CSSVars = createGlobalStyle`
   :root {
     --form-message: 8rem;
     --xxl: 3rem;
+    --xlm:2.25rem;
     --xl: 2rem;
     --lg: 1.5rem;
     --ml: 1.25rem;
@@ -133,6 +135,7 @@ export const CSSVars = createGlobalStyle`
 
 @media screen and (max-width: 590px) {
   :root {
+    --xlm:3rem;
     --xl: 2rem;
     --lg: 1.33rem;
     --ml: 1.125rem;

@@ -2,10 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 export const content = {
   Neural: {
     heading: "Machine Learning Video Pipeline",
-    subheading:
-      "Music videos and neural networks. Machine learning for the arts.",
     description:
-      "0. labore aliqua voluptate et sunt amet. Velit aliquip ex consectetur aute dolore duis consectetur deserunt fugiat aute sint.",
+      "0. labore aliqua voluptate et sunt amet. Velit aliquip ex consectetur aute dolore duis consectetur deserunt fugiat https://www.google.com aute sint.",
     items: [
       {
         video: require("../img/portfolioItems/video/MLPipelinePreview.webm"),
@@ -18,11 +16,10 @@ export const content = {
         id: uuidv4(),
       },
     ],
+    internalLinks: [{ title: "Pipeline", link: "/code", tab: 2 }],
   },
   Macro: {
     heading: "Macro Videography",
-    subheading: "A galactic burst of color",
-    subheadingtwo: "Through paint bubbles",
     description:
       "1. Ipsum  Esse tempor aliqua consectetur excepteur sit fugiat deserunt dolor. Dolore culpa sit dolor magna cillum ut eiusmod.",
     items: [
@@ -40,8 +37,6 @@ export const content = {
   },
   "Stop Motion": {
     heading: "Stop Motion",
-    subheading: "Claymation",
-    subheadingtwo: "Stop Motion Photography",
     description:
       "2. Duis sunt sunt magna ut veniam ipsum adipisicing aliquip qui cupidatat. Dolor tempor consectetur cillum excepteur officia laborum est tempor ullamco sit tempor.lorem ipsum dolor",
     items: [
