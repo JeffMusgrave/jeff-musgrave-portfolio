@@ -1,4 +1,4 @@
-import { action, debug } from "easy-peasy";
+import { action } from "easy-peasy";
 import allContent from "../data/content";
 
 const contentModel = {
