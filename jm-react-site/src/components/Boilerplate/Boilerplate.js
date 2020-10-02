@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState, useRef } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
@@ -26,7 +26,6 @@ const StandardBoilerPlate = ({ thePage, FoundPage }) => {
     (actions) => actions.storeContent.resetContent
   );
   const assignTab = useStoreState((state) => state.storeContent.assignTab);
-  const info = useStoreState((state) => state.storeContent.info);
   const tabSuccess = useStoreState((state) => state.storeContent.tabSuccess);
   const setTabSuccess = useStoreActions(
     (actions) => actions.storeContent.setTabSuccess
@@ -45,7 +44,7 @@ const StandardBoilerPlate = ({ thePage, FoundPage }) => {
     };
   }, [loadContent, location, resetContent]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (assignTab) {
       setActiveTab(assignTab);
       if (tabSuccess) {
@@ -53,7 +52,7 @@ const StandardBoilerPlate = ({ thePage, FoundPage }) => {
         setTabSuccess(false);
       }
     }
-  }, [info]);
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
