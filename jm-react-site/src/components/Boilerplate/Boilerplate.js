@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
@@ -30,7 +30,7 @@ const Boilerplate = ({ thePage }) => {
     };
   }, [loadContent, location, resetContent]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (assignTab) {
       setActiveTab(assignTab);
       if (tabSuccess) {
@@ -38,7 +38,8 @@ const Boilerplate = ({ thePage }) => {
         setTabSuccess(false);
       }
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [info]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
