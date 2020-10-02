@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
-import { useStoreActions } from "easy-peasy";
+import React from "react";
 import PageTitle from "../PageTitle/PageTitle";
 import { Main, PageLink } from "./NotFound.styled";
 import { H2, Paragraph } from "../../styled/Text.styled";
 
 const NotFound = (props) => {
-  const setNotFound = useStoreActions(
-    (actions) => actions.storeContent.setNotFound
-  );
-  useEffect(() => {
-    setNotFound();
-    // eslint-disable-next-line
-  }, []);
-
   return (
     <>
       <PageTitle pageTitle={"404"} />
