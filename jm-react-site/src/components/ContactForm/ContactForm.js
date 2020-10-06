@@ -18,7 +18,7 @@ import {
   Thanks,
 } from "./ContactForm.styled";
 
-export default function ContactForm() {
+const ContactForm = () => {
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
   const info = useStoreState((state) => state.storeContent.info);
 
@@ -132,4 +132,6 @@ export default function ContactForm() {
   } else {
     return null;
   }
-}
+};
+
+export default React.memo(ContactForm);

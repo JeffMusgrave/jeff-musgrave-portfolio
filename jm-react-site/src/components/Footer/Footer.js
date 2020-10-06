@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, FontToggle } from "./Footer.styled";
+import { fadeSettings as fade } from "../../variables/variables";
 
 export default function Footer() {
   const [fontScale, setFontScale] = useState(false);
@@ -14,7 +15,13 @@ export default function Footer() {
 
   return (
     <Container>
-      <FontToggle onClick={fontSizeToggle}>
+      <FontToggle
+        variants={fade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        onClick={fontSizeToggle}
+      >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.28 14.11">
           <path
             d="M5.76,11.44,5.4,10.26a.06.06,0,0,0-.06,0H2.39s0,0-.06,0L2,11.44a.14.14,0,0,1-.15.12H.3a.18.18,0,0,1-.11,0,.18.18,0,0,1,0-.13L2.77,3.28a.16.16,0,0,1,.16-.12H4.81A.15.15,0,0,1,5,3.28l2.59,8.11a.13.13,0,0,1,0,.06c0,.07,0,.11-.13.11H5.92A.16.16,0,0,1,5.76,11.44ZM2.81,8.91H4.92s.07,0,0-.08L3.89,5.27s0,0,0,0,0,0,0,0L2.76,8.83C2.75,8.88,2.77,8.91,2.81,8.91Z"

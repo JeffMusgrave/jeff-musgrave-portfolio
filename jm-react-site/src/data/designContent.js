@@ -14,6 +14,14 @@ export const content = {
         id: uuidv4(),
       },
       {
+        title: "Pytorch Metric Learning Logo",
+        alt: "Logo for Pytorch Metric Learning Library",
+        image: require("../img/portfolioItems/web/PML.webp"),
+        thumbnail: require("../img/portfolioItems/web/thumbs/PML_200.webp"),
+        init: require("../img/portfolioItems/web/init/PML_init.webp"),
+        id: uuidv4(),
+      },
+      {
         title: "Pay Per Click Ads and Email Signatures",
         alt: "Clear and communicative pay per click ads and email signatures.",
         image: require("../img/portfolioItems/web/SmallGraphicsSpread.webp"),

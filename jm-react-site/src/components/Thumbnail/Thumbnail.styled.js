@@ -17,16 +17,32 @@ const Flex = css`
 `;
 
 const ContainerSingle = css`
-  ${(props) => !props.thumbtab && "clip-path: margin-box;"}
+  ${(props) =>
+    !props.thumbtab &&
+    css`
+      clip-path: margin-box;
+    `}
   grid-row: row-1/row-2;
   @media screen and (max-width: 768px) {
-    ${(props) => !props.thumbtab && "height: 50vh;"}
+    ${(props) =>
+      !props.thumbtab &&
+      css`
+        height: 50vh;
+      `}
   }
   @media screen and (max-width: 768px) {
-    ${(props) => !props.thumbtab && "height: 40vh;"}
+    ${(props) =>
+      !props.thumbtab &&
+      css`
+        height: 40vh;
+      `}
   }
   @media screen and (max-width: 590px) {
-    ${(props) => !props.thumbtab && "height: 30vh;"}
+    ${(props) =>
+      !props.thumbtab &&
+      css`
+        height: 30vh;
+      `}
   }
 `;
 
@@ -37,7 +53,11 @@ export const Container = styled(motion.figure)`
   background-color: var(--shade-6-alpha);
   align-self: center;
   height: ${(props) => (props.quantity < 2 ? "auto" : "100%")};
-  ${(props) => props.clickable && "cursor: pointer;"}
+  ${(props) =>
+    props.clickable &&
+    css`
+      cursor: pointer;
+    `}
   justify-items: center;
   &,
   img {
@@ -53,7 +73,11 @@ export const Container = styled(motion.figure)`
     width: 100%;
     ${(props) => (props.quantity < 2 ? Grid : Flex)}
     ${(props) => props.quantity < 2 && ContainerSingle}
-    ${(props) => props.quantity < 2 && `clip-path: none;`}
+    ${(props) =>
+      props.quantity < 2 &&
+      css`
+        clip-path: none;
+      `}
   }
 `;
 
@@ -101,7 +125,12 @@ export const VideoContainer = styled(motion.div)`
 
   @media screen and (max-width: 768px) {
     ${(props) =>
-      props.quantity < 2 ? !props.thumbtab && "border-radius: 0;" : null}
+      props.quantity < 2
+        ? !props.thumbtab &&
+          css`
+            border-radius: 0;
+          `
+        : null}
     border-radius: 0;
   }
   video {

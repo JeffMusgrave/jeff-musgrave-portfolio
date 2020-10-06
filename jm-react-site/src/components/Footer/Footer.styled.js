@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const Container = styled.footer`
   display: flex;
@@ -10,7 +11,7 @@ export const Container = styled.footer`
   color: var(--emphasis-light-color);
 `;
 
-export const FontToggle = styled.div`
+export const FontToggle = styled(motion.div)`
   width: 1.5rem;
   cursor: pointer;
 

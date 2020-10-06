@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 export const HeaderContainer = styled.header`
@@ -54,6 +54,10 @@ export const Background = styled(motion.div)`
 
   ${(props) =>
     props.scrollDown
-      ? "background-color: var(--shade-6-alpha-med)"
-      : "display: none"};
+      ? css`
+          background-color: var(--shade-6-alpha-med);
+        `
+      : css`
+          display: none;
+        `};
 `;

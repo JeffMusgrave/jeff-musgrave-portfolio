@@ -11,8 +11,15 @@ const DesktopBodyAfter = css`
     position: fixed;
     background-image: var(--desktopbg);
     ${(props) =>
-      props.page === "home" && "background-color: var(--color-home)"};
-    ${(props) => props.page !== "home" && "background-color:var(--color-bg)"};
+      props.page === "home" &&
+      css`
+        background-color: var(--color-home);
+      `};
+    ${(props) =>
+      props.page !== "home" &&
+      css`
+        background-color: var(--color-bg);
+      `};
   }
 `;
 
