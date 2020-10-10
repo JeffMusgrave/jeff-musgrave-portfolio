@@ -12,7 +12,7 @@ import { Position, Main } from "./styled/Position.styled";
 import Header from "./components/Header/Header";
 import Fold from "./components/Fold/Fold";
 import SwitchContainer from "./components/SwitchContainer";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import VideoBackground from "./components/VideoBackground/VideoBackground";
 
 import { fadeSettings as fade } from "./variables/variables";
@@ -67,7 +67,7 @@ function App() {
               <SwitchContainer />
             </Main>
           </Position>
-          <Footer />
+          {/* <Footer /> */}
           <Fold />
           <VideoBackground />
         </Grid>

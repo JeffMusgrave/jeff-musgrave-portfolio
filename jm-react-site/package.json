@@ -10,6 +10,7 @@
     "easy-peasy": "^3.3.1",
     "framer-motion": "2.0.0-beta.65",
     "fslightbox-react": "^1.5.0",
+    "markdown-to-jsx": "^7.0.1",
     "react": "^16.13.1",
     "react-anchorme": "^2.1.0",
     "react-autosize-textarea": "^7.1.0",

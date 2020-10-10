@@ -99,3 +99,7 @@ export const Paragraph = styled(motion.p)`
     margin: var(--sm) 0 0 0;
   }
 `;
+
+export const UnorderedList = styled(motion.ul)``;
+
+export const ListItem = styled(motion.li)``;
