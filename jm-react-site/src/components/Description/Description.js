@@ -19,8 +19,6 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
   const TheCopy = ({ idx, staticDesc }) => {
     const currItem = content[info[idx]];
     const { description } = staticDesc ? staticDesc : currItem;
-    const theMD = require("../../data/markdown/code/thisSite.md");
-    console.log(theMD);
     if (description) {
       return (
         <Markdown
@@ -28,7 +26,7 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
             overrides: mdOverrides,
           }}
         >
-          {theMD}
+          {description.default}
         </Markdown>
       );
     } else {
