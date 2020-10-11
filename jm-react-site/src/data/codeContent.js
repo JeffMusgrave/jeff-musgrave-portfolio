@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 export const content = {
-  TEST: {
+  "JeffMusgrave.com": {
     description: require("./markdown/code/01-ThisSite.md"),
     items: [
       {
@@ -15,7 +15,7 @@ export const content = {
     ],
     links: [{ title: "Github", url: "https://github.com/" }],
   },
-  "This Site": {
+  "ML Pipeline": {
     description: require("./markdown/code/02-MachineLearning.md"),
     items: [
       {
@@ -29,5 +29,7 @@ export const content = {
         id: uuidv4(),
       },
     ],
+    links: [{ title: "Github", url: "https://github.com/" }],
+    internalLinks: [{ title: "Video Reel", link: "/video", tab: 0 }],
   },
 };

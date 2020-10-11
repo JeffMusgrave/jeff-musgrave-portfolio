@@ -1,1 +1,3 @@
-Here are some close-up (macro) videos I created. I did …. To make the colors vivid.
+## Macro Video
+
+This series of abstract, nebula-esque visuals were created by filming close up shots of various paints on oil. To enhance the colors, custom LUTs were created in Adobe Photoshop and fine tuned in Adobe Premiere.

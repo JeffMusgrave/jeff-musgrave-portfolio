@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 export const content = {
-  Neural: {
-    description: require("./markdown/design/01-DigitalAndPrint.md"),
+  "Machine Learning": {
+    description: require("./markdown/video/01-StyleTransfer.md"),
     items: [
       {
         video: require("../img/portfolioItems/video/MLPipelinePreview.webm"),
@@ -16,7 +16,7 @@ export const content = {
     ],
     internalLinks: [{ title: "Pipeline", link: "/code", tab: 2 }],
   },
-  Macro: {
+  "Macro Video": {
     description: require("./markdown/video/02-MacroVideo.md"),
     items: [
       {
@@ -31,7 +31,7 @@ export const content = {
       },
     ],
   },
-  "Stop Motion": {
+  Claymation: {
     description: require("./markdown/video/03-StopMotion.md"),
     items: [
       {

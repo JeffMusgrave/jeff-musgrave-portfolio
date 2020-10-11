@@ -1,4 +1,6 @@
-I have created videos in many styles. For special effects, I have sometimes utilized machine learning. The result can be surreal, painterly visuals, as you can see on this webpage. This project involved:
+## Machine Learning Style Transfer
+
+Here is a video reel of some live action videos I shot, and transformed into an animated, “rotoscoped” style. To achieve this, I utilized a machine learning method known as style transfer. The result can be surreal, painterly visuals. This project involved:
 
 - storyboarding,
 - filming,
