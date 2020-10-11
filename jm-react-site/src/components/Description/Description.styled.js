@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeSettings as fade } from "../../variables/variables";
 
 //prettier-ignore
 export const Blurb = styled.aside`
@@ -39,7 +41,12 @@ const BottomLinkStyle = css`
   }
 `;
 
-export const Button = styled.a`
+export const Button = styled(motion.a).attrs(() => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+}))`
   ${BottomLinkStyle}
 `;
 

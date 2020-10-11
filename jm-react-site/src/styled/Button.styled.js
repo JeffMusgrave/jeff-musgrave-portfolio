@@ -1,6 +1,12 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { motion } from "framer-motion";
+import { fadeSettings as fade } from "../variables/variables";
 
-const Button = styled.button.attrs((props) => ({
+const Button = styled(motion.button).attrs((props) => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
   type: props.type || "button",
 }))`
   font-size: ${`var(${(props) => (props.fontsize ? props.fontsize : "--ml")})`};

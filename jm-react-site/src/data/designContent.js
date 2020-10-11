@@ -1,9 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 export const content = {
   "Digital & Print": {
-    heading: "Hey, a second heading 3",
-    description:
-      "2 In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+    description: require("./markdown/design/01-DigitalAndPrint.md"),
     items: [
       {
         title: "White Water — Style Pitch",
@@ -75,9 +73,7 @@ export const content = {
     ],
   },
   "Album Art": {
-    heading: "Hey, a second heading 3",
-    description:
-      "2 In this here thing I have some print work that you can clearly see because it was made by me and this sentence shall go on until it ends. Then the next sentence shall begin, only to end abruptly.",
+    description: require("./markdown/design/02-AlbumArt.md"),
     items: [
       {
         title: "Half The Truth Is A Whole Lie",

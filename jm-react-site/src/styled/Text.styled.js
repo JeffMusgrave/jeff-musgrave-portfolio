@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
+import { fadeSettings as fade } from "../variables/variables";
 
 export const ALink = css`
   text-decoration: none;
@@ -18,11 +19,21 @@ export const ALink = css`
   }
 `;
 
-export const Anchor = styled(motion.a)`
+export const Anchor = styled(motion.a).attrs(() => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+}))`
   ${ALink}
 `;
 
-export const H1 = styled(motion.h1)`
+export const H1 = styled(motion.h1).attrs(() => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+}))`
   font-weight: 300;
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xlm)`)};
   color: ${(props) => (props.color ? props.color : `var(--shade-2)`)};
@@ -60,7 +71,12 @@ export const H1 = styled(motion.h1)`
   }
 `;
 
-export const H2 = styled(motion.h2)`
+export const H2 = styled(motion.h2).attrs(() => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+}))`
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--lg)`)};
   padding-bottom: ${(props) =>
     props.padbottom ? props.padbottom : `var(--sm)`};
@@ -75,22 +91,42 @@ export const H2 = styled(motion.h2)`
   }
 `;
 
-export const H3 = styled(motion.h3)`
+export const H3 = styled(motion.h3).attrs(() => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+}))`
   letter-spacing: 1pt;
   margin-bottom: 1.125rem;
 
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--md)`)};
 `;
 
-export const H4 = styled(motion.h4)`
+export const H4 = styled(motion.h4).attrs(() => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+}))`
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--sm)`)};
 `;
 
-export const H5 = styled(motion.h5)`
+export const H5 = styled(motion.h5).attrs(() => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+}))`
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xs)`)};
 `;
 
-export const Paragraph = styled(motion.p)`
+export const Paragraph = styled(motion.p).attrs(() => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+}))`
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--sm)`)};
   font-weight: 300;
   color: ${(props) => (props.color ? props.color : `var(--shade-1)`)};
@@ -100,6 +136,23 @@ export const Paragraph = styled(motion.p)`
   }
 `;
 
-export const UnorderedList = styled(motion.ul)``;
+export const UnorderedList = styled(motion.ul).attrs(() => ({
+  variants: fade,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+}))`
+  margin: var(--sm) 0;
+  list-style-position: inside;
 
-export const ListItem = styled(motion.li)``;
+  padding: 0 var(--ml);
+  font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--sm)`)};
+  font-weight: 100;
+`;
+
+export const ListItem = styled(motion.li)`
+  &::marker {
+    content: "» ";
+    margin: 5rem;
+  }
+`;
