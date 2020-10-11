@@ -26,7 +26,9 @@ const BottomLinkStyle = css`
   color: ${(props) => (props.color ? props.color : `var(--shade-1)`)};
   background-color: var(--shade-6);
 
-  & + & {
+  & + &,
+  & + a,
+  & + button {
     margin-left: 1.125rem;
   }
   &:visited {
