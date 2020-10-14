@@ -8,6 +8,7 @@ const contentModel = {
   info: [],
   assignTab: null,
   activeTab: [],
+  currTab: null,
   items: [],
   menu: false,
   lightbox: false,
@@ -20,6 +21,7 @@ const contentModel = {
     state.pageContent = allContent[payload];
     state.info = Object.keys(state.pageContent);
     state.activeTab = state.info.map((e, idx) => (idx === 0 ? 1 : 0));
+    state.currTab = state.activeTab.indexOf(1);
     state.items = state.pageContent[state.info[0]].items;
   }),
 

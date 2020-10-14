@@ -2,19 +2,16 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const Container = styled(motion.header)`
-  grid-row: header/row-1;
-  grid-column: content/col-right;
-  align-self: flex-end;
-  margin-top: 5rem;
-  margin-bottom: var(--ml);
-  margin-left: calc(-1 * var(--standard));
+  align-self: flex-start;
+  grid-row: row-0/row-1;
 
   @media screen and (max-width: 1280px) {
-    grid-row: header/row-0;
-    margin: 2rem 0 0 0;
+    grid-row: row-0/row-title;
   }
-
   @media screen and (max-width: 768px) {
+    grid-row: header/row-0;
     margin: 0;
   }
+
+  ${(props) => props.titlePos}
 `;

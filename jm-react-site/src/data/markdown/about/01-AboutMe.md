@@ -1,5 +1,3 @@
-## About me!
+# About Jeff
 
-I’m a graphic designer with over a decade of experience in the field. In addition to design, I have extensive knowledge of front end development, video editing, and audio recording, mixing, and mastering.
-
-Whatever your creative problem requires, I can solve it. To find out more, shoot me an email via the contact form on this page.
+With over a decade of graphic design and website development experience, I am an expert in the art and technology of visual presentation. I also have years of experience with video editing, audio mixing and mastering. Whatever your design, production, or communication challenge, I can create a compelling solution. Contact me to learn more.

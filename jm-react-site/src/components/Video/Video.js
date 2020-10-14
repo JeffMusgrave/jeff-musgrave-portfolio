@@ -7,20 +7,25 @@ import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
 import "../../utils/blurryLoad.css";
 
-import { Container, Blurb, ShowcasePos, TabPos } from "./Video.styled";
+import {
+  Container,
+  Blurb,
+  ShowcasePos,
+  TabPos,
+  TitlePos,
+} from "./Video.styled";
 
 const Video = () => {
   const location = useStoreState((state) => state.storeContent.page);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
-  const pageName = location.charAt(0).toUpperCase() + location.slice(1);
   const info = useStoreState((state) => state.storeContent.info);
 
   const thePage = () => {
     return (
       <>
-        <PageTitle pageTitle={pageName} />
+        <PageTitle titlePos={TitlePos} />
+        <Tabs tabPos={TabPos} />
         <Container>
-          <Tabs location={location} info={info} tabPos={TabPos} />
           {activeTab.map(
             (e, idx) =>
               !!e && <Description blurb={Blurb} key={`description_${idx}`} />

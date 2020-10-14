@@ -88,15 +88,11 @@ const StandardAlbumCheck = css`
 `;
 
 export const Album = styled.div`
-  ${(props) => props.showcasePos}
-
-  ${(props) =>
-    props.gallery
-      ? Gallery
-      : StandardAlbumCheck}
+  ${(props) => (props.gallery ? Gallery : StandardAlbumCheck)}
   @media screen and (max-width: 768px) {
     ${(props) => props.thumbPos && props.thumbPos}
     margin-right: 0;
     grid-column: content/col-right;
   }
+  ${(props) => props.showcasePos}
 `;

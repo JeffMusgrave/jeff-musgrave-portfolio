@@ -50,7 +50,7 @@ export const CSSVars = createGlobalStyle`
   --lh-xs: 2.5;
   --thumbtab-vid: 8rem;
   --bookend: 7rem;
-  --height-spacer: 25vmin;
+  --height-spacer:15vmin;
 }
 
 @media screen and (max-height: 1280px), screen and (max-width: 1550px) {
@@ -78,12 +78,13 @@ export const CSSVars = createGlobalStyle`
 @media screen and (max-width: 1344px) {
   :root {
     --thumbtab-vid: 5rem;
-    --height-spacer: 20vmin;
+    --height-spacer: 15vmin;
   }
 }
 
 @media screen and (max-height: 800px), screen and (max-width: 1280px) {
   :root {
+    --height-spacer: 5vmin;
     --form-message: 8em;
     --xxl: 3rem;
   }
@@ -135,7 +136,7 @@ export const CSSVars = createGlobalStyle`
 
 @media screen and (max-width: 590px) {
   :root {
-    --xlm:3rem;
+    --xlm:2.125rem;
     --xl: 2rem;
     --lg: 1.33rem;
     --ml: 1.125rem;

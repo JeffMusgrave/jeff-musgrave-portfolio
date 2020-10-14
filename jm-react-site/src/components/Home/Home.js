@@ -10,15 +10,34 @@ const Home = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const experienced = [
+    "Graphic Design",
+    "Website Development",
+    "Audio Mixing & Mastering",
+    "Video Editing",
+  ];
   return (
     <>
       <Title variants={fade} initial="initial" animate="animate" exit="exit">
-        <motion.span variants={fade}>Logical</motion.span>{" "}
-        <motion.span variants={fade}>Creative</motion.span>
+        <motion.span variants={fade}>Hello, I'm Jeff Musgrave,</motion.span>{" "}
+        <motion.span variants={fade}>A Creative Designer</motion.span>
       </Title>
 
       <SubTitle variants={fade} initial="initial" animate="animate" exit="exit">
-        Design and Code.
+        I have over a decade of experience in
+        {experienced.forEach((e) => (
+          <motion.div
+            initial={{ y: -26 * 1.2 }}
+            animate={{ y: 0 }}
+            transition={{
+              ease: "easeOut",
+              duration: 0.4,
+            }}
+          >
+            {e}
+          </motion.div>
+        ))}
         <span></span>
       </SubTitle>
 

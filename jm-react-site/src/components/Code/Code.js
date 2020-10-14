@@ -7,19 +7,19 @@ import Showcase from "../Showcase/Showcase";
 import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
 
-import { Container, Blurb, ShowcasePos, TabPos } from "./Code.styled";
+import { Container, Blurb, ShowcasePos, TabPos, TitlePos } from "./Code.styled";
 
 const Code = () => {
   const location = useStoreState((state) => state.storeContent.page);
-  const pageName = location.charAt(0).toUpperCase() + location.slice(1);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
+  const info = useStoreState((state) => state.storeContent.info);
 
   const thePage = () => {
     return (
       <>
-        <PageTitle key={`pagetitle`} pageTitle={pageName} />
+        <PageTitle titlePos={TitlePos} />
+        <Tabs tabPos={TabPos} />
         <Container>
-          <Tabs tabPos={TabPos} />
           {activeTab.map(
             (e, idx) =>
               !!e && <Description blurb={Blurb} key={`description_${idx}`} />

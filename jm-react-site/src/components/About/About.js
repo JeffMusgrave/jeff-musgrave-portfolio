@@ -15,11 +15,11 @@ import {
   ShowcasePos,
   TabPos,
   ThumbPos,
+  TitlePos,
 } from "./About.styled";
 
 const About = () => {
   const location = useStoreState((state) => state.storeContent.page);
-  const pageName = location.charAt(0).toUpperCase() + location.slice(1);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
   const info = useStoreState((state) => state.storeContent.info);
   const content = useStoreState((state) => state.storeContent.pageContent);
@@ -29,7 +29,8 @@ const About = () => {
   const thePage = () => {
     return (
       <>
-        <PageTitle key={`pagetitle`} pageTitle={pageName} />
+        <PageTitle titlePos={TitlePos} />
+        <Tabs tabPos={TabPos} />
         {!!activeTab[0] && (
           <Album quantity={1} showcasePos={ShowcasePos} thumbPos={ThumbPos}>
             <Thumbnail item={theItem} clickable={false} />
@@ -37,7 +38,6 @@ const About = () => {
         )}
 
         <Container viewWidth={viewWidth} activeTab={activeTab}>
-          <Tabs tabPos={TabPos} />
           {!!activeTab[0] && (
             <Description
               blurb={Blurb}

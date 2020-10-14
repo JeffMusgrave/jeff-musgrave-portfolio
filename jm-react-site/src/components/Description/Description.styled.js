@@ -5,7 +5,7 @@ import { fadeSettings as fade } from "../../variables/variables";
 
 //prettier-ignore
 export const Blurb = styled.aside`
-  ${(props) => props.blurb}
+  
   margin-bottom:2.5rem;
   @media screen and (max-width: 768px) {
     overflow: auto;
@@ -13,6 +13,7 @@ export const Blurb = styled.aside`
     grid-row: row-2/footer;
     grid-column: col-left/col-right;
   }
+  ${(props) => props.blurb}
 `;
 
 const BottomLinkStyle = css`

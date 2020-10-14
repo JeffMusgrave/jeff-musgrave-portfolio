@@ -13,7 +13,12 @@ export const content = {
         id: uuidv4(),
       },
     ],
-    links: [{ title: "Github", url: "https://github.com/" }],
+    links: [
+      {
+        title: "Github",
+        url: "https://github.com/JeffMusgrave/jeff-musgrave-portfolio",
+      },
+    ],
   },
   "ML Pipeline": {
     description: require("./markdown/code/02-MachineLearning.md"),
@@ -29,7 +34,6 @@ export const content = {
         id: uuidv4(),
       },
     ],
-    links: [{ title: "Github", url: "https://github.com/" }],
     internalLinks: [{ title: "Video Reel", link: "/video", tab: 0 }],
   },
 };

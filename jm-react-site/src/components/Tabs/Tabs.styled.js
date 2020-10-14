@@ -6,20 +6,27 @@ const NavTabs = css`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-self: flex-start;
+  grid-column: col-left/logo;
+  grid-row: row-0/row-2;
 
-  padding: ${(props) => props.padding && props.padding};
+  @media screen and (max-width: 1280px) {
+    grid-column: col-left/col-2;
+    grid-row: row-1/row-2;
+  }
 
   @media screen and (max-width: 768px) {
-    flex-direction: column;
-    margin: 0rem;
+    grid-column: col-left/col-right;
+    grid-row: row-1/row-2;
+    margin: 0 0 1.125rem 0;
   }
+
+  padding: ${(props) => props.padding && props.padding};
 `;
 
 const ThumbTabs = css`
   display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fit, 6rem);
-  grid-gap: 2.5rem;
+  gap: 2.5rem;
   grid-template-columns: repeat(auto-fit, var(--thumbtab-vid));
   grid-auto-flow: row;
 
@@ -34,8 +41,6 @@ const ThumbTabs = css`
 `;
 
 export const Container = styled(motion.nav)`
-  margin-bottom: 2rem;
-
   ${(props) => (props.thumbtabs ? ThumbTabs : NavTabs)}
   ${(props) => props.tabPos}
 `;
@@ -43,11 +48,10 @@ export const Container = styled(motion.nav)`
 // Button
 
 const Selected = css`
-  border-bottom: 0.25rem solid var(--shade-1);
+  border-left: 0.25rem solid var(--shade-1);
   outline: 0;
 
   @media screen and (max-width: 768px) {
-    border-bottom: 0rem solid transparent;
     border-left: 0.25rem solid var(--shade-1);
   }
 `;
@@ -55,12 +59,13 @@ const Selected = css`
 const TextButton = css`
   font-size: clamp(0.75rem, 1.33rem, 0.75vw);
   color: var(--shade-1);
-  border-bottom: 0.25rem solid transparent;
-  margin-right: 2.5rem;
-  padding: 1.125rem 0;
+  border-left: 0.25rem solid transparent;
+  padding: 1.125rem;
+  align-self: flex-start;
+  width: 100%;
 
   &:hover {
-    border-bottom: 0.25rem solid var(--shade-6);
+    border-left: 0.25rem solid var(--shade-6);
     outline: 0;
   }
 
@@ -73,16 +78,11 @@ const TextButton = css`
   }
 
   @media screen and (max-width: 768px) {
-    width: 100%;
     padding: 1.125rem;
     background-color: transparent;
-    border-bottom: 0 solid transparent;
-    border-left: 0.25rem solid transparent;
 
     &:hover {
       background-color: var(--shade-6-alpha);
-      border-bottom: 0 solid transparent;
-      border-left: 0.25rem solid var(--shade-6);
     }
   }
 `;
@@ -96,7 +96,6 @@ export const Button = styled.button`
   background-color: transparent;
 
   @media screen and (max-width: 768px) {
-    flex-direction: column;
     padding: 0.625rem 0 0.625rem 0;
     margin-right: 0;
   }

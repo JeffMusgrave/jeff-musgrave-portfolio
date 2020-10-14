@@ -7,23 +7,34 @@ import Showcase from "../Showcase/Showcase";
 import Description from "../Description/Description";
 import PageTitle from "../PageTitle/PageTitle";
 
-import { Article, Blurb } from "./Design.styled";
+import { Article, Blurb, ShowcasePos, TabPos, TitlePos } from "./Design.styled";
 
 const Design = () => {
   const location = useStoreState((state) => state.storeContent.page);
-  const pageName = location.charAt(0).toUpperCase() + location.slice(1);
+  const info = useStoreState((state) => state.storeContent.info);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
+
   const thePage = () => {
     return (
       <>
-        <PageTitle pageTitle={pageName} />
+        <PageTitle titlePos={TitlePos} />
+        <Tabs tabPos={TabPos} />
+        {activeTab.map(
+          (e, idx) =>
+            !!e && (
+              <Showcase
+                gallery={true}
+                idx={idx}
+                key={`showcase_${idx}`}
+                showcasePos={ShowcasePos}
+              />
+            )
+        )}
         <Article>
-          <Tabs />
           {activeTab.map(
             (e, idx) =>
               !!e && (
                 <React.Fragment key={`fragment-${idx}`}>
-                  <Showcase gallery={true} idx={idx} key={`showcase_${idx}`} />
                   <Description blurb={Blurb} key={`description_${idx}`} />
                 </React.Fragment>
               )

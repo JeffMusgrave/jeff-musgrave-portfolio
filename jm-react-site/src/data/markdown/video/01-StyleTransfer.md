@@ -1,6 +1,6 @@
-## Machine Learning Style Transfer
+# Visuals from a Neural Net
 
-Here is a video reel of some live action videos I shot, and transformed into an animated, “rotoscoped” style. To achieve this, I utilized a machine learning method known as style transfer. The result can be surreal, painterly visuals. This project involved:
+Here is a reel of some live action videos I shot. After shooting the videos, I employed specialized machine learning technology to create an animated, “rotoscoped” appearance. This "style transfer" technique makes these videos look surreal and painterly. My work in this project involved:
 
 - storyboarding,
 - filming,

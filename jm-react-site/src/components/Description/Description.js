@@ -18,7 +18,10 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
 
   const TheCopy = ({ idx, staticDesc }) => {
     const currItem = content[info[idx]];
+    const removeH1 = /(^#)(\s)(.)+/gm;
     const { description } = staticDesc ? staticDesc : currItem;
+    const pageText = description.default;
+    const viewWidth = useStoreState((state) => state.storeContent.viewWidth);
     if (description) {
       return (
         <Markdown
@@ -26,7 +29,8 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
             overrides: mdOverrides,
           }}
         >
-          {description.default}
+          {pageText.replace(removeH1, "")}
+          {/* {viewWidth ? pageText.replace(removeH1, "") : pageText} */}
         </Markdown>
       );
     } else {

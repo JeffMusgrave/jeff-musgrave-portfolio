@@ -37,8 +37,16 @@ export const H1 = styled(motion.h1).attrs(() => ({
   font-weight: 300;
   font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xlm)`)};
   color: ${(props) => (props.color ? props.color : `var(--shade-2)`)};
+  background-color: var(--shade-6);
+  padding: var(--ml) var(--standard);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  will-change: opacity;
+  /* backdrop-filter: blur(20px); */
+  /* margin-left: calc(-1 * var(--standard)); */
+  margin-bottom: 2.5rem;
 
-  @media screen and (max-width: 1280px) {
+  /* @media screen and (max-width: 1280px) {
     backdrop-filter: blur(20px);
     margin-left: 0;
     margin-bottom: 0;
@@ -46,13 +54,14 @@ export const H1 = styled(motion.h1).attrs(() => ({
     text-align: center;
     padding: var(--xs) var(--xl);
     font-size: ${(props) => (props.fontsize ? props.fontsize : `var(--xlm)`)};
-  }
+  } */
 
   @media screen and (max-width: 768px) {
     padding: var(--xxs) var(--xl);
+    margin-bottom: 0;
   }
 
-  span {
+  /* span {
     background-color: var(--shade-6);
     padding: var(--ml) var(--standard);
     box-decoration-break: clone;
@@ -68,7 +77,7 @@ export const H1 = styled(motion.h1).attrs(() => ({
       padding: 0;
       background-color: transparent;
     }
-  }
+  } */
 `;
 
 export const H2 = styled(motion.h2).attrs(() => ({

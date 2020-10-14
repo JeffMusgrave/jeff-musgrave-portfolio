@@ -12,7 +12,7 @@ export const Grid = styled.div`
   justify-self: center;
   display: grid;
   width: 80vw;
-  max-width: 1500px;
+  max-width: 1600px;
   min-height: 100vh;
   height: 100%;
 
@@ -27,18 +27,22 @@ export const Grid = styled.div`
     [col-4] 1fr [col-5] 1fr [col-right];
 
   grid-template-rows:
-    [row-top] var(--bookend) [header row-0] minmax(var(--height-spacer), 0.25fr)
+    [row-top] var(--bookend) [header] minmax(var(--height-spacer), 0.125fr)
+    [row-0] min-content
     [row-1] 1fr
     [row-2] minmax(0.2rem, 0.125fr) [footer] var(--bookend) [row-bottom];
 
   @media screen and (max-width: 1280px) {
+    max-width: 800px;
     grid-template-columns:
       [col-left content] min-content
       [logo logo-pad col-1] minmax(min-content, 1fr)
       [col-2] 1fr[col-3] 1fr
       [col-4] 1fr [col-5] 1fr [col-right];
     grid-template-rows:
-      [row-top] var(--bookend) [header row-0] min-content
+      [row-top] var(
+        --bookend
+      ) [header] 2.5rem [row-0] min-content [row-title] min-content
       [row-1] 4fr
       [row-2] minmax(0, 1fr) [footer] var(--bookend) [row-bottom];
   }

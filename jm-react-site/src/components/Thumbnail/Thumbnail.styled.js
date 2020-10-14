@@ -67,17 +67,17 @@ export const Container = styled(motion.figure)`
   ${(props) => props.thumbtab && ThumbtabSize}
   ${(props) => (props.mediaType ? Grid : Flex)}
 
-@media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1280px) {
+    ${(props) =>
+      props.quantity < 2 &&
+      css`
+        clip-path: margin-box;
+      `}
   }
   @media screen and (max-width: 768px) {
     width: 100%;
     ${(props) => (props.quantity < 2 ? Grid : Flex)}
     ${(props) => props.quantity < 2 && ContainerSingle}
-    ${(props) =>
-      props.quantity < 2 &&
-      css`
-        clip-path: none;
-      `}
   }
 `;
 
