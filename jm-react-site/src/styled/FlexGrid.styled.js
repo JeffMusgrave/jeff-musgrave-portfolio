@@ -18,7 +18,7 @@ export const Grid = styled.div`
 
   margin-bottom: 0;
   grid-template-columns:
-    [col-left] min-content
+    [col-left] minmax(15rem, min-content)
     [logo] 2.5rem [logo-pad] 2.5rem [content] 1fr [col-1] minmax(
       min-content,
       1fr
@@ -40,9 +40,8 @@ export const Grid = styled.div`
       [col-2] 1fr[col-3] 1fr
       [col-4] 1fr [col-5] 1fr [col-right];
     grid-template-rows:
-      [row-top] var(
-        --bookend
-      ) [header] 2.5rem [row-0] min-content [row-title] min-content
+      [row-top] var(--bookend)
+      [header] 2.5rem [row-0] min-content [row-title] min-content
       [row-1] 4fr
       [row-2] minmax(0, 1fr) [footer] var(--bookend) [row-bottom];
   }

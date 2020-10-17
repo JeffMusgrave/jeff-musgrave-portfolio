@@ -11,7 +11,6 @@ import { Article, Blurb, ShowcasePos, TabPos, TitlePos } from "./Design.styled";
 
 const Design = () => {
   const location = useStoreState((state) => state.storeContent.page);
-  const info = useStoreState((state) => state.storeContent.info);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
 
   const thePage = () => {
@@ -33,11 +32,7 @@ const Design = () => {
         <Article>
           {activeTab.map(
             (e, idx) =>
-              !!e && (
-                <React.Fragment key={`fragment-${idx}`}>
-                  <Description blurb={Blurb} key={`description_${idx}`} />
-                </React.Fragment>
-              )
+              !!e && <Description blurb={Blurb} key={`description_${idx}`} />
           )}
         </Article>
       </>

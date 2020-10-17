@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 // Tabs Container
 const NavTabs = css`
+  padding: ${(props) => props.padding && props.padding};
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -17,11 +18,9 @@ const NavTabs = css`
 
   @media screen and (max-width: 768px) {
     grid-column: col-left/col-right;
-    grid-row: row-1/row-2;
-    margin: 0 0 1.125rem 0;
+    grid-row: row-0/row-1;
+    margin: 0;
   }
-
-  padding: ${(props) => props.padding && props.padding};
 `;
 
 const ThumbTabs = css`
@@ -57,7 +56,7 @@ const Selected = css`
 `;
 
 const TextButton = css`
-  font-size: clamp(0.75rem, 1.33rem, 0.75vw);
+  font-size: var(--xs);
   color: var(--shade-1);
   border-left: 0.25rem solid transparent;
   padding: 1.125rem;

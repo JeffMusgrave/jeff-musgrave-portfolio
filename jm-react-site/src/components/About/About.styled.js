@@ -66,6 +66,7 @@ export const TitlePos = css`
   margin-right: 2.5rem;
   @media screen and (max-width: 1280px) {
     grid-column: col-2/col-right;
+    margin-right: 0;
   }
 
   @media screen and (max-width: 768px) {

@@ -7,17 +7,21 @@ const Gallery = css`
   min-width: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, 10rem);
+  grid-template-rows: repeat(auto-fit, 10rem);
   grid-gap: 2.5rem;
   margin-top: 2.5rem;
   @media screen and (max-width: 1600px) {
     grid-template-columns: repeat(auto-fit, 8rem);
+    grid-template-rows: repeat(auto-fit, 8rem);
   }
   @media screen and (max-width: 1280px) {
     grid-template-columns: repeat(auto-fit, 7rem);
+    grid-template-rows: repeat(auto-fit, 7rem);
     grid-gap: 1.5rem;
   }
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, 5rem);
+    grid-template-rows: repeat(auto-fit, 5rem);
     grid-gap: 2.5rem;
   }
   @media screen and (max-width: 768px) {
@@ -88,11 +92,12 @@ const StandardAlbumCheck = css`
 `;
 
 export const Album = styled.div`
+  ${(props) => props.showcasePos}
+
   ${(props) => (props.gallery ? Gallery : StandardAlbumCheck)}
   @media screen and (max-width: 768px) {
     ${(props) => props.thumbPos && props.thumbPos}
     margin-right: 0;
     grid-column: content/col-right;
   }
-  ${(props) => props.showcasePos}
 `;

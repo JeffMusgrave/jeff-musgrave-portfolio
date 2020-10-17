@@ -11,21 +11,19 @@ const PageTitle = React.memo(({ titlePos, pageTitle = null }) => {
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
   const onlyH1 = /(^#)(\s)(.)+/gm;
   const currItem = content[info[activeTab.indexOf(1)]];
-  const { description } = pageTitle ? pageTitle : currItem;
-  const heading = description.default.match(onlyH1);
+  const { description } = currItem;
+  const heading = pageTitle ? pageTitle : description.default.match(onlyH1);
 
   if (heading) {
     return (
       <Container titlePos={titlePos} variants={fade}>
-        <span>
-          <Markdown
-            options={{
-              overrides: mdOverrides,
-            }}
-          >
-            {heading.toString()}
-          </Markdown>
-        </span>
+        <Markdown
+          options={{
+            overrides: mdOverrides,
+          }}
+        >
+          {heading.toString()}
+        </Markdown>
       </Container>
     );
   } else {

@@ -34,7 +34,7 @@ export const ShowcasePos = css`
 
   @media screen and (max-width: 768px) {
     margin: 0;
-    grid-row: row-0/row-1;
+    grid-row: row-1/row-2;
   }
 `;
 
@@ -62,6 +62,6 @@ export const TabPos = css`
 
   @media screen and (max-width: 768px) {
     grid-column: col-left/col-right;
-    grid-row: row-1/row-2;
+    grid-row: row-0/row-1;
   }
 `;

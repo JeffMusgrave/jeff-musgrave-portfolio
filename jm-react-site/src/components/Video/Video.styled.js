@@ -24,10 +24,7 @@ export const TitlePos = css`
   margin-right: 2.5rem;
   @media screen and (max-width: 1280px) {
     grid-column: col-2/col-right;
-  }
-
-  @media screen and (max-width: 768px) {
-    grid-column: col-left/col-right;
+    margin-right: 0;
   }
 `;
 
@@ -50,7 +47,7 @@ export const ShowcasePos = css`
   }
 
   @media screen and (max-width: 768px) {
-    margin: 0;
-    grid-row: row-0/row-1;
+    margin: 0 0 1.125rem 0;
+    grid-row: row-1/row-2;
   }
 `;

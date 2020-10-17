@@ -29,13 +29,15 @@ const About = () => {
   const thePage = () => {
     return (
       <>
-        <PageTitle titlePos={TitlePos} />
+        <PageTitle
+          pageTitle={activeTab[1] && `# Contact`}
+          titlePos={TitlePos}
+        />
         <Tabs tabPos={TabPos} />
-        {!!activeTab[0] && (
-          <Album quantity={1} showcasePos={ShowcasePos} thumbPos={ThumbPos}>
-            <Thumbnail item={theItem} clickable={false} />
-          </Album>
-        )}
+
+        <Album quantity={1} showcasePos={ShowcasePos} thumbPos={ThumbPos}>
+          <Thumbnail item={theItem} clickable={false} />
+        </Album>
 
         <Container viewWidth={viewWidth} activeTab={activeTab}>
           {!!activeTab[0] && (

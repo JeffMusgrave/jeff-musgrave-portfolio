@@ -12,7 +12,6 @@ import { Container, Blurb, ShowcasePos, TabPos, TitlePos } from "./Code.styled";
 const Code = () => {
   const location = useStoreState((state) => state.storeContent.page);
   const activeTab = useStoreState((state) => state.storeContent.activeTab);
-  const info = useStoreState((state) => state.storeContent.info);
 
   const thePage = () => {
     return (

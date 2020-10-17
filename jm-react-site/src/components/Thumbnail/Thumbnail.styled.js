@@ -20,7 +20,7 @@ const ContainerSingle = css`
   ${(props) =>
     !props.thumbtab &&
     css`
-      clip-path: margin-box;
+      clip-path: unset;
     `}
   grid-row: row-1/row-2;
   @media screen and (max-width: 768px) {
@@ -47,6 +47,11 @@ const ContainerSingle = css`
 `;
 
 export const Container = styled(motion.figure)`
+  &:before {
+    content: "";
+    padding-top: 100%;
+    grid-area: 1/1/1/1;
+  }
   justify-self: flex-start;
   width: 100%;
   clip-path: circle();
@@ -71,13 +76,16 @@ export const Container = styled(motion.figure)`
     ${(props) =>
       props.quantity < 2 &&
       css`
-        clip-path: margin-box;
+        clip-path: unset;
       `}
   }
   @media screen and (max-width: 768px) {
     width: 100%;
     ${(props) => (props.quantity < 2 ? Grid : Flex)}
     ${(props) => props.quantity < 2 && ContainerSingle}
+    &:before {
+      content: none;
+    }
   }
 `;
 
@@ -146,13 +154,7 @@ export const VideoContainer = styled(motion.div)`
       object-fit: cover;
     }
   }
-  &::before,
-  img::before,
-  video::before {
-    content: "";
-    float: left;
-    padding-top: 100%;
-  }
+
   @media screen and (max-width: 768px) {
     background-position: center bottom;
     margin: 0;
