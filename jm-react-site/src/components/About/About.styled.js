@@ -62,7 +62,7 @@ export const TabPos = css`
 `;
 
 export const TitlePos = css`
-  grid-column: content/col-3;
+  grid-column: content/col-4;
   margin-right: 2.5rem;
   @media screen and (max-width: 1280px) {
     grid-column: col-2/col-right;

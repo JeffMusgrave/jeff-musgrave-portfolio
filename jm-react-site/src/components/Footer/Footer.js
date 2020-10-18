@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "./Footer.styled";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useStoreActions } from "easy-peasy";
+import { Container, ContactLink } from "./Footer.styled";
 import { fadeSettings as fade } from "../../variables/variables";
 
 export default function Footer() {
@@ -11,14 +11,14 @@ export default function Footer() {
 
   return (
     <Container>
-      <Link
+      <ContactLink
         onClick={() => {
           setAssignTab(1);
         }}
         to={"/about"}
       >
-        Contact Me
-      </Link>
+        <motion.div>Contact Me</motion.div>
+      </ContactLink>
     </Container>
   );
 }

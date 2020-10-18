@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const Container = styled.footer`
+  @media screen and (min-width: 1281px) {
+    position: fixed;
+    bottom: 0;
+    margin: 2.5rem;
+  }
   display: flex;
   grid-column: col-left/col-right;
   grid-row: footer/row-bottom;
@@ -14,11 +20,16 @@ export const Container = styled.footer`
   }
 `;
 
-export const FontToggle = styled(motion.div)`
-  width: 1.5rem;
-  cursor: pointer;
-
-  svg {
-    fill: var(--shade-2);
+export const ContactLink = styled(Link)`
+  div {
+    color: var(--shade-3);
+    text-decoration: none;
+    opacity: 0.5;
+  }
+  &:hover,
+  &:link,
+  &:visited {
+    opacity: 1;
+    text-decoration: none;
   }
 `;

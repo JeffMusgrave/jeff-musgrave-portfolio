@@ -20,7 +20,8 @@ const ContainerSingle = css`
   ${(props) =>
     !props.thumbtab &&
     css`
-      clip-path: unset;
+      clip-path: none;
+      overflow: hidden;
     `}
   grid-row: row-1/row-2;
   @media screen and (max-width: 768px) {
@@ -76,7 +77,8 @@ export const Container = styled(motion.figure)`
     ${(props) =>
       props.quantity < 2 &&
       css`
-        clip-path: unset;
+        clip-path: none;
+        overflow: hidden;
       `}
   }
   @media screen and (max-width: 768px) {

@@ -101,7 +101,7 @@ const ContactForm = () => {
               variants={fade}
               id="msg"
               name="user_message"
-              rows="5"
+              rows={5}
               placeholder="Your Message"
               onResize={(e) => {}}
             />

@@ -4,6 +4,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import Markdown from "markdown-to-jsx";
+import { motion } from "framer-motion";
 
 import { fadeSettings as fade, mdOverrides } from "../../variables/variables";
 
@@ -20,16 +21,16 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
     const currItem = content[info[idx]];
     const removeH1 = /(^#)(\s)(.)+/gm;
     const { description } = staticDesc ? staticDesc : currItem;
-    const pageText = description.default;
 
     if (description) {
+      const descriptionText = description.default.replace(removeH1, "");
       return (
         <Markdown
           options={{
             overrides: mdOverrides,
           }}
         >
-          {pageText.replace(removeH1, "")}
+          {descriptionText}
         </Markdown>
       );
     } else {
@@ -67,7 +68,14 @@ const Description = React.memo(({ blurb, staticDesc = null }) => {
                 to={e.link}
                 key={`PageLink-${idx}-${index}`}
               >
-                {e.title}
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={fade}
+                >
+                  {e.title}
+                </motion.div>
               </PageLink>
             ))}
         </>

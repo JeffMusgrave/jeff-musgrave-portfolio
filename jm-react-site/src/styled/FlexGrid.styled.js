@@ -18,7 +18,7 @@ export const Grid = styled.div`
 
   margin-bottom: 0;
   grid-template-columns:
-    [col-left] minmax(15rem, min-content)
+    [col-left] minmax(15.7rem, min-content)
     [logo] 2.5rem [logo-pad] 2.5rem [content] 1fr [col-1] minmax(
       min-content,
       1fr

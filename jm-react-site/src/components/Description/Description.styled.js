@@ -54,5 +54,7 @@ export const Button = styled(motion.a).attrs(() => ({
 `;
 
 export const PageLink = styled(Link)`
-  ${BottomLinkStyle}
+  div {
+    ${BottomLinkStyle}
+  }
 `;
