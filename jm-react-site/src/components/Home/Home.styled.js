@@ -9,7 +9,7 @@ export const Title = styled(motion.h1)`
   align-self: center;
   mix-blend-mode: difference;
   color: var(--shade-1);
-  font-size: 6rem;
+  font-size: 5vw;
 
   @media screen and (max-width: 1280px) {
     font-size: 4rem;
@@ -35,14 +35,15 @@ export const Title = styled(motion.h1)`
   }
 `;
 export const SubTitle = styled(motion.h2)`
+  mix-blend-mode: difference;
   font-weight: 300;
   font-style: italic;
 
-  grid-column: h-col-2/h-col-4;
+  grid-column: h-col-1/h-col-4;
   grid-row: h-row-2/h-row-3;
-  margin: -5.5rem 0 0 0rem;
+  margin-top: -2.5rem;
 
-  font-size: 8rem;
+  font-size: 3vw;
   text-transform: lowercase;
 
   @media screen and (max-width: 1280px) {
@@ -74,6 +75,7 @@ export const SubTitle = styled(motion.h2)`
 `;
 
 export const Description = styled(motion.p)`
+  mix-blend-mode: difference;
   align-self: flex-start;
   grid-column: h-col-1/h-col-4;
   grid-row: h-row-3/h-row-4;
@@ -91,6 +93,8 @@ export const Description = styled(motion.p)`
     text-align: center;
   }
 `;
+
+export const CyclingText = styled(motion.span)``;
 
 export const Chevron = styled(Link)`
   grid-column: chev / chev-end;

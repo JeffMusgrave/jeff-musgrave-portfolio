@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { fadeSettings as fade } from "../../variables/variables";
 
-import { Title, SubTitle, Description } from "./Home.styled";
+import { Title, SubTitle, Description, CyclingText } from "./Home.styled";
 import { Chevron } from "./Chevron.styled";
 
 const Home = () => {
@@ -38,30 +38,33 @@ const Home = () => {
     }, [messages, messageIndex]);
 
     return (
-      <Description
+      <CyclingText
         variants={fade}
         initial="initial"
         animate="animate"
         exit="exit"
       >
         {messages[messageIndex]}
-      </Description>
+      </CyclingText>
     );
   };
 
   return (
     <>
       <Title variants={fade} initial="initial" animate="animate" exit="exit">
-        Hello, I'm Jeff Musgrave,
+        <span>I'm</span> Jeff Musgrave,
       </Title>
 
       <SubTitle variants={fade} initial="initial" animate="animate" exit="exit">
         A creative designer.
       </SubTitle>
 
-      {/* <Description>Experienced in:</Description> */}
-
-      <Loader messages={messages} />
+      <Description>
+        Experienced in:{" "}
+        <AnimatePresence>
+          <Loader messages={messages} />
+        </AnimatePresence>
+      </Description>
 
       <Chevron variants={fade} to="/design">
         <svg
