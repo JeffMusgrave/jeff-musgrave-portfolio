@@ -4,8 +4,8 @@ export const Container = styled.article`
   display: flex;
   flex-direction: column;
   grid-row: row-1/row-2;
-  grid-column: col-2/col-right;
-  margin-left: 2.5rem;
+  grid-column: content/col-5;
+  margin-right: 2.5rem;
   @media screen and (max-width: 1280px) {
     margin-left: 0;
     grid-row: row-title/footer;
@@ -24,8 +24,8 @@ export const Blurb = css`
 
 export const ShowcasePos = css`
   grid-row: row-0/row-2;
-  grid-column: content/col-2;
-  margin-right: 2.5rem;
+  grid-column: col-5/col-right;
+  margin-left: 2.5rem;
   @media screen and (max-width: 1280px) {
     grid-column: col-left/col-2;
     grid-row: row-0/row-1;
@@ -39,8 +39,8 @@ export const ShowcasePos = css`
 `;
 
 export const TitlePos = css`
-  grid-column: col-2/col-right;
-  margin-left: 2.5rem;
+  grid-column: content/col-5;
+  margin-right: 2.5rem;
   @media screen and (max-width: 1280px) {
     grid-column: col-2/col-right;
     margin: 0;
@@ -52,7 +52,6 @@ export const TitlePos = css`
 `;
 
 export const TabPos = css`
-  grid-column: col-left/logo;
   grid-row: row-0/row-2;
 
   @media screen and (max-width: 1280px) {

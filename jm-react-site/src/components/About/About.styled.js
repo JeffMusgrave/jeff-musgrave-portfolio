@@ -47,7 +47,6 @@ export const ShowcasePos = css`
 `;
 
 export const TabPos = css`
-  grid-column: col-left/logo;
   grid-row: row-0/row-2;
 
   @media screen and (max-width: 1280px) {

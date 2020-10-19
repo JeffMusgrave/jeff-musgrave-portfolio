@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 const Navigation = css`
   display: flex;
@@ -21,14 +22,16 @@ const Links = css`
   &:hover {
     color: var(--shade-1);
     background-color: transparent;
-    border-bottom: 0.25rem solid var(--shade-2);
+    border-bottom: 0.25rem solid var(--shade-6);
     outline: 0;
   }
 
   &:focus {
     outline: 0;
+    border-bottom: 0.25rem solid var(--shade-6);
   }
 
+  &:link,
   &:visited {
     color: var(--shade-3);
   }
@@ -49,15 +52,25 @@ export const SiteNav = styled.nav`
     grid-column: col-1/col-right;
     margin-right: 0;
   }
-  a {
-    ${Links}
-    @media screen and (max-width: 1280px) {
-      &:last-child {
-        margin-right: 0;
-      }
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  ${Links}
+  @media screen and (max-width: 1280px) {
+    &:last-child {
+      margin-right: 0;
     }
+  }
+  /* @media screen and (max-width: 768px) {
+    display: none;
+  } */
+
+  &.active {
+    border-bottom: 0.25rem solid var(--shade-1);
+    outline: 0;
+
     @media screen and (max-width: 768px) {
-      display: none;
+      border-bottom: 0.25rem solid transparent;
     }
   }
 `;

@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { useStoreState, useStoreActions } from "easy-peasy";
-import { SiteNav, MobileNav } from "./Nav.styled";
+import { SiteNav, MobileNav, StyledNavLink } from "./Nav.styled";
 import useHasMounted from "../../utils/useHasMounted";
 
 const Nav = ({ viewWidth }) => {
@@ -52,24 +52,24 @@ const NavList = () => {
   return (
     <>
       {!!viewWidth && (
-        <NavLink to="/" onClick={menuVis}>
+        <StyledNavLink to="/" onClick={menuVis} activeClassName="active">
           Home
-        </NavLink>
+        </StyledNavLink>
       )}
-      <NavLink to="/design" onClick={menuVis}>
+      <StyledNavLink to="/design" onClick={menuVis} activeClassName="active">
         Design
-      </NavLink>
+      </StyledNavLink>
 
-      <NavLink to="/video" onClick={menuVis}>
+      <StyledNavLink to="/video" onClick={menuVis} activeClassName="active">
         Video
-      </NavLink>
+      </StyledNavLink>
 
-      <NavLink to="/code" onClick={menuVis}>
+      <StyledNavLink to="/code" onClick={menuVis} activeClassName="active">
         Code
-      </NavLink>
-      <NavLink to="/about" onClick={menuVis}>
+      </StyledNavLink>
+      <StyledNavLink to="/about" onClick={menuVis} activeClassName="active">
         About
-      </NavLink>
+      </StyledNavLink>
     </>
   );
 };

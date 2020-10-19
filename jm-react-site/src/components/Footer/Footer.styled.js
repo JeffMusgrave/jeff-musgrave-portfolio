@@ -3,11 +3,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export const Container = styled.footer`
-  @media screen and (min-width: 1281px) {
-    position: fixed;
-    bottom: 0;
-    margin: 2.5rem;
-  }
   display: flex;
   grid-column: col-left/col-right;
   grid-row: footer/row-bottom;
@@ -22,6 +17,11 @@ export const Container = styled.footer`
 
 export const ContactLink = styled(Link)`
   div {
+    @media screen and (min-width: 1281px) {
+      position: fixed;
+      bottom: 0;
+      margin: 2.5rem;
+    }
     color: var(--shade-3);
     text-decoration: none;
     opacity: 0.5;

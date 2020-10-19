@@ -8,7 +8,7 @@ const NavTabs = css`
   flex-direction: row;
   flex-wrap: wrap;
   align-self: flex-start;
-  grid-column: col-left/logo;
+  grid-column: col-left/logo-pad;
   grid-row: row-0/row-2;
 
   @media screen and (max-width: 1280px) {
@@ -56,7 +56,7 @@ const Selected = css`
 `;
 
 const TextButton = css`
-  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  font-size: clamp(0.75rem, 1vw, 0.8rem);
   color: var(--shade-1);
   border-left: 0.25rem solid transparent;
   padding: 1.125rem;

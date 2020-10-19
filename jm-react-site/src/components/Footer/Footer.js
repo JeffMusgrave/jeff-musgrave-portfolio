@@ -17,7 +17,7 @@ export default function Footer() {
         }}
         to={"/about"}
       >
-        <motion.div>Contact Me</motion.div>
+        <motion.div>Contact</motion.div>
       </ContactLink>
     </Container>
   );

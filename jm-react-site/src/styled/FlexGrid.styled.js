@@ -18,13 +18,13 @@ export const Grid = styled.div`
 
   margin-bottom: 0;
   grid-template-columns:
-    [col-left] minmax(15.7rem, min-content)
+    [col-left] minmax(12rem, min-content)
     [logo] 2.5rem [logo-pad] 2.5rem [content] 1fr [col-1] minmax(
       min-content,
       1fr
     )
-    [col-2] 1fr[col-3] 1fr
-    [col-4] 1fr [col-5] 1fr [col-right];
+    [col-2] 1fr[col-3] 0.5fr
+    [col-4] 0.5fr [col-5] 1fr [col-6] 1fr [col-right];
 
   grid-template-rows:
     [row-top] var(--bookend) [header] minmax(var(--height-spacer), 0.125fr)
@@ -38,7 +38,7 @@ export const Grid = styled.div`
       [col-left content] min-content
       [logo logo-pad col-1] minmax(min-content, 1fr)
       [col-2] 1fr[col-3] 1fr
-      [col-4] 1fr [col-5] 1fr [col-right];
+      [col-4] 1fr [col-5] 1fr [col-6 col-right];
     grid-template-rows:
       [row-top] var(--bookend)
       [header] 2.5rem [row-0] min-content [row-title] min-content

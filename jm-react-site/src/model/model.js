@@ -48,6 +48,7 @@ const contentModel = {
 
   setAssignTab: action((state, payload) => {
     state.assignTab = payload;
+    console.log("assignTab: " + state.assignTab);
   }),
 
   setViewWidth: action((state, payload) => {
