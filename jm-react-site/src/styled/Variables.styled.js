@@ -82,7 +82,7 @@ export const CSSVars = createGlobalStyle`
   }
 }
 
-@media screen and (max-height: 1000px), screen and (max-width: 1280px) {
+@media screen and (max-height: 1080px), screen and (max-width: 1280px) {
   :root {
     --height-spacer: 5rem;
     --form-message: 8em;

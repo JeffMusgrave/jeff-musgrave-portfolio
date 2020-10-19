@@ -8,20 +8,17 @@ const contentModel = {
   info: [],
   assignTab: null,
   activeTab: [],
-  currTab: null,
   items: [],
   menu: false,
   lightbox: false,
   srcIndex: 0,
   mobileDevice: null,
-  tabSuccess: false,
 
   //actions
   loadContent: action((state, payload) => {
     state.pageContent = allContent[payload];
     state.info = Object.keys(state.pageContent);
     state.activeTab = state.info.map((e, idx) => (idx === 0 ? 1 : 0));
-    state.currTab = state.activeTab.indexOf(1);
     state.items = state.pageContent[state.info[0]].items;
   }),
 
@@ -37,7 +34,7 @@ const contentModel = {
       state.items = state.pageContent[state.info[id]].items;
       state.activeTab = state.activeTab.map((e, idx) => (idx === id ? 1 : 0));
       if (state.assignTab !== null) {
-        state.tabSuccess = true;
+        state.assignTab = false;
       }
     }
   }),
@@ -48,7 +45,6 @@ const contentModel = {
 
   setAssignTab: action((state, payload) => {
     state.assignTab = payload;
-    console.log("assignTab: " + state.assignTab);
   }),
 
   setViewWidth: action((state, payload) => {

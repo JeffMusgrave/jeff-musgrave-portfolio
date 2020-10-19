@@ -12,13 +12,6 @@ const Boilerplate = ({ thePage }) => {
   );
   const info = useStoreState((state) => state.storeContent.info);
   const assignTab = useStoreState((state) => state.storeContent.assignTab);
-  const tabSuccess = useStoreState((state) => state.storeContent.tabSuccess);
-  const setTabSuccess = useStoreActions(
-    (actions) => actions.storeContent.setTabSuccess
-  );
-  const setAssignTab = useStoreActions(
-    (actions) => actions.storeContent.setAssignTab
-  );
   const setActiveTab = useStoreActions(
     (actions) => actions.storeContent.setActiveTab
   );
@@ -33,10 +26,6 @@ const Boilerplate = ({ thePage }) => {
   useLayoutEffect(() => {
     if (assignTab) {
       setActiveTab(assignTab);
-      if (tabSuccess) {
-        setAssignTab(null);
-        setTabSuccess(false);
-      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [info]);

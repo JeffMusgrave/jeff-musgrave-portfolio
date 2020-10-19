@@ -45,14 +45,18 @@ const NavList = () => {
   const viewWidth = useStoreState((state) => state.storeContent.viewWidth);
   const menu = useStoreState((state) => state.storeContent.menu);
   const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
+  const setAssignTab = useStoreActions(
+    (actions) => actions.storeContent.setAssignTab
+  );
   const menuVis = () => {
     setMenu(!menu);
+    setAssignTab(0);
   };
 
   return (
     <>
       {!!viewWidth && (
-        <StyledNavLink to="/" onClick={menuVis} activeClassName="active">
+        <StyledNavLink to="/" onClick={menuVis}>
           Home
         </StyledNavLink>
       )}
