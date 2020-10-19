@@ -1,45 +1,67 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { fadeSettings as fade } from "../../variables/variables";
 
-import { Title, SubTitle } from "./Home.styled";
+import { Title, SubTitle, Description } from "./Home.styled";
 import { Chevron } from "./Chevron.styled";
 
-const Home = (props) => {
+const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const experienced = [
+  const messages = [
     "Graphic Design",
     "Website Development",
     "Audio Mixing & Mastering",
     "Video Editing",
   ];
+
+  const Loader = (props) => {
+    const { messages } = props;
+    // Default to the first message passed
+    const [messageIndex, setMessageIndex] = useState(0);
+
+    useEffect(() => {
+      // Move on to the next message every `n` milliseconds
+      let timeout;
+      if (messageIndex < messages.length - 1) {
+        timeout = setTimeout(() => setMessageIndex(messageIndex + 1), 1500);
+      } else if (messageIndex === messages.length - 1) {
+        timeout = setTimeout(() => setMessageIndex(0), 1500);
+      }
+
+      return () => {
+        clearTimeout(timeout);
+      };
+    }, [messages, messageIndex]);
+
+    return (
+      <Description
+        variants={fade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        {messages[messageIndex]}
+      </Description>
+    );
+  };
+
   return (
     <>
       <Title variants={fade} initial="initial" animate="animate" exit="exit">
-        <motion.span variants={fade}>Hello, I'm Jeff Musgrave,</motion.span>{" "}
-        <motion.span variants={fade}>A Creative Designer</motion.span>
+        Hello, I'm Jeff Musgrave,
       </Title>
 
       <SubTitle variants={fade} initial="initial" animate="animate" exit="exit">
-        I have over a decade of experience in
-        {experienced.forEach((e) => (
-          <motion.div
-            initial={{ y: -26 * 1.2 }}
-            animate={{ y: 0 }}
-            transition={{
-              ease: "easeOut",
-              duration: 0.4,
-            }}
-          >
-            {e}
-          </motion.div>
-        ))}
-        <span></span>
+        A creative designer.
       </SubTitle>
+
+      {/* <Description>Experienced in:</Description> */}
+
+      <Loader messages={messages} />
 
       <Chevron variants={fade} to="/design">
         <svg
