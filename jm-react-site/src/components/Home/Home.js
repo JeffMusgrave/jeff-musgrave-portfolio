@@ -1,68 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { fadeSettings as fade } from "../../variables/variables";
 
-import { Title, SubTitle, Description, CyclingText } from "./Home.styled";
+import { Title, SubTitle, Description } from "./Home.styled";
 import { Chevron } from "./Chevron.styled";
+import Cycler from "./Cycler";
 
 const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const messages = [
+  const skills = [
     "Graphic Design",
     "Website Development",
     "Audio Mixing & Mastering",
     "Video Editing",
   ];
 
-  const Loader = (props) => {
-    const { messages } = props;
-    // Default to the first message passed
-    const [messageIndex, setMessageIndex] = useState(0);
-
-    useEffect(() => {
-      // Move on to the next message every `n` milliseconds
-      let timeout;
-      if (messageIndex < messages.length - 1) {
-        timeout = setTimeout(() => setMessageIndex(messageIndex + 1), 1500);
-      } else if (messageIndex === messages.length - 1) {
-        timeout = setTimeout(() => setMessageIndex(0), 1500);
-      }
-
-      return () => {
-        clearTimeout(timeout);
-      };
-    }, [messages, messageIndex]);
-
-    return (
-      <CyclingText
-        variants={fade}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
-        {messages[messageIndex]}
-      </CyclingText>
-    );
-  };
-
   return (
     <>
-      <Title variants={fade} initial="initial" animate="animate" exit="exit">
+      <Title variants={fade}>
         <span>I'm</span> Jeff Musgrave,
       </Title>
 
-      <SubTitle variants={fade} initial="initial" animate="animate" exit="exit">
-        A creative designer.
-      </SubTitle>
+      <SubTitle variants={fade}>A creative designer.</SubTitle>
 
-      <Description>
+      <Description variants={fade}>
         Experienced in:{" "}
         <AnimatePresence>
-          <Loader messages={messages} />
+          <Cycler skills={skills} />
         </AnimatePresence>
       </Description>
 

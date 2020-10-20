@@ -7,7 +7,6 @@ export const Title = styled(motion.h1)`
   grid-column: h-col-1/h-col-4;
   grid-row: h-row-1/h-row-2;
   align-self: center;
-  mix-blend-mode: difference;
   color: var(--shade-1);
   font-size: 5vw;
 
@@ -35,7 +34,6 @@ export const Title = styled(motion.h1)`
   }
 `;
 export const SubTitle = styled(motion.h2)`
-  mix-blend-mode: difference;
   font-weight: 300;
   font-style: italic;
 
@@ -75,7 +73,6 @@ export const SubTitle = styled(motion.h2)`
 `;
 
 export const Description = styled(motion.p)`
-  mix-blend-mode: difference;
   align-self: flex-start;
   grid-column: h-col-1/h-col-4;
   grid-row: h-row-3/h-row-4;
