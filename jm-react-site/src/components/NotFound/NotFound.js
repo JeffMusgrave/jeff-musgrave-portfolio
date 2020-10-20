@@ -6,7 +6,7 @@ import { H2, Paragraph } from "../../styled/Text.styled";
 const NotFound = (props) => {
   return (
     <>
-      <PageTitle pageTitle={"404"} />
+      <PageTitle pageTitle={"# 404"} />
       <Main>
         <H2>Ain't Nothing to see here!</H2>
         <Paragraph>
