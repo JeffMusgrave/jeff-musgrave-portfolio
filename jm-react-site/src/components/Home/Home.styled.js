@@ -7,7 +7,7 @@ export const Title = styled(motion.h1)`
   grid-row: h-row-1/h-row-2;
   align-self: center;
   color: var(--shade-1);
-  font-size: clamp(2rem, 5vw, 7.5rem);
+  font-size: clamp(2rem, 6.5vw, 8.5rem);
 
   @media screen and (max-width: 1550px) {
     font-size: clamp(2rem, 8vw, 7.5rem);
@@ -24,14 +24,14 @@ export const Title = styled(motion.h1)`
   }
 `;
 export const SubTitle = styled(motion.h2)`
-  font-weight: 300;
+  font-weight: 100;
   font-style: italic;
 
   grid-column: h-col-1/h-col-4;
   grid-row: h-row-2/h-row-3;
   margin-top: -1.5ch;
 
-  font-size: clamp(1rem, 3vw, 4.5rem);
+  font-size: clamp(1rem, 3.75vw, 5rem);
   text-transform: lowercase;
 
   br {
@@ -43,12 +43,8 @@ export const SubTitle = styled(motion.h2)`
   }
 
   @media screen and (max-width: 1280px) {
-    font-size: clamp(2.25rem, 4.75vw, 3rem);
+    font-size: clamp(2.25rem, 5.4vw, 3rem);
     text-transform: lowercase;
-    font-weight: 100;
-  }
-  @media screen and (max-width: 900px) {
-    justify-self: flex-start;
   }
 
   @media screen and (max-width: 700px) {
@@ -68,8 +64,9 @@ export const Description = styled(motion.p)`
   align-self: flex-start;
   grid-column: h-col-1/h-col-5;
   grid-row: h-row-3/h-row-4;
-  font-weight: 500;
-  font-size: 1.75rem;
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 2.5rem);
+  color: var(--shade-2);
 
   @media screen and (max-width: 1550px) {
     font-size: 2rem;
