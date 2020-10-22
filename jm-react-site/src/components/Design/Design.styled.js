@@ -19,6 +19,9 @@ export const Article = styled.article`
 
 export const Blurb = css`
   max-width: 40rem;
+  @media screen and (max-width: 768px) {
+    margin-top: 0;
+  }
 `;
 
 export const ShowcasePos = css`

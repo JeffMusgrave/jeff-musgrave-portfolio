@@ -6,12 +6,13 @@ import { fadeSettings as fade } from "../../variables/variables";
 //prettier-ignore
 export const Blurb = styled.aside`
   
-  margin-bottom:2.5rem;
+  margin-bottom:var(--ml);
   @media screen and (max-width: 768px) {
     overflow: auto;
     padding-right: 0;
     grid-row: row-2/footer;
     grid-column: col-left/col-right;
+    margin-top:var(--sm);
   }
   ${(props) => props.blurb}
 `;
@@ -22,7 +23,7 @@ const BottomLinkStyle = css`
   font-size: var(--md);
   letter-spacing: 0.2rem;
   padding: var(--xs) var(--md);
-  margin-top: 2.5rem;
+  margin: 2.5rem 0;
   text-decoration: none;
   color: ${(props) => (props.color ? props.color : `var(--shade-1)`)};
   background-color: var(--shade-6);

@@ -6,11 +6,11 @@ const Standard = css`
   align-self: flex-start;
   justify-self: flex-end;
   font-size: var(--ml);
-  padding: 1rem;
+  padding: 2ch;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  color: var(--shade-1);
+  color: var(--shade-3);
   background-color: transparent;
   font-family: inherit;
 
@@ -40,7 +40,6 @@ const InputTextArea = css`
 
 const Input = css`
   @media screen and (max-width: 1280px) {
-    padding: 0.75rem;
   }
   @supports (-webkit-appearance: none) or (-moz-appearance: none) {
     &[type="checkbox"],
@@ -58,7 +57,7 @@ const Label = css`
 
 const formGrid = css`
   display: grid;
-  gap: var(--lg);
+  gap: var(--sm);
   grid-template-rows:
     var(--xxl) var(--xxl) minmax(var(--form-message), min-content)
     var(--form-submit);
@@ -74,7 +73,11 @@ export const Form = styled(motion.form)`
   grid-column: content/col-4;
   @media screen and (max-width: 1280px) {
     grid-column: col-left/col-right;
+    grid-row: row-2/footer;
     margin-bottom: 2.5rem;
+  }
+  @media screen and (max-width: 1280px) {
+    margin-top: 2.5rem;
   }
   ${formGrid}
 `;
@@ -116,7 +119,6 @@ export const Message = styled.div`
     ${InputTextArea}
     resize: none;
     @media screen and (max-width: 1280px) {
-      padding: 1.25rem;
     }
     grid-row: row-message/row-submit;
   }
@@ -127,7 +129,7 @@ export const Button = styled.div`
     ${Standard}
     grid-row: row-submit/post-form;
     text-transform: uppercase;
-    background-color: var(--shade-1);
+    background-color: var(--shade-6-alpha);
     color: var(--shade-4);
     font-weight: 700;
     font-size: var(--ml);
@@ -135,7 +137,7 @@ export const Button = styled.div`
     cursor: pointer;
 
     &:hover {
-      background-color: var(--shade-2);
+      background-color: var(--shade-6-alpha-dark);
     }
   }
 `;

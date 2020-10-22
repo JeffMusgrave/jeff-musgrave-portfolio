@@ -28,7 +28,7 @@ export const CSSVars = createGlobalStyle`
   --warning: orange;
   --danger: red;
   --form-message: 15rem;
-  --form-submit: 6rem;
+  --form-submit: 5rem;
   --standard: 2.5rem;
   --half: 1.125rem;
   --xxl: 5rem;
@@ -111,7 +111,7 @@ export const CSSVars = createGlobalStyle`
   :root {
     --form-message: 4.5rem;
     --xxl: 2.5rem;
-    --form-submit: 4.5rem;
+    --form-submit: 4rem;
   }
 }
 
