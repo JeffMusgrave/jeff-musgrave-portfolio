@@ -10,6 +10,7 @@ const Home = css`
   grid-column: content/col-right;
   grid-row: header/footer;
   align-self: center;
+  justify-self: center;
   min-width: 100%;
   display: grid;
   grid-template-columns:
@@ -29,7 +30,6 @@ const Home = css`
   }
   @media screen and (max-width: 700px) {
     grid-template-rows: [h-row-1] 0.5fr [h-row-2] 0.5fr [h-row-3] auto [h-row-4]auto [h-row-5 h-row-6];
-    align-self: center;
   }
 `;
 
