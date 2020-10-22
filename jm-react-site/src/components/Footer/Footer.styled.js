@@ -16,6 +16,7 @@ export const Container = styled.footer`
   justify-content: flex-start;
   min-width: 100%;
   color: var(--shade-1);
+
   @media screen and (max-width: 1280px) {
     border-top: 5px solid var(--shade-6);
   }
@@ -26,7 +27,7 @@ export const ContactLink = styled(Link)`
     @media screen and (min-width: 1281px) {
       position: fixed;
       bottom: 0;
-      margin-top: 2.5rem;
+      margin: 2.5rem 0;
     }
     color: var(--shade-3);
     text-decoration: none;
