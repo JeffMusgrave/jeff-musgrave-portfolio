@@ -39,6 +39,10 @@ export const Chevron = styled(Link)`
   @media screen and (max-width: 700px) {
     grid-column: h-col-4/ h-col-5;
     grid-row: h-row-2/ h-row-3;
-    margin-top: -2vw;
+    margin-top: -5vw;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-top: -9vw;
   }
 `;
