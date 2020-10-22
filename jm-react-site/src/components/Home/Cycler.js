@@ -24,7 +24,9 @@ const Cycler = ({ skills }) => {
       {skills.map(
         (e, idx) =>
           skillIdx === idx && (
-            <CyclingText variants={fade}>{skills[idx]}</CyclingText>
+            <CyclingText key={`text-cycle-${idx}`} variants={fade}>
+              {skills[idx]}
+            </CyclingText>
           )
       )}
     </>

@@ -21,14 +21,13 @@ const Home = () => {
 
   return (
     <>
-      <Title variants={fade}>
-        <span>I'm</span> Jeff Musgrave,
-      </Title>
+      <Title variants={fade}>Jeff Musgrave</Title>
 
-      <SubTitle variants={fade}>A creative designer.</SubTitle>
+      <SubTitle variants={fade}>
+        creative <br /> design
+      </SubTitle>
 
       <Description variants={fade}>
-        Experienced in:{" "}
         <AnimatePresence>
           <Cycler skills={skills} />
         </AnimatePresence>

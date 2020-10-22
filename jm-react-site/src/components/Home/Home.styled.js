@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 export const Title = styled(motion.h1)`
   font-weight: 500;
@@ -8,29 +7,20 @@ export const Title = styled(motion.h1)`
   grid-row: h-row-1/h-row-2;
   align-self: center;
   color: var(--shade-1);
-  font-size: 5vw;
+  font-size: clamp(2rem, 5vw, 7.5rem);
+
+  @media screen and (max-width: 1550px) {
+    font-size: clamp(2rem, 8vw, 7.5rem);
+  }
 
   @media screen and (max-width: 1280px) {
-    font-size: 4rem;
+    font-size: clamp(3.5rem, 9vw, 5rem);
   }
 
   @media screen and (max-width: 700px) {
-    span {
-      grid-column: h-col-1/h-col-4;
-      grid-row: h-row-1/h-row-2;
-    }
-
-    font-size: 3rem;
-    justify-self: center;
-
-    .home-style h2 {
-      font-size: 1.25rem;
-    }
-    .home-style article {
-      margin-top: 1rem;
-      justify-self: center;
-      text-align: center;
-    }
+    grid-column: h-col-1/h-col-5;
+    grid-row: h-row-1/h-row-2;
+    font-size: clamp(1.5rem, 12.6vw, 7.5rem);
   }
 `;
 export const SubTitle = styled(motion.h2)`
@@ -39,96 +29,60 @@ export const SubTitle = styled(motion.h2)`
 
   grid-column: h-col-1/h-col-4;
   grid-row: h-row-2/h-row-3;
-  margin-top: -2.5rem;
+  margin-top: -1.5ch;
 
-  font-size: 3vw;
+  font-size: clamp(1rem, 3vw, 4.5rem);
   text-transform: lowercase;
 
+  br {
+    display: none;
+  }
+
+  @media screen and (max-width: 1550px) {
+    font-size: clamp(2.5rem, 4.75vw, 4.5rem);
+  }
+
   @media screen and (max-width: 1280px) {
-    margin: -3rem 0 0 0rem;
-    font-size: 5.5rem;
+    font-size: clamp(2.25rem, 4.75vw, 3rem);
     text-transform: lowercase;
+    font-weight: 100;
   }
   @media screen and (max-width: 900px) {
     justify-self: flex-start;
   }
 
   @media screen and (max-width: 700px) {
-    grid-column: h-col-1/h-col-4;
-    grid-row: h-row-1/h-row-2;
-
-    font-size: 4rem;
-    margin: -2.5rem 0 0 0rem;
-    justify-self: center;
-
-    .home-style h2 {
-      font-size: 1.25rem;
-    }
-    .home-style article {
-      margin-top: 1rem;
-      justify-self: center;
-      text-align: center;
+    grid-column: h-col-1/h-col-5;
+    grid-row: h-row-2/h-row-3;
+    margin-top: -0.6ch;
+    line-height: 1.55ch;
+    letter-spacing: 0.125ch;
+    font-size: clamp(1rem, 12vw, 6rem);
+    br {
+      display: block;
     }
   }
 `;
 
 export const Description = styled(motion.p)`
   align-self: flex-start;
-  grid-column: h-col-1/h-col-4;
+  grid-column: h-col-1/h-col-5;
   grid-row: h-row-3/h-row-4;
   font-weight: 500;
   font-size: 1.75rem;
 
+  @media screen and (max-width: 1550px) {
+    font-size: 2rem;
+    grid-column: h-col-1/h-col-5;
+  }
   @media screen and (max-width: 1280px) {
-    justify-self: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   @media screen and (max-width: 700px) {
-    font-size: 1.25rem;
-    margin-top: 1rem;
-    justify-self: center;
-    text-align: center;
+    font-size: clamp(1rem, 6vw, 6rem);
+    margin-top: 2.5rem;
+    grid-column: h-col-1/h-col-5;
   }
 `;
 
 export const CyclingText = styled(motion.span)``;
-
-export const Chevron = styled(Link)`
-  grid-column: chev / chev-end;
-  grid-row: h-row-1/ h-row-4;
-  align-self: center;
-  justify-self: flex-end;
-  margin: 0 0 2.5rem 5rem;
-  display: block;
-  cursor: pointer;
-
-  &:link,
-  &:visited,
-  &:hover {
-    background-color: transparent;
-    padding: 1.25rem;
-  }
-
-  a:link .chevron,
-  a:visited .chevron {
-    fill: var(--shade-2);
-  }
-
-  &:hover > svg > .chevron {
-    fill: var(--shade-1);
-    padding: 0;
-    background-color: transparent;
-  }
-
-  @media screen and (max-width: 1280px) {
-    margin: 0 0 1.125rem 0;
-    justify-self: flex-end;
-  }
-
-  @media screen and (max-width: 700px) {
-    grid-column: h-col-1/ h-col-4;
-    grid-row: h-row-4/ h-row-5;
-    justify-self: center;
-    margin: 0;
-  }
-`;

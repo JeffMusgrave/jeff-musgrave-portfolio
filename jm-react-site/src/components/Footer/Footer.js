@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useStoreActions } from "easy-peasy";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import { Container, ContactLink } from "./Footer.styled";
 import { fadeSettings as fade } from "../../variables/variables";
 
@@ -9,8 +9,14 @@ export default function Footer() {
     (actions) => actions.storeContent.setAssignTab
   );
 
+  const mobileDevice = useStoreState(
+    (state) => state.storeContent.mobileDevice
+  );
+  const page = useStoreState((state) => state.storeContent.page);
+
+  console.log(mobileDevice);
   return (
-    <Container>
+    <Container mobileDevice={mobileDevice} page={page}>
       <ContactLink
         onClick={() => {
           setAssignTab(1);

@@ -2,16 +2,17 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Chevron = styled(Link)`
-  grid-column: chev / chev-end;
-  grid-row: h-row-1/ h-row-4;
+  grid-column: h-col-5 / h-col-6;
+  grid-row: h-row-1/ h-row-2;
   align-self: center;
-  justify-self: flex-end;
-  margin: 0 0 2.5rem 5rem;
+  justify-self: flex-start;
+  margin-bottom: -2.5rem;
   display: block;
   cursor: pointer;
 
   @media screen and (max-width: 1720px) {
-    margin: 0 -3.625rem 2.5rem 5rem;
+    grid-column: h-col-4 / h-col-5;
+    margin-bottom: -2rem;
   }
 
   &:link,
@@ -32,15 +33,12 @@ export const Chevron = styled(Link)`
   }
 
   @media screen and (max-width: 1280px) {
-    margin: 0 0 1.125rem 0;
     justify-self: flex-end;
   }
 
   @media screen and (max-width: 700px) {
-    grid-column: h-col-1/ h-col-4;
-    grid-row: h-row-4/ h-row-5;
-    justify-self: center;
-    margin: 0;
-    margin: 1.25rem 0 0 0;
+    grid-column: h-col-4/ h-col-5;
+    grid-row: h-row-2/ h-row-3;
+    margin-top: -2vw;
   }
 `;
