@@ -13,17 +13,15 @@ const Home = css`
   justify-self: center;
   min-width: 100%;
   display: grid;
-  grid-template-columns:
-    [h-col-1] 15rem [h-col-2] 18rem [h-col-3] minmax(15rem, 0.75fr)
-    [h-col-4] auto [h-col-5] 20rem [h-col-6];
+  grid-template-columns: [h-col-1 ] 1fr [h-col-5] 0.5fr [h-col-6];
   grid-template-rows: [h-row-1] 1fr [h-row-2] 0.5fr [h-row-3] min-content[h-row-4];
   @media screen and (max-width: 1550px) {
     grid-column: col-left/col-right;
     grid-row: header/footer;
-    grid-template-columns: [h-col-1] 13rem [h-col-2] 13rem [h-col-3] 1fr [h-col-4] 0.25fr [h-col-5].25fr [h-col-6];
+    grid-template-columns: [h-col-1 ] 1fr [h-col-5] 0.33fr [h-col-6];
   }
   @media screen and (max-width: 1280px) {
-    grid-template-columns: [h-col-1] 0.25fr [h-col-2] 1fr [h-col-3] 0.25fr [h-col-4] 0.25fr [h-col-5 h-col-6];
+    grid-template-columns: [h-col-1] 0.25fr [h-col-2] 1fr [h-col-4] 0.25fr [h-col-5 h-col-6];
   }
   @media screen and (max-width: 900px) {
     grid-template-columns: [h-col-1] 0.2fr [h-col-2 h-col-3] 1.1fr [h-col-4] 0.2fr [h-col-5 h-col-6];

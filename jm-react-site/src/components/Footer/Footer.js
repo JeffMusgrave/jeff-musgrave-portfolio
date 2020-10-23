@@ -14,7 +14,6 @@ export default function Footer() {
   );
   const page = useStoreState((state) => state.storeContent.page);
 
-  console.log(mobileDevice);
   return (
     <Container mobileDevice={mobileDevice} page={page}>
       <ContactLink

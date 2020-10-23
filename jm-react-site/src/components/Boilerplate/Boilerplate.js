@@ -24,11 +24,11 @@ const Boilerplate = ({ thePage }) => {
   }, [loadContent, location, resetContent]);
 
   useLayoutEffect(() => {
-    if (assignTab) {
+    if (assignTab !== -1) {
       setActiveTab(assignTab);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [info]);
+  }, [info, assignTab]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

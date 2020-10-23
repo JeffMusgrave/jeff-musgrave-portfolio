@@ -6,7 +6,7 @@ const contentModel = {
   page: " ",
   pageContent: {},
   info: [],
-  assignTab: null,
+  assignTab: -1,
   activeTab: [],
   items: [],
   menu: false,
@@ -33,14 +33,11 @@ const contentModel = {
     if (state.pageContent && state.info.length > id) {
       state.items = state.pageContent[state.info[id]].items;
       state.activeTab = state.activeTab.map((e, idx) => (idx === id ? 1 : 0));
-      if (state.assignTab !== null) {
-        state.assignTab = false;
+
+      if (state.assignTab !== -1) {
+        state.assignTab = -1;
       }
     }
-  }),
-
-  setTabSuccess: action((state, payload) => {
-    state.tabSuccess = payload;
   }),
 
   setAssignTab: action((state, payload) => {

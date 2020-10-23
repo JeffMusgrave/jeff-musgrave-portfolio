@@ -33,6 +33,8 @@ const Thumbnail = ({
     return null;
   }
 
+  // console.log(item);
+
   if (items) {
     return (
       <Container

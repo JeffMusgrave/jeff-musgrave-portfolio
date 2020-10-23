@@ -6,20 +6,16 @@ export const Chevron = styled(Link)`
   grid-row: h-row-1/ h-row-2;
   align-self: center;
   justify-self: flex-start;
+  margin-right: -2.5rem;
   margin-bottom: -2.5rem;
   display: block;
   cursor: pointer;
-
-  @media screen and (max-width: 1720px) {
-    grid-column: h-col-4 / h-col-5;
-    margin-bottom: -2rem;
-  }
+  padding: 2.5rem;
 
   &:link,
   &:visited,
   &:hover {
     background-color: transparent;
-    padding: 1.25rem;
   }
 
   .chevron {
@@ -32,7 +28,16 @@ export const Chevron = styled(Link)`
     background-color: transparent;
   }
 
+  @media screen and (max-width: 1720px) {
+    margin-bottom: -2rem;
+  }
+
+  @media screen and (max-width: 1550px) {
+    grid-column: h-col-4 / h-col-5;
+  }
+
   @media screen and (max-width: 1280px) {
+    grid-column: h-col-4 / h-col-5;
     justify-self: flex-end;
   }
 
@@ -44,5 +49,9 @@ export const Chevron = styled(Link)`
 
   @media screen and (max-width: 450px) {
     margin-top: -9vw;
+  }
+
+  @media screen and (max-width: 330px) {
+    margin-top: -12vw;
   }
 `;

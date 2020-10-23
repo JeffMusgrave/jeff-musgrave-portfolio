@@ -49,8 +49,8 @@ const NavList = () => {
     (actions) => actions.storeContent.setAssignTab
   );
   const menuVis = () => {
-    setMenu(!menu);
     setAssignTab(0);
+    setMenu(!menu);
   };
 
   return (
