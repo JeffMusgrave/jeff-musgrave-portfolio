@@ -3,23 +3,14 @@ import { css, createGlobalStyle } from "styled-components";
 const DesktopBodyAfter = css`
   body::after {
     content: "";
-    z-index: -10;
+    z-index: -8;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     position: fixed;
     background-image: var(--desktopbg);
-    ${(props) =>
-      props.page === "home" &&
-      css`
-        background-color: var(--color-home);
-      `};
-    ${(props) =>
-      props.page !== "home" &&
-      css`
-        background-color: var(--color-bg);
-      `};
+    opacity: 0.75;
   }
 `;
 
@@ -38,6 +29,7 @@ ${(props) => (!props.mobile ? DesktopBodyAfter : MobileBodyAfter)}
 
 body,
 html {
+  background-color: var(--color-home)
   min-height: 100vh;
   height: 100%;
   font-size: 16px;

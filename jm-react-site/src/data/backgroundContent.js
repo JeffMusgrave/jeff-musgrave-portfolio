@@ -1,6 +1,6 @@
 const content = [
   {
-    video: require("../img/TiltLoop.webm"),
+    video: require("../img/standard-bg.webm"),
   },
 ];
 

@@ -20,6 +20,7 @@ const Showcase = ({ showcasePos, idx, gallery = false }) => {
         types={items.map((e) =>
           e.url ? (e.url.match(regexYT) ? "youtube" : null) : "image"
         )}
+        key={srcIndex}
       />
       <Album
         showcasePos={showcasePos}
@@ -29,7 +30,7 @@ const Showcase = ({ showcasePos, idx, gallery = false }) => {
         gallery={gallery}
       >
         {items.map((e) => (
-          <Thumbnail item={e} key={`thumbnail_${e.id}`} idx={idx} />
+          <Thumbnail item={e} key={`thumbnail_${e.id}`} />
         ))}
       </Album>
     </>

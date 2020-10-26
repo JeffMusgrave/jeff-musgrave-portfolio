@@ -61,8 +61,8 @@ const contentModel = {
   }),
 
   setLightbox: action((state, payload) => {
-    state.lightbox = !state.lightbox;
     state.srcIndex = payload;
+    state.lightbox = !state.lightbox;
   }),
 };
 

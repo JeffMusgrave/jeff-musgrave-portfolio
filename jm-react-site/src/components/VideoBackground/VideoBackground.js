@@ -1,8 +1,10 @@
 import React, { useState, useLayoutEffect } from "react";
 import { useStoreState } from "easy-peasy";
+import { AnimatePresence } from "framer-motion";
+
 import contentLoader from "../../data/backgroundContent.js";
 import { fadeSettings as fade } from "../../variables/variables";
-import { BgVidContainer, VidOverlay, VidLoop } from "./VideoBackground.styled";
+import { BgVidContainer, VidLoop } from "./VideoBackground.styled";
 
 const VideoBackground = () => {
   const page = useStoreState((state) => state.storeContent.page);
@@ -14,7 +16,9 @@ const VideoBackground = () => {
       setContent(data);
     };
     getData();
-  }, []);
+  }, [page]);
+
+  const bg = content[0];
 
   const mobile = useStoreState((state) => state.storeContent.mobileDevice);
 
@@ -24,25 +28,25 @@ const VideoBackground = () => {
 
   if (content.length > 0) {
     return (
-      <>
+      <AnimatePresence type="crossfade">
         {(page === "home" || !mobile) && (
-          <BgVidContainer page={page}>
-            <VidOverlay page={page} videoLoaded={videoLoaded} />
+          <BgVidContainer page={page} animate variants={fade}>
             <VidLoop
               playsInline
               autoPlay
               muted
               loop
               onLoadedData={onLoadedData}
+              videoLoaded={videoLoaded}
+              key={bg.video}
               animate
               variants={fade}
-              videoLoaded={videoLoaded}
             >
-              <source src={content[0].video} type="video/webm"></source>
+              <source src={bg.video} type="video/webm"></source>
             </VidLoop>
           </BgVidContainer>
         )}
-      </>
+      </AnimatePresence>
     );
   } else {
     return null;

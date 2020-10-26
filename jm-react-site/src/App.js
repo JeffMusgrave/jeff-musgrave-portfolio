@@ -69,6 +69,7 @@ function App() {
           </Position>
           <Footer />
           <Fold />
+
           <VideoBackground />
         </Grid>
       </FlexContainer>
