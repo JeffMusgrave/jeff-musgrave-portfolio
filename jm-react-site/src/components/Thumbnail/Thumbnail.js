@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
+// import { isSafari } from "react-device-detect";
+
 import useHasMounted from "../../utils/useHasMounted";
 import BlurryImageLoad from "../../utils/blurryLoad";
 import {
@@ -32,8 +34,6 @@ const Thumbnail = ({
   if (!hasMounted) {
     return null;
   }
-
-  // console.log(item);
 
   if (items) {
     return (
@@ -78,7 +78,7 @@ const Switch = ({ item, thumbtab, clickable, quantity }) => {
   );
 };
 
-const Image = ({ id, video, image, thumbnail, init, imageAlt, clickable }) => {
+const Image = ({ id, url, video, image, thumbnail, init, alt, clickable }) => {
   useEffect(() => {
     let unmounted = false;
 
@@ -94,7 +94,7 @@ const Image = ({ id, video, image, thumbnail, init, imageAlt, clickable }) => {
 
   return (
     <>
-      {!!video && (
+      {!!video && !!url && (
         <PlayButton
           key={`showcase-play-btn-container_${id}`}
           className="play-btn-container"
@@ -119,7 +119,7 @@ const Image = ({ id, video, image, thumbnail, init, imageAlt, clickable }) => {
         className="blurry-load"
         data-large={clickable ? thumbnail : image}
         src={init}
-        alt={imageAlt}
+        alt={alt}
         key={`img-${id}`}
         video={video}
       />
@@ -127,7 +127,7 @@ const Image = ({ id, video, image, thumbnail, init, imageAlt, clickable }) => {
   );
 };
 
-const Video = ({ video, id }) => {
+const Video = ({ video, id, url }) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
@@ -135,22 +135,25 @@ const Video = ({ video, id }) => {
 
   return (
     <>
-      <PlayButton
-        key={`showcase-play-btn-container_${id}`}
-        className="play-btn-container"
-        variants={fade}
-      >
-        <svg
-          key={`showcase-svg_${id}`}
-          className="play-btn"
-          viewBox="0 0 6.73 7.77"
+      {!!url && (
+        <PlayButton
+          key={`showcase-play-btn-container_${id}`}
+          className="play-btn-container"
+          variants={fade}
         >
-          <polygon
-            key={`showcase-polygon_${id}`}
-            points="6.73 3.88 0 0 0 7.77 6.73 3.88"
-          />
-        </svg>
-      </PlayButton>
+          <svg
+            key={`showcase-svg_${id}`}
+            className="play-btn"
+            viewBox="0 0 6.73 7.77"
+          >
+            <polygon
+              key={`showcase-polygon_${id}`}
+              points="6.73 3.88 0 0 0 7.77 6.73 3.88"
+            />
+          </svg>
+        </PlayButton>
+      )}
+
       <VideoContainer
         variants={fade}
         whileHover={hover.hover}
@@ -167,7 +170,7 @@ const Video = ({ video, id }) => {
           variants={fade}
           key={`vidprev-${id}`}
         >
-          <source src={video} type="video/webm" key={`video-${id}`}></source>
+          <source src={video} type="video/mp4" key={`video-${id}`}></source>
         </video>
       </VideoContainer>
     </>

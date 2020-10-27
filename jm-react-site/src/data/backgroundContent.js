@@ -1,6 +1,6 @@
 const content = [
   {
-    video: require("../img/standard-bg.webm"),
+    video: require("../img/standard-bg.mp4"),
   },
 ];
 

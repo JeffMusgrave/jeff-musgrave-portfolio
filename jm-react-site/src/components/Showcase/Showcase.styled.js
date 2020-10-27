@@ -95,8 +95,23 @@ export const Album = styled.div`
   ${(props) => props.showcasePos}
 
   ${(props) => (props.gallery ? Gallery : StandardAlbumCheck)}
+
+  
+  @media screen and (max-width: 1280px) {
+    min-height: 14.8rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    min-height: 23.5vw;
+  }
+
+  @media screen and (max-width: 840px) {
+    min-height: 23vw;
+  }
+
   @media screen and (max-width: 768px) {
     ${(props) => props.thumbPos && props.thumbPos}
+    min-height: 0;
     margin-right: 0;
     grid-column: content/col-right;
   }
