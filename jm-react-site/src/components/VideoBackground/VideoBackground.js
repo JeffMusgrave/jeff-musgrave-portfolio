@@ -28,7 +28,7 @@ const VideoBackground = () => {
 
   if (content.length > 0) {
     return (
-      <AnimatePresence type="crossfade">
+      <>
         {(page === "home" || !mobile) && (
           <BgVidContainer page={page} animate variants={fade}>
             <VidLoop
@@ -46,7 +46,7 @@ const VideoBackground = () => {
             </VidLoop>
           </BgVidContainer>
         )}
-      </AnimatePresence>
+      </>
     );
   } else {
     return null;

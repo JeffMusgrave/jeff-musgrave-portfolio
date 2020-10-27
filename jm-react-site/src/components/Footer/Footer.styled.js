@@ -20,6 +20,9 @@ export const Container = styled.footer`
   @media screen and (max-width: 1280px) {
     border-top: 5px solid var(--shade-6);
   }
+  @media screen and (max-width: 768px) {
+    margin-top: var(--md);
+  }
 `;
 
 export const ContactLink = styled(Link)`
