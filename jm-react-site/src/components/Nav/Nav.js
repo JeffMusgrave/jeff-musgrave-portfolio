@@ -1,5 +1,4 @@
 import React from "react";
-// import { NavLink } from "react-router-dom";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { SiteNav, MobileNav, StyledNavLink } from "./Nav.styled";
 import useHasMounted from "../../utils/useHasMounted";

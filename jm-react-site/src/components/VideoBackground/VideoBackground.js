@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
 import { useStoreState } from "easy-peasy";
-import { AnimatePresence } from "framer-motion";
 
 import contentLoader from "../../data/backgroundContent.js";
 import { fadeSettings as fade } from "../../variables/variables";

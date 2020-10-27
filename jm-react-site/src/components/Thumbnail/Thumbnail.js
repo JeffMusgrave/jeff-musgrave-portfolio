@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
-// import { isSafari } from "react-device-detect";
 
 import useHasMounted from "../../utils/useHasMounted";
 import BlurryImageLoad from "../../utils/blurryLoad";
