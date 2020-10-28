@@ -7,9 +7,9 @@ export const content = {
       {
         title: "Jeff Musgrave - Website Code",
         alt: "JeffMusgrave.com Website Code Example",
-        image: require("../img/portfolioItems/code/JeffMusgraveSite.webp"),
-        thumbnail: require("../img/portfolioItems/code/thumbs/JeffMusgraveSite_400.webp"),
-        init: require("../img/portfolioItems/code/init/JeffMusgraveSite_init.webp"),
+        image: require("../img/portfolioItems/code/JeffMusgraveSite.jpg"),
+        thumbnail: require("../img/portfolioItems/code/thumbs/JeffMusgraveSite_400.jpg"),
+        init: require("../img/portfolioItems/code/init/JeffMusgraveSite_init.jpg"),
         id: uuidv4(),
       },
     ],
@@ -24,10 +24,11 @@ export const content = {
     description: require("./markdown/code/02-MachineLearning.md"),
     items: [
       {
-        image: require("../img/portfolioItems/code/MLScripts.webp"),
-        altimageAlt: "Machine Learning Video Pipeline",
-        thumbnail: require("../img/portfolioItems/code/thumbs/MLScripts_400.webp"),
-        init: require("../img/portfolioItems/code/init/MLScripts_init.webp"),
+        image: require("../img/portfolioItems/code/MLScripts.jpg"),
+        alt: "Machine Learning Video Pipeline",
+        thumbnail: require("../img/portfolioItems/code/thumbs/MLScripts_400.jpg"),
+        thumbnailAlt: "Machine Learning Video Pipeline",
+        init: require("../img/portfolioItems/code/init/MLScripts_init.jpg"),
         id: uuidv4(),
       },
     ],

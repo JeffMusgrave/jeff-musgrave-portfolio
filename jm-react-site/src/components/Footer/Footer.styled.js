@@ -18,7 +18,7 @@ export const Container = styled.footer`
   color: var(--shade-1);
 
   @media screen and (max-width: 1280px) {
-    border-top: 5px solid var(--shade-6);
+    border-top: 5px solid var(--shade-6-alpha);
   }
   @media screen and (max-width: 768px) {
     margin-top: var(--md);
