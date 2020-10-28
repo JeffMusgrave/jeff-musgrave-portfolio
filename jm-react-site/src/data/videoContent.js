@@ -6,7 +6,7 @@ export const content = {
       {
         video: require("../img/portfolioItems/video/MLPipelinePreview.mp4"),
         image: require("../img/portfolioItems/video/MLPipelineImage.jpg"),
-        imageAlt: "Machine Learning Video Pipeline",
+        alt: "Machine Learning Video Pipeline",
         thumbnail: require("../img/portfolioItems/video/thumbs/MLPipeline_200.jpg"),
         thumbnailAlt: "Machine Learning Video Pipeline",
         init: require("../img/portfolioItems/video/init/MLPipeline_init.jpg"),
@@ -22,7 +22,7 @@ export const content = {
       {
         video: require("../img/portfolioItems/video/MacroVideoPreview.mp4"),
         image: require("../img/portfolioItems/video/MacroVideoImage.jpg"),
-        imageAlt: "Macro video and color grading video",
+        alt: "Macro video and color grading video",
         thumbnail: require("../img/portfolioItems/video/thumbs/MacroVideo_200.jpg"),
         thumbnailAlt: "Macro Video Examples",
         init: require("../img/portfolioItems/video/init/MacroVideo_init.jpg"),
@@ -37,7 +37,7 @@ export const content = {
       {
         video: require("../img/portfolioItems/video/HighwaymanPreview.mp4"),
         image: require("../img/portfolioItems/video/HighwaymanImage.jpg"),
-        imageAlt: "Highwayman",
+        alt: "Highwayman",
         thumbnail: require("../img/portfolioItems/video/thumbs/Highwayman_200.jpg"),
         thumbnailAlt: "Highwayman",
         init: require("../img/portfolioItems/video/init/Highwayman_init.jpg"),

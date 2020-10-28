@@ -41,7 +41,7 @@ const VideoBackground = () => {
               animate
               variants={fade}
             >
-              <source src={bg.video} type="video/webm"></source>
+              <source src={bg.video} type="video/mp4"></source>
             </VidLoop>
           </BgVidContainer>
         )}

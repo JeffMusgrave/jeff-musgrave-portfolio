@@ -126,7 +126,7 @@ const Image = ({ id, url, video, image, thumbnail, init, alt, clickable }) => {
   );
 };
 
-const Video = ({ video, id, url }) => {
+const Video = ({ video, id, url, image }) => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const onLoadedData = () => {
     setVideoLoaded(!videoLoaded);
@@ -165,7 +165,7 @@ const Video = ({ video, id, url }) => {
           muted
           loop
           onLoadedData={onLoadedData}
-          style={{ opacity: videoLoaded ? 1 : 0 }}
+          poster={image}
           variants={fade}
           key={`vidprev-${id}`}
         >

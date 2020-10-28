@@ -6,7 +6,7 @@ export const content = {
     items: [
       {
         image: require("../img/photos/jeff-studio-1.png"),
-        imageAlt: "Jeff Musgrave Portrait",
+        alt: "Jeff Musgrave Portrait",
         init: require("../img/photos/init/jeff-studio-1-init.jpg"),
         id: uuidv4(),
       },
