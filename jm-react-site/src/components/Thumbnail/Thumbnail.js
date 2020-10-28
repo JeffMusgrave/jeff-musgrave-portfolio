@@ -165,7 +165,6 @@ const Video = ({ video, id, url, image }) => {
           muted
           loop
           onLoadedData={onLoadedData}
-          poster={image}
           variants={fade}
           key={`vidprev-${id}`}
         >
