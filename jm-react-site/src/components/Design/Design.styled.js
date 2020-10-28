@@ -27,7 +27,6 @@ export const Blurb = css`
 export const ShowcasePos = css`
   grid-row: row-1/row-2;
   grid-column: content/col-right;
-
   @media screen and (max-width: 1280px) {
     grid-column: col-2/col-right;
     grid-row: row-title/row-1;

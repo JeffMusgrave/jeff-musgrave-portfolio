@@ -105,12 +105,12 @@ export const Paragraph = styled(motion.p).attrs(() => ({
   animate: "animate",
   exit: "exit",
 }))`
-  font-size: ${(props) => (props.fontsize ? props.fontsize : css`var(--md)`)};
+  font-size: ${(props) => (props.fontsize ? props.fontsize : css`var(--ml)`)};
   font-weight: 300;
   color: ${(props) => (props.color ? props.color : css`var(--shade-1)`)};
 
   & + & {
-    margin: var(--sm) 0 0 0;
+    margin: var(--ml) 0 0 0;
   }
 `;
 
@@ -124,7 +124,7 @@ export const UnorderedList = styled(motion.ul).attrs(() => ({
   list-style-position: inside;
 
   padding: 0 var(--ml);
-  font-size: ${(props) => (props.fontsize ? props.fontsize : css`var(--sm)`)};
+  font-size: ${(props) => (props.fontsize ? props.fontsize : css`var(--ml)`)};
   font-weight: 100;
 `;
 

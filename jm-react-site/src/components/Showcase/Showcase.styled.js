@@ -9,7 +9,6 @@ const Gallery = css`
   grid-template-columns: repeat(auto-fit, 10rem);
   grid-template-rows: repeat(auto-fit, 10rem);
   grid-gap: 2.5rem;
-  margin-top: 2.5rem;
   @media screen and (max-width: 1600px) {
     grid-template-columns: repeat(auto-fit, 8rem);
     grid-template-rows: repeat(auto-fit, 8rem);
