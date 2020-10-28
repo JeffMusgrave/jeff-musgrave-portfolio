@@ -133,7 +133,6 @@ export const Button = styled.div`
     backdrop-filter: blur(2rem);
     color: var(--shade-4);
     font-weight: 700;
-    font-size: var(--ml);
     letter-spacing: 0.2em;
     cursor: pointer;
 

@@ -99,6 +99,7 @@ const gridLayout = css`
 // IMAGE
 
 export const ImageContainer = styled(motion.img)`
+  height: 100%;
   width: 100%;
   margin: 0;
   object-fit: cover;
