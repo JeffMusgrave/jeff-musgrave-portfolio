@@ -1,123 +1,58 @@
-import React, { useEffect, useState, useLayoutEffect } from "react";
-import contentLoader from "../../data/aboutContent.js";
-import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables/variables";
-import { Helmet } from "react-helmet";
+import React from "react";
+import { useStoreState } from "easy-peasy";
+
+import Boilerplate from "../Boilerplate/Boilerplate";
+import Tabs from "../Tabs/Tabs";
+import Thumbnail from "../Thumbnail/Thumbnail";
+import PageTitle from "../PageTitle/PageTitle";
 import ContactForm from "../ContactForm/ContactForm";
-import "./About.css";
-import "../../styles/Showcase.css";
-import "../../styles/ContentNav.css";
+import Description from "../Description/Description";
 
-const Contact = (props) => {
-  const [content, setContent] = useState({});
-  const [activeTab, setActiveTab] = useState(
-    Object.keys(contentLoader()).map((e, idx) => (idx === 0 ? 1 : 0))
-  );
+import { Album } from "../Showcase/Showcase.styled";
+import {
+  Container,
+  Blurb,
+  ShowcasePos,
+  TabPos,
+  ThumbPos,
+  TitlePos,
+} from "./About.styled";
 
-  const info = Object.keys(content);
+const About = () => {
+  const location = useStoreState((state) => state.storeContent.page);
+  const activeTab = useStoreState((state) => state.storeContent.activeTab);
+  const info = useStoreState((state) => state.storeContent.info);
+  const content = useStoreState((state) => state.storeContent.pageContent);
+  const theItem = content[info[0]] && content[info[0]]["items"][0];
+  const viewWidth = useStoreState((state) => state.storeContent.viewWidth);
 
-  useLayoutEffect(() => {
-    const getData = async () => {
-      const data = await contentLoader([]);
-      setContent(data);
-    };
-    getData();
-  }, []);
-
-  const tabDisplay = (id) => {
-    setActiveTab(activeTab.map((e, idx) => (idx === id ? 1 : 0)));
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  if (info.length > 0) {
-    const tabTest = info[activeTab.filter((e, idx) => idx)];
+  const thePage = () => {
     return (
-      <div className="content-style video-position contact-container">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Jeff Musgrave | About</title>
-        </Helmet>
-        <motion.main
-          variants={fade}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-        >
-          <motion.section variants={fade}>
-            <h1>
-              <span>Find out more</span>
-            </h1>
-          </motion.section>
-          <article>
-            <Showcase content={content} />
-            <SubNav activeTab={activeTab} tabDisplay={tabDisplay} info={info} />
-            {tabTest === "about" ? (
-              <Bio activeTab={activeTab} info={info} content={content} />
-            ) : (
-              <ContactForm activeTab={activeTab} info={info} />
-            )}
-          </article>
-        </motion.main>
-      </div>
+      <>
+        <PageTitle
+          pageTitle={activeTab[1] && `# Contact`}
+          titlePos={TitlePos}
+        />
+        <Tabs tabPos={TabPos} />
+
+        <Album quantity={1} showcasePos={ShowcasePos} thumbPos={ThumbPos}>
+          <Thumbnail item={theItem} clickable={false} />
+        </Album>
+
+        <Container viewWidth={viewWidth} activeTab={activeTab}>
+          {!!activeTab[0] && (
+            <Description
+              blurb={Blurb}
+              key={`description_0`}
+              staticDesc={content[info[0]]}
+            />
+          )}
+          {!!activeTab[1] && <ContactForm key={`ContactForm_1`} />}
+        </Container>
+      </>
     );
-  } else {
-    return null;
-  }
+  };
+  return <Boilerplate key={`boilerplate-${location}`} thePage={thePage} />;
 };
 
-const Showcase = ({ content }) => {
-  return (
-    <motion.div
-      variants={fade}
-      whileHover={{ opacity: 0.9 }}
-      whileTap={{ opacity: 1 }}
-      className="preview-container about-prev-pos"
-    >
-      <div
-        className="video-preview"
-        style={{
-          backgroundImage: `url(${content.about.portrait.one})`,
-        }}
-      ></div>
-    </motion.div>
-  );
-};
-
-const SubNav = ({ activeTab, tabDisplay, info }) => {
-  return (
-    <motion.nav variants={fade} className="about-nav">
-      {activeTab.map((e, idx) => (
-        <button
-          className={`content-nav-btn ${e ? `selected` : ``}`}
-          onClick={() => tabDisplay(idx)}
-          key={`about-btn-${idx}`}
-        >
-          {`${info[idx]}`}
-        </button>
-      ))}
-      <button className="content-nav-btn cv">CV</button>
-    </motion.nav>
-  );
-};
-
-const Bio = ({ activeTab, info, content }) => {
-  const desc = content.about.description.split("\n");
-  return (
-    <motion.div variants={fade} className="about-me">
-      <div>
-        {desc
-          .map((e, idx) => (
-            <motion.p variants={fade} key={`p-${idx}`}>
-              {e}
-            </motion.p>
-          ))
-          .filter((x) => x)}
-      </div>
-    </motion.div>
-  );
-};
-
-export default Contact;
+export default About;

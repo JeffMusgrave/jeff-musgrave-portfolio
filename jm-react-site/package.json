@@ -3,25 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@baristalabs/craco-raw-loader": "^1.2.0",
+    "@craco/craco": "^5.7.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
-    "framer-motion": "^2.0.0-beta.65",
+    "easy-peasy": "^3.3.1",
+    "framer-motion": "2.0.0-beta.65",
+    "fslightbox-react": "^1.5.0",
+    "markdown-to-jsx": "^7.0.1",
     "react": "^16.13.1",
+    "react-anchorme": "^2.1.0",
+    "react-autosize-textarea": "^7.1.0",
+    "react-device-detect": "^1.13.1",
+    "react-div-100vh": "^0.5.5",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^5.7.2",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "simple-react-lightbox": "^3.1.1"
+    "styled-components": "^5.2.0",
+    "uuid": "^8.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "craco start",
+    "build": "craco build",
     "postbuild": "react-snap",
-    "test": "react-scripts test",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,10 +53,9 @@
     "react-snap": "^1.23.0"
   },
   "reactSnap": {
-    "fixWebpackChunksIssue": false,
     "viewport": {
-      "width": 1920,
-      "height": 1080
+      "width": 375,
+      "height": 667
     }
   }
 }

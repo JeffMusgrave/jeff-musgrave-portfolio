@@ -1,8 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "./MenuButton.css";
+import { useStoreState, useStoreActions } from "easy-peasy";
+import { BurgerContainer, Hamburger } from "./MenuButton.styled";
 
-export default function MenuButton({ menu }) {
+export default function MenuButton() {
+  const menu = useStoreState((state) => state.storeContent.menu);
+  const setMenu = useStoreActions((actions) => actions.storeContent.setMenu);
+
+  const menuVis = () => {
+    setMenu(!menu);
+  };
   const closeburger = {
     off: {
       transform: "translateY(0px) rotate(0deg)",
@@ -21,8 +28,8 @@ export default function MenuButton({ menu }) {
     },
   };
   return (
-    <>
-      <motion.div animate className="hamburger">
+    <BurgerContainer>
+      <Hamburger onClick={menuVis} animate>
         <motion.span
           animate={menu ? closeburger.top : closeburger.off}
         ></motion.span>
@@ -32,7 +39,7 @@ export default function MenuButton({ menu }) {
         <motion.span
           animate={menu ? closeburger.bottom : closeburger.off}
         ></motion.span>
-      </motion.div>
-    </>
+      </Hamburger>
+    </BurgerContainer>
   );
 }

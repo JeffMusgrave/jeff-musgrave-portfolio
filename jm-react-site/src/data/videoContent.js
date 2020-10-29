@@ -1,64 +1,49 @@
-const content = [
-  {
-    title: "Neural Network Music Videos",
-    subtitle: "Music videos and Neural Networks.",
-    subtitle2: "Machine Learning for the Arts.",
-    buttonName: "Neural",
-    description:
-      "0. labore aliqua voluptate et sunt amet. Velit aliquip ex consectetur aute dolore duis consectetur deserunt fugiat aute sint.",
-    image: require("../img/covers/SV1_01_ImOnFire_1000.png"),
-    imageAlt: "I'm On Fire Preview",
-    thumbnail: require("../img/covers/thumbs/SV1_01_ImOnFire_200.jpg"),
-    thumbnailAlt: "I'm On Fire Thumbnail",
-    url: "https://www.youtube.com/watch?v=Lht5ijva2Ko",
-    id: 1,
+import { v4 as uuidv4 } from "uuid";
+export const content = {
+  "Machine Learning": {
+    description: require("./markdown/video/01-StyleTransfer.md"),
+    items: [
+      {
+        video: require("../img/portfolioItems/video/MLPipelinePreview.mp4"),
+        image: require("../img/portfolioItems/video/MLPipelineImage.jpg"),
+        alt: "Machine Learning Video Pipeline",
+        thumbnail: require("../img/portfolioItems/video/thumbs/MLPipeline_200.jpg"),
+        thumbnailAlt: "Machine Learning Video Pipeline",
+        init: require("../img/portfolioItems/video/init/MLPipeline_init.jpg"),
+        url: "https://youtu.be/oRcMz-f1wv0",
+        id: uuidv4(),
+      },
+    ],
+    internalLinks: [{ title: "Pipeline", link: "/code", tab: 1 }],
   },
-  {
-    title: "Macro Videography",
-    subtitle: "Music videos and Neural Networks.",
-    subtitle2: "Machine Learning for the Arts.",
-    buttonName: "Macro",
-    description:
-      "1. Ipsum  Esse tempor aliqua consectetur excepteur sit fugiat deserunt dolor. Dolore culpa sit dolor magna cillum ut eiusmod.",
-    image: require("../img/covers/SV1_02_LifesWhatYouMakeIt_1000.png"),
-    imageAlt: "Life's What You Make It Preview",
-    thumbnail: require("../img/covers/thumbs/SV1_02_LifesWhatYouMakeIt_200.jpg"),
-    thumbnailAlt: "Life's What You Make It Thumbnail",
-    url: "https://www.youtube.com/watch?v=jNdTX5gTAws",
-    id: 2,
+  "Macro Video": {
+    description: require("./markdown/video/02-MacroVideo.md"),
+    items: [
+      {
+        video: require("../img/portfolioItems/video/MacroVideoPreview.mp4"),
+        image: require("../img/portfolioItems/video/MacroVideoImage.jpg"),
+        alt: "Macro video and color grading video",
+        thumbnail: require("../img/portfolioItems/video/thumbs/MacroVideo_200.jpg"),
+        thumbnailAlt: "Macro Video Examples",
+        init: require("../img/portfolioItems/video/init/MacroVideo_init.jpg"),
+        url: "https://youtu.be/IYqJrWVOYAo",
+        id: uuidv4(),
+      },
+    ],
   },
-  {
-    title: "Stop Motion",
-    subtitle: "Music videos and Neural Networks.",
-    subtitle2: "Machine Learning for the Arts.",
-    buttonName: "Stop Motion",
-    description:
-      "2. Duis sunt sunt magna ut veniam ipsum adipisicing aliquip qui cupidatat. Dolor tempor consectetur cillum excepteur officia laborum est tempor ullamco sit tempor.lorem ipsum dolor",
-    image: require("../img/covers/SV1_03_Protection_1000.png"),
-    imageAlt: "Protection Preview",
-    thumbnail: require("../img/covers/thumbs/SV1_03_Protection_200.jpg"),
-    thumbnailAlt: "Protection Thumbnail",
-    url: "https://www.youtube.com/watch?v=Cik7q3MVcxo",
-    id: 3,
+  Claymation: {
+    description: require("./markdown/video/03-StopMotion.md"),
+    items: [
+      {
+        video: require("../img/portfolioItems/video/HighwaymanPreview.mp4"),
+        image: require("../img/portfolioItems/video/HighwaymanImage.jpg"),
+        alt: "Highwayman",
+        thumbnail: require("../img/portfolioItems/video/thumbs/Highwayman_200.jpg"),
+        thumbnailAlt: "Highwayman",
+        init: require("../img/portfolioItems/video/init/Highwayman_init.jpg"),
+        url: "https://youtu.be/BI3r2FiCMCQ",
+        id: uuidv4(),
+      },
+    ],
   },
-  {
-    title: "Test 4",
-    subtitle: "Music videos and Neural Networks.",
-    subtitle2: "Machine Learning for the Arts.",
-    buttonName: "Test",
-    description:
-      "3. Enim aliquip consectetur occaecat velit minim et anim ut qui ex exercitation velit. Est Lorem aliquip elit ullamco et nulla deserunt aliqua pariatur elit eiusmod fugiat eiusmod.",
-    image: require("../img/covers/SV1_04_NoHarm_1000.png"),
-    imageAlt: "No Harm Preview",
-    thumbnail: require("../img/covers/thumbs/SV1_04_NoHarm_200.jpg"),
-    thumbnailAlt: "No Harm Thumbnail",
-    url: "https://www.youtube.com/watch?v=_L-53jkbZAc",
-    id: 4,
-  },
-];
-
-function contentLoader() {
-  return content;
-}
-
-export default contentLoader;
+};

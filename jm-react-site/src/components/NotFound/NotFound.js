@@ -1,31 +1,19 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables/variables";
-import { Helmet } from "react-helmet";
+import PageTitle from "../PageTitle/PageTitle";
+import { Main, PageLink } from "./NotFound.styled";
+import { H2, Paragraph } from "../../styled/Text.styled";
+
 const NotFound = (props) => {
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Jeff Musgrave | 404</title>
-      </Helmet>
-      <div className="design-position content-style em-heading">
-        <motion.main
-          variants={fade}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-        >
-          <section>
-            <h1>
-              <span>404!</span>
-            </h1>
-          </section>
-          <article>
-            <h2>There's nothing here!</h2>
-          </article>
-        </motion.main>
-      </div>
+      <PageTitle pageTitle={"# 404"} />
+      <Main>
+        <H2>Ain't Nothing to see here!</H2>
+        <Paragraph>
+          Perhaps some of these <PageLink to="/video">video reels</PageLink>{" "}
+          might be of interest?
+        </Paragraph>
+      </Main>
     </>
   );
 };

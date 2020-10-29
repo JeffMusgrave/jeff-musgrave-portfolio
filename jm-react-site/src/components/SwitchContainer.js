@@ -1,23 +1,23 @@
-import React, { useContext } from "react";
-import { Switch, Route, __RouterContext } from "react-router-dom";
-
+import React from "react";
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import Home from "./Home/Home";
 import Video from "./Video/Video";
 import Design from "./Design/Design";
-import Contact from "./About/About";
+import Code from "./Code/Code";
+import About from "./About/About";
 import NotFound from "./NotFound/NotFound";
-// import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 const SwitchContainer = () => {
-  const { location } = useContext(__RouterContext);
-
+  const { pathname } = useLocation();
   return (
-    <Switch location={location}>
-      <Route path="/" exact component={Home} key={location.pathname} />
-      <Route path="/video" component={Video} key={location.pathname} />
-      <Route path="/design" component={Design} key={location.pathname} />
-      <Route path="/about" component={Contact} key={location.pathname} />
-      <Route component={NotFound} key={location.pathname} />
+    <Switch>
+      <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
+      <Route path="/" exact component={Home} />
+      <Route path="/design" component={Design} />
+      <Route path="/video" component={Video} />
+      <Route path="/code" component={Code} />
+      <Route path="/about" component={About} />
+      <Route component={NotFound} />
     </Switch>
   );
 };

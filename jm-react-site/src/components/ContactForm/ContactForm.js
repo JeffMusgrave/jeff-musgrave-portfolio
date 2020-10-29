@@ -1,16 +1,33 @@
 import React, { useState } from "react";
+import { useStoreState } from "easy-peasy";
 import { motion } from "framer-motion";
-import { fadeSettings as fade } from "../../variables/variables";
 import { useForm } from "react-hook-form";
+import TextareaAutosize from "react-autosize-textarea";
 import axios from "axios";
-import "./ContactForm.css";
 
-export default function ContactForm({ activeTab, info }) {
+import { fadeSettings as fade } from "../../variables/variables";
+
+import {
+  Form,
+  Gotcha,
+  Name,
+  Email,
+  Message,
+  Button,
+  Errors,
+  Thanks,
+} from "./ContactForm.styled";
+
+const ContactForm = () => {
+  const activeTab = useStoreState((state) => state.storeContent.activeTab);
+  const info = useStoreState((state) => state.storeContent.info);
+
   const { register, handleSubmit, errors } = useForm();
   const [thanks, setThanks] = useState(false);
   const thanksMsg = () => {
     setThanks(!thanks);
   };
+
   const onSubmit = (data, e) => {
     axios({
       method: "POST",
@@ -25,7 +42,7 @@ export default function ContactForm({ activeTab, info }) {
   if (info.length > 0 && !thanks) {
     return (
       <>
-        <motion.form
+        <Form
           onSubmit={handleSubmit(onSubmit)}
           variants={fade}
           initial="initial"
@@ -35,10 +52,8 @@ export default function ContactForm({ activeTab, info }) {
           className={`contact-form ${
             activeTab[info.indexOf("contact")] ? `` : `hidden`
           }`}
-          // action="https://formspree.io/xoqkdkdq"
-          // method="POST"
         >
-          <div className="form-name">
+          <Name>
             <label htmlFor="name">Name</label>
             <motion.input
               ref={register({
@@ -55,9 +70,9 @@ export default function ContactForm({ activeTab, info }) {
               name="user_name"
               placeholder="Your Name"
             />
-          </div>
-          <input type="text" name="_gotcha" className="gotcha" />
-          <div className="form-email">
+          </Name>
+          <Gotcha />
+          <Email>
             <label htmlFor="mail">E-mail</label>
             <motion.input
               ref={register({
@@ -73,10 +88,10 @@ export default function ContactForm({ activeTab, info }) {
               name="user_email"
               placeholder="Your Email"
             />
-          </div>
-          <div className="form-message">
+          </Email>
+          <Message>
             <label htmlFor="msg">Message</label>
-            <motion.textarea
+            <TextareaAutosize
               ref={register({
                 required: true,
                 minLength: 5,
@@ -86,34 +101,37 @@ export default function ContactForm({ activeTab, info }) {
               variants={fade}
               id="msg"
               name="user_message"
-              rows="5"
+              rows={5}
               placeholder="Your Message"
-            ></motion.textarea>
-          </div>
+              onResize={(e) => {}}
+            />
+          </Message>
           <input
             type="hidden"
             name="_next"
             value="https://www.jeffmusgrave.com"
           />
-          <div className="form-button">
+          <Button>
             <motion.button variants={fade}>submit</motion.button>
-          </div>
-        </motion.form>
-        <div className="form-errors">
+          </Button>
+        </Form>
+        <Errors>
           {<p>{errors.user_name && errors.user_name.message}</p>}
           {<p>{errors.user_email && errors.user_email.message}</p>}
           {<p>{errors.user_message && errors.user_message.message}</p>}
-        </div>
+        </Errors>
       </>
     );
   } else if (info.length > 0 && thanks) {
     return (
-      <div className="form-thanks">
+      <Thanks>
         <h1>Thank you!</h1>
         <p>Your message has been sent!</p>
-      </div>
+      </Thanks>
     );
   } else {
     return null;
   }
-}
+};
+
+export default React.memo(ContactForm);
