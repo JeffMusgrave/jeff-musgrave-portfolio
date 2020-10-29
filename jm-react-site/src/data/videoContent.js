@@ -10,7 +10,8 @@ export const content = {
         thumbnail: require("../img/portfolioItems/video/thumbs/MLPipeline_200.jpg"),
         thumbnailAlt: "Machine Learning Video Pipeline",
         init: require("../img/portfolioItems/video/init/MLPipeline_init.jpg"),
-        url: "https://youtu.be/oRcMz-f1wv0",
+        url:
+          "https://www.youtube.com/watch?v=oRcMz-f1wv0&feature=youtu.be&ab_channel=JeffMusgrave",
         id: uuidv4(),
       },
     ],
@@ -26,7 +27,8 @@ export const content = {
         thumbnail: require("../img/portfolioItems/video/thumbs/MacroVideo_200.jpg"),
         thumbnailAlt: "Macro Video Examples",
         init: require("../img/portfolioItems/video/init/MacroVideo_init.jpg"),
-        url: "https://youtu.be/IYqJrWVOYAo",
+        url:
+          "https://www.youtube.com/watch?v=IYqJrWVOYAo&feature=youtu.be&ab_channel=JeffMusgrave",
         id: uuidv4(),
       },
     ],
@@ -41,7 +43,8 @@ export const content = {
         thumbnail: require("../img/portfolioItems/video/thumbs/Highwayman_200.jpg"),
         thumbnailAlt: "Highwayman",
         init: require("../img/portfolioItems/video/init/Highwayman_init.jpg"),
-        url: "https://youtu.be/BI3r2FiCMCQ",
+        url:
+          "https://www.youtube.com/watch?v=BI3r2FiCMCQ&feature=youtu.be&ab_channel=Strange%26Primitive",
         id: uuidv4(),
       },
     ],
