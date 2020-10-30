@@ -15,7 +15,7 @@ export const content = {
         id: uuidv4(),
       },
     ],
-    internalLinks: [{ title: "Pipeline", link: "/code", tab: 1 }],
+    // internalLinks: [{ title: "Pipeline", link: "/code", tab: 0 }],
   },
   "Macro Video": {
     description: require("./markdown/video/02-MacroVideo.md"),
