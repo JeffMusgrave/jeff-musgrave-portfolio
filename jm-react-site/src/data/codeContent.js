@@ -30,7 +30,8 @@ export const content = {
     links: [
       {
         title: "Github",
-        url: "https://github.com/JeffMusgrave/jeff-musgrave-portfolio",
+        url:
+          "https://github.com/JeffMusgrave/jeff-musgrave-portfolio/tree/master/jm-react-site/src",
       },
     ],
   },
