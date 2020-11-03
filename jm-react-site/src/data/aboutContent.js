@@ -5,9 +5,9 @@ export const content = {
     description: require("./markdown/about/01-AboutMe.md"),
     items: [
       {
-        image: require("../img/photos/jeff-studio-1.png"),
+        image: require("../img/photos/jeff-musgrave-1200.jpg"),
         alt: "Jeff Musgrave Portrait",
-        init: require("../img/photos/init/jeff-studio-1-init.jpg"),
+        init: require("../img/photos/init/jeff-musgrave-init.jpg"),
         id: uuidv4(),
       },
     ],
