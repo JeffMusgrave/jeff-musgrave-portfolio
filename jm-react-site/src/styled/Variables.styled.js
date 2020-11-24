@@ -51,6 +51,9 @@ export const CSSVars = createGlobalStyle`
   --thumbtab-vid: 8rem;
   --bookend: 7rem;
   --height-spacer:15vmin;
+  --home-title:clamp(2rem, 6.5vw, 8.5rem);
+  --home-subtitle:clamp(1rem, 3.75vw, 5rem);
+  --home-description:clamp(1rem, 2vw, 2.5rem);
 }
 
 @media screen and (max-height: 1280px), screen and (max-width: 1550px) {
@@ -72,6 +75,9 @@ export const CSSVars = createGlobalStyle`
     --navtext: 1rem;
     --thumbtab-vid: 6.5rem;
     --bookend: 5rem;
+    --home-title:clamp(2rem, 8vw, 7.5rem);
+    --home-subtitle:clamp(2.5rem, 4.75vw, 4.5rem);
+    --home-description:2rem;
   }
 }
 
@@ -104,6 +110,8 @@ export const CSSVars = createGlobalStyle`
     --xs: 0.9rem;
     --bookend: 4rem;
     --height-spacer: 15vmin;
+    --home-title:clamp(3.5rem, 9vw, 5rem);
+    --home-subtitle:clamp(2.25rem, 5.4vw, 3rem);
   }
 }
 
@@ -133,6 +141,15 @@ export const CSSVars = createGlobalStyle`
     --height-spacer: 7.5rem;
   }
 }
+
+@media screen and (max-width: 700px) {
+  :root {
+    --home-title:clamp(1.5rem, 12.6vw, 7.5rem);
+    --home-subtitle:clamp(1rem, 12vw, 6rem);
+    --home-description:clamp(1rem, 6vw, 6rem);
+  }
+}
+
 
 @media screen and (max-width: 590px) {
   :root {
