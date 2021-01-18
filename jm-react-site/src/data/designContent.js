@@ -12,6 +12,14 @@ export const content = {
         id: uuidv4(),
       },
       {
+        title: "arXiv - Concept/Exploration",
+        alt: "An exploration of how arXiv could look with an updated look",
+        image: require("../img/portfolioItems/web/arXivConcept.jpg"),
+        thumbnail: require("../img/portfolioItems/web/thumbs/arXivConcept_200.jpg"),
+        init: require("../img/portfolioItems/web/init/arXivConcept_init.jpg"),
+        id: uuidv4(),
+      },
+      {
         title: "Pytorch Metric Learning Logo",
         alt: "Logo for Pytorch Metric Learning Library",
         image: require("../img/portfolioItems/web/PML.jpg"),
