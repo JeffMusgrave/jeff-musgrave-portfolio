@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useStoreActions, useStoreState } from "easy-peasy";
@@ -18,6 +18,10 @@ import VideoBackground from "./components/VideoBackground/VideoBackground";
 import { fadeSettings as fade } from "./variables/variables";
 import useHasMounted from "./utils/useHasMounted";
 
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { motion } from "framer-motion";
+
 import "./App.css";
 
 function App() {
@@ -26,6 +30,14 @@ function App() {
   const setPage = useStoreActions((actions) => actions.storeContent.setPage);
   useLayoutEffect(() => {
     setPage(pgName);
+  });
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
   });
 
   const page = useStoreState((state) => state.storeContent.page);
@@ -53,25 +65,48 @@ function App() {
       </Helmet>
       <CSSVars />
       <Body page={page} mobile={isMobile} />
-      <FlexContainer>
-        <Grid>
-          <Header />
-          <Position page={page}>
-            <Main
-              page={page}
-              variants={fade}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
-              <SwitchContainer />
-            </Main>
-          </Position>
-          <Footer />
-          <Fold />
 
-          <VideoBackground />
-        </Grid>
+      <FlexContainer>
+        {isLoading ? (
+          <motion.div
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={fade}
+            style={{
+              justifySelf: "center",
+              alignSelf: "center",
+              height: "100%",
+            }}
+          >
+            <Loader
+              type="TailSpin"
+              color="#ffffff"
+              height={60}
+              width={60}
+              timeout={2500}
+            />
+          </motion.div>
+        ) : (
+          <Grid>
+            <Header />
+            <Position page={page}>
+              <Main
+                page={page}
+                variants={fade}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <SwitchContainer />
+              </Main>
+            </Position>
+            <Footer />
+            <Fold />
+
+            <VideoBackground />
+          </Grid>
+        )}
       </FlexContainer>
     </>
   );
