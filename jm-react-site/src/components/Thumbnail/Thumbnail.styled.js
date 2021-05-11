@@ -28,6 +28,7 @@ const ContainerSingle = css`
     ${(props) =>
       !props.thumbtab &&
       css`
+        align-content: center;
         height: 50vh;
       `}
   }
