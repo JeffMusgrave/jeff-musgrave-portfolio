@@ -1,6 +1,25 @@
 import { v4 as uuidv4 } from "uuid";
 
 export const content = {
+  "btcsecuritybudget.com": {
+    description: require("./markdown/code/03-BtcSecurityBudget.md"),
+    items: [
+      {
+        title: "BtcSecurityBudget.com",
+        alt: "BtcSecurityBudget.com Website",
+        image: require("../img/portfolioItems/code/btcsecuritybudget.jpg"),
+        thumbnail: require("../img/portfolioItems/code/thumbs/btcsecuritybudget_400.jpg"),
+        init: require("../img/portfolioItems/code/init/btcsecuritybudget_init.jpg"),
+        id: uuidv4(),
+      },
+    ],
+    links: [
+      {
+        title: "Github",
+        url: "https://github.com/creamofthecoin/btcsecuritybudget",
+      },
+    ],
+  },
   "ML Pipeline": {
     description: require("./markdown/code/01-MachineLearning.md"),
     items: [
@@ -14,25 +33,5 @@ export const content = {
       },
     ],
     internalLinks: [{ title: "Video Reel", link: "/video", tab: 0 }],
-  },
-  "JeffMusgrave.com": {
-    description: require("./markdown/code/02-ThisSite.md"),
-    items: [
-      {
-        title: "Jeff Musgrave - Website Code",
-        alt: "JeffMusgrave.com Website Code Example",
-        image: require("../img/portfolioItems/code/JeffMusgraveSite.jpg"),
-        thumbnail: require("../img/portfolioItems/code/thumbs/JeffMusgraveSite_400.jpg"),
-        init: require("../img/portfolioItems/code/init/JeffMusgraveSite_init.jpg"),
-        id: uuidv4(),
-      },
-    ],
-    links: [
-      {
-        title: "Github",
-        url:
-          "https://github.com/JeffMusgrave/jeff-musgrave-portfolio/tree/master/jm-react-site",
-      },
-    ],
   },
 };
