@@ -12,19 +12,43 @@ export const content = {
         id: uuidv4(),
       },
       {
-        title: "arXiv - Concept/Exploration",
-        alt: "An exploration of how arXiv could look with an updated look",
-        image: require("../img/portfolioItems/web/arXivConcept.jpg"),
-        thumbnail: require("../img/portfolioItems/web/thumbs/arXivConcept_200.jpg"),
-        init: require("../img/portfolioItems/web/init/arXivConcept_init.jpg"),
+        title: "BTC Security Budget",
+        alt: "Bitcoin Security Budget",
+        image: require("../img/portfolioItems/web/btcsecuritybudget.jpg"),
+        thumbnail: require("../img/portfolioItems/web/thumbs/btcsecuritybudget_200.jpg"),
+        init: require("../img/portfolioItems/web/init/btcsecuritybudget_init.jpg"),
         id: uuidv4(),
       },
       {
         title: "Pytorch Metric Learning Logo",
         alt: "Logo for Pytorch Metric Learning Library",
-        image: require("../img/portfolioItems/web/PML.jpg"),
-        thumbnail: require("../img/portfolioItems/web/thumbs/PML_200.jpg"),
-        init: require("../img/portfolioItems/web/init/PML_init.jpg"),
+        image: require("../img/portfolioItems/web/pytorchmetriclearning.jpg"),
+        thumbnail: require("../img/portfolioItems/web/thumbs/pytorchmetriclearning_200.jpg"),
+        init: require("../img/portfolioItems/web/init/pytorchmetriclearning_init.jpg"),
+        id: uuidv4(),
+      },
+      {
+        title: "Pytorch Adapt  Logo",
+        alt: "Logo for Pytorch Adapt Library",
+        image: require("../img/portfolioItems/web/PytorchAdapt.jpg"),
+        thumbnail: require("../img/portfolioItems/web/thumbs/PytorchAdapt_200.jpg"),
+        init: require("../img/portfolioItems/web/init/PytorchAdapt_init.jpg"),
+        id: uuidv4(),
+      },
+      {
+        title: "Powerful Benchmarker Logo",
+        alt: "Logo for Powerful Benchmarker Library",
+        image: require("../img/portfolioItems/web/powerfulbenchmarker.jpg"),
+        thumbnail: require("../img/portfolioItems/web/thumbs/powerfulbenchmarker_200.jpg"),
+        init: require("../img/portfolioItems/web/init/powerfulbenchmarker_init.jpg"),
+        id: uuidv4(),
+      },
+      {
+        title: "arXiv - Concept/Exploration",
+        alt: "An exploration of how arXiv could look with an updated look",
+        image: require("../img/portfolioItems/web/arXivConcept.jpg"),
+        thumbnail: require("../img/portfolioItems/web/thumbs/arXivConcept_200.jpg"),
+        init: require("../img/portfolioItems/web/init/arXivConcept_init.jpg"),
         id: uuidv4(),
       },
       {
@@ -37,8 +61,7 @@ export const content = {
       },
       {
         title: "reebee Mothers Day Contest",
-        alt:
-          "Final designs and concepts for reebee Mothers Day Contents flyer thumbnail, banner, and landing pages.",
+        alt: "Final designs and concepts for reebee Mothers Day Contents flyer thumbnail, banner, and landing pages.",
         image: require("../img/portfolioItems/web/ReebeeContestSpread.jpg"),
         thumbnail: require("../img/portfolioItems/web/thumbs/ReebeeContestSpread_200.jpg"),
         init: require("../img/portfolioItems/web/init/ReebeeContestSpread_init.jpg"),
@@ -54,8 +77,7 @@ export const content = {
       },
       {
         title: "University of Guelph — FARE and Research Websites",
-        alt:
-          "Design for University of Guelph (UoG) FARE department website, as well as Research Results website for professors",
+        alt: "Design for University of Guelph (UoG) FARE department website, as well as Research Results website for professors",
         image: require("../img/portfolioItems/web/UniversitySpread.jpg"),
         thumbnail: require("../img/portfolioItems/web/thumbs/UniversitySpread_200.jpg"),
         init: require("../img/portfolioItems/web/init/UniversitySpread_init.jpg"),
@@ -71,8 +93,7 @@ export const content = {
       },
       {
         title: "KCM Whitepaper",
-        alt:
-          "Whitepaper designed for cloud services provider, KCM, to be used by their sales staff",
+        alt: "Whitepaper designed for cloud services provider, KCM, to be used by their sales staff",
         image: require("../img/portfolioItems/print/WhitePaperSpread.jpg"),
         thumbnail: require("../img/portfolioItems/print/thumbs/WhitePaperSpread_200.jpg"),
         init: require("../img/portfolioItems/print/init/WhitePaperSpread_init.jpg"),

@@ -15,6 +15,10 @@ export const content = {
     ],
     links: [
       {
+        title: "Website",
+        url: "https://www.btcsecuritybudget.com/",
+      },
+      {
         title: "Github",
         url: "https://github.com/creamofthecoin/btcsecuritybudget",
       },
