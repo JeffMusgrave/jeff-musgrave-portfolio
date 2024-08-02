@@ -11,14 +11,6 @@ export const content = {
         init: require("../img/portfolioItems/web/init/WhitewaterStyle_init.jpg"),
         id: uuidv4(),
       },
-      // {
-      //   title: "BTC Security Budget",
-      //   alt: "Bitcoin Security Budget",
-      //   image: require("../img/portfolioItems/web/btcsecuritybudget.jpg"),
-      //   thumbnail: require("../img/portfolioItems/web/thumbs/btcsecuritybudget_200.jpg"),
-      //   init: require("../img/portfolioItems/web/init/btcsecuritybudget_init.jpg"),
-      //   id: uuidv4(),
-      // },
       {
         title: "Pytorch Metric Learning Logo",
         alt: "Logo for Pytorch Metric Learning Library",
